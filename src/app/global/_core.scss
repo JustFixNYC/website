@@ -1,0 +1,14 @@
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  &.white-bg {
+    background-color: #fff;
+  }
+
+}

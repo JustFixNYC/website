@@ -21,12 +21,15 @@ gulp.task('styles', function() {
 });
 
 var buildStyles = function() {
+
   var sassOptions = {
+    includePaths: [conf.paths.src + '/../bower_components/bootstrap-sass/assets/stylesheets'],
     style: 'expanded'
   };
 
   var injectFiles = gulp.src([
     path.join(conf.paths.src, '/app/**/*.scss'),
+    path.join('!' + conf.paths.src, '/app/global/*.scss'),
     path.join('!' + conf.paths.src, '/app/index.scss')
   ], { read: false });
 

@@ -3,8 +3,7 @@
   'use strict';
 
   angular
-    .module('boilerplate')
-    .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .module('boilerplate');
+    // .constant('moment', moment);
 
 })();

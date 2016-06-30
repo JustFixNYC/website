@@ -1,0 +1,182 @@
+#header-wrap {
+  height: $mobile-header-height;
+  margin-bottom: $header-bottom-margin;
+
+  @media (min-width: $screen-sm-min) {
+    height: $desktop-header-height;
+  }
+
+  header {
+
+    background-color: $justfix-blue;
+
+    height: $mobile-header-height;
+    margin-bottom: $header-bottom-margin;
+
+    @media (min-width: $screen-sm-min) {
+      height: $desktop-header-height;
+    }
+
+
+    a {
+      color: #fff;
+    }
+
+    & > div {
+
+      height: 50%;
+      @include vertical-align();
+      @include display(flex);
+      @include align-items(center); /* Vertical center alignment */
+
+      max-width: $screen-lg;
+
+      // background-color: green;
+    }
+
+    .header-brand {
+
+      height: 100%;
+      @media (min-width: $screen-sm-min) {
+        height: 80%;
+      }
+
+      img {
+        height: 100%;
+        position: relative;
+        top: 2px;
+      }
+    }
+
+
+
+    .header-links {
+      margin-left: auto;
+      font-size:1em;
+
+      &.header-links-desktop {
+        display: none;
+        @media (min-width: $screen-sm-min) {
+          display: block;
+        }
+      }
+
+      &.header-links-mobile {
+        display: block;
+        @media (min-width: $screen-sm-min) {
+          display: none;
+        }
+      }
+
+      ul {
+        margin-bottom: 0;
+
+
+        li {
+          vertical-align: middle;
+
+          &:not(:last-child) {
+            margin-right: 20px;
+          }
+
+          a {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            &.btn {
+              border-color: #fff;
+              @include transition(all 150ms ease);
+              // position: relative;
+              // top: -2px;
+
+              &:hover {
+                background-color: #fff;
+                color: $justfix-blue;
+
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.nav-toggle {
+  cursor: pointer;
+  padding-right: 23px;
+  // padding: 10px 35px 16px 0px;
+}
+.nav-toggle span,
+.nav-toggle span:before,
+.nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 3px;
+  height: 3px;
+  width: 23px;
+  background: white;
+  transition: all 100ms ease-out;
+}
+.nav-toggle span {
+  @include vertical-align(absolute);
+}
+.nav-toggle span:before,
+.nav-toggle span:after {
+  display: block;
+  content: '';
+  position: absolute;
+}
+.nav-toggle span:before {
+  top: -8px;
+}
+.nav-toggle span:after {
+  bottom: -8px;
+}
+
+.nav-toggle.active span {
+  background-color: transparent;
+}
+.nav-toggle.active span:before,
+.nav-toggle.active span:after {
+  top: 0;
+}
+.nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+.nav-toggle.active span:after {
+  transform: rotate(-45deg);
+}
+
+#aside-menu {
+  background-color: $justfix-blue;
+  position: fixed;
+  width: 75%;
+  height: 100vh;
+  right: 0;
+  top: $mobile-header-height;
+
+  @include transform(translateX(100%));
+  -webkit-transition: -webkit-transform 250ms ease-out;
+  -moz-transition: -moz-transform 250ms ease-out;
+  transition: transform 250ms ease-out;
+
+  &.open {
+    @include transform(translateX(0));
+  }
+
+  a {
+    display: block;
+    color: #fff;
+    width: 100%;
+    height: 56px;
+    line-height: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 20px 0 20px 25px;
+
+    &.active {
+      background-color: lighten($justfix-blue, 10%);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+$justfix-blue: #0096D7;
+$justfix-blue-dark: #0E6594;
+$justfix-blue-darkest: #003D57;
+
+$justfix-red: #E85D5D;
+$justfix-yellow: #F6BB42;
+$justfix-green: #8CC152;
+$justfix-green-alt: #37BC9B;
+
+$justfix-grey-light: #F6F6F6;
+$justfix-grey-dark: #434A54;
+
+$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+
+$mobile-header-height: 50px;
+$desktop-header-height: 80px;
+$header-bottom-margin: 20px;
+
+$brand-primary:         $justfix-blue;
+$brand-success:         $justfix-green;
+$brand-info:            $justfix-green-alt;
+$brand-warning:         $justfix-yellow;
+$brand-danger:          $justfix-red;
+
+$font-size-base: 16px;
+$line-height-base: 1.25;
+$line-height-computed: 25px;
+
+$text-color: $justfix-grey-dark;
+$body-bg: $justfix-grey-light;
+$text-light: 300;
+$text-normal: 400;
+$text-semi: 600;
+$text-bold: 700;
+
+$font-family-sans-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$border-radius-base: 3px;
+// $grid-gutter-width: 40px;
