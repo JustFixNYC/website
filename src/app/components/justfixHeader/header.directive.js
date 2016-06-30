@@ -23,6 +23,9 @@
 
     function linkFunc(scope, el, attr, vm) {
 
+      console.log(scope);
+      console.log(vm);
+
       scope.toggleAside = function() {
         angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');
         angular.element($document[0].getElementById('aside-menu')).toggleClass('open');
@@ -41,7 +44,7 @@
         {
           text: "Our Mission",
           style: "",
-          url: "mission"
+          url: "our-mission"
         },
         {
           text: "About Us",
@@ -51,7 +54,7 @@
         {
           text: "Contact Us",
           style: "",
-          url: "contact"
+          url: "contact-us"
         },
         {
           text: "Sign In",
