@@ -74,6 +74,7 @@
 
         li {
           vertical-align: middle;
+          font-size: 14px;
 
           &:not(:last-child) {
             margin-right: 20px;
@@ -81,11 +82,12 @@
 
           a {
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
 
             &.btn {
               border-color: #fff;
               @include transition(all 150ms ease);
+              font-size: 14px;
               // position: relative;
               // top: -2px;
 

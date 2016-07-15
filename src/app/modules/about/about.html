@@ -1,0 +1,34 @@
+
+<article>
+  <header>
+    <h1>Meet Our Team</h1>
+  </header>
+  <section>
+    <div class="container">
+      <div class="team-container" contentful-entries="'content_type=teamMember'">
+        <div class="team-member" ng-repeat="member in $contentfulEntries.items">
+          <img ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
+          <h4>{{member.fields.name}}</h4>
+          <h4>{{member.fields.title}}</h4>
+          <p>{{member.fields.description}}</p>
+        </div>
+      </div>
+      <div class="contributors-container text-center" contentful-entries="'content_type=otherContributors'">
+        <h3>Many thanks to our other contributors!</h3>
+        <div ng-repeat="contributor in $contentfulEntries.items">
+          <a ng-if="contributor.fields.link" ng-href="{{contributor.fields.link}}" target="_blank"><h4>{{contributor.fields.name}}</h4></a>
+          <h4 ng-if="!contributor.fields.link">{{contributor.fields.name}}</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="alt">
+    <div class="container">
+      <h3>Milestones</h3>
+      <p>Enim pariatur et ex eiusmod aliquip occaecat eiusmod fugiat in occaecat ipsum. Non aute nulla fugiat ullamco magna enim tempor voluptate sunt. Sint velit voluptate esse anim eiusmod ipsum elit amet ea adipisicing fugiat commodo sint elit ullamco.</p>
+      <p>Tempor consectetur anim nulla cupidatat occaecat do aute et adipisicing pariatur amet nisi pariatur. Et excepteur cillum laborum quis proident id occaecat pariatur nostrud elit excepteur excepteur. Exercitation pariatur incididunt in proident duis duis mollit exercitation est amet do. Minim et aliqua minim consectetur ut consectetur ullamco exercitation et nulla. Non sint proident deserunt enim deserunt culpa esse est sunt proident. Aliquip culpa irure laborum aliqua esse tempor eu commodo sunt culpa. Pariatur cillum occaecat veniam nulla ad occaecat nisi culpa cillum quis laborum sit cillum. Do esse et sit sunt elit est quis consequat.</p>
+      <p>Dolore et commodo dolore aliqua commodo officia ex elit cupidatat irure sit. Eu nostrud cillum officia pariatur sint eu nulla consequat culpa mollit dolor elit aliquip ex in sint enim. Id aliqua nulla veniam laboris velit aute id anim proident do esse pariatur. Excepteur cillum non do tempor ad dolor ea aute mollit fugiat. Nostrud ad exercitation ut qui ut adipisicing Lorem ea aliqua sint laborum. Est aliquip ullamco aliqua est incididunt mollit nostrud et culpa quis nulla consequat reprehenderit consectetur consectetur commodo velit.</p>
+    </div>
+  </section>
+
+</article>

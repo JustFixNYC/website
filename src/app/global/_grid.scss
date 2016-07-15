@@ -1,0 +1,56 @@
+article {
+
+  header {
+
+    margin-top: 55px;
+
+    h1, .lead {
+      text-align: center;
+    }
+  }
+
+  header, section > .container {
+
+    // @include container-fixed();
+    max-width: $screen-md;
+
+    & > h1,
+    & > h3,
+    & > p:not(.lead) {
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  header, section, .img-container {
+    margin-top: 75px;
+    margin-bottom: 75px;
+  }
+
+  .img-container {
+
+    .img-full {
+      width: 100vw;
+    }
+  }
+
+  section {
+    &.alt {
+      background-color: $justfix-grey-light;
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
+
+
+  }
+
+
+
+
+
+
+
+
+
+}

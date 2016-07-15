@@ -3,11 +3,12 @@
 
   angular
     .module('boilerplate')
-    .controller('MainController', MainController);
+    .controller('AboutController', AboutController);
 
   /** @ngInject */
-  function MainController($timeout) {
+  function AboutController($timeout) {
     var vm = this;
+
 
 
   }

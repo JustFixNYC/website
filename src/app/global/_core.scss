@@ -15,18 +15,52 @@ body {
 
 h1, h2, h3, h4, h5 {
   margin-top: 0;
+  margin-bottom: $line-height-computed;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 h1 {
   font-size: 36px;
 }
 h2 {
-  font-size: 24px;
-  font-weight: $text-semi;
+  font-size: 30px;
 }
 h3 {
-
+  font-size: 24px;
+  font-weight: $text-semi;
 }
 h4 {
   font-size: 18px;
   font-weight: $text-semi;
+}
+p {
+  margin-bottom: $line-height-computed;
+
+  &.lead {
+    font-size: 24px;
+    font-style: italic;
+    text-align: center;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
 }

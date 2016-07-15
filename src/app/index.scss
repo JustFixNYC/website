@@ -19,21 +19,7 @@
  */
 @import "global/bootstrap-config";
 @import "global/core";
-
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-.thumbnail {
-  height: 200px;
-
-  img.pull-right {
-    width: 50px;
-  }
-}
+@import "global/grid";
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

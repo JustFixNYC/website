@@ -1,0 +1,47 @@
+.team-container {
+
+  @extend .row;
+
+  .team-member {
+    @extend .col-sm-6;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 45px;
+
+    // nice, pretty rows
+    &:nth-child(2n+1) {
+      clear: both;
+    }
+
+    @media (min-width: $screen-sm-min) {
+      padding-left: 45px;
+      padding-right: 45px;
+    }
+
+    & > img {
+      display: block;
+      width: 50%;
+      height: auto;
+
+      border-radius: 100%;
+      margin: 0 auto 30px;
+    }
+
+    & > h4:first-of-type {
+      margin-bottom: 5px;
+    }
+
+    & > p {
+      font-size: 16px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+}
+
+.contributors-container {
+  & > div {
+    margin-bottom: 10px;
+  }
+}
