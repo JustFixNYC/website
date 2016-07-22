@@ -1,25 +1,55 @@
 
 <article>
-  <header>
-    <h1>Meet Our Team</h1>
-  </header>
+  <section>
+    <h1 class="title">Meet Our Team</h1>
+  </section>
   <section>
     <div class="container">
-      <div class="team-container" contentful-entries="'content_type=teamMember'">
+      <!-- <div class="team-container" contentful-entries="'content_type=teamMember'">
         <div class="team-member" ng-repeat="member in $contentfulEntries.items">
           <img ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
           <h4>{{member.fields.name}}</h4>
           <h4>{{member.fields.title}}</h4>
           <p>{{member.fields.description}}</p>
         </div>
+      </div> -->
+      <div class="team-container">
+        <div class="team-member">
+          <img ng-src="http://placekitten.com/750/750" alt="{{member.fields.name}}" />
+          <h4>Sivheara Kitten</h4>
+          <h4>Chief Excecutive Kitty</h4>
+          <div class="social">
+          	<span class="btn btn-primary">
+          		<i class="glyphicon glyphicon-twitter"></i>
+          	</span>
+          	<span class="btn btn-primary">
+          		<i class="glyphicon glyphicon-twitter"></i>
+          	</span>
+          </div>
+          <p>Enim pariatur et ex eiusmod aliquip occaecat eiusmod fugiat in occaecat ipsum. Non aute nulla fugiat ullamco magna enim tempor voluptate sunt. Sint velit voluptate esse anim eiusmod ipsum elit amet ea adipisicing fugiat commodo sint elit ullamco.</p>
+        </div>
+        <div class="team-member">
+          <img ng-src="http://placekitten.com/750/750" alt="{{member.fields.name}}" />
+          <h4>Sivheara Kitten</h4>
+          <h4>Chief Excecutive Kitty</h4>
+          <div class="social">
+          	<span class="btn btn-primary">
+          		<i class="glyphicon glyphicon-twitter"></i>
+          	</span>
+          	<span class="btn btn-primary">
+          		<i class="glyphicon glyphicon-twitter"></i>
+          	</span>
+          </div>
+          <p>Tempor consectetur anim nulla cupidatat occaecat do aute et adipisicing pariatur amet nisi pariatur. Et excepteur cillum laborum quis proident id occaecat pariatur nostrud elit excepteur excepteur. Exercitation pariatur incididunt in proident duis duis mollit exercitation est amet do. Minim et aliqua minim consectetur ut consectetur ullamco exercitation et nulla. Non sint proident deserunt enim deserunt culpa esse est sunt proident. Aliquip culpa irure laborum aliqua esse tempor eu commodo sunt culpa. Pariatur cillum occaecat veniam nulla ad occaecat nisi culpa cillum quis laborum sit cillum. Do esse et sit sunt elit est quis consequat.</p>
+        </div>
       </div>
-      <div class="contributors-container text-center" contentful-entries="'content_type=otherContributors'">
+      <!-- <div class="contributors-container text-center" contentful-entries="'content_type=otherContributors'">
         <h3>Many thanks to our other contributors!</h3>
         <div ng-repeat="contributor in $contentfulEntries.items">
           <a ng-if="contributor.fields.link" ng-href="{{contributor.fields.link}}" target="_blank"><h4>{{contributor.fields.name}}</h4></a>
           <h4 ng-if="!contributor.fields.link">{{contributor.fields.name}}</h4>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
   <section class="alt">
@@ -29,6 +59,62 @@
       <p>Tempor consectetur anim nulla cupidatat occaecat do aute et adipisicing pariatur amet nisi pariatur. Et excepteur cillum laborum quis proident id occaecat pariatur nostrud elit excepteur excepteur. Exercitation pariatur incididunt in proident duis duis mollit exercitation est amet do. Minim et aliqua minim consectetur ut consectetur ullamco exercitation et nulla. Non sint proident deserunt enim deserunt culpa esse est sunt proident. Aliquip culpa irure laborum aliqua esse tempor eu commodo sunt culpa. Pariatur cillum occaecat veniam nulla ad occaecat nisi culpa cillum quis laborum sit cillum. Do esse et sit sunt elit est quis consequat.</p>
       <p>Dolore et commodo dolore aliqua commodo officia ex elit cupidatat irure sit. Eu nostrud cillum officia pariatur sint eu nulla consequat culpa mollit dolor elit aliquip ex in sint enim. Id aliqua nulla veniam laboris velit aute id anim proident do esse pariatur. Excepteur cillum non do tempor ad dolor ea aute mollit fugiat. Nostrud ad exercitation ut qui ut adipisicing Lorem ea aliqua sint laborum. Est aliquip ullamco aliqua est incididunt mollit nostrud et culpa quis nulla consequat reprehenderit consectetur consectetur commodo velit.</p>
     </div>
+    <div class="logos container">
+			<span class="logo">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+    </div>
+  </section>
+  <section class="title">
+    <h2 class="title">Our Partners</h2>
+    <div class="logos container">
+			<span class="logo three">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo three">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo three">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo three">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo three">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+			<span class="logo three">
+				<img src="http://placekitten.com/200/200" />
+			</span>
+    </div>
+  </section>
+  <section class="alt">
+		<h3 class="title bold">Interested in Partnering with JustFix.nyc?</h3>
+		<div class="container center">
+			<p>Tempor consectetur anim nulla cupidatat occaecat do aute et adipisicing pariatur amet nisi pariatur. Et excepteur cillum laborum quis proident id occaecat pariatur nostrud elit excepteur excepteur. Exercitation pariatur incididunt in proident duis duis mollit exercitation est amet do. Minim et aliqua minim consectetur ut consectetur ullamco exercitation et nulla. Non sint proident deserunt enim deserunt culpa esse est sunt proident. Aliquip culpa irure laborum aliqua esse tempor eu commodo sunt culpa. Pariatur cillum occaecat veniam nulla ad occaecat nisi culpa cillum quis laborum sit cillum. Do esse et sit sunt elit est quis consequat.</p>
+			<a class="btn btn-primary">CONTACT US</a>
+		</div>
   </section>
 
 </article>
