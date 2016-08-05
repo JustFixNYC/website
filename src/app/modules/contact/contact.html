@@ -1,0 +1,41 @@
+
+<article contentful-entry="'content_type=contactPage'">
+  <section class="container center">
+	  <h1 class="center">{{ $contentfulEntry.fields.pageTitle }}</h1>
+		<p>Send us an email at <a ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}">{{$contentfulEntry.fields.contactMethods[0].fields.content}}</a>
+		</br>
+		Or give us a call <a href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}">{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a></p>
+
+    <div class="social">
+    	<span class="btn btn-primary" ng-repeat="button in $contentfulEntry.fields.socialButtons">
+    		<a ng-href="{{button.fields.url}}">
+	    		<i class="glyphicon " ng-class="'glyphicon-' + button.fields.title"></i>
+    		</a>
+    	</span>
+    </div>
+
+    <div class="map col-md-4 col-md-offset-4">{{$contentfulEntry.fields.address}}
+			<iframe width="250" height="250" frameborder="0" style="border:0" ng-src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJs7-Ivk9awokR8HfdDmlc9x8&key=AIzaSyBA3d0_6MzeFC82avGLRiFzI2Mj0cvx_iQ" allowfullscreen></iframe>
+			<p>150 Court Street, 2nd Floor
+			<br/>
+			Brooklyn, NY  11201</p>
+    </div>
+  </section>
+
+  <section class="center container mailing-list">
+		<h3>Join our mailing list!</h3>
+		<p>We're continuously building new tools and
+		working with our partners. Join our mailing list
+		for updates and announcements!</p>
+		<input type="email" placeholder="email" />
+		<input class="btn btn-primary" type="submit" value="Sign up">
+  </section>
+
+  <div class="clearfix"></div>
+
+  <section class="alt img-bg white center">
+		<h3>Donate to JustFix.nyc!</h3>
+		<p class="container">We're commited to building tools and resources to help tenants, organizers, and legal services. We are a nonprofit, which means we rely exclusively on fundraising to keep doing the work we're doing! Your support is greatly appreciated!</p>
+		<input type="submit" class="btn btn-block btn-primary" value="DONATE" />
+	</section>
+</article>

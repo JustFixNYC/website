@@ -1,0 +1,24 @@
+.map {
+
+	img{
+		max-width: 100%;
+	}
+
+	p {
+		margin-top: 10px;
+	}
+}
+
+.img-bg {
+	background-image: url('http://degy28l8twq8c.cloudfront.net/brownstones.jpg');
+	background-position: center center;
+}
+
+.mailing-list {
+	@extend .col-sm-6;
+	@include shift($n-columns: 3);
+
+	@media (max-width: $screen-sm) {
+		margin: auto;
+	}
+}

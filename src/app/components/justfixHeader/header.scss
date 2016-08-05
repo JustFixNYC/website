@@ -163,6 +163,8 @@
   -moz-transition: -moz-transform 250ms ease-out;
   transition: transform 250ms ease-out;
 
+  z-index: 2;
+
   &.open {
     @include transform(translateX(0));
   }

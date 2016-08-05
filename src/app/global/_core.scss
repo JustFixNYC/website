@@ -37,6 +37,7 @@ h4 {
 }
 p {
   margin-bottom: $line-height-computed;
+  line-height: $line-height-computed * 1.2;
 
   &.lead {
     font-size: 24px;
@@ -64,11 +65,38 @@ p {
     width: 50px;
   }
 }
-// TODO: combine
-.title {
-	text-align: center;
-}
 
 .center {
 	text-align: center;
+}
+
+// Styles from tenant app
+
+.btn {
+  font-size: 16px;
+  padding: 10px 26px;
+  height: auto;
+  -webkit-appearance: none;
+}
+
+.btn-block {
+  max-width: 220px;
+  margin: 0 auto;
+
+  &.btn-link {
+    max-width: none;
+  }
+
+  &.initial {
+    float: none !important;
+  }
+}
+
+.white {
+	color: white;
+}
+
+input[type=email] {
+	margin-right: 10px;
+	padding: 8px 10px;
 }

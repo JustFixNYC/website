@@ -9,7 +9,8 @@
        'ngResource',
        'ui.router',
        'ui.bootstrap',
-       'contentful'
+       'contentful',
+       'markdown'
      ]);
 
 })();
