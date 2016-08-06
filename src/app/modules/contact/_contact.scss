@@ -5,19 +5,25 @@
 		max-width: 100%;
 		min-height: 300px;
 	}
+		
+	.address {
+		margin-top: 20px;
+	}
 
 	p {
-		margin-top: 10px;
+		margin: 0px;
 	}
 }
 
 .img-bg {
+	margin-top: 0px;
 	background-image: url('http://degy28l8twq8c.cloudfront.net/brownstones.jpg');
 	background-position: center center;
 }
 
 .mailing-list {
 	@extend .col-sm-6;
+	@extend .col-md-6;
 	@include shift($n-columns: 3);
 
 	@media (max-width: $screen-sm) {

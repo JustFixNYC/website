@@ -16,17 +16,14 @@
 
     <div class="map col-md-4 col-md-offset-4">
 			<iframe frameborder="0" style="border:0" ng-src="{{ address }}" allowfullscreen></iframe>
-			<p>150 Court Street, 2nd Floor
-			<br/>
-			Brooklyn, NY  11201</p>
+			<p class="address" ng-bind-html="$contentfulEntry.fields.addressText | markdown"></p>
     </div>
   </section>
 
   <section class="center container mailing-list">
-		<h3>Join our mailing list!</h3>
-		<p>We're continuously building new tools and
-		working with our partners. Join our mailing list
-		for updates and announcements!</p>
+  	<div ng-bind-html="$contentfulEntry.fields.mailingList | markdown">
+  	</div>
+  	<br />
 		<input type="email" placeholder="email" />
 		<input class="btn btn-primary" type="submit" value="Sign up">
   </section>
@@ -34,8 +31,8 @@
   <div class="clearfix"></div>
 
   <section class="alt img-bg white center">
-		<h3>Donate to JustFix.nyc!</h3>
-		<p class="container">We're commited to building tools and resources to help tenants, organizers, and legal services. We are a nonprofit, which means we rely exclusively on fundraising to keep doing the work we're doing! Your support is greatly appreciated!</p>
+  	<div class="container" ng-bind-html="$contentfulEntry.fields.donateText | markdown"></div>
+  	<br />
 		<input type="submit" class="btn btn-block btn-primary" value="DONATE" />
 	</section>
 </article>

@@ -30,7 +30,7 @@
   <section class="alt">
     <div class="container">
       <h3>Milestones</h3>
-      <p>{{$contentfulEntry.fields.milestones}}</p>
+      <p ng-bind-html="$contentfulEntry.fields.milestones | markdown"></p>
     </div>
     <div class="logos container">
 			<span 
@@ -55,7 +55,7 @@
     </div>
   </section>
   <section class="alt center">
-  	<div class="container" ng-bind-html="$contentfulEntry.fields.contactUsCopyText | markdown" compile-template>
+  	<div class="container" ng-bind-html="$contentfulEntry.fields.contactUsCopyText | markdown">
 		</div>
 		<br/>
   	<a ui-sref="contact" class="btn btn-primary btn-block">Contact Us!</a>
