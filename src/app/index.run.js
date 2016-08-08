@@ -15,11 +15,9 @@
     contentful
       .entries()
       .then(
-
         // Success handler
         function(response){
           $rootScope.content = response.data;
-          console.log(response.data);
         },
 
         // Error handler

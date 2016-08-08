@@ -1,12 +1,18 @@
+.padding-section {
+	padding: 50px 0 50px 0;
+}
+
+
 .landing-hero {
-	margin-top: 50px;
+	padding: 70px 0;
 	color: white;
 
 	@extend .col-md-6;
 	@include shift($n-columns: 1);
 
-	@media (max-width: $screen-md ) {
+	@media (max-width: $screen-md-min ) {
 		@include shift($n-columns: 0);
+		text-align: center;
 	}
 
 	h1 {
@@ -15,10 +21,51 @@
 }
 
 .learn-more {
-	padding: 20px 0 50px 0;
+	padding-bottom: 50px;
 	color: white;
 }
 
 .justfix-blue {
+	padding: 70px 0;
 	background: $justfix-blue;
+}
+
+.flow-icon {
+	img {
+		max-height: 500px;
+	}
+}
+
+.center-block {
+	@extend .col-md-6;
+	@include shift($n-columns: 3);
+
+	@media (max-width: $screen-md-min) {
+		@include shift($n-columns: 0);
+	}
+}
+
+.left-block {
+
+	@extend .col-md-6;
+
+	&_style {
+		border-radius: 4px;
+		padding: 40px 15px;
+		background: white;
+	}
+}
+
+.right-block {
+	@extend .col-md-6;
+
+	.btn {
+		float: left;
+		margin: 15% 0 0 10%;
+
+		@media (max-width: $screen-md-min) {
+			margin: 10% auto 0 auto;
+			float: none;
+		}
+	}
 }

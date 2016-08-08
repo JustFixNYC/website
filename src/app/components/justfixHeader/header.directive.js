@@ -23,9 +23,6 @@
 
     function linkFunc(scope, el, attr, vm) {
 
-      console.log(scope);
-      console.log(vm);
-
       scope.toggleAside = function() {
         angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');
         angular.element($document[0].getElementById('aside-menu')).toggleClass('open');

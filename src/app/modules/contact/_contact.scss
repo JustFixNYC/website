@@ -15,15 +15,21 @@
 	}
 }
 
+// TODO: shift to global?
 .img-bg {
 	margin-top: 0px;
 	background-image: url('http://degy28l8twq8c.cloudfront.net/brownstones.jpg');
 	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	&.landlord {
+		background-image: url('../img/landlord-bg.jpg');
+	}
 }
 
 .mailing-list {
 	@extend .col-sm-6;
-	@extend .col-md-6;
 	@include shift($n-columns: 3);
 
 	@media (max-width: $screen-sm) {
