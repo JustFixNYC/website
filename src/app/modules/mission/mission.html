@@ -1,20 +1,80 @@
 
-<section>
-  <header>
-    <h1>Technology for Housing Justice</h1>
-    <p class="lead">JustFix.nyc adds another tactic to the fight for housing justice by partnering with grassroots organizations to create better support systems for New York City’s excluded communites.</p>
+<section class="mission" contentful-entry="'content_type=missionPage'">
+  <header class="container">
+    <h1>{{$contentfulEntry.fields.title}}</h1>
+    <p class="lead">{{$contentfulEntry.fields.briefDescription}}</p>
   </header>
+
   <div class="img-container">
-      <img class="img-responsive img-full" src="http://placehold.it/1210x600">
-      <!-- <img class="img-responsive" src="http://placehold.it/1210x600"> -->
-    <!-- <img class="img-responsive" src="http://placehold.it/1210x600">
-    <img class="img-responsive" src="http://placehold.it/1210x600"> -->
+    <div class="img-responsive img-full " ng-style="{'background-image':'url(' + $contentfulEntry.fields.headerBreakImage.fields.file.url + ')'}"></div>
   </div>
-  <article>
-    <h3>The Problem We Are Addressing</h3>
-    <p>Enim pariatur et ex eiusmod aliquip occaecat eiusmod fugiat in occaecat ipsum. Non aute nulla fugiat ullamco magna enim tempor voluptate sunt. Sint velit voluptate esse anim eiusmod ipsum elit amet ea adipisicing fugiat commodo sint elit ullamco.</p>
-    <p>Tempor consectetur anim nulla cupidatat occaecat do aute et adipisicing pariatur amet nisi pariatur. Et excepteur cillum laborum quis proident id occaecat pariatur nostrud elit excepteur excepteur. Exercitation pariatur incididunt in proident duis duis mollit exercitation est amet do. Minim et aliqua minim consectetur ut consectetur ullamco exercitation et nulla. Non sint proident deserunt enim deserunt culpa esse est sunt proident. Aliquip culpa irure laborum aliqua esse tempor eu commodo sunt culpa. Pariatur cillum occaecat veniam nulla ad occaecat nisi culpa cillum quis laborum sit cillum. Do esse et sit sunt elit est quis consequat.</p>
-    <p>Dolore et commodo dolore aliqua commodo officia ex elit cupidatat irure sit. Eu nostrud cillum officia pariatur sint eu nulla consequat culpa mollit dolor elit aliquip ex in sint enim. Id aliqua nulla veniam laboris velit aute id anim proident do esse pariatur. Excepteur cillum non do tempor ad dolor ea aute mollit fugiat. Nostrud ad exercitation ut qui ut adipisicing Lorem ea aliqua sint laborum. Est aliquip ullamco aliqua est incididunt mollit nostrud et culpa quis nulla consequat reprehenderit consectetur consectetur commodo velit.</p>
-    <p>Incididunt nostrud elit id irure culpa commodo aliqua sint sint non ad id sit magna. Eiusmod mollit anim exercitation aliqua dolore ipsum eu nisi nisi exercitation deserunt in. Minim ex cupidatat cillum anim culpa dolor commodo aute dolor. Aute mollit do duis laborum aliqua aliquip culpa deserunt qui officia pariatur anim ex tempor mollit. Laborum nostrud incididunt minim proident ad do dolore sit in pariatur nisi esse minim. In adipisicing aute sint amet ipsum veniam eiusmod occaecat eu sunt nulla laboris ullamco laborum consequat quis consectetur. Minim excepteur qui magna Lorem labore cillum laboris esse.</p>
+
+  <article class="container padding-section" ng-bind-html="$contentfulEntry.fields.problemBlock | markdown">
   </article>
+
+  <article class="problem-break padding-section">
+  	<div class="container">
+	  	<div class="icon-wrap" ng-bind-html="$contentfulEntry.fields.problemBreakBlock | markdown">
+	  	</div>
+	  	<div class="icon-wrap" ng-repeat="icon in $contentfulEntry.fields.problemBreakIcon track by $index">
+	  		<div class="circle-icon">
+		  		<img ng-src="{{icon.fields.iconImage.fields.file.url}}" />
+	  		</div>
+	  		<div class="text">
+	  			<strong>{{icon.fields.iconImage.fields.title}}</strong>
+  			</div>
+	  	</div>
+  	</div>
+  </article>
+
+  <article class="container padding-section" ng-bind-html="$contentfulEntry.fields.serveBlock | markdown">
+  </article>
+
+  <div class="triptych">
+  	<div class="image-wrap" ng-repeat="image in $contentfulEntry.fields.imageTriptych track by $index">
+			<div class="img-scale" ng-style="{'background-image':'url(' + image.fields.file.url + ')'}"></div>
+  	</div>
+  </div>
+  <div class="clearfix"></div>
+
+  <article class="container padding-section approach">
+  	<h1>{{$contentfulEntry.fields.approachTitle}}</h1>
+
+  	<div class="icon-wrap" ng-repeat="icon in $contentfulEntry.fields.approachBreakIcon track by $index">
+  		<img ng-src="{{icon.fields.iconImage.fields.file.url}}" />
+  		<div class="text">
+  			<strong>{{icon.fields.iconImage.fields.title}}</strong>
+			</div>
+  	</div>
+
+  	<div class="clearfix"></div>
+
+	  <div ng-bind-html="$contentfulEntry.fields.approachBlock | markdown">
+	  </div>
+  </article>
+
+
+  <div class="img-container">
+    <div class="img-responsive img-full" ng-style="{'background-image':'url(' + $contentfulEntry.fields.collaborationImageBreak.fields.file.url + ')'}"></div>
+  </div>
+
+  <article class="container padding-section collaboration" ng-bind-html="$contentfulEntry.fields.collaborationBlock | markdown">
+  </article>
+    
 </section>
+
+
+<section class="banner">
+	<a ui-sref="mission">
+		<div class="container">
+			<div class="pull-left">
+				<h4>Want to know more?</h4>
+				<h3 class="white">Read Our Mission.</h3>
+			</div>
+			<div class="pull-right">
+				<span class="glyphicon glyphicon-chevron-right white"></span>
+			</div>
+		</div>
+	</a>
+</section>
+

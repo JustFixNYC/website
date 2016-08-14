@@ -12,7 +12,8 @@
         url: '/',
         templateUrl: 'app/modules/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'main',
+        globalStyle: 'clear-nav'
       })
       .state('about', {
         url: '/about',

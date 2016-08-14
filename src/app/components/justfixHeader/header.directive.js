@@ -21,7 +21,7 @@
 
     return directive;
 
-    function linkFunc(scope, el, attr, vm) {
+    function linkFunc(scope, el, attr, vm, $state) {
 
       scope.toggleAside = function() {
         angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');

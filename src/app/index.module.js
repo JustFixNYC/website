@@ -10,7 +10,8 @@
        'ui.router',
        'ui.bootstrap',
        'contentful',
-       'markdown'
+       'markdown',
+       'smoothScroll'
      ]);
 
 })();

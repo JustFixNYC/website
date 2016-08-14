@@ -2,9 +2,9 @@
 <article contentful-entry="'content_type=contactPage'">
   <section class="container center">
 	  <h1 class="center">{{ $contentfulEntry.fields.pageTitle }}</h1>
-		<p>Send us an email at <a ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}">{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
+		<a class="btn btn-success btn-block" ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}"><span class="glyphicon glyphicon-envelope"> </span>{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
 		</br>
-		Or give us a call <a href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}">{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a></p>
+		<a class="btn btn-success btn-block" href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}"><span class="glyphicon glyphicon-earphone"> </span>{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a></p>
 
     <div class="social">
     	<span class="btn btn-primary" ng-repeat="button in $contentfulEntry.fields.socialButtons">

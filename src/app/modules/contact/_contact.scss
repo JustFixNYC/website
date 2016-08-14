@@ -15,6 +15,16 @@
 	}
 }
 
+.btn-success {
+	text-align: right;
+	max-width: 250px;
+
+	.glyphicon {
+		float: left;
+		margin-right: 10px;
+	}
+}
+
 // TODO: shift to global?
 .img-bg {
 	margin-top: 0px;
@@ -25,6 +35,11 @@
 	
 	&.landlord {
 		background-image: url('../img/landlord-bg.jpg');
+
+		p  {
+			font-size: 1.25em;
+			line-height: 1.5em;
+		}
 	}
 }
 

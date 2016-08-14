@@ -4,18 +4,20 @@
 		<article class="container">
 			<div class="landing-hero">
 				<h1>{{$contentfulEntry.fields.heroCopy}}</h1>
-				<button class="btn btn-primary js-scrolldown">LEARN MORE</button>
+				<a href="#" scroll-to="image" class="btn btn-primary js-scrolldown">LEARN MORE</a>
 			</div>
 			<div class="clearfix"></div>
-			<div class="center learn-more">
-				LEARN MORE
-				<br />
-				<span class="glyphicon glyphicon-chevron-down"></span>
-			</div>
+			<a href="#" scroll-to="image">
+				<div class="center learn-more">
+					LEARN MORE
+					<br />
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</div>
+			</a>
 		</article>
 	</section>
 
-	<section class="justfix-blue white center padding-section">
+	<section class="justfix-blue white center padding-section" id="image">
 		<article class="container">
 			<p>{{$contentfulEntry.fields.imageDescription}}</p>
 			<div class="flow-icon">

@@ -1,13 +1,18 @@
 .padding-section {
-	padding: 50px 0 50px 0;
+	padding: 100px 0 100px 0;
+
+	@media (max-width: $screen-sm-max) {
+		padding: 70px 0 70px 0;
+	}
 }
 
 
 .landing-hero {
+	margin-top: 80px;
 	padding: 70px 0;
 	color: white;
 
-	@extend .col-md-6;
+	@extend .col-md-8;
 	@include shift($n-columns: 1);
 
 	@media (max-width: $screen-md-min ) {
@@ -16,6 +21,7 @@
 	}
 
 	h1 {
+		font-size: 3em;
 		font-weight: 600; 
 	}
 }
@@ -26,7 +32,6 @@
 }
 
 .justfix-blue {
-	padding: 70px 0;
 	background: $justfix-blue;
 }
 

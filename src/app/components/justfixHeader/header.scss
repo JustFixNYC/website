@@ -103,6 +103,17 @@
 
     }
   }
+
+  // styling for hidden bg, homepg only
+  &.transparent {
+  	position: absolute;
+  	margin-bottom: 0px;
+  	width: 100%;
+
+  	header {
+  		background: transparent;
+  	}
+  }
 }
 
 .nav-toggle {
