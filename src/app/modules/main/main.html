@@ -1,23 +1,23 @@
 <div class="home" contentful-entry="'content_type=homePage'">
 	
-	<section class="img-bg">
+	<section class="img-bg hero">
 		<article class="container">
-			<div class="landing-hero">
+			<div class="hero-container">
 				<h1>{{$contentfulEntry.fields.heroCopy}}</h1>
-				<a href="#" scroll-to="image" class="btn btn-primary js-scrolldown">LEARN MORE</a>
+				<a href="#" scroll-to="tutorial" class="btn btn-primary js-scrolldown">LEARN MORE</a>
 			</div>
 			<div class="clearfix"></div>
-			<a href="#" scroll-to="image">
-				<div class="center learn-more">
-					LEARN MORE
-					<br />
-					<span class="glyphicon glyphicon-chevron-down"></span>
-				</div>
-			</a>
 		</article>
+		<a href="#" scroll-to="tutorial">
+			<div class="center learn-more">
+				LEARN MORE
+				<br />
+				<span class="glyphicon glyphicon-chevron-down"></span>
+			</div>
+		</a>
 	</section>
 
-	<section class="justfix-blue white center padding-section" id="image">
+	<section class="justfix-blue white center padding-section" id="tutorial">
 		<article class="container">
 			<p>{{$contentfulEntry.fields.imageDescription}}</p>
 			<div class="flow-icon">

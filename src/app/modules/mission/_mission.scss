@@ -1,17 +1,23 @@
 .mission {
 	h1{
-		margin-top: 1em;
 		text-align: center;
 	}
 
 	.container {
 		.lead {
-			margin-bottom: 2em;
+			margin: 0 auto 2em auto;
+	    max-width: 700px;
+	    font-weight: 400;
 		}
+	}
+
+	@media (max-width: $screen-sm) {
+		text-align: center;
 	}
 }
 
 .img-container {
+	margin-bottom: 75px;
 	position: relative;
 	min-height: 500px;
 
@@ -30,23 +36,21 @@
 	text-align: center;
 
 	h1 {
-		margin-top: 50px;
+		margin-top: 10px;
 		font-weight: 800;
 		font-size: 50px;
 	}
 
 	.icon-wrap {
     position: relative;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
-
-    @media (min-width: $screen-md) {
-    	float: left;
-    	width: 20%;
-    }
+    float: none;
+    margin: 20px auto 0;
+    padding-right: 20px;
+    padding-left: 20px;
+    width: 50%;
 
     .circle-icon {
+    	position: relative;
     	border-radius: 50%;
     	background: white;
     	padding-bottom: 100%;
@@ -54,7 +58,7 @@
 
     	img {
     		position: absolute;
-    		top: 5%;
+    		top: 10%;
     		left: 10%;
     		width: 80%;
     		height: 80%;
@@ -62,13 +66,27 @@
     }
 
     .text {
+    	padding: 10px 0;
     	text-align: center;
+    }
+
+    @media (min-width: $screen-md) {
+    	float: left;
+    	width: 18.75%;
+
+    	&.text {
+    		width: 25%;
+    	}
+    }
+
+    @media (max-width: $screen-sm) {
+    	width: 75%;
     }
 	}
 }
 
-.img-full {
-	margin: auto;
+.triptych {
+	margin-top: 50px;
 }
 
 .image-wrap {
@@ -89,11 +107,12 @@
 		margin: 25px 0;
 		text-align: center;
 
-		@extend .col-md-4;
+		@extend .col-md-3;
+		@include shift($n-columns: 0.75);
 
 		img {
 			margin-bottom: 20px;
-			height: 100px;
+			height: 50px;
 		}
 	}
 }

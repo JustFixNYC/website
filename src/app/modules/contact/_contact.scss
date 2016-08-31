@@ -1,4 +1,8 @@
 .map {
+  padding: 0px;
+
+	@extend .col-md-4;
+  @include shift($n-columns: 4);
 
 	iframe{
 		width: 100%;
@@ -13,15 +17,27 @@
 	p {
 		margin: 0px;
 	}
+
+	@media (max-width: $screen-md) {
+		@include shift($n-columns: 0);
+	}
 }
 
 .btn-success {
 	text-align: right;
 	max-width: 250px;
+	
+	&.btn-email {
+		margin-bottom: 20px;
+	}
 
 	.glyphicon {
 		float: left;
-		margin-right: 10px;
+		margin: 3px 10px 0 0;
+	}
+
+	@media (max-width: $screen-sm) {
+		font-size: 0.75em;
 	}
 }
 
@@ -34,7 +50,7 @@
 	background-size: cover;
 	
 	&.landlord {
-		background-image: url('../img/landlord-bg.jpg');
+		background-image: url('../img/landlord-dark.jpg');
 
 		p  {
 			font-size: 1.25em;
@@ -43,11 +59,34 @@
 	}
 }
 
+.contentful {
+
+	.image {
+		@extend .col-md-6;
+		@extend .col-sm-12;
+
+		@media (max-width: $screen-md) {
+			margin-top: 32px;
+		}
+	}
+
+	.text {
+		@extend .col-md-6;
+		@extend .col-sm-12;
+	}
+
+}
+
 .mailing-list {
+	margin: 0px 0 75px 0;
 	@extend .col-sm-6;
 	@include shift($n-columns: 3);
 
 	@media (max-width: $screen-sm) {
-		margin: auto;
+		margin: 25px auto 50px auto;
+
+		.btn {
+			margin-top: 16px;
+		}
 	}
 }

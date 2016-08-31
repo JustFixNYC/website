@@ -1,14 +1,13 @@
 #header-wrap {
   height: $mobile-header-height;
   margin-bottom: $header-bottom-margin;
+  background-color: $justfix-blue;
 
   @media (min-width: $screen-sm-min) {
     height: $desktop-header-height;
   }
 
   header {
-
-    background-color: $justfix-blue;
 
     height: $mobile-header-height;
     margin-bottom: $header-bottom-margin;
@@ -109,10 +108,7 @@
   	position: absolute;
   	margin-bottom: 0px;
   	width: 100%;
-
-  	header {
-  		background: transparent;
-  	}
+		background: transparent;
   }
 }
 

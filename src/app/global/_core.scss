@@ -77,6 +77,7 @@ p {
   padding: 10px 26px;
   height: auto;
   -webkit-appearance: none;
+  letter-spacing: 1.5px;
 }
 
 .btn-block {
@@ -99,4 +100,20 @@ p {
 input[type=email] {
 	margin-right: 10px;
 	padding: 8px 10px;
+}
+
+.hidden-mobile {
+
+	@media (max-width: $screen-md-max) {
+		display: none !important;
+	}
+}
+
+.hidden-desktop {
+	.btn {
+		text-align: center;
+	}
+	@media (min-width: $screen-md-min) {
+		display: none !important;
+	}
 }

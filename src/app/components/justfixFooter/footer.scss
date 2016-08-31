@@ -12,7 +12,6 @@
 		.pull-right {
 			@media (max-width: $screen-sm) {
 				width: 100%;
-				text-align: center;
 			}
 		}
 	}
@@ -35,12 +34,23 @@
 	}
 
 	.social {
+		margin: 30px 0;
+
 		.btn {
-			margin: 0 8px;
+			margin: 0 10px;
 
 			&:first-child {
-				margin: 0px 8px 0px 0px;
+				margin: 0px 10px 0px 0px;
 			}
+
+			&:last-child {
+				margin: 0px 0px 0px 10px;
+			}
+		}
+
+		@media (max-width: $screen-sm) {
+			margin: 50px 0;
+			text-align: center;
 		}
 	}
 
@@ -55,22 +65,22 @@
 			width: 140px;
 
 			@media (max-width: $screen-sm) {
-				margin: 10px auto;
+				margin: 16px auto 34px 0;
 			}
 		}
-		input[type=email] {
-			@media (max-width: $screen-sm) {
-				margin-right: 0px;
+
+		@media (max-width: $screen-sm) {
+			input[type=email] {
+				width: 100%;
 			}
 		}
 	}
 
 	.disclaimer {
-		margin-top: 20px;
+		margin-top: 32px;
 		font-size: 14px;
-		
-		p {
-			line-height: 1.2em;
-		}
+		line-height: 1.5;
+
+		color: $justfix-grey-light;
 	}
 }

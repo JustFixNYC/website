@@ -1,3 +1,22 @@
+header, section > .container, footer  > .container, .banner .container {
+	
+	margin: auto;
+  // @include container-fixed();
+  max-width: $screen-md;
+
+  @media (min-width: $screen-xlg) {
+  	max-width: $screen-lg;
+  }
+
+  & > h1,
+  & > h3,
+  & > p:not(.lead) {
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 article {
 
   header {
@@ -9,23 +28,14 @@ article {
     }
   }
 
-  header, section > .container {
-
-    // @include container-fixed();
-    max-width: $screen-md;
-
-    & > h1,
-    & > h3,
-    & > p:not(.lead) {
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  header, section, .img-container {
+  header, section {
     margin-top: 75px;
     margin-bottom: 75px;
+
+    @media (max-width: $screen-sm) {
+    	margin-top: 50px;
+    	margin-bottom: 50px;
+    }
   }
 
   .img-container {
@@ -42,15 +52,6 @@ article {
       padding-bottom: 75px;
     }
 
-
   }
-
-
-
-
-
-
-
-
 
 }

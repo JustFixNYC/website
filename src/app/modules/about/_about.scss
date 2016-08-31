@@ -51,18 +51,18 @@
 	margin-bottom: 20px;
 
 	.btn {
-		margin: 0px 4px;
+		margin: 0px 16px;
 		border: none;
 		border-radius: 50%;
 		background: none;
 		padding: 0px;
 
 		&:first-child {
-			margin: 0px 4px 0px 0px;
+			margin: 0px 16px 0px 0px;
 		}
 
 		&:last-child {
-			margin: 0px 0px 0px 4px;
+			margin: 0px 0px 0px 16px;
 		}
 
 		&:active,
@@ -75,7 +75,7 @@
 
 			&:before {
 				content: "\00a0";
-				padding: 8px; 
+				padding: 10px; 
 				background-position: center center;
 				background-size: contain;
 				background-repeat: no-repeat;
@@ -132,10 +132,10 @@
 .logos {
 
 	.logo {
-		position: relative;
 		margin-top: 50px;
 		height: 200px;
 		@extend .col-sm-12;
+		@extend .col-xs-12;
 		@extend .col-md-3;
 
 		&.three {
@@ -161,6 +161,15 @@
 	margin-bottom: 0px;
 }
 
+.contentful {
+	.container {
+		> div {
+			@extend .col-md-6;
+		}
+	}
+}
+
+// Todo: move this to global?
 .banner {
 	margin: 0px;
 	padding: 50px 0;

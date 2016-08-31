@@ -2,9 +2,17 @@
 <article contentful-entry="'content_type=contactPage'">
   <section class="container center">
 	  <h1 class="center">{{ $contentfulEntry.fields.pageTitle }}</h1>
-		<a class="btn btn-success btn-block" ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}"><span class="glyphicon glyphicon-envelope"> </span>{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
+
+		<p class="hidden-desktop">
+			<a class="btn btn-success btn-block btn-email" ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}"><span class="glyphicon glyphicon-envelope"> </span>{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
+			<a class="btn btn-success btn-block" href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}"><span class="glyphicon glyphicon-earphone"> </span>{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
+		</p>
+
+		<p class="hidden-mobile">
+			Send us an email at <a ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}">{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
 		</br>
-		<a class="btn btn-success btn-block" href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}"><span class="glyphicon glyphicon-earphone"> </span>{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a></p>
+			or give us a call: <a href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}">{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
+		</p>
 
     <div class="social">
     	<span class="btn btn-primary" ng-repeat="button in $contentfulEntry.fields.socialButtons">
@@ -14,7 +22,9 @@
     	</span>
     </div>
 
-    <div class="map col-md-4 col-md-offset-4">
+    <br>
+
+    <div class="map">
 			<iframe frameborder="0" style="border:0" ng-src="{{ address }}" allowfullscreen></iframe>
 			<p class="address" ng-bind-html="$contentfulEntry.fields.addressText | markdown"></p>
     </div>
@@ -25,7 +35,7 @@
   	</div>
   	<br />
 		<input type="email" placeholder="email" />
-		<input class="btn btn-primary" type="submit" value="Sign up">
+		<input class="btn btn-primary" type="submit" value="SIGN UP">
   </section>
 
   <div class="clearfix"></div>
@@ -34,5 +44,20 @@
   	<div class="container" ng-bind-html="$contentfulEntry.fields.donateText | markdown"></div>
   	<br />
 		<input type="submit" class="btn btn-block btn-primary" value="DONATE" />
+	</section>
+
+	<section class="center contentful">
+		<div class="container">
+
+			<div class="text">
+				<p>Special thanks to our friends at Contentful for providing us with free contentful management services because of our 501c3 status!</p>
+			</div>
+			
+			<div class="image">
+				<a target="_blank" href="http://contentful.com">
+					<img src="/img/light.png" />
+				</a>
+			</div>
+		</div>
 	</section>
 </article>

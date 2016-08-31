@@ -1,19 +1,24 @@
 .padding-section {
-	padding: 100px 0 100px 0;
+	padding: 120px 0 120px 0;
 
 	@media (max-width: $screen-sm-max) {
 		padding: 70px 0 70px 0;
 	}
 }
 
+.hero {
+	height: 100vh;
 
-.landing-hero {
-	margin-top: 80px;
-	padding: 70px 0;
+	.container {
+		@include vertical-align;		
+	}
+}
+
+.hero-container {
 	color: white;
 
-	@extend .col-md-8;
-	@include shift($n-columns: 1);
+	// @include vertical-align;
+	@extend .col-md-10;
 
 	@media (max-width: $screen-md-min ) {
 		@include shift($n-columns: 0);
@@ -27,8 +32,13 @@
 }
 
 .learn-more {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
 	padding-bottom: 50px;
 	color: white;
+
+	@include transform(translateX(-50%));
 }
 
 .justfix-blue {
@@ -41,12 +51,10 @@
 	}
 }
 
-.center-block {
-	@extend .col-md-6;
-	@include shift($n-columns: 3);
-
-	@media (max-width: $screen-md-min) {
-		@include shift($n-columns: 0);
+.landlord {
+	.center-block {
+		@extend .col-md-6;
+		@include shift($n-columns: 3);
 	}
 }
 
