@@ -1,3 +1,16 @@
+.home {
+	h2 {
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 1.3em;
+
+		@media (min-width: $screen-sm-min) {
+			margin: auto;
+			max-width: 540px;
+		}
+	}
+}
+
 .padding-section {
 	padding: 120px 0 120px 0;
 
@@ -20,14 +33,21 @@
 	// @include vertical-align;
 	@extend .col-md-10;
 
-	@media (max-width: $screen-md-min ) {
+	@media (max-width: $screen-xs-max ) {
 		@include shift($n-columns: 0);
 		text-align: center;
 	}
 
 	h1 {
+		margin-bottom: 1em;
 		font-size: 3em;
-		font-weight: 600; 
+		font-weight: 600;
+
+		@include transform(translateZ(0));
+
+		@media (max-width: $screen-xs-max) {
+			font-size: 2em;
+		}
 	}
 }
 
@@ -47,14 +67,22 @@
 
 .flow-icon {
 	img {
-		max-height: 500px;
+		max-height: 750px;
 	}
 }
 
 .landlord {
 	.center-block {
+		h2 {
+			margin-bottom: 2em;
+		}
+
 		@extend .col-md-6;
 		@include shift($n-columns: 3);
+
+		@media (max-width: $screen-sm-max) {
+			@include shift($n-columns: 0);
+		}
 	}
 }
 
@@ -64,8 +92,12 @@
 
 	&_style {
 		border-radius: 4px;
-		padding: 40px 15px;
+		padding: 40px 50px;
 		background: white;
+
+		@media (max-width: $screen-sm-max) {
+			padding: 40px 20px;
+		}
 	}
 }
 
@@ -74,11 +106,15 @@
 
 	.btn {
 		float: left;
-		margin: 15% 0 0 10%;
+		margin: 15% 0 0 50%;
+
+		@include transform(translateX(-65px));
 
 		@media (max-width: $screen-md-min) {
 			margin: 10% auto 0 auto;
 			float: none;
+
+			@include transform(translateX(0));
 		}
 	}
 }

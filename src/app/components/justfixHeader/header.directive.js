@@ -26,6 +26,7 @@
       scope.toggleAside = function() {
         angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');
         angular.element($document[0].getElementById('aside-menu')).toggleClass('open');
+        angular.element($document[0].getElementById('header-wrap')).toggleClass('blue-active');
       };
 
     }

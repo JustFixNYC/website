@@ -50,6 +50,10 @@ article {
       background-color: $justfix-grey-light;
       padding-top: 75px;
       padding-bottom: 75px;
+
+      @media (max-width: $screen-sm-max) {
+      	text-align: center;
+      }
     }
 
   }

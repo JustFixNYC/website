@@ -36,14 +36,15 @@
       font-size: 16px;
       padding-left: 30px;
       padding-right: 30px;
+      line-height: 1.6em;
     }
   }
 }
 
-.contributors-container {
-  & > div {
-    margin-bottom: 10px;
-  }
+.contributor {
+	margin: 0px auto 0px;
+	text-align: center;
+	font-weight: 600;
 }
 
 // Depending on how often used: move to global css?
@@ -56,6 +57,7 @@
 		border-radius: 50%;
 		background: none;
 		padding: 0px;
+		width: auto;
 
 		&:first-child {
 			margin: 0px 16px 0px 0px;
@@ -133,13 +135,17 @@
 
 	.logo {
 		margin-top: 50px;
-		height: 200px;
+		height: 150px;
 		@extend .col-sm-12;
 		@extend .col-xs-12;
 		@extend .col-md-3;
 
 		&.three {
-			@extend .col-md-4;
+			@include shift($n-columns: 1.333);
+			
+			@media (max-width: $screen-sm-max) {
+				@include shift($n-columns: 0);
+			}
 		}
 		
 		.background-image {
@@ -162,6 +168,8 @@
 }
 
 .contentful {
+	margin: 40px 0;
+
 	.container {
 		> div {
 			@extend .col-md-6;
@@ -169,24 +177,45 @@
 	}
 }
 
-// Todo: move this to global?
-.banner {
-	margin: 0px;
-	padding: 50px 0;
-	background: $brand-info;
-
+.press {
 	h4 {
-		margin-bottom: 15px;
-		color: $text-color;
+		margin: 0px 0 5px 0;
 	}
 
-	.container {
+	.press-item {
+		margin: 30px 0;
 		position: relative;
+
+		@extend .clearfix;
+
+		&:last-child {
+			.content {
+				border-bottom: none;
+			}
+		}
 	}
 
-	.pull-right {
-		right: 12px;
-		font-size: 1.95em;
-		@include vertical-align(absolute);
+	img {
+
+		@extend .col-md-3;
+		@include vertical-align($position: absolute);
+		@include shift($n-columns: 1);
+
+		@media (max-width: $screen-sm-max) {
+			display: none;
+		}
+	}
+
+	.content {
+		// right: 0%;
+		padding: 10px 0 30px 0;
+		border-bottom: darken($justfix-grey-light, 10) 1px solid;
+		
+		@extend .col-md-7;
+		@extend .col-sm-12;
+
+		@media (max-width: $screen-sm-max) {
+			border-bottom: none;
+		}
 	}
 }

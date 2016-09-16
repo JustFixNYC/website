@@ -3,11 +3,20 @@
 		text-align: center;
 	}
 
+	.alt {
+		margin: 0px;
+	}
+
+	header {
+		margin-bottom: 0px;
+	}
+
 	.container {
 		.lead {
-			margin: 0 auto 2em auto;
+			margin: 0 auto 25px auto;
 	    max-width: 700px;
-	    font-weight: 400;
+	    font-weight: 100;
+	    color: $justfix-grey-dark;
 		}
 	}
 
@@ -32,6 +41,7 @@
 }
 
 .problem-break {
+	padding: 60px 0 60px 0;
 	background-color: $justfix-grey-light;
 	text-align: center;
 
@@ -85,10 +95,6 @@
 	}
 }
 
-.triptych {
-	margin-top: 50px;
-}
-
 .image-wrap {
 	@extend .col-md-4;
 	padding: 0px;
@@ -114,9 +120,10 @@
 			margin-bottom: 20px;
 			height: 50px;
 		}
-	}
-}
 
-.collaboration {
-	text-align:center;
+		.text {
+			margin: auto;
+			max-width: 150px;
+		}
+	}
 }

@@ -8,7 +8,9 @@
     <div class="img-responsive img-full " ng-style="{'background-image':'url(' + $contentfulEntry.fields.headerBreakImage.fields.file.url + ')'}"></div>
   </div>
 
-  <section class="container" ng-bind-html="$contentfulEntry.fields.problemBlock | markdown">
+  <section>
+  	<div class="container" ng-bind-html="$contentfulEntry.fields.problemBlock | markdown">
+  	</div>
   </section>
 
   <section class="problem-break padding-section">
@@ -26,40 +28,52 @@
   	</div>
   </section>
 
-  <section class="container" ng-bind-html="$contentfulEntry.fields.serveBlock | markdown">
+  <section>
+  	<div class="container" ng-bind-html="$contentfulEntry.fields.serveBlock | markdown">
+  	</div>
   </section>
 
   <div class="triptych">
   	<div class="image-wrap" ng-repeat="image in $contentfulEntry.fields.imageTriptych track by $index">
 			<div class="img-scale" ng-style="{'background-image':'url(' + image.fields.file.url + ')'}"></div>
   	</div>
-  </div>
-  <div class="clearfix"></div>
-
-  <section class="container approach">
-  	<br>
-    <p class="lead">{{$contentfulEntry.fields.briefDescription}}</p>
-  	<h1>{{$contentfulEntry.fields.approachTitle}}</h1>
-
-  	<div class="icon-wrap" ng-repeat="icon in $contentfulEntry.fields.approachBreakIcon track by $index">
-  		<img ng-src="{{icon.fields.iconImage.fields.file.url}}" />
-  		<div class="text">
-  			<strong>{{icon.fields.iconImage.fields.title}}</strong>
+  	<div class="clearfix"></div>
+	  <section class="reduced-margin-top">
+	  	<div class="container">
+			<p class="lead">{{$contentfulEntry.fields.triptychLeadIn}}</p>
+	  		<p ng-bind-html="$contentfulEntry.fields.triptychParagraph | markdown"></p>
 			</div>
+	  </section>
+  </div>
+  	
+  <section class="container approach">
+		<h1>{{$contentfulEntry.fields.approachTitle}}</h1>
+
+		<div class="container">
+
+	  	<div class="icon-wrap" ng-repeat="icon in $contentfulEntry.fields.approachBreakIcon track by $index">
+	  		<img ng-src="{{icon.fields.iconImage.fields.file.url}}" />
+	  		<div class="text">
+	  			<strong>{{icon.fields.iconDescription}}</strong>
+				</div>
+	  	</div>
+
   	</div>
 
   	<div class="clearfix"></div>
+  	<br />
 
 	  <div class="container" ng-bind-html="$contentfulEntry.fields.approachBlock | markdown">
 	  </div>
   </section>
 
-
-  <div class="img-container">
+  <div class="img-container no-margin-bottom">
     <div class="img-responsive img-full" ng-style="{'background-image':'url(' + $contentfulEntry.fields.collaborationImageBreak.fields.file.url + ')'}"></div>
   </div>
 
-  <section class="container collaboration" ng-bind-html="$contentfulEntry.fields.collaborationBlock | markdown">
+  <section class="alt">
+  	<div class="container center" ng-bind-html="$contentfulEntry.fields.collaborationBlock | markdown">
+  	</div>
   </section>
 	    
 
@@ -69,7 +83,7 @@
 			<div class="container">
 				<div class="pull-left">
 					<h4>Want to know more?</h4>
-					<h3 class="white">Meet our Team.</h3>
+					<h2 class="white">Meet our Team.</h2>
 				</div>
 				<div class="pull-right">
 					<span class="glyphicon glyphicon-chevron-right white"></span>

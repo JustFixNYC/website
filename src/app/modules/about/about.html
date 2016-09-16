@@ -18,15 +18,16 @@
           <p>{{member.fields.description}}</p>
         </div>
       </div>
-      <!-- <div class="contributors-container text-center" contentful-entries="'content_type=otherContributors'">
-        <h3>Many thanks to our other contributors!</h3>
-        <div ng-repeat="contributor in $contentfulEntries.items">
-          <a ng-if="contributor.fields.link" ng-href="{{contributor.fields.link}}" target="_blank"><h4>{{contributor.fields.name}}</h4></a>
-          <h4 ng-if="!contributor.fields.link">{{contributor.fields.name}}</h4>
-        </div>
-      </div> -->
     </div>
   </section>
+	
+	<section>
+		<div class="container">
+			<h3 class="center">Many thanks to our other contributors!</h3>
+			<p class="contributor" ng-repeat="contributor in $contentfulEntry.fields.contributors">{{contributor.fields.name}}</p>
+		</div>
+	</section>
+
   <section class="alt">
     <div class="container">
       <h3>Milestones</h3>
@@ -47,7 +48,8 @@
     <div class="logos container">
 			<span 
 				class="logo partners" 
-				ng-repeat="partner in $contentfulEntry.fields.partnerOrganizations track by $index">
+				ng-repeat="partner in $contentfulEntry.fields.partnerOrganizations track by $index"
+				ng-class="{'three': $index % 7 == 0}">
 				<div class="background-image" 
 					ng-style="{'background-image': 'url(' + partner.fields.logo.fields.file.url + ')'}">
 				</div>
@@ -55,25 +57,54 @@
     </div>
   </section>
 
+  <div class="clearfix"></div>
+
   <section class="press">
+    <h2 class="center">Read more about us!</h2>
   	<div class="container">
-			<h3>press</h3>
-			<p><a href="http://www.google.com">Google says it's dope.</a></p>
+			
+			<div
+				class="press-item"
+				ng-repeat="pressItem in $contentfulEntry.fields.pressItems">
+				<img ng-src="{{pressItem.fields.logo.fields.file.url}}" />
+  			<div class="content pull-right">
+					<h4>{{pressItem.fields.title}}</h4>
+					<p><a ng-href="pressItem.fields.hyperlink">{{pressItem.fields.linkText}}</a></p>
+				</div>
+			</div>
+
 		</div>
   </section>
   <section class="alt center">
   	<div class="container" ng-bind-html="$contentfulEntry.fields.contactUsCopyText | markdown">
 		</div>
 		<br/>
-  	<a ui-sref="contact" class="btn btn-primary btn-block">Contact Us!</a>
+		<br/>
+  	<a ui-sref="contact" class="btn btn-primary btn-block">CONTACT US</a>
   </section>
+
+
+	<section class="center contentful">
+		<div class="container">
+
+			<div class="text">
+				<p>Special thanks to our friends at Contentful for providing us with free contentful management services because of our 501c3 status!</p>
+			</div>
+			
+			<div class="image">
+				<a target="_blank" href="http://contentful.com">
+					<img src="/img/light.png" />
+				</a>
+			</div>
+		</div>
+	</section>
 
   <section class="banner">
   	<a ui-sref="mission">
 			<div class="container">
 				<div class="pull-left">
 					<h4>Want to know more?</h4>
-					<h3 class="white">Read Our Mission.</h3>
+					<h2 class="white">Read Our Mission.</h2>
 				</div>
 				<div class="pull-right">
 					<span class="glyphicon glyphicon-chevron-right white"></span>

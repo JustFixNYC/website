@@ -4,11 +4,11 @@
 		<article class="container">
 			<div class="hero-container">
 				<h1>{{$contentfulEntry.fields.heroCopy}}</h1>
-				<a href="#" scroll-to="tutorial" class="btn btn-primary js-scrolldown">LEARN MORE</a>
+				<a href="#" scroll-to="tutorial" class="btn btn-primary js-scrolldown hidden-mobile">LEARN MORE</a>
 			</div>
 			<div class="clearfix"></div>
 		</article>
-		<a href="#" scroll-to="tutorial">
+		<a href="#" scroll-to="tutorial" class="hidden-desktop">
 			<div class="center learn-more">
 				LEARN MORE
 				<br />
@@ -19,7 +19,7 @@
 
 	<section class="justfix-blue white center padding-section" id="tutorial">
 		<article class="container">
-			<p>{{$contentfulEntry.fields.imageDescription}}</p>
+			<h2>{{$contentfulEntry.fields.imageDescription}}</h2>
 			<div class="flow-icon">
 				<img ng-src="{{flowUrl}}" />
 			</div>
@@ -29,19 +29,17 @@
 	<section class="img-bg landlord white center padding-section">
 		<article class="container">
 			<div class="center-block">
-				<p>{{$contentfulEntry.fields.missionDescription}}</p>
+				<h2>{{$contentfulEntry.fields.missionDescription}}</h2>
 				<button class="btn btn-primary">READ OUR MISSION</button>
 			</div>
 		</article>
 		<div class="clearfix"></div>
 	</section>
 
-	<section class="img-bg map center padding-section">
+	<section class="img-bg map-img center padding-section">
 		<article class="container">
 			<div class="left-block">
 				<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantDirectoryDescription | markdown">
-					<h3>Tenant Assistance Directory</h3>
-					<p>If you're searching for help, visit our Tenant Assistance Directory to find Local community and legal resources</p>
 				</div>
 			</div>
 			<div class="right-block">
@@ -52,11 +50,11 @@
 	</section>
 
 	<section class="banner">
-		<a ui-sref="mission">
+		<a ui-sref="about">
 			<div class="container">
 				<div class="pull-left">
 					<h4>Want to know more?</h4>
-					<h3 class="white">Read Our Mission.</h3>
+					<h2 class="white">Meet Our Team.</h2>
 				</div>
 				<div class="pull-right">
 					<span class="glyphicon glyphicon-chevron-right white"></span>

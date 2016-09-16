@@ -19,6 +19,8 @@
 
     a {
       color: #fff;
+
+      @include transform(translateZ(0));
     }
 
     & > div {
@@ -83,16 +85,47 @@
             text-transform: uppercase;
             letter-spacing: 2px;
 
+						// Highlight line
+          	&:not(.btn) {
+          		position: relative;
+          		&:after {
+          			content: " ";
+          			position: absolute;
+          			left: 0;
+          			bottom: -3px;
+          			background: white;
+          			height: 2px;
+          			width: 100%;
+
+          			@include transform(scaleX(0));
+          			@include transition(0.2s ease all);
+          		}
+          	}
+
+            &:hover,
+            &:active,
+            &:focus {
+            	text-decoration: none;
+							
+							&:not(.btn){
+	            	&:after {
+	            		@include transform(scaleX(1));
+	            	}
+							}
+            }
+
             &.btn {
               border-color: #fff;
+              padding: 10px 26px;
               @include transition(all 150ms ease);
               font-size: 14px;
+              width: auto;
               // position: relative;
               // top: -2px;
 
               &:hover {
                 background-color: #fff;
-                color: $justfix-blue;
+                color: $justfix-grey-dark;
 
               }
             }
@@ -109,6 +142,12 @@
   	margin-bottom: 0px;
   	width: 100%;
 		background: transparent;
+
+		@include transition(all 250ms ease-out);
+
+		&.blue-active {
+			background: $justfix-blue;
+		}
   }
 }
 

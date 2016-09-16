@@ -26,6 +26,7 @@
 		list-style: none;
 		color: $justfix-blue;
 		font-weight: 600;
+		font-size: 16px;
 
 		a:hover {
 			color: white;
@@ -38,6 +39,9 @@
 
 		.btn {
 			margin: 0 10px;
+			width: auto;
+
+			@include transition(0.2s all);
 
 			&:first-child {
 				margin: 0px 10px 0px 0px;
@@ -45,6 +49,10 @@
 
 			&:last-child {
 				margin: 0px 0px 0px 10px;
+			}
+
+			&:hover {
+				opacity: 0.7;
 			}
 		}
 
@@ -55,13 +63,14 @@
 	}
 
 	h5 {
-		margin-bottom: 20px;
+		margin: 5px auto 20px;
 		font-weight: 600;
 	}
 
 	.pull-right {
 		.btn {
 			margin: 10px 0px 0px;
+      padding: 10px 26px;
 			width: 140px;
 
 			@media (max-width: $screen-sm) {
@@ -77,7 +86,7 @@
 	}
 
 	.disclaimer {
-		margin-top: 32px;
+		margin-top: 28px;
 		font-size: 14px;
 		line-height: 1.5;
 

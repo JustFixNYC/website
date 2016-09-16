@@ -37,10 +37,10 @@ h4 {
 }
 p {
   margin-bottom: $line-height-computed;
-  line-height: $line-height-computed * 1.2;
+  line-height: $line-height-computed * 1.1;
 
   &.lead {
-    font-size: 24px;
+    font-size: 22px;
     font-style: italic;
     text-align: center;
   }
@@ -74,8 +74,9 @@ p {
 
 .btn {
   font-size: 16px;
-  padding: 10px 26px;
+  padding: 15px 26px;
   height: auto;
+  width: 260px;
   -webkit-appearance: none;
   letter-spacing: 1.5px;
 }
@@ -115,5 +116,63 @@ input[type=email] {
 	}
 	@media (min-width: $screen-md-min) {
 		display: none !important;
+	}
+}
+
+.no-margin-bottom {
+	margin-bottom: 0px !important;
+}
+
+.reduced-margin-top {
+	margin-top: 25px;
+}
+
+.banner {
+	margin: 0px;
+	padding: 30px 0;
+	background: $brand-info;
+
+	@include transition(0.2s all);
+
+	h2 {
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 1.3em;
+
+		@media (max-width: $screen-sm-max) {
+			text-decoration: underline;
+		} 
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: lighten($brand-info, 5);
+	}
+
+	@media (max-width: $screen-sm-max) {
+		.pull-left {
+			float: none !important;
+			text-align: center;
+		}
+	}
+
+	h4 {
+		margin-bottom: 15px;
+		color: $text-color;
+	}
+
+	.container {
+		position: relative;
+	}
+
+	.pull-right {
+		right: 12px;
+		font-size: 1.95em;
+		@include vertical-align(absolute);
+
+		@media (max-width: $screen-sm-max) {
+			display: none;
+		}
 	}
 }
