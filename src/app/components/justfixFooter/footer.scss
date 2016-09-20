@@ -26,11 +26,15 @@
 		list-style: none;
 		color: $justfix-blue;
 		font-weight: 600;
-		font-size: 16px;
+		font-size: 14px;
 
-		a:hover {
-			color: white;
-			text-decoration: none;
+		a {
+			letter-spacing: 2px;
+
+			&:hover {
+				color: white;
+				text-decoration: none;
+			}
 		}
 	}
 
@@ -65,21 +69,15 @@
 	h5 {
 		margin: 5px auto 20px;
 		font-weight: 600;
+		letter-spacing: 2px;
 	}
 
 	.pull-right {
-		.btn {
-			margin: 10px 0px 0px;
-      padding: 10px 26px;
-			width: 140px;
+
+		input[type=email] {
+			margin-bottom: 10px;
 
 			@media (max-width: $screen-sm) {
-				margin: 16px auto 34px 0;
-			}
-		}
-
-		@media (max-width: $screen-sm) {
-			input[type=email] {
 				width: 100%;
 			}
 		}

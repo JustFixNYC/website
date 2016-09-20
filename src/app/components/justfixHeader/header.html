@@ -1,4 +1,4 @@
-<div id="header-wrap" ui-sref-active="transparent">
+<div id="header-wrap" ng-class="headerColor">
   <header class="navbar-fixed-top">
       <div class="container-fluid">
         <a class="header-brand" ui-sref="home">
@@ -7,7 +7,16 @@
 
         <div class="header-links header-links-desktop">
           <ul class="list-inline">
-            <li ng-repeat="link in vm.headerLinks"><a ng-href="{{link.url}}" ng-class="link.style">{{ ::link.text }}</a></li>
+            <li ng-repeat="link in vm.headerLinks">
+            	<a 
+            		ng-if="link.sref" 
+            		ui-sref="{{link.sref}}"
+          		  ui-sref-active="active">{{ ::link.text }}</a>
+            	<a 
+            		ng-if="!link.sref" 
+            		ng-href="{{link.url}}" 
+            		ng-class="link.style">{{ ::link.text }}</a>
+            </li>
           </ul>
         </div>
 
@@ -20,7 +29,16 @@
 </div>
 
 <div id="aside-menu">
-  <ul class="list-unstyled">
-    <li ng-repeat="link in vm.headerLinks"><a ng-href="{{link.url}}">{{ ::link.text }}</a></li>
+  <ul class="list-unstyled" ui-sref-active="active">
+    <li ng-repeat="link in vm.headerLinks">
+    	<a  
+    		ui-sref-active="active" 
+    		ng-if="link.sref" 
+    		ui-sref="{{link.sref}}">{{ ::link.text }}</a>
+    	<a 
+    		ui-sref-active="active" 
+    		ng-if="!link.sref" 
+    		ng-href="{{link.url}}">{{ ::link.text }}</a>
+    </li>
   </ul>
 </div>

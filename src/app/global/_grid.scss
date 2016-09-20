@@ -17,6 +17,10 @@ header, section > .container, footer  > .container, .banner .container {
   }
 }
 
+header.container {
+	margin-top: $section-margin / 2;
+}
+
 article {
 
   header {
@@ -29,8 +33,8 @@ article {
   }
 
   header, section {
-    margin-top: 75px;
-    margin-bottom: 75px;
+    margin-top: $section-margin;
+    margin-bottom: $section-margin;
 
     @media (max-width: $screen-sm) {
     	margin-top: 50px;
@@ -48,8 +52,8 @@ article {
   section {
     &.alt {
       background-color: $justfix-grey-light;
-      padding-top: 75px;
-      padding-bottom: 75px;
+      padding-top: $section-margin;
+      padding-bottom: $section-margin;
 
       @media (max-width: $screen-sm-max) {
       	text-align: center;
@@ -58,4 +62,21 @@ article {
 
   }
 
+}
+
+.img-bg {
+	margin-top: 0px;
+	background-image: url('http://degy28l8twq8c.cloudfront.net/brownstones.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	&.landlord {
+		background-image: url('../img/landlord-dark.jpg');
+
+		p  {
+			font-size: 1.25em;
+			line-height: 1.5em;
+		}
+	}
 }

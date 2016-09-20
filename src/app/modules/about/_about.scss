@@ -14,6 +14,13 @@
       clear: both;
     }
 
+    &:last-child {
+
+    	@media (min-width: $screen-md-min) {
+	    	@include shift($n-columns: 3);
+    	}
+    }
+
     @media (min-width: $screen-sm-min) {
       padding-left: 45px;
       padding-right: 45px;
