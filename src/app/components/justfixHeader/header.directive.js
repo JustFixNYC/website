@@ -76,7 +76,7 @@
         {
           text: "Sign In",
           style: "btn",
-          url: "http://beta.justfix.nyc/signin",
+          url: "http://beta.justfix.nyc/profile",
           sref: ""
         }
       ];

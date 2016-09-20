@@ -19,6 +19,10 @@ header, section > .container, footer  > .container, .banner .container {
 
 header.container {
 	margin-top: $section-margin / 2;
+
+	@media (max-width: $screen-sm-max) {
+		margin-top: $section-margin / 3;
+	}
 }
 
 article {

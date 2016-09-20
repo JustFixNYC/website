@@ -11,6 +11,10 @@
 	}
 }
 
+.padding-section-reduced {
+	padding: $section-margin/2 0 0;
+}
+
 .padding-section {
 	padding: 120px 0 120px 0;
 
@@ -65,29 +69,109 @@
 	background: $justfix-blue;
 }
 
+.community-advocates {
+	h1 {
+		margin-bottom: $section-margin;
+	}
+
+	img {
+		max-width: 100%;
+
+		@extend .col-md-7;
+		@extend .col-sm-12;
+	}
+
+	.text {
+		@extend .col-md-4;
+		@include shift($n-columns: 0.5);
+
+		@media (max-width: $screen-sm-max){
+			margin: auto;
+		}
+	}
+}
+
+// carousel
+.carousel-inner {
+	margin: auto;
+	width: 90%;
+
+	.text {
+		margin-top: 3em;
+		text-align: left;
+
+		@extend .col-md-7;
+
+		@media (max-width: $screen-sm-max) {
+			margin-top: 0em;
+			margin-bottom: 3em;
+			padding: 0px;
+			text-align: center;
+		}
+	}
+
+	img {
+		@extend .col-md-4;
+		@include shift($n-columns: 0.5);
+
+		@media (max-width: $screen-sm-max) {
+			margin: auto;
+		}
+	}
+}
+
+.carousel-indicators {
+	position: relative;
+	top: 0px;
+	left: 0;
+	margin: 0px auto 50px;
+
+	@media (max-width: $screen-sm-max) {
+		margin-bottom: 25px;
+	}
+
+	li {
+		margin: 1px 5px;
+		background-color: $aqua-light;
+
+		&.active {
+			margin: 1px 5px;
+			background-color: $aqua-dark;
+			width: 10px;
+			height: 10px;
+		}
+	}
+}
+
+.carousel-control {
+	opacity: 1;
+	width: auto;
+
+	&.left,
+	&.right {
+		background-image: none;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.glyphicon:before {
+		color: $justfix-blue;
+	}
+
+	&:hover {
+		.glyphicon:before {
+			color: $aqua-light;
+		}
+	}
+}
+
+// Bottom homepage styling
 .flow-icon {
 	img {
 		max-height: 750px;
 	}
-}
-
-.landlord {
-	.center-block {
-		h2 {
-			margin-bottom: 2em;
-		}
-
-		@extend .col-md-6;
-		@include shift($n-columns: 3);
-
-		@media (max-width: $screen-sm-max) {
-			@include shift($n-columns: 0);
-		}
-	}
-}
-
-.map-bg {
-	background-image: url('../img/map-bg.jpg');
 }
 
 .left-block {
@@ -95,12 +179,10 @@
 	@extend .col-md-6;
 
 	&_style {
-		border-radius: 4px;
 		padding: 40px 50px;
-		background: white;
 
 		@media (max-width: $screen-sm-max) {
-			padding: 40px 20px;
+			padding: 20px 20px;
 		}
 	}
 }
@@ -109,16 +191,22 @@
 	@extend .col-md-6;
 
 	.btn {
-		float: left;
-		margin: 15% 0 0 50%;
-
-		@include transform(translateX(-65px));
+		margin: 18% auto 0 auto;
 
 		@media (max-width: $screen-md-min) {
-			margin: 10% auto 0 auto;
+			margin: 0% auto 0 auto;
 			float: none;
+		}
+	}
+}
 
-			@include transform(translateX(0));
+.landlord {
+	.center-block {
+		@extend .col-md-6;
+		@include shift($n-columns: 3);
+
+		@media (max-width: $screen-sm-max) {
+			@include shift($n-columns: 0);
 		}
 	}
 }

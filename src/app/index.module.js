@@ -11,7 +11,9 @@
        'ui.bootstrap',
        'contentful',
        'markdown',
-       'smoothScroll'
+       'smoothScroll',
+       'ngTouch',
+       'ngAnimate'
      ]);
 
 })();

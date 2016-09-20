@@ -16,8 +16,8 @@
 			</div>
 		</a>
 	</section>
-
-	<section class="justfix-blue white center padding-section" id="tutorial">
+	
+	<section class="justfix-blue white center padding-section-reduced" id="tutorial">
 		<article class="container">
 			<h2>{{$contentfulEntry.fields.imageDescription}}</h2>
 			<div class="flow-icon">
@@ -25,25 +25,67 @@
 			</div>
 		</article>
 	</section>
+	
+	<article>
+		<section class="tutorial">
+			<div class="container">
+				<h1 class="header center">For Tenants</h1>
+				<uib-carousel 
+					active="active" 
+					interval="0" 
+					no-wrap="true" 
+					template-url="app/bootstrap-templates/carousel/carousel.html">
+		
+					<uib-slide 	
+						ng-repeat="slide in $contentfulEntry.fields.slider track by $index" 
+						index="$index">
+						<p class="text">
+							<b>{{slide.fields.title}}</b>
+							<br/>
+							<br/>
+							<span ng-bind-html="slide.fields.bodyText | markdown"></span>
+							<br/>
+							<br/>
+							<a class="btn btn-primary" ng-href="http://beta.justfix.nyc/onboarding">CREATE AN ACCOUNT</a>
+						</p>
+						<img ng-src="{{slide.fields.image.fields.file.url}}">
+					</uib-slide>
+
+				</uib-carousel>
+			</div>
+		</section>
+
+		<section class="community-advocates alt no-margin-bottom">
+			<h1 class="center">{{$contentfulEntry.fields.forAdvocates.fields.title}}</h1>
+			<div class="container">
+				<img ng-src="{{$contentfulEntry.fields.forAdvocates.fields.image.fields.file.url}}" />
+				<span class="text" ng-bind-html="$contentfulEntry.fields.forAdvocates.fields.textBlock | markdown"></span>
+			</div>
+		</section>
+		<div class="clearfix"></div>
+
+		<section class="center reduced-margin">
+			<div class="container">
+				<div class="left-block">
+					<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantDirectoryDescription | markdown">
+					</div>
+				</div>
+				<div class="right-block">
+					<a class="btn btn-warning btn-block">FIND HELP</a>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</section>
+	
+	</article>
 
 	<section class="img-bg landlord white center padding-section">
 		<article class="container">
 			<div class="center-block">
 				<h2>{{$contentfulEntry.fields.missionDescription}}</h2>
+				<br/>
+				<br/>
 				<a class="btn btn-primary" ui-sref="mission">READ OUR MISSION</a>
-			</div>
-		</article>
-		<div class="clearfix"></div>
-	</section>
-
-	<section class="img-bg map-bg center padding-section">
-		<article class="container">
-			<div class="left-block">
-				<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantDirectoryDescription | markdown">
-				</div>
-			</div>
-			<div class="right-block">
-				<button class="btn btn-warning btn-block">FIND HELP</button>
 			</div>
 		</article>
 		<div class="clearfix"></div>
