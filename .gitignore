@@ -5,5 +5,3 @@ coverage/
 .idea/
 .tmp/
 dist/
-build.sh
-index.php
