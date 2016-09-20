@@ -57,7 +57,7 @@
         {
           text: "Sign In",
           style: "btn",
-          url: "signin"
+          url: "http://beta.justfix.nyc/signin"
         }
       ];
     }

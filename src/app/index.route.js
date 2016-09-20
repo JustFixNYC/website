@@ -35,6 +35,7 @@
       });
 
     $urlRouterProvider.otherwise('/');
+
   }
 
 })();
