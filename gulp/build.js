@@ -2,6 +2,7 @@
 
 var path = require('path');
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 var conf = require('./conf');
 
 var $ = require('gulp-load-plugins')({
@@ -90,8 +91,28 @@ gulp.task('other', function () {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
-gulp.task('clean', function () {
-  return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
+gulp.task('php-copy', function () {
+  return gulp.src(path.join(conf.paths.src + '/index.php'))
+            .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
-gulp.task('build', ['html', 'fonts', 'other']);
+gulp.task('php-rename', function () {
+  return gulp.src(path.join(conf.paths.dist + '/index.html'))
+             .pipe($.rename('home.html'))
+             .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
+});
+
+gulp.task('php-clean', function () {
+  return $.del(path.join(conf.paths.dist, '/index.html'));
+});
+
+gulp.task('clean', function () {
+  return $.del([path.join(conf.paths.dist, '/**'),
+                path.join(conf.paths.tmp, '/'),
+                '!' + path.join(conf.paths.dist),
+                '!' + path.join(conf.paths.dist, '/.git{,*/}*')]);
+});
+
+gulp.task('build', function() {
+  runSequence(['html', 'fonts', 'other'], ['php-copy', 'php-rename'], 'php-clean');
+});
