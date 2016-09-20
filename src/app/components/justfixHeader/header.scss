@@ -1,10 +1,25 @@
 #header-wrap {
+	position: absolute;
   height: $mobile-header-height;
-  margin-bottom: $header-bottom-margin;
-  background-color: $justfix-blue;
+  width: 100%;
+  margin-bottom: 0;
+  background-color: $clear;
+	@include transition(all 250ms ease-out);
 
   @media (min-width: $screen-sm-min) {
     height: $desktop-header-height;
+		@include transition(none);
+  }
+
+	&.blue-active {
+		background: $justfix-blue;
+	}
+
+  // styling for hidden bg, homepg only
+  &.blue-bg {
+  	position: relative;
+	  margin-bottom: $header-bottom-margin;
+	  background-color: $justfix-blue;
   }
 
   header {
@@ -19,8 +34,6 @@
 
     a {
       color: #fff;
-
-      @include transform(translateZ(0));
     }
 
     & > div {
@@ -77,6 +90,8 @@
           vertical-align: middle;
           font-size: 14px;
 
+          @include transform(translateZ(0));
+
           &:not(:last-child) {
             margin-right: 20px;
           }
@@ -88,6 +103,8 @@
 						// Highlight line
           	&:not(.btn) {
           		position: relative;
+							@include clear-transform;
+
           		&:after {
           			content: " ";
           			position: absolute;
@@ -98,10 +115,11 @@
           			width: 100%;
 
           			@include transform(scaleX(0));
-          			@include transition(0.2s ease all);
+	          		@include transition(0.2s ease all);
           		}
           	}
-
+						
+						&.active,
             &:hover,
             &:active,
             &:focus {
@@ -134,20 +152,6 @@
       }
 
     }
-  }
-
-  // styling for hidden bg, homepg only
-  &.transparent {
-  	position: absolute;
-  	margin-bottom: 0px;
-  	width: 100%;
-		background: transparent;
-
-		@include transition(all 250ms ease-out);
-
-		&.blue-active {
-			background: $justfix-blue;
-		}
   }
 }
 

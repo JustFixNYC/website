@@ -14,13 +14,49 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 $mobile-header-height: 50px;
 $desktop-header-height: 70px;
-$header-bottom-margin: 20px;
+$header-bottom-margin: 0px;
+$section-margin: 75px;
 
-$brand-primary:         $justfix-blue;
-$brand-success:         $justfix-green;
-$brand-info:            $justfix-green-alt;
-$brand-warning:         $justfix-yellow;
-$brand-danger:          $justfix-red;
+$brand-primary:       		 		$justfix-blue;
+$brand-success:        				$justfix-green;
+$brand-info:           				$justfix-green-alt;
+$brand-warning:        				$justfix-yellow;
+$brand-danger:         				$justfix-red;
+$aqua-dark: 									$justfix-blue;
+$aqua-light: 									lighten($justfix-blue, 10%);
+
+
+$mint-dark:                   #37BC9B;
+$mint-light:                  #48CFAD;
+
+$grass-dark:                  #8CC152;
+$grass-light:                 #A0D468;
+
+$sunflower-dark:              #F6BB42;
+$sunflower-light:             #FFCE54;
+
+$bittersweet-dark:            #E9573F;
+$bittersweet-light:           #FC6E51;
+
+$grapefruit-dark:             #DA4453;
+$grapefruit-light:            #ED5565;
+
+$lavender-dark:               #967ADC;
+$lavender-light:              #AC92EC;
+
+$pinkrose-dark:               #D770AD;
+$pinkrose-light:              #EC87C0;
+
+$lightgray-dark:              #E6E9ED;
+$lightgray-light:             #F5F7FA;
+
+$mediumgray-dark:             #AAB2BD;
+$mediumgray-light:            #CCD1D9;
+
+$darkgray-dark:               #434A54;
+$darkgray-light:              #656D78;
+
+$clear:												rgba(0, 0, 0, 0);
 
 $font-size-base: 18px;
 //** Unit-less `line-height` for use in components like buttons.

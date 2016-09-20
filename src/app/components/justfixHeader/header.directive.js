@@ -32,8 +32,24 @@
     }
 
     /** @ngInject */
-    function NavbarController() {
+    function NavbarController($rootScope, $document, $scope) {
       var vm = this;
+
+			// Set pg to top on routechange
+			$rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {
+		    window.scrollTo(0, 0);
+
+		    if(angular.element($document[0].getElementById('aside-menu-toggle')).hasClass('active')) {
+		    	$scope.toggleAside();
+				}
+
+	      // Nav fix
+	      if(toState.name !== 'home') {
+	      	$scope.headerColor = 'blue-bg';
+	      } else {
+	      	$scope.headerColor = '';
+	      }
+			});
 
       // "vm.creationDate" is available by directive option "bindToController: true"
       // vm.relativeDate = moment(vm.creationDate).fromNow();
@@ -42,22 +58,26 @@
         {
           text: "Our Mission",
           style: "",
-          url: "our-mission"
+          url: "mission",
+          sref: "mission"
         },
         {
           text: "About Us",
           style: "",
-          url: "about"
+          url: "about",
+          sref: "about"
         },
         {
           text: "Contact Us",
           style: "",
-          url: "contact-us"
+          url: "contact",
+          sref: "contact"
         },
         {
           text: "Sign In",
           style: "btn",
-          url: "http://beta.justfix.nyc/signin"
+          url: "http://beta.justfix.nyc/signin",
+          sref: ""
         }
       ];
     }

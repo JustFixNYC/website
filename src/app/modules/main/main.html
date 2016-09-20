@@ -30,13 +30,13 @@
 		<article class="container">
 			<div class="center-block">
 				<h2>{{$contentfulEntry.fields.missionDescription}}</h2>
-				<button class="btn btn-primary">READ OUR MISSION</button>
+				<a class="btn btn-primary" ui-sref="mission">READ OUR MISSION</a>
 			</div>
 		</article>
 		<div class="clearfix"></div>
 	</section>
 
-	<section class="img-bg map-img center padding-section">
+	<section class="img-bg map-bg center padding-section">
 		<article class="container">
 			<div class="left-block">
 				<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantDirectoryDescription | markdown">

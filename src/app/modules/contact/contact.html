@@ -1,22 +1,25 @@
 
 <article contentful-entry="'content_type=contactPage'">
-  <section class="container center">
+  <header class="container center no-margin-bottom">
 	  <h1 class="center">{{ $contentfulEntry.fields.pageTitle }}</h1>
+  </header>
+
+  <section class="container center reduced-margin-top">
 
 		<p class="hidden-desktop">
-			<a class="btn btn-success btn-block btn-email" ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}"><span class="glyphicon glyphicon-envelope"> </span>{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
-			<a class="btn btn-success btn-block" href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}"><span class="glyphicon glyphicon-earphone"> </span>{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
+			<a class="btn btn-success btn-block btn-email" ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}" target="_blank"><span class="glyphicon glyphicon-envelope"> </span>{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
+			<a class="btn btn-success btn-block" href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}" target="_blank"><span class="glyphicon glyphicon-earphone"> </span>{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
 		</p>
 
 		<p class="hidden-mobile">
-			Send us an email at <a ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}">{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
+			Send us an email at <a ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}" target="_blank">{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
 		</br>
-			or give us a call: <a href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}">{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
+			or give us a call: <a href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}" target="_blank">{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
 		</p>
 
     <div class="social">
     	<span class="btn btn-primary" ng-repeat="button in $contentfulEntry.fields.socialButtons">
-    		<a ng-href="{{button.fields.url}}">
+    		<a ng-href="{{button.fields.url}}" target="_blank">
 	    		<i class="glyphicon " ng-class="'glyphicon-' + button.fields.title"></i>
     		</a>
     	</span>
@@ -34,8 +37,8 @@
   	<div ng-bind-html="$contentfulEntry.fields.mailingList | markdown">
   	</div>
   	<br />
-		<input type="email" placeholder="email" />
-		<input class="btn btn-primary" type="submit" value="SIGN UP">
+		<input type="email" placeholder="Email Address" />
+		<input class="btn btn-primary signup" type="submit" value="SIGN UP">
   </section>
 
   <div class="clearfix"></div>

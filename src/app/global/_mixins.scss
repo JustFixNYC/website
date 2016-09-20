@@ -14,3 +14,9 @@
   -ms-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
 }
+
+@mixin clear-transform() {
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}

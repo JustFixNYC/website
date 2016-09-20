@@ -1,8 +1,8 @@
 
 <article contentful-entry="'content_type=aboutPage'">
-  <section>
+  <header class="container">
     <h1 class="center">Meet Our Team</h1>
-  </section>
+  </header>
   <section>
     <div class="container">
       <div class="team-container">
@@ -37,7 +37,8 @@
 			<span 
 				class="logo" 
 				ng-repeat="sponsor in $contentfulEntry.fields.sponsorOrganizations track by $index">
-				<div class="background-image" 
+				<div 
+					class="background-image" 
 					ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
 				</div>
 			</span>
