@@ -54,98 +54,20 @@
 	font-weight: 600;
 }
 
-// Depending on how often used: move to global css?
-.social {
-	margin-bottom: 20px;
-
-	.btn {
-		margin: 0px 16px;
-		border: none;
-		border-radius: 50%;
-		background: none;
-		padding: 0px;
-		width: auto;
-
-		&:first-child {
-			margin: 0px 16px 0px 0px;
-		}
-
-		&:last-child {
-			margin: 0px 0px 0px 16px;
-		}
-
-		&:active,
-		&:focus {
-			outline: none;
-			border: none;
-		}	
-
-		i {
-
-			&:before {
-				content: "\00a0";
-				padding: 10px; 
-				background-position: center center;
-				background-size: contain;
-				background-repeat: no-repeat;
-			}
-		}
-	}
-
-	// svg social icons TODO: move to _core.scss
-	.glyphicon-twitter {
-		&:before {
-			background-image: url('../img/twitter-blue.svg');	
-		}
-	}
-	.glyphicon-linkedin {
-		&:before {
-			background-image: url('../img/linkedin-blue.svg');	
-		}
-	}
-	.glyphicon-facebook {
-		&:before {
-			background-image: url('../img/facebook-blue.svg');	
-		}
-	}
-	.glyphicon-github {
-		&:before {
-			background-image: url('../img/github_icon.svg');	
-		}
-	}
-
-	// Base 64 social icons
-	.glyphicon-twitter-white {
-		&:before {
-			background-image: url('../img/twitter-white.svg');	
-		}
-	}
-	.glyphicon-linkedin-white {
-		&:before {
-			background-image: url('../img/linkedin-white.svg');	
-		}
-	}
-	.glyphicon-facebook-white {
-		&:before {
-			background-image: url('../img/facebook-white.svg');	
-		}
-	}
-	.glyphicon-github-white {
-		&:before {
-			background-image: url('../img/github_icon-white.svg');	
-		}
-	}
-}
-
 // logos
 .logos {
 
 	.logo {
 		margin-top: 50px;
 		height: 150px;
-		@extend .col-sm-12;
-		@extend .col-xs-12;
 		@extend .col-md-3;
+		@extend .col-sm-6;
+		@extend .col-xs-12;
+
+		&.partners {
+			margin-top: 10px;
+			height: 220px;
+		}
 
 		&.three {
 			@include shift($n-columns: 1.333);
@@ -174,16 +96,6 @@
 	margin-bottom: 0px;
 }
 
-.contentful {
-	margin: 40px 0;
-
-	.container {
-		> div {
-			@extend .col-md-6;
-		}
-	}
-}
-
 .press {
 	h4 {
 		margin: 0px 0 5px 0;
@@ -200,6 +112,10 @@
 				border-bottom: none;
 			}
 		}
+
+		@media (max-width: $screen-sm-max) {
+			margin: 0px 0;
+		}
 	}
 
 	img {
@@ -214,15 +130,19 @@
 	}
 
 	.content {
-		// right: 0%;
-		padding: 10px 0 30px 0;
 		border-bottom: darken($justfix-grey-light, 10) 1px solid;
+		padding: 10px 0 30px 0;
 		
 		@extend .col-md-7;
 		@extend .col-sm-12;
 
 		@media (max-width: $screen-sm-max) {
 			border-bottom: none;
+			padding: 25px 0 0px 0;
+
+			h4 {
+				margin-bottom: 25px;
+			}
 		}
 	}
 }

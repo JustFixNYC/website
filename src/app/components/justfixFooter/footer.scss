@@ -89,5 +89,28 @@
 		line-height: 1.5;
 
 		color: $justfix-grey-light;
+
+		span {
+			@extend .col-md-10;
+
+			@media (max-width: $screen-sm-max) {
+				padding-left: 0px;
+			}
+		}
+
+		.contentful {
+			text-align: center;
+
+			@extend .col-md-2;
+			@extend .col-sm-12;
+
+			img {
+				max-width: 100%;
+			}
+
+			@media (max-width: $screen-sm-max) {
+				margin-top: 28px;
+			}
+		}
 	}
 }

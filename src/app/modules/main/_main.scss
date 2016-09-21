@@ -132,10 +132,12 @@
 
 	li {
 		margin: 1px 5px;
+		opacity: 0.5;
 		background-color: $aqua-light;
 
 		&.active {
 			margin: 1px 5px;
+			opacity: 1;
 			background-color: $aqua-dark;
 			width: 10px;
 			height: 10px;
@@ -191,7 +193,7 @@
 	@extend .col-md-6;
 
 	.btn {
-		margin: 18% auto 0 auto;
+		margin: 82px auto 0 auto;
 
 		@media (max-width: $screen-md-min) {
 			margin: 0% auto 0 auto;
