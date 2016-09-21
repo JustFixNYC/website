@@ -12,7 +12,7 @@
 }
 
 .padding-section-reduced {
-	padding: $section-margin/2 0 0;
+	padding: 50px 0 20px;
 }
 
 .padding-section {
@@ -46,11 +46,12 @@
 		margin-bottom: 1em;
 		font-size: 3em;
 		font-weight: 600;
+		text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 
 		@include transform(translateZ(0));
 
 		@media (max-width: $screen-xs-max) {
-			font-size: 2em;
+			font-size: 1.85em;
 		}
 	}
 }
@@ -63,32 +64,22 @@
 	color: white;
 
 	@include transform(translateX(-50%));
+
+	.glyphicon {
+    margin-top: 5px;
+    font-size: 30px;
+    line-height: 24px;
+		
+		@include transform(scale(1.25, 1));
+
+		&:before {
+			content: "\e259";
+		}
+	}
 }
 
 .justfix-blue {
 	background: $justfix-blue;
-}
-
-.community-advocates {
-	h1 {
-		margin-bottom: $section-margin;
-	}
-
-	img {
-		max-width: 100%;
-
-		@extend .col-md-7;
-		@extend .col-sm-12;
-	}
-
-	.text {
-		@extend .col-md-4;
-		@include shift($n-columns: 0.5);
-
-		@media (max-width: $screen-sm-max){
-			margin: auto;
-		}
-	}
 }
 
 // carousel
@@ -97,13 +88,17 @@
 	width: 90%;
 
 	.text {
-		margin-top: 3em;
 		text-align: left;
 
 		@extend .col-md-7;
+		@include vertical-align();
+
+		h3 {
+			display: block;
+			margin: 1em 0;
+		}
 
 		@media (max-width: $screen-sm-max) {
-			margin-top: 0em;
 			margin-bottom: 3em;
 			padding: 0px;
 			text-align: center;
@@ -111,10 +106,13 @@
 	}
 
 	img {
+		float: right;
+
 		@extend .col-md-4;
 		@include shift($n-columns: 0.5);
 
 		@media (max-width: $screen-sm-max) {
+			float: none;
 			margin: auto;
 		}
 	}
@@ -124,7 +122,7 @@
 	position: relative;
 	top: 0px;
 	left: 0;
-	margin: 0px auto 50px;
+	margin: 50px auto 50px;
 
 	@media (max-width: $screen-sm-max) {
 		margin-bottom: 25px;
@@ -152,6 +150,9 @@
 	&.left,
 	&.right {
 		background-image: none;
+		text-shadow: none;
+
+		@include transform(scale(1.5));
 
 		&:hover {
 			cursor: pointer;
@@ -170,6 +171,28 @@
 }
 
 // Bottom homepage styling
+.community-advocates {
+	h3 {
+		margin-bottom: $section-margin;
+	}
+
+	img {
+		max-width: 100%;
+
+		@extend .col-md-7;
+		@extend .col-sm-12;
+	}
+
+	.text {
+		@extend .col-md-4;
+		@include shift($n-columns: 0.5);
+
+		@media (max-width: $screen-sm-max){
+			margin: auto;
+		}
+	}
+}
+
 .flow-icon {
 	img {
 		max-height: 750px;
@@ -177,14 +200,15 @@
 }
 
 .left-block {
+	color: white;
 
 	@extend .col-md-6;
 
 	&_style {
-		padding: 40px 50px;
+		padding: 0px 50px;
 
 		@media (max-width: $screen-sm-max) {
-			padding: 20px 20px;
+			padding: 0px 20px;
 		}
 	}
 }
@@ -193,10 +217,10 @@
 	@extend .col-md-6;
 
 	.btn {
-		margin: 82px auto 0 auto;
+		margin: 32px auto 0 auto;
 
 		@media (max-width: $screen-md-min) {
-			margin: 0% auto 0 auto;
+			margin: 48px auto 0 auto;
 			float: none;
 		}
 	}

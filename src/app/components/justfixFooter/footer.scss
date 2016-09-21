@@ -69,13 +69,14 @@
 	h5 {
 		margin: 5px auto 20px;
 		font-weight: 600;
-		letter-spacing: 2px;
+		letter-spacing: 1px;
 	}
 
 	.pull-right {
 
 		input[type=email] {
 			margin-bottom: 10px;
+			color: black;
 
 			@media (max-width: $screen-sm) {
 				width: 100%;
@@ -85,20 +86,26 @@
 
 	.disclaimer {
 		margin-top: 28px;
+		padding: 0;
 		font-size: 14px;
 		line-height: 1.5;
 
 		color: $justfix-grey-light;
 
+		@media (max-width: $screen-sm-max) {
+			padding: 0 15px;
+		}
+
 		span {
+			padding: 0;
 			@extend .col-md-10;
 
 			@media (max-width: $screen-sm-max) {
-				padding-left: 0px;
 			}
 		}
 
 		.contentful {
+			padding-right: 0px;
 			text-align: center;
 
 			@extend .col-md-2;
@@ -110,6 +117,7 @@
 
 			@media (max-width: $screen-sm-max) {
 				margin-top: 28px;
+				padding-right: 15px;
 			}
 		}
 	}

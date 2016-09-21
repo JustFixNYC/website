@@ -4,13 +4,14 @@
 		<article class="container">
 			<div class="hero-container">
 				<h1>{{$contentfulEntry.fields.heroCopy}}</h1>
-				<a href="#" scroll-to="tutorial" class="btn btn-primary js-scrolldown hidden-mobile">LEARN MORE</a>
+				<a href="http://beta.justfix.nyc/onboarding" class="btn btn-primary">CREATE ACCOUNT</a>
+				<a href="#" scroll-to="tutorial" class="btn btn-outline js-scrolldown hidden-mobile">HOW IT WORKS</a>
 			</div>
 			<div class="clearfix"></div>
 		</article>
 		<a href="#" scroll-to="tutorial" class="hidden-desktop">
 			<div class="center learn-more">
-				LEARN MORE
+				learn more
 				<br />
 				<span class="glyphicon glyphicon-chevron-down"></span>
 			</div>
@@ -33,22 +34,19 @@
 				<uib-carousel 
 					active="active" 
 					interval="0" 
-					no-wrap="true" 
 					template-url="app/bootstrap-templates/carousel/carousel.html">
 		
 					<uib-slide 	
 						ng-repeat="slide in $contentfulEntry.fields.slider track by $index" 
 						index="$index">
-						<p class="text">
-							<b>{{slide.fields.title}}</b>
-							<br/>
-							<br/>
+						<img ng-src="{{slide.fields.image.fields.file.url}}">
+						<span class="text">
+							<h3>{{slide.fields.title}}</h3>
 							<span ng-bind-html="slide.fields.bodyText | markdown"></span>
 							<br/>
 							<br/>
 							<a class="btn btn-primary" ng-href="http://beta.justfix.nyc/onboarding">CREATE AN ACCOUNT</a>
-						</p>
-						<img ng-src="{{slide.fields.image.fields.file.url}}">
+						</span>
 					</uib-slide>
 
 				</uib-carousel>
@@ -64,7 +62,7 @@
 		</section>
 		<div class="clearfix"></div>
 
-		<section class="center reduced-margin">
+		<section class="center no-margin justfix-blue padding-section">
 			<div class="container">
 				<div class="left-block">
 					<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantDirectoryDescription | markdown">
@@ -89,20 +87,6 @@
 			</div>
 		</article>
 		<div class="clearfix"></div>
-	</section>
-
-	<section class="banner">
-		<a ui-sref="about">
-			<div class="container">
-				<div class="pull-left">
-					<h4>Want to know more?</h4>
-					<h2 class="white">Meet Our Team.</h2>
-				</div>
-				<div class="pull-right">
-					<span class="glyphicon glyphicon-chevron-right white"></span>
-				</div>
-			</div>
-		</a>
 	</section>
 
 </div>

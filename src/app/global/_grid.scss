@@ -4,6 +4,10 @@ header, section > .container, footer  > .container, .banner .container {
   // @include container-fixed();
   max-width: $screen-md;
 
+  @media (min-width: $screen-lg-min) {
+  	max-width: $screen-lg;
+  }
+
   @media (min-width: $screen-xlg) {
   	max-width: $screen-lg;
   }
@@ -74,13 +78,26 @@ article {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
+
+	h3 {
+		text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+	}
+
+	h2 {
+		text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+	}
+
+	p {
+		line-height: 1.25em;
+		text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+	}
 	
 	&.landlord {
 		background-image: url('../img/landlord-dark.jpg');
 
 		p  {
-			font-size: 1.25em;
 			line-height: 1.5em;
+			font-size: 1.25em;
 		}
 	}
 }

@@ -32,6 +32,12 @@
         templateUrl: 'app/modules/contact/contact.html',
         controller: 'ContactController',
         controllerAs: 'contact'
+      })
+      .state('donate', {
+      	url: '/donate',
+				onEnter: ["$window", function($window) {
+					$window.open('https://www.nycharities.org/give/donate.aspx?cc=4125', '_self');
+				}]
       });
 
     $urlRouterProvider.otherwise('/');

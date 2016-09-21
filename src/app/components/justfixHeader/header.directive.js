@@ -74,6 +74,12 @@
           sref: "contact"
         },
         {
+          text: "Donate",
+          style: "",
+          url: "https://www.nycharities.org/give/donate.aspx?cc=4125",
+          sref: "donate"
+        },
+        {
           text: "Sign In",
           style: "btn",
           url: "http://beta.justfix.nyc/profile",

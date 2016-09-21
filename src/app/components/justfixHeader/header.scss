@@ -6,7 +6,7 @@
   background-color: $clear;
 	@include transition(all 250ms ease-out);
 
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: $screen-sm-max) {
     height: $desktop-header-height;
 		@include transition(none);
   }
@@ -27,7 +27,7 @@
     height: $mobile-header-height;
     margin-bottom: $header-bottom-margin;
 
-    @media (min-width: $screen-sm-min) {
+    @media (min-width: $screen-sm-max) {
       height: $desktop-header-height;
     }
 
@@ -51,7 +51,7 @@
     .header-brand {
 
       height: 100%;
-      @media (min-width: $screen-sm-min) {
+      @media (min-width: $screen-sm-max) {
         height: 80%;
       }
 
@@ -70,14 +70,14 @@
 
       &.header-links-desktop {
         display: none;
-        @media (min-width: $screen-sm-min) {
+        @media (min-width: $screen-sm-max) {
           display: block;
         }
       }
 
       &.header-links-mobile {
         display: block;
-        @media (min-width: $screen-sm-min) {
+        @media (min-width: $screen-sm-max) {
           display: none;
         }
       }
