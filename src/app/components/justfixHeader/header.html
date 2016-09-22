@@ -11,7 +11,8 @@
             	<a 
             		ng-if="link.sref" 
             		ui-sref="{{link.sref}}"
-          		  ui-sref-active="active">{{ ::link.text }}</a>
+          		  ui-sref-active="active"
+          		  target="{{link.target}}">{{ ::link.text }}</a>
             	<a 
             		ng-if="!link.sref" 
             		ng-href="{{link.url}}" 
@@ -39,7 +40,8 @@
     	<a  
     		ui-sref-active="active" 
     		ng-if="link.sref" 
-    		ui-sref="{{link.sref}}">{{ ::link.text }}</a>
+    		ui-sref="{{link.sref}}"
+  		  target="{{link.target}}">{{ ::link.text }}</a>
     	<a 
     		ui-sref-active="active" 
     		ng-if="!link.sref" 

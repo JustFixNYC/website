@@ -19,18 +19,6 @@
 	}
 }
 
-.padding-section-reduced {
-	padding: 50px 0 20px;
-}
-
-.padding-section {
-	padding: 120px 0 120px 0;
-
-	@media (max-width: $screen-sm-max) {
-		padding: 70px 0 70px 0;
-	}
-}
-
 .hero {
 	height: 100vh;
 
@@ -90,6 +78,12 @@
 	background: $justfix-blue;
 }
 
+.tutorial {
+	h1 {
+		margin-bottom: $section-margin/3;
+	}
+}
+
 // carousel
 .carousel-inner {
 	margin: auto;
@@ -97,18 +91,20 @@
 
 	.text {
 		left: 0;
-		margin-top: 68px;
+		margin-top: 42px;
 		text-align: left;
 
-		@extend .col-md-7;
+		@extend .col-md-6;
+		@include shift($n-columns: 1);
 
 		h3 {
 			display: block;
 			margin: 1em 0;
+			font-size: 22px;
 		}
 
 		@media (min-width: $screen-lg) {
-			margin-top: 88px;
+			margin-top: 62px;
 		}
 
 		@media (max-width: $screen-sm-max) {
@@ -120,12 +116,13 @@
 
 	img {
 		float: right;
+		right: 8.5298%;
 
-		@extend .col-md-4;
-		@include shift($n-columns: 0.5);
+		@extend .col-md-3;
 
 		@media (max-width: $screen-sm-max) {
 			float: none;
+			right: auto;
 			margin: auto;
 		}
 	}
@@ -135,7 +132,7 @@
 	position: relative;
 	top: 0px;
 	left: 0;
-	margin: 50px auto 50px;
+	margin: 0px auto 50px;
 
 	@media (max-width: $screen-sm-max) {
 		margin-bottom: 25px;

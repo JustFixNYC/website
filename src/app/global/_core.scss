@@ -50,6 +50,17 @@ p {
   }
 }
 
+.padding-section-reduced {
+	padding: 50px 0 20px;
+}
+
+.padding-section {
+	padding: 120px 0 120px 0;
+
+	@media (max-width: $screen-sm-max) {
+		padding: 70px 0 70px 0;
+	}
+}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -170,7 +181,8 @@ input[type=email] {
   height: auto;
   width: 260px;
   -webkit-appearance: none;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
+  color: $justfix-grey-dark;
 
   &:focus {
   	outline: $clear auto 5px;

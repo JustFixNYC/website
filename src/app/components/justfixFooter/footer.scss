@@ -98,26 +98,30 @@
 
 		span {
 			padding: 0;
-			@extend .col-md-10;
+			@extend .col-md-9;
 
 			@media (max-width: $screen-sm-max) {
 			}
 		}
 
 		.contentful {
+			float: right;
+			margin-left: 50px;
 			padding-right: 0px;
 			text-align: center;
 
 			@extend .col-md-2;
-			@extend .col-sm-12;
+			@extend .col-sm-10;
 
 			img {
 				max-width: 100%;
 			}
 
 			@media (max-width: $screen-sm-max) {
-				margin-top: 28px;
+				float: none;
+				margin: 28px auto 0 auto;
 				padding-right: 15px;
+				max-width: 150px;
 			}
 		}
 	}

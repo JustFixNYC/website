@@ -61,14 +61,19 @@
 
 .mailing-list {
 	margin: 0px 0 75px 0;
+
 	@extend .col-sm-6;
 	@include shift($n-columns: 3);
+
+	.btn[type="submit"].signup {
+		margin: -2px 0 0 16px;
+	}
 
 	@media (max-width: $screen-sm) {
 		margin: 25px auto 50px auto;
 
-		.btn {
-			margin-top: 16px;
+		.btn[type="submit"].signup {
+			margin: 16px 0 0 0;
 		}
 	}
 }

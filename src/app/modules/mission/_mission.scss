@@ -78,6 +78,10 @@
     .text {
     	padding: 10px 0;
     	text-align: center;
+
+    	strong {
+    		font-weight: 600;
+    	}
     }
 
     @media (min-width: $screen-md) {
