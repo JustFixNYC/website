@@ -65,6 +65,8 @@ article {
 
       @media (max-width: $screen-sm-max) {
       	text-align: center;
+      	padding-top: $section-margin/1.5;
+      	padding-bottom: $section-margin/1.5;
       }
     }
 

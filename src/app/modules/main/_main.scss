@@ -9,6 +9,14 @@
 			max-width: 540px;
 		}
 	}
+
+	h1 {
+		margin-bottom: $section-margin;
+
+		@media (max-width: $screen-sm-max) {
+			margin-bottom: $section-margin/1.5;
+		}
+	}
 }
 
 .padding-section-reduced {
@@ -88,18 +96,23 @@
 	width: 90%;
 
 	.text {
+		left: 0;
+		margin-top: 68px;
 		text-align: left;
 
 		@extend .col-md-7;
-		@include vertical-align();
 
 		h3 {
 			display: block;
 			margin: 1em 0;
 		}
 
+		@media (min-width: $screen-lg) {
+			margin-top: 88px;
+		}
+
 		@media (max-width: $screen-sm-max) {
-			margin-bottom: 3em;
+			margin: 0 0 3em 0;
 			padding: 0px;
 			text-align: center;
 		}
@@ -172,9 +185,6 @@
 
 // Bottom homepage styling
 .community-advocates {
-	h3 {
-		margin-bottom: $section-margin;
-	}
 
 	img {
 		max-width: 100%;
@@ -188,7 +198,8 @@
 		@include shift($n-columns: 0.5);
 
 		@media (max-width: $screen-sm-max){
-			margin: auto;
+			display: block;
+			margin: $section-margin/1.5 auto 0;
 		}
 	}
 }
