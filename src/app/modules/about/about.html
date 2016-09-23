@@ -31,7 +31,15 @@
 		</div>
 	</section>
 
-  <section class="alt">
+  <div class="triptych">
+  	<div class="image-wrap" ng-repeat="image in $contentfulEntry.fields.imageTriptych track by $index">
+			<div class="img-scale" ng-style="{'background-image':'url(' + image.fields.file.url + ')'}"></div>
+  	</div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <section class="alt milestones">
     <div class="container">
       <h3>Milestones</h3>
       <p ng-bind-html="$contentfulEntry.fields.milestones | markdown"></p>

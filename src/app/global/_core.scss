@@ -189,7 +189,7 @@ input[type=email] {
   color: $justfix-grey-dark;
 
   &:focus {
-  	outline: $clear auto 1px;
+  	outline: none;
   	border: 1px solid $justfix-blue;
   }
 }
