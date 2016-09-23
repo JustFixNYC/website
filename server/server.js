@@ -1,5 +1,11 @@
-var express = require('express');
+var express = require('express'),
+    compression = require('compression'),
+    helmet = require('helmet');
+
 var app = express();
+
+app.use(compression());
+app.use(helmet());
 
 app.use('/assets', express.static(__dirname + '/assets'));
 app.use('/fonts', express.static(__dirname + '/fonts'));
