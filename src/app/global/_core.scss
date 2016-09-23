@@ -172,6 +172,10 @@ p {
 	color: white;
 }
 
+strong {
+	font-weight: 600;
+}
+
 input[type=email] {    
 	font-size: 16px;
 	border: 1px solid $justfix-grey-dark;

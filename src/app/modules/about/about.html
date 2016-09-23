@@ -24,7 +24,10 @@
 	<section>
 		<div class="container">
 			<h3 class="center">Many thanks to our other contributors!</h3>
-			<p class="contributor" ng-repeat="contributor in $contentfulEntry.fields.contributors">{{contributor.fields.name}}</p>
+			<p class="contributor" ng-repeat="contributor in $contentfulEntry.fields.contributors">
+				<a ng-if="contributor.fields.link" ng-href="{{contributor.fields.link}}" target="_blank">{{contributor.fields.name}}</a>
+				<span ng-if="!contributor.fields.link">{{contributor.fields.name}}</span>
+			</p>
 		</div>
 	</section>
 
