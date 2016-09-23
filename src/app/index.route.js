@@ -10,6 +10,7 @@
     $stateProvider
       .state('home', {
         url: '/',
+        title: 'JustFix.nyc',
         templateUrl: 'app/modules/main/main.html',
         controller: 'MainController',
         controllerAs: 'main',
@@ -17,18 +18,21 @@
       })
       .state('about', {
         url: '/about',
+        title: 'About Us | JustFix.nyc',
         templateUrl: 'app/modules/about/about.html',
         controller: 'AboutController',
         controllerAs: 'about'
       })
       .state('mission', {
         url: '/our-mission',
+        title: 'Our Mission | JustFix.nyc',
         templateUrl: 'app/modules/mission/mission.html',
         controller: 'MissionController',
         controllerAs: 'mission'
       })
       .state('contact', {
         url: '/contact-us',
+        title: 'Contact Us | JustFix.nyc',
         templateUrl: 'app/modules/contact/contact.html',
         controller: 'ContactController',
         controllerAs: 'contact'
