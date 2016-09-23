@@ -2,7 +2,7 @@
   <header class="navbar-fixed-top">
       <div class="container-fluid">
         <a class="header-brand" ui-sref="home">
-          <img src="assets/images/brand/logo.png" class="logo" />
+          <img src="img/brand/logo.png" class="logo" />
         </a>
 
         <div class="header-links header-links-desktop">
@@ -15,7 +15,8 @@
           		  target="{{link.target}}">{{ ::link.text }}</a>
             	<a 
             		ng-if="!link.sref" 
-            		ng-href="{{link.url}}" 
+            		ng-href="{{link.url}}"
+          		  target="{{link.target}}" 
             		ng-class="link.style">{{ ::link.text }}</a>
             </li>
           </ul>
@@ -45,7 +46,8 @@
     	<a 
     		ui-sref-active="active" 
     		ng-if="!link.sref" 
-    		ng-href="{{link.url}}">{{ ::link.text }}</a>
+    		ng-href="{{link.url}}"
+  		  target="{{link.target}}">{{ ::link.text }}</a>
     </li>
   </ul>
 </div>

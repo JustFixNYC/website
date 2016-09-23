@@ -47,19 +47,21 @@
 		@include transform(translateZ(0));
 
 		@media (max-width: $screen-xs-max) {
+			margin-top: 50px;
 			font-size: 1.85em;
 		}
 	}
 }
 
 .learn-more {
-	position: absolute;
+	// position: absolute;
+	margin-top: 30px;
 	bottom: 0;
-	left: 50%;
+	// left: 50%;
 	padding-bottom: 25px;
 	color: white;
 
-	@include transform(translateX(-50%));
+	// @include transform(translateX(-50%));
 
 	.glyphicon {
     margin-top: 5px;
@@ -174,6 +176,8 @@
 
 			@media (max-width: $screen-sm-max) {
 				top: 12px;
+				margin-left: 0px;
+				margin-right: 0px;
 			}
 		}
 	}
