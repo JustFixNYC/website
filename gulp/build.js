@@ -110,9 +110,13 @@ gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/**'),
                 path.join(conf.paths.tmp, '/'),
                 '!' + path.join(conf.paths.dist),
-                '!' + path.join(conf.paths.dist, '/.git{,*/}*')]);
+                '!' + path.join(conf.paths.dist, '/.git{,*/}*'),
+                '!' + path.join(conf.paths.dist, '/apache_app.conf'),
+                '!' + path.join(conf.paths.dist, '/composer.json'),
+                '!' + path.join(conf.paths.dist, '/Procfile')]);
 });
 
 gulp.task('build', function() {
   runSequence(['html', 'fonts', 'other'], ['php-copy', 'php-rename'], 'php-clean');
+  // runSequence(['html', 'fonts', 'other']);
 });
