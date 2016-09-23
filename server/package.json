@@ -1,0 +1,11 @@
+{
+  "name": "heroku",
+  "version": "0.0.0",
+  "dependencies": {
+    "express": "~4.10.1",
+    "forever": "~0.11.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

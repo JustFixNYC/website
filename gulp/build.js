@@ -91,32 +91,31 @@ gulp.task('other', function () {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
-gulp.task('php-copy', function () {
-  return gulp.src(path.join(conf.paths.src + '/index.php'))
+gulp.task('server', function () {
+  return gulp.src([path.join(conf.paths.server + '/Procfile'),
+                   path.join(conf.paths.server + '/package.json'),
+                   path.join(conf.paths.server + '/server.js')])
             .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
-gulp.task('php-rename', function () {
-  return gulp.src(path.join(conf.paths.dist + '/index.html'))
-             .pipe($.rename('home.html'))
-             .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
-});
-
-gulp.task('php-clean', function () {
-  return $.del(path.join(conf.paths.dist, '/index.html'));
-});
+// gulp.task('php-rename', function () {
+//   return gulp.src(path.join(conf.paths.dist + '/index.html'))
+//              .pipe($.rename('home.html'))
+//              .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
+// });
+//
+// gulp.task('php-clean', function () {
+//   return $.del(path.join(conf.paths.dist, '/index.html'));
+// });
 
 gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/**'),
                 path.join(conf.paths.tmp, '/'),
                 '!' + path.join(conf.paths.dist),
-                '!' + path.join(conf.paths.dist, '/.git{,*/}*'),
-                '!' + path.join(conf.paths.dist, '/apache_app.conf'),
-                '!' + path.join(conf.paths.dist, '/composer.json'),
-                '!' + path.join(conf.paths.dist, '/Procfile')]);
+                '!' + path.join(conf.paths.dist, '/.git{,*/}*')]);
 });
 
 gulp.task('build', function() {
-  runSequence(['html', 'fonts', 'other'], ['php-copy', 'php-rename'], 'php-clean');
+  runSequence(['html', 'fonts', 'other'], 'server');
   // runSequence(['html', 'fonts', 'other']);
 });
