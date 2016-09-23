@@ -77,7 +77,7 @@
           text: "Donate",
           style: "",
           url: "https://www.nycharities.org/give/donate.aspx?cc=4125",
-          sref: "donate",
+          sref: "",
           target: "_blank"
         },
         {
