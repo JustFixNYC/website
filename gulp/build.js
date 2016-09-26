@@ -60,7 +60,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(htmlFilter)
     .pipe($.htmlmin({
       removeEmptyAttributes: true,
-      removeAttributeQuotes: true,
+      // removeAttributeQuotes: true,
       collapseBooleanAttributes: true,
       collapseWhitespace: true
     }))
