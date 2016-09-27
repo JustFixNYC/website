@@ -13,6 +13,16 @@ body {
 
 }
 
+#header {
+  position: relative;
+  z-index: 100;
+}
+
+#main {
+  position: relative;
+  z-index: 50;
+}
+
 h1, h2, h3, h4, h5 {
   margin-top: 0;
   margin-bottom: $line-height-computed;
@@ -176,7 +186,7 @@ strong {
 	font-weight: 600;
 }
 
-input[type=email] {    
+input[type=email] {
 	font-size: 16px;
 	border: 1px solid $justfix-grey-dark;
 	border-radius: 3px;
@@ -245,7 +255,7 @@ input[type=email] {
 
 		@media (max-width: $screen-sm-max) {
 			text-decoration: underline;
-		} 
+		}
 	}
 
 	&:hover,
@@ -306,7 +316,7 @@ input[type=email] {
 			outline: none;
 			border: none;
 			background: none;
-		}	
+		}
 
 		i {
 			position: relative;
@@ -314,7 +324,7 @@ input[type=email] {
 			&:before,
 			&:after {
 				content: "\00a0";
-				padding: 11px; 
+				padding: 11px;
 				background-position: center center;
 				background-size: contain;
 				background-repeat: no-repeat;
@@ -344,68 +354,68 @@ input[type=email] {
 	// svg social icons TODO: move to _core.scss
 	.glyphicon-twitter {
 		&:before {
-			background-image: url('../img/twitter-blue.svg');	
+			background-image: url('../img/twitter-blue.svg');
 		}
 		&:after {
-			background-image: url('../img/twitter-blue-invert.svg');	
+			background-image: url('../img/twitter-blue-invert.svg');
 		}
 	}
 	.glyphicon-linkedin {
 		&:before {
-			background-image: url('../img/linkedin-blue.svg');	
+			background-image: url('../img/linkedin-blue.svg');
 		}
 		&:after {
-			background-image: url('../img/linkedin-blue-invert.svg');	
+			background-image: url('../img/linkedin-blue-invert.svg');
 		}
 	}
 	.glyphicon-facebook {
 		&:before {
-			background-image: url('../img/facebook-blue.svg');	
+			background-image: url('../img/facebook-blue.svg');
 		}
 		&:after {
-			background-image: url('../img/facebook-blue-invert.svg');	
+			background-image: url('../img/facebook-blue-invert.svg');
 		}
 	}
 	.glyphicon-github {
 		&:before {
-			background-image: url('../img/github_icon.svg');	
+			background-image: url('../img/github_icon.svg');
 		}
 		&:after {
-			background-image: url('../img/github_icon-invert.svg');	
+			background-image: url('../img/github_icon-invert.svg');
 		}
 	}
 
 	// Base 64 social icons
 	.glyphicon-twitter-white {
 		&:before {
-			background-image: url('../img/twitter-white.svg');	
+			background-image: url('../img/twitter-white.svg');
 		}
 		&:after {
-			background-image: url('../img/twitter-white-invert.svg');	
+			background-image: url('../img/twitter-white-invert.svg');
 		}
 	}
 	.glyphicon-linkedin-white {
 		&:before {
-			background-image: url('../img/linkedin-white.svg');	
+			background-image: url('../img/linkedin-white.svg');
 		}
 		&:after {
-			background-image: url('../img/linkedin-white-invert.svg');	
+			background-image: url('../img/linkedin-white-invert.svg');
 		}
 	}
 	.glyphicon-facebook-white {
 		&:before {
-			background-image: url('../img/facebook-white.svg');	
+			background-image: url('../img/facebook-white.svg');
 		}
 		&:after {
-			background-image: url('../img/facebook-white-invert.svg');	
+			background-image: url('../img/facebook-white-invert.svg');
 		}
 	}
 	.glyphicon-github-white {
 		&:before {
-			background-image: url('../img/github_icon-white.svg');	
+			background-image: url('../img/github_icon-white.svg');
 		}
 		&:after {
-			background-image: url('../img/github_icon-white-invert.svg');	
+			background-image: url('../img/github_icon-white-invert.svg');
 		}
 	}
 }

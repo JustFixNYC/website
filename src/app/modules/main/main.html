@@ -1,5 +1,5 @@
 <div class="home" contentful-entry="'content_type=homePage'">
-	
+
 	<section class="img-bg hero">
 		<article class="container">
 			<div class="hero-container">
@@ -17,7 +17,7 @@
 			</a>
 		</article>
 	</section>
-	
+
 	<section class="justfix-blue white center padding-section-reduced" id="tutorial">
 		<article class="container">
 			<h2>{{$contentfulEntry.fields.imageDescription}}</h2>
@@ -26,7 +26,7 @@
 			</div>
 		</article>
 	</section>
-	
+
 	<article>
 		<section class="tutorial">
 			<div class="container">
@@ -35,9 +35,9 @@
 					active="active" 
 					interval="4000" 
 					template-url="app/bootstrap-templates/carousel/carousel.html">
-		
-					<uib-slide 	
-						ng-repeat="slide in $contentfulEntry.fields.slider track by $index" 
+
+					<uib-slide
+						ng-repeat="slide in $contentfulEntry.fields.slider track by $index"
 						index="$index">
 						<img ng-src="{{slide.fields.image.fields.file.url}}">
 						<span class="text">
@@ -74,7 +74,7 @@
 			</div>
 			<div class="clearfix"></div>
 		</section>
-	
+
 	</article>
 
 	<section class="img-bg landlord white center padding-section">

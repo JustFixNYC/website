@@ -10,7 +10,7 @@
     $stateProvider
       .state('home', {
         url: '/',
-        title: 'JustFix.nyc',
+        title: 'JustFix.nyc - Technology for Housing Justice',
         templateUrl: 'app/modules/main/main.html',
         controller: 'MainController',
         controllerAs: 'main',
