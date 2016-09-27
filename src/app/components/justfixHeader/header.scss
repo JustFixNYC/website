@@ -207,6 +207,7 @@
   height: 100vh;
   right: 0;
   top: $mobile-header-height;
+  max-width: 400px;
 
   @include transform(translateX(100%));
   -webkit-transition: -webkit-transform 250ms ease-out;

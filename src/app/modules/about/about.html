@@ -48,10 +48,12 @@
 			<span 
 				class="logo" 
 				ng-repeat="sponsor in $contentfulEntry.fields.sponsorOrganizations track by $index">
-				<div 
-					class="background-image" 
-					ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
-				</div>
+				<a ng-href="{{sponsor.fields.link}}" target="_blank">
+					<div 
+						class="background-image" 
+						ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
+					</div>
+				</a>
 			</span>
     </div>
   </section>
@@ -62,9 +64,11 @@
 				class="logo partners" 
 				ng-repeat="partner in $contentfulEntry.fields.partnerOrganizations track by $index"
 				ng-class="{'three': $index % 7 == 0}">
-				<div class="background-image" 
-					ng-style="{'background-image': 'url(' + partner.fields.logo.fields.file.url + ')'}">
-				</div>
+				<a ng-href="{{partner.fields.link}}" target="_blank">
+					<div class="background-image" 
+						ng-style="{'background-image': 'url(' + partner.fields.logo.fields.file.url + ')'}">
+					</div>
+				</a>
 			</span>
     </div>
   </section>
