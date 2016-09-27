@@ -83,7 +83,7 @@
         {
           text: "Sign In",
           style: "btn",
-          url: "http://beta.justfix.nyc/onboarding",
+          url: "http://beta.justfix.nyc/signin",
           sref: ""
         }
       ];
