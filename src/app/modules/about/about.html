@@ -12,7 +12,9 @@
           <h4>{{member.fields.title}}</h4>
           <div class="social">
           	<span ng-repeat="link in member.fields.links" class="btn btn-primary" ng-class="{'one': mem}">
-          		<i class="glyphicon" ng-class="'glyphicon-' + link.type"></i>
+              <a ng-href="{{link.url}}" target="_blank">
+          		    <i class="glyphicon" ng-class="'glyphicon-' + link.type"></i>
+              </a>
           	</span>
           </div>
           <p>{{member.fields.description}}</p>
@@ -20,7 +22,7 @@
       </div>
     </div>
   </section>
-	
+
 	<section>
 		<div class="container">
 			<h3 class="center">Many thanks to our other contributors!</h3>
@@ -45,30 +47,43 @@
       <p ng-bind-html="$contentfulEntry.fields.milestones | markdown"></p>
     </div>
     <div class="logos container">
-			<span 
-				class="logo" 
+			<span
+				class="logo"
 				ng-repeat="sponsor in $contentfulEntry.fields.sponsorOrganizations track by $index">
+<<<<<<< Updated upstream
 				<a ng-href="{{sponsor.fields.link}}" target="_blank">
-					<div 
-						class="background-image" 
+					<div
+						class="background-image"
 						ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
 					</div>
 				</a>
+=======
+				<div
+					class="background-image"
+					ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
+				</div>
+>>>>>>> Stashed changes
 			</span>
     </div>
   </section>
   <section class="center">
     <h2>Our Partners</h2>
     <div class="logos container">
-			<span 
-				class="logo partners" 
+			<span
+				class="logo partners"
 				ng-repeat="partner in $contentfulEntry.fields.partnerOrganizations track by $index"
 				ng-class="{'three': $index % 7 == 0}">
+<<<<<<< Updated upstream
 				<a ng-href="{{partner.fields.link}}" target="_blank">
-					<div class="background-image" 
+					<div class="background-image"
 						ng-style="{'background-image': 'url(' + partner.fields.logo.fields.file.url + ')'}">
 					</div>
 				</a>
+=======
+				<div class="background-image"
+					ng-style="{'background-image': 'url(' + partner.fields.logo.fields.file.url + ')'}">
+				</div>
+>>>>>>> Stashed changes
 			</span>
     </div>
   </section>
@@ -78,7 +93,7 @@
   <section class="press">
     <h2 class="center">Read more about us!</h2>
   	<div class="container">
-			
+
 			<div
 				class="press-item"
 				ng-repeat="pressItem in $contentfulEntry.fields.pressItems">
