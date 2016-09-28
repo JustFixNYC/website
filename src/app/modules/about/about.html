@@ -50,19 +50,12 @@
 			<span
 				class="logo"
 				ng-repeat="sponsor in $contentfulEntry.fields.sponsorOrganizations track by $index">
-<<<<<<< Updated upstream
 				<a ng-href="{{sponsor.fields.link}}" target="_blank">
 					<div
 						class="background-image"
 						ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
 					</div>
 				</a>
-=======
-				<div
-					class="background-image"
-					ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
-				</div>
->>>>>>> Stashed changes
 			</span>
     </div>
   </section>
@@ -73,17 +66,11 @@
 				class="logo partners"
 				ng-repeat="partner in $contentfulEntry.fields.partnerOrganizations track by $index"
 				ng-class="{'three': $index % 7 == 0}">
-<<<<<<< Updated upstream
 				<a ng-href="{{partner.fields.link}}" target="_blank">
 					<div class="background-image"
 						ng-style="{'background-image': 'url(' + partner.fields.logo.fields.file.url + ')'}">
 					</div>
 				</a>
-=======
-				<div class="background-image"
-					ng-style="{'background-image': 'url(' + partner.fields.logo.fields.file.url + ')'}">
-				</div>
->>>>>>> Stashed changes
 			</span>
     </div>
   </section>
