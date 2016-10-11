@@ -1,5 +1,5 @@
 
-<article contentful-entry="'content_type=contactPage'">
+<article id="contact" contentful-entry="'content_type=contactPage'">
   <header class="container center no-margin-bottom">
 	  <h1 class="center">{{ $contentfulEntry.fields.pageTitle }}</h1>
   </header>
@@ -28,6 +28,12 @@
     <br>
 
     <div class="map">
+      <!-- <carto-map
+        vis="https://dan-kass.carto.com/api/v2/viz/681ce4b4-8f42-11e6-937c-0e05a8b3e3d7/viz.json"
+        lat="40.6889010"
+        lng="-73.9930030"
+        zoom="18">
+      </carto-map> -->
 			<iframe frameborder="0" style="border:0" ng-src="{{ address }}" allowfullscreen></iframe>
 			<p class="address" ng-bind-html="$contentfulEntry.fields.addressText | markdown"></p>
     </div>

@@ -1,3 +1,24 @@
+#about header {
+  margin-bottom: $section-margin / 2;
+
+	@media (max-width: $screen-sm-max) {
+		margin-bottom: $section-margin / 3;
+	}
+}
+#about header + section {
+  margin-top: $section-margin / 2;
+
+	@media (max-width: $screen-sm-max) {
+		margin-top: $section-margin / 3;
+	}
+}
+
+#about carto-map {
+  display: block;
+  width: 100%;
+  height: 75vh;
+}
+
 .team-container {
 
   @extend .row;
@@ -75,12 +96,12 @@
 
 		&.three {
 			@include shift($n-columns: 1.333);
-			
+
 			@media (max-width: $screen-sm-max) {
 				@include shift($n-columns: 0);
 			}
 		}
-		
+
 		.background-image {
 			position: relative;
 			top: 0;
@@ -92,7 +113,7 @@
 			height: 100%;
 		}
 	}
-	
+
 }
 
 // Whelp, this will most likely ruin everything...
@@ -140,7 +161,7 @@
 	.content {
 		border-bottom: darken($justfix-grey-light, 10) 1px solid;
 		padding: 10px 0 30px 0;
-		
+
 		@extend .col-md-7;
 		@extend .col-sm-12;
 

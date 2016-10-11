@@ -1,10 +1,21 @@
 
-<article contentful-entry="'content_type=aboutPage'">
+<article id="about" contentful-entry="'content_type=aboutPage'">
   <header class="container">
-    <h1 class="center">Meet Our Team</h1>
+    <h1 class="center">Where We're Working</h1>
   </header>
+
+  <section>
+    <carto-map
+      vis="https://dan-kass.carto.com/api/v2/viz/1729ef20-8f42-11e6-921e-0e3ff518bd15/viz.json"
+      lat="40.727827"
+      lng="-73.941929"
+      zoom="11">
+    </carto-map>
+  </section>
+
   <section>
     <div class="container">
+      <h1 class="center">Meet Our Team</h1>
       <div class="team-container">
         <div class="team-member" ng-repeat="member in $contentfulEntry.fields.teamMembers">
           <img ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
