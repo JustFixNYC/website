@@ -29,12 +29,11 @@
         mobile_layout: true
       }
 
-      console.log(attr);
-
       if(attr.lat) scope.opts.center_lat = attr.lat;
       if(attr.lng) scope.opts.center_lon = attr.lng;
 
-      console.log(scope.opts);
+      L.Icon.Default.imagePath = "/img/leaflet";
+
       cartodb.createVis(el, scope.url, scope.opts);
 
     }
