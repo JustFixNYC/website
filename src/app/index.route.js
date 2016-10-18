@@ -42,6 +42,12 @@
 				onEnter: ["$window", function($window) {
 					$window.open('https://www.nycharities.org/give/donate.aspx?cc=4125', '_self');
 				}]
+      })
+      .state('espanol', {
+        url: '/espanol',
+        onEnter: ["$window", function($window) {
+          $window.open('http://beta.justfix.nyc/espanol', '_self');
+        }]
       });
 
     $urlRouterProvider.otherwise('/');

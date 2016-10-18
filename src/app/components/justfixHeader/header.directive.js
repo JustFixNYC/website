@@ -73,12 +73,17 @@
           url: "contact",
           sref: "contact"
         },
+        // {
+        //   text: "Donate",
+        //   style: "",
+        //   url: "https://www.nycharities.org/give/donate.aspx?cc=4125",
+        //   sref: "",
+        //   target: "_blank"
+        // },
         {
-          text: "Donate",
+          text: "En Español",
           style: "",
-          url: "https://www.nycharities.org/give/donate.aspx?cc=4125",
-          sref: "",
-          target: "_blank"
+          url: "https://beta.justfix.nyc/espanol",
         },
         {
           text: "Sign In",

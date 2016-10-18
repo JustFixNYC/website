@@ -3,7 +3,8 @@
 	<section class="img-bg hero">
 		<article class="container">
 			<div class="hero-container">
-				<h1>{{$contentfulEntry.fields.heroCopy}}</h1>
+				<!-- <h1 ng-bind-html="$contentfulEntry.fields.heroCopy | markdown"></h1> -->
+				<h1>{{ $contentfulEntry.fields.heroCopy }}</h1>
 				<a href="http://beta.justfix.nyc/onboarding" class="btn btn-primary">CREATE AN ACCOUNT</a>
 				<a href="#" scroll-to="tutorial" class="btn btn-outline js-scrolldown hidden-mobile">HOW IT WORKS</a>
 			</div>
@@ -31,9 +32,9 @@
 		<section class="tutorial">
 			<div class="container">
 				<h1 class="header center">For Tenants</h1>
-				<uib-carousel 
-					active="active" 
-					interval="4000" 
+				<uib-carousel
+					active="active"
+					interval="4000"
 					template-url="app/bootstrap-templates/carousel/carousel.html">
 
 					<uib-slide
