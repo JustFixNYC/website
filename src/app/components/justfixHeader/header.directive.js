@@ -83,7 +83,7 @@
         {
           text: "En Español",
           style: "",
-          url: "https://beta.justfix.nyc/espanol",
+          url: "http://beta.justfix.nyc/espanol",
         },
         {
           text: "Sign In",
