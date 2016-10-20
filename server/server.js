@@ -14,6 +14,16 @@ app.use('/maps', express.static(__dirname + '/maps'));
 app.use('/styles', express.static(__dirname + '/styles'));
 app.use('/scripts', express.static(__dirname + '/scripts'));
 
+
+app.use('/espanol', function(req, res, next) {
+  res.redirect('http://beta.justfix.nyc/?lang=es_mx');
+});
+app.use('/donate', function(req, res, next) {
+  res.redirect('https://www.nycharities.org/give/donate.aspx?cc=4125');
+});
+
+
+
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', { root: __dirname });
