@@ -36,6 +36,13 @@
         templateUrl: 'app/modules/contact/contact.html',
         controller: 'ContactController',
         controllerAs: 'contact'
+      })
+      .state('clinic', {
+        url: '/get-repairs',
+        title: 'Get Repairs Made | JustFix.nyc',
+        templateUrl: 'app/modules/clinic/clinic.html',
+        controller: 'ClinicController',
+        controllerAs: 'clinic'
       });
       // .state('donate', {
       // 	url: '/donate',

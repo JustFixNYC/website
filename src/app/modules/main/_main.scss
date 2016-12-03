@@ -1,4 +1,4 @@
-.home {
+#home {
 	h2 {
 		font-size: 24px;
 		font-weight: 600;
@@ -17,15 +17,15 @@
 			margin-bottom: $section-margin/1.5;
 		}
 	}
-}
 
-.hero {
-	height: 100vh;
+	.img-bg.hero {
+		background-image: url('http://degy28l8twq8c.cloudfront.net/brownstones.jpg');
+		background-size: cover;
+	}
 
-	.container {
-		@include vertical-align;
-
-
+	.img-bg.landlord {
+		background-image: url('../img/landlord-dark.jpg');
+		background-size: cover;
 	}
 }
 
@@ -61,6 +61,10 @@
 			font-size: 1.8em;
 		}
 	}
+}
+
+.learn-more-link:hover {
+	text-decoration: none;
 }
 
 .learn-more {
