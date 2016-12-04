@@ -96,11 +96,16 @@
 				class="press-item"
 				ng-repeat="pressItem in $contentfulEntry.fields.pressItems">
 				<img ng-src="{{pressItem.fields.logo.fields.file.url}}" />
-  			<div class="content pull-right">
+  			<div class="content">
 					<h4>{{pressItem.fields.title}}</h4>
 					<p><a ng-href="{{pressItem.fields.hyperlink}}" target="_blank">{{pressItem.fields.linkText}}</a></p>
 				</div>
 			</div>
+
+      <div class="press-kit center">
+        <h3>Download Our Press Kit</h3>
+        <a href="https://drive.google.com/drive/folders/0B-ssGpYqs_ibMVNRZVFSU0F6a0U" target="_blank" class="btn btn-primary">DOWNLOAD</a>
+      </div>
 
 		</div>
   </section>
