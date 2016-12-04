@@ -39,7 +39,7 @@
       })
       .state('clinic', {
         url: '/get-repairs',
-        title: 'Get Repairs Made | JustFix.nyc',
+        title: 'Get Repairs Made In Your Home | JustFix.nyc',
         templateUrl: 'app/modules/clinic/clinic.html',
         controller: 'ClinicController',
         controllerAs: 'clinic'

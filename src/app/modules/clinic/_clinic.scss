@@ -45,6 +45,24 @@
       margin-top: 75px;
       color: $justfix-grey-dark;
     }
+
+    @media (max-width: $screen-xs-max) {
+      h1 {
+        font-size: 1.85em;
+        line-height: 1.1;
+        margin-bottom: 30px;
+      }
+
+      .hero-cta {
+        max-width: 100%;
+        padding: 30px;
+      }
+
+      .learn-more {
+        margin-top: 50px;
+      }
+
+    }
   }
 
 
@@ -53,10 +71,13 @@
     text-align: center;
 
     p {
-      max-width: 50%;
       margin: 0 auto;
       line-height: 1.5;
       font-style: italic;
+
+      @media (min-width: $screen-xs) {
+        max-width: 50%;
+      }
     }
   }
 
@@ -66,8 +87,11 @@
 
     h3 {
       line-height: 1.3;
-      max-width: 50%;
       margin: 0 auto;
+
+      @media (min-width: $screen-xs) {
+        max-width: 50%;
+      }
     }
 
     .list-inline li {
@@ -76,26 +100,55 @@
       h4 {
         margin-top: 15px;
       }
+
+      @media (max-width: $screen-xs-max) {
+        padding: 25px;
+      }
     }
 
     .services-image {
       @extend .col-sm-6;
+      @extend .col-sm-pull-6;
 
       img {
         width: 75%;
         height: auto;
         display: block;
         margin: 0 auto;
+
+        @media (max-width: $screen-xs-max) {
+          width: 100%;
+        }
       }
     }
 
     .services-offered {
       @extend .col-sm-6;
+      @extend .col-sm-push-6;
 
       text-align: left;
       padding-left: 30px;
+
+      @media (max-width: $screen-xs-max) {
+        margin-bottom: 45px;
+      }
     }
 
+
+  }
+
+
+  .bottom-cta {
+
+    .container {
+
+      & > div:first-child {
+        @media (max-width: $screen-sm-max) {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+      }
+    }
   }
 
 }

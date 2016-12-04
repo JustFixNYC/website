@@ -7,7 +7,7 @@
       <div class="hero-cta">
         <h3>{{ $contentfulEntry.fields.heroCta }}</h3>
         <!-- <a class="btn btn-outline btn-outline-blue btn-block"><span class="glyphicon glyphicon-earphone"> </span>(646) 820-0349</a> -->
-        <a class="btn btn-primary btn-block btn-big"><span class="glyphicon glyphicon-earphone"> </span>(646) 820-0349</a>
+        <a class="btn btn-primary btn-block btn-big" href="tel:6468200349"><span class="glyphicon glyphicon-earphone"> </span>(646) 820-0349</a>
       </div>
       <a href="#" scroll-to="description" class="learn-more-link">
         <div class="center learn-more">
@@ -35,24 +35,24 @@
           <h4>{{ servicePreview.fields.title }}</h4>
         </li>
       </ul>
-      <div class="services-image">
-        <img ng-src="{{$contentfulEntry.fields.servicesImage.fields.file.url}}" />
-      </div>
       <ul class="services-offered">
         <li ng-repeat="service in $contentfulEntry.fields.servicesList">
           {{ service }}
         </li>
       </ul>
+      <div class="services-image">
+        <img ng-src="{{$contentfulEntry.fields.servicesImage.fields.file.url}}" />
+      </div>
     </div>
   </section>
 
-  <section>
+  <section class="bottom-cta">
     <div class="container">
-      <div class="col-sm-4 col-sm-offset-2">
+      <div class="col-sm-6">
         <h1>{{ $contentfulEntry.fields.bottomCta }}</h1>
       </div>
-      <div class="col-sm-4">
-        <a class="btn btn-primary btn-block btn-big"><span class="glyphicon glyphicon-earphone"> </span>(646) 820-0349</a>
+      <div class="col-sm-4 col-sm-push-1">
+        <a class="btn btn-primary btn-block btn-big" href="tel:6468200349"><span class="glyphicon glyphicon-earphone"> </span>(646) 820-0349</a>
       </div>
     </div>
   </section>
