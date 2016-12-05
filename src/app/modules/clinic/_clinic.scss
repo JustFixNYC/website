@@ -143,10 +143,20 @@
     .container {
 
       & > div:first-child {
+
+        @extend .col-sm-5;
+        @extend .col-sm-push-1;
+
         @media (max-width: $screen-sm-max) {
           text-align: center;
           margin-bottom: 30px;
         }
+      }
+
+      & > div:last-child {
+
+        @extend .col-sm-4;
+        @extend .col-sm-push-1;
       }
     }
   }
