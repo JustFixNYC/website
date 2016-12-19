@@ -9,6 +9,12 @@
   function ClinicController($timeout, $scope, contentful, $sce) {
     var vm = this;
 
+    contentful
+      .entries('sys.id=4NuCfazi64eCSG0mYEIe6u')
+      .then(function (response) {
+        console.log(response);
+      });
+
     // // Thinking maybe we set this entire page up from this scope?
     // contentful
     //  	.entry('3sQl7zDqL6ioCEowWISyEm')

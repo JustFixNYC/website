@@ -18,7 +18,8 @@
     "angular-contentful": "~2.0.0",
     "angular-markdown-filter": "^1.4.0",
     "ngSmoothScroll": "^2.0.0",
-    "cartodb.js": "~3.15.9"
+    "cartodb.js": "~3.15.9",
+    "ui-router-metatags": "^1.0.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"
@@ -35,6 +36,6 @@
     }
   },
   "resolutions": {
-    "angular": "~1.5.3"
+    "angular": "^1.0.8"
   }
 }
