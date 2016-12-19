@@ -32,7 +32,7 @@
       margin-top: 40px;
       max-width: 50%;
       margin: 0 auto;
-      padding: 45px;
+      padding: 35px 45px 25px 45px;
       // border: 1px solid darken(#fff, 10%);
 
       h3 {
@@ -42,7 +42,7 @@
     }
 
     .learn-more {
-      margin-top: 75px;
+      margin-top: 50px;
       color: $justfix-grey-dark;
     }
 
@@ -59,7 +59,7 @@
       }
 
       .learn-more {
-        margin-top: 50px;
+        margin-top: 35px;
       }
 
     }
@@ -141,11 +141,16 @@
   .bottom-cta {
 
     .container {
+      //
+      // & > div {
+      //   @extend .col-sm-4;
+      // }
 
-      & > div:first-child {
+      h1 {
+        max-width: 800px;
+      }
 
-        @extend .col-sm-5;
-        @extend .col-sm-push-1;
+      & > div:nth-child(1) {
 
         @media (max-width: $screen-sm-max) {
           text-align: center;
@@ -153,11 +158,10 @@
         }
       }
 
-      & > div:last-child {
-
+      .row .btn {
         @extend .col-sm-4;
-        @extend .col-sm-push-1;
       }
+
     }
   }
 
