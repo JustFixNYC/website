@@ -19,6 +19,10 @@
     width: 260px;
   }
 
+  .social & {
+    width: auto;
+  }
+
   &[type="submit"].signup {
 		margin: -2px 0 0 0;
     padding: 10px 26px;
@@ -44,6 +48,10 @@
 .btn-primary.active, .btn-primary:active, .btn-primary:hover, .open>.btn-primary.dropdown-toggle {
   border-color: $aqua-light;
   background-color: $aqua-light;
+}
+
+.btn-icon:hover {
+  background-color: transparent !important;
 }
 
 .btn-warning:hover {

@@ -22,7 +22,7 @@
           <h4>{{member.fields.name}}</h4>
           <h4>{{member.fields.title}}</h4>
           <div class="social">
-          	<span ng-repeat="link in member.fields.links" class="btn btn-primary" ng-class="{'one': mem}">
+          	<span ng-repeat="link in member.fields.links" class="btn btn-primary btn-icon" ng-class="{'one': mem}">
               <a ng-href="{{link.url}}" target="_blank">
           		    <i class="glyphicon" ng-class="'glyphicon-' + link.type"></i>
               </a>

@@ -7,6 +7,8 @@ var app = express();
 app.use(compression());
 app.use(helmet());
 
+app.use(require('prerender-node').set('prerenderToken', '6x0ervNLErEUk7hpACc3'));
+
 app.use('/assets', express.static(__dirname + '/assets'));
 app.use('/fonts', express.static(__dirname + '/fonts'));
 app.use('/img', express.static(__dirname + '/img'));
