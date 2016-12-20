@@ -27,10 +27,6 @@
           $log.error('Oops, error ' + response.status);
         }
       );
-      //
-      // $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-      //   $rootScope.title = toState.title;
-      // });
   }
 
 })();

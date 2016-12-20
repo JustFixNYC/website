@@ -13,6 +13,7 @@
       scope: {
           creationDate: '='
       },
+      controllerAs: 'vm',
       controller: footerController,
       bindToController: true
     };

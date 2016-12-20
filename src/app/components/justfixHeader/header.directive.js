@@ -13,6 +13,7 @@
       scope: {
           creationDate: '='
       },
+      controllerAs: 'vm',
       controller: NavbarController,
       link: linkFunc,
       bindToController: true
@@ -66,7 +67,13 @@
 					text: "About Us",
 					style: "",
 					url: "about",
-					sref: "about"
+					sref: "about",
+					children: {
+						text: "About Us",
+						style: "",
+						url: "about",
+						sref: "about"
+					}
 				},
 				{
 					text: "Contact Us",
