@@ -15,13 +15,12 @@
       },
       controller: NavbarController,
       link: linkFunc,
-      controllerAs: 'vm',
       bindToController: true
     };
 
     return directive;
 
-    function linkFunc(scope, el, attr, vm, $state) {
+    function linkFunc(scope) {
 
       scope.toggleAside = function() {
         angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');
@@ -32,47 +31,49 @@
     }
 
     /** @ngInject */
-    function NavbarController($rootScope, $document, $scope) {
-      var vm = this;
+    function NavbarController($rootScope, $document, $scope, $window) {
+			var vm = this;
 
 			// Set pg to top on routechange
-			$rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams) {
-		    window.scrollTo(0, 0);
+			var menuToggle = $rootScope.$on("$stateChangeSuccess", function(event, toState) {
+				$window.scrollTo(0, 0);
 
-		    if(angular.element($document[0].getElementById('aside-menu-toggle')).hasClass('active')) {
-		    	$scope.toggleAside();
+				if(angular.element($document[0].getElementById('aside-menu-toggle')).hasClass('active')) {
+					$scope.toggleAside();
 				}
 
-	      // Nav fix
-	      if(toState.name !== 'home') {
-	      	$scope.headerColor = 'blue-bg';
-	      } else {
-	      	$scope.headerColor = '';
-	      }
+				// Nav fix
+				if(toState.name !== 'home') {
+					$scope.headerColor = 'blue-bg';
+				} else {
+					$scope.headerColor = '';
+				}
 			});
 
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      // vm.relativeDate = moment(vm.creationDate).fromNow();
+			menuToggle();
 
-      vm.headerLinks = [
-        {
-          text: "Our Mission",
-          style: "",
-          url: "mission",
-          sref: "mission"
-        },
-        {
-          text: "About Us",
-          style: "",
-          url: "about",
-          sref: "about"
-        },
-        {
-          text: "Contact Us",
-          style: "",
-          url: "contact",
-          sref: "contact"
-        },
+			// "vm.creationDate" is available by directive option "bindToController: true"
+			// vm.relativeDate = moment(vm.creationDate).fromNow();
+
+			vm.headerLinks = [
+				{
+					text: "Our Mission",
+					style: "",
+					url: "mission",
+					sref: "mission"
+				},
+				{
+					text: "About Us",
+					style: "",
+					url: "about",
+					sref: "about"
+				},
+				{
+					text: "Contact Us",
+					style: "",
+					url: "contact",
+					sref: "contact"
+				},
         // {
         //   text: "Donate",
         //   style: "",
@@ -83,7 +84,7 @@
         {
           text: "En Español",
           style: "",
-          url: "http://beta.justfix.nyc/?lang=es_mx",
+          url: "http://beta.justfix.nyc/?lang=es_mx"
         },
         {
           text: "Sign In",

@@ -6,9 +6,6 @@
     .controller('MissionController', MissionController);
 
   /** @ngInject */
-  function MissionController($timeout) {
-    var vm = this;
-
-
+  function MissionController() {
   }
 })();

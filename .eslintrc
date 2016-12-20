@@ -1,6 +1,9 @@
 {
   "extends": "eslint:recommended",
   "plugins": ["angular"],
+  "rules": {
+  	"angular/controller-as": 0
+	},
   "env": {
     "browser": true,
     "jasmine": true
@@ -8,6 +11,8 @@
   "globals": {
     "angular": true,
     "module": true,
-    "inject": true
+    "inject": true,
+    "cartodb": true,
+    "L": true
   }
 }

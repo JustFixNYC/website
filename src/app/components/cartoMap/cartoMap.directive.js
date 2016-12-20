@@ -6,20 +6,19 @@
     .directive('cartoMap', cartoMap);
 
   /** @ngInject */
-  function cartoMap($window) {
+  function cartoMap() {
     var directive = {
       restrict: 'E',
       // template: '<div id="{{name}}" class="carto-map"></div>',
       scope: true,
       link: linkFunc,
-      controllerAs: 'vm',
       controller: cartoMapController,
       bindToController: true
     };
 
     return directive;
 
-    function linkFunc(scope, el, attr, vm) {
+    function linkFunc(scope, el, attr) {
 
       // scope.name = attr.name;
       scope.url = attr.vis;
@@ -28,7 +27,6 @@
         search: false,
         mobile_layout: true
       }
-
       if(attr.lat) scope.opts.center_lat = attr.lat;
       if(attr.lng) scope.opts.center_lon = attr.lng;
 

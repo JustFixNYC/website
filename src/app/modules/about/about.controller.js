@@ -6,10 +6,7 @@
     .controller('AboutController', AboutController);
 
   /** @ngInject */
-  function AboutController($timeout) {
-    var vm = this;
-
-
+  function AboutController() {
 
   }
 })();

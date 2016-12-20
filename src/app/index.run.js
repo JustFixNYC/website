@@ -24,7 +24,7 @@
 
         // Error handler
         function(response){
-          console.log('Oops, error ' + response.status);
+          $log.error('Oops, error ' + response.status);
         }
       );
       //
