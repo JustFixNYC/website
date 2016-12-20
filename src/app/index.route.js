@@ -10,7 +10,6 @@
     $stateProvider
       .state('home', {
         url: '/',
-        title: 'JustFix.nyc - Technology for Housing Justice',
         templateUrl: 'app/modules/main/main.html',
         controller: 'MainController',
         controllerAs: 'main',
@@ -18,30 +17,58 @@
       })
       .state('about', {
         url: '/about',
-        title: 'About Us | JustFix.nyc',
         templateUrl: 'app/modules/about/about.html',
         controller: 'AboutController',
-        controllerAs: 'about'
+        controllerAs: 'about',
+        metaTags: {
+          title: 'About Us'
+        }
       })
       .state('mission', {
         url: '/our-mission',
-        title: 'Our Mission | JustFix.nyc',
         templateUrl: 'app/modules/mission/mission.html',
         controller: 'MissionController',
-        controllerAs: 'mission'
+        controllerAs: 'mission',
+        metaTags: {
+          title: 'Our Mission'
+        }
       })
       .state('contact', {
         url: '/contact-us',
-        title: 'Contact Us | JustFix.nyc',
         templateUrl: 'app/modules/contact/contact.html',
         controller: 'ContactController',
-        controllerAs: 'contact'
+        controllerAs: 'contact',
+        metaTags: {
+          title: 'Contact Us'
+        }
       })
-      .state('donate', {
-      	url: '/donate',
-				onEnter: ["$window", function($window) {
-					$window.open('https://www.nycharities.org/give/donate.aspx?cc=4125', '_self');
-				}]
+      .state('clinic', {
+        url: '/get-repairs',
+        templateUrl: 'app/modules/clinic/clinic.html',
+        controller: 'ClinicController',
+        controllerAs: 'clinic',
+        resolve: {
+          /* @ngInject */
+          metaTags: function(contentful) { return contentful.entries('sys.id=4NuCfazi64eCSG0mYEIe6u'); }
+        },
+        metaTags: {
+          /* @ngInject */
+          title: function(metaTags) { return metaTags.data.items[0].fields.title; },
+          properties: {
+            /* @ngInject */
+            'og:title': function(metaTags) { return metaTags.data.items[0].fields.title; },
+            /* @ngInject */
+            'twitter:title': function(metaTags) { return metaTags.data.items[0].fields.title; },
+            /* @ngInject */
+            'og:description': function(metaTags) { return metaTags.data.items[0].fields.description; },
+            /* @ngInject */
+            'twitter:description': function(metaTags) { return metaTags.data.items[0].fields.description; },
+            /* @ngInject */
+            'og:image': function(metaTags) { return 'http:' + metaTags.data.items[0].fields.shareImage.fields.file.url; },
+            /* @ngInject */
+            'twitter:image': function(metaTags) { return 'http:' + metaTags.data.items[0].fields.shareImage.fields.file.url; }
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');

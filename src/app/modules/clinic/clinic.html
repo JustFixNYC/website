@@ -1,0 +1,60 @@
+
+<article id="clinic" contentful-entry="'content_type=clinicPage'">
+
+  <section class="img-bg hero no-margin-bottom" ng-style="{ 'background-image': 'url(' + $contentfulEntry.fields.heroImage.fields.file.url + ')', 'background-size': 'cover' }">
+		<div class="container">
+      <h1>{{ $contentfulEntry.fields.heroTitle }}</h1>
+      <div class="hero-cta">
+        <h3>{{ $contentfulEntry.fields.heroCta }}</h3>
+        <!-- <a class="btn btn-outline btn-outline-blue btn-block"><span class="glyphicon glyphicon-earphone"> </span>(646) 820-0349</a> -->
+        <a class="btn btn-primary btn-block btn-big" href="tel:6468200349"><span class="glyphicon glyphicon-earphone"> </span>(646) 820-0349</a>
+        <a class="btn btn-link btn-block btn-big" href="http://beta.justfix.nyc">or click here to start taking action on your own!</a>
+      </div>
+      <a href="#" scroll-to="description" class="learn-more-link">
+        <div class="center learn-more">
+          how it works
+          <br />
+          <span class="glyphicon glyphicon-chevron-down"></span>
+        </div>
+      </a>
+		</div>
+
+	</section>
+
+  <section id="description" class="justfix-blue white center padding-section-reduced no-margin-top" id="tutorial">
+    <div class="container">
+      <p class="lead">{{ $contentfulEntry.fields.description }}</p>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <h3>{{ $contentfulEntry.fields.servicesTitle }}</h3>
+      <ul class="list-inline">
+        <li ng-repeat="servicePreview in $contentfulEntry.fields.servicesPreviewList">
+          <img ng-src="{{ servicePreview.fields.icon.fields.file.url }}"  />
+          <h4>{{ servicePreview.fields.title }}</h4>
+        </li>
+      </ul>
+      <ul class="services-offered">
+        <li ng-repeat="service in $contentfulEntry.fields.servicesList">
+          {{ service }}
+        </li>
+      </ul>
+      <div class="services-image">
+        <img ng-src="{{$contentfulEntry.fields.servicesImage.fields.file.url}}" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta">
+    <div class="container center">
+      <h1>{{ $contentfulEntry.fields.bottomCta }}</h1>
+      <br />
+      <a class="btn btn-primary" href="tel:6468200349"><span class="glyphicon glyphicon-earphone"> </span>(646) 820-0349</a>
+      <a class="btn btn-outline black" href="http://beta.justfix.nyc">Create Account</a>
+    </div>
+  </section>
+
+
+</article>

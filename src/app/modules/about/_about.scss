@@ -1,3 +1,24 @@
+#about header {
+  margin-bottom: $section-margin / 2;
+
+	@media (max-width: $screen-sm-max) {
+		margin-bottom: $section-margin / 3;
+	}
+}
+#about header + section {
+  margin-top: $section-margin / 2;
+
+	@media (max-width: $screen-sm-max) {
+		margin-top: $section-margin / 3;
+	}
+}
+
+#about carto-map {
+  display: block;
+  width: 100%;
+  height: 75vh;
+}
+
 .team-container {
 
   @extend .row;
@@ -75,12 +96,12 @@
 
 		&.three {
 			@include shift($n-columns: 1.333);
-			
+
 			@media (max-width: $screen-sm-max) {
 				@include shift($n-columns: 0);
 			}
 		}
-		
+
 		.background-image {
 			position: relative;
 			top: 0;
@@ -92,7 +113,7 @@
 			height: 100%;
 		}
 	}
-	
+
 }
 
 // Whelp, this will most likely ruin everything...
@@ -105,15 +126,10 @@
 }
 
 .press {
-	h4 {
-		margin: 0px 0 5px 0;
-	}
 
 	.press-item {
 		margin: 30px 0;
 		position: relative;
-
-		@extend .clearfix;
 
 		&:last-child {
 			.content {
@@ -121,36 +137,58 @@
 			}
 		}
 
+    @extend .clearfix;
+
+
 		@media (max-width: $screen-sm-max) {
 			margin: 0px 0;
 		}
+
+    img {
+
+      @extend .col-md-3;
+      @include vertical-align($position: absolute);
+      @include shift($n-columns: 1);
+
+      @media (max-width: $screen-sm-max) {
+        display: none;
+      }
+    }
+
+    .content {
+      border-bottom: darken($justfix-grey-light, 10) 1px solid;
+      padding: 10px 0 30px 0;
+
+      @extend .col-md-7;
+      @extend .col-sm-12;
+
+      h4 {
+        margin: 0px 0 5px 0;
+      }
+
+
+
+
+      @media (max-width: $screen-sm-max) {
+        border-bottom: none;
+        padding: 25px 0 0px 0;
+
+        h4 {
+          margin-bottom: 25px;
+        }
+      }
+
+      @media (min-width: $screen-sm) {
+        float: right !important;
+      }
+    }
+
+
 	}
 
-	img {
+  .press-kit {
+    margin-top: $section-margin;
+  }
 
-		@extend .col-md-3;
-		@include vertical-align($position: absolute);
-		@include shift($n-columns: 1);
 
-		@media (max-width: $screen-sm-max) {
-			display: none;
-		}
-	}
-
-	.content {
-		border-bottom: darken($justfix-grey-light, 10) 1px solid;
-		padding: 10px 0 30px 0;
-		
-		@extend .col-md-7;
-		@extend .col-sm-12;
-
-		@media (max-width: $screen-sm-max) {
-			border-bottom: none;
-			padding: 25px 0 0px 0;
-
-			h4 {
-				margin-bottom: 25px;
-			}
-		}
-	}
 }

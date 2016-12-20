@@ -8,6 +8,7 @@
        'ngAria',
        'ngResource',
        'ui.router',
+       'ui.router.metatags',
        'ui.bootstrap',
        'contentful',
        'markdown',

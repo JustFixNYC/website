@@ -1,7 +1,8 @@
 <!doctype html>
 <html ng-app="boilerplate">
   <head>
-    <title ng-bind="$root.title"></title>
+    <!-- <title ng-bind="$root.title"></title> -->
+    <title ng-bind="MetaTags.title">JustFix.nyc - Technology for Housing Justice</title>
     <base href="/">
   	<meta charset="utf-8">
   	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
@@ -33,27 +34,29 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
 
-		<meta name="description" content="JustFix.nyc adds another tactic to the fight for housing justice by partnering with grassroots organizations to create better support systems for New York City’s excluded communites.">
-    <meta name="keywords" content="new york city, new york, brooklyn, bronx, staten island, queens, manhattan, housing, renters, help, know your rights, tenants rights, tenant rights, repairs, landlord, harassment, rent, assistance, legal aid, legal services, legal, legal assistance, technology, directory">
+    <meta name="description" content="{{MetaTags.description}}">
+    <meta name="keywords" content="{{MetaTags.keywords}}">
 
     <meta name="google-site-verification" content="IXSJ9ikWoYGw4vJ5aIAePR_nGWcPD77GxJ4JBGyjN-c" />
 
+    <meta ng-repeat="(key, value) in MetaTags.properties" property="{{key}}" content="{{value}}" >
+
     <!-- Facebook META -->
-  	<meta property="og:site_name" content="JustFix.nyc - Technology for Housing Justice">
+  	<!-- <meta property="og:site_name" content="JustFix.nyc - Technology for Housing Justice">
   	<meta property="og:title" content="JustFix.nyc - Technology for Housing Justice">
   	<meta property="og:description" content="JustFix.nyc adds another tactic to the fight for housing justice by partnering with grassroots organizations to create better support systems for New York City’s excluded communites.">
   	<meta property="og:url" content="http://www.justfix.nyc">
   	<meta property="og:image" content="http://degy28l8twq8c.cloudfront.net/justfixmain.jpg">
-  	<meta property="og:type" content="website">
+  	<meta property="og:type" content="website"> -->
 
   	<!-- Twitter META -->
-  	<meta name="twitter:card" content="summary_large_image">
+  	<!-- <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@JustFixNYC">
     <meta name="twitter:creator" content="@JustFixNYC">
   	<meta name="twitter:title" content="JustFix.nyc - Technology for Housing Justice">
   	<meta name="twitter:description" content="JustFix.nyc adds another tactic to the fight for housing justice by partnering with grassroots organizations to create better support systems for New York City’s excluded communites.">
   	<meta name="twitter:url" content="http://www.justfix.nyc">
-  	<meta name="twitter:image" content="http://degy28l8twq8c.cloudfront.net/justfixmain.jpg">
+  	<meta name="twitter:image" content="http://degy28l8twq8c.cloudfront.net/justfixmain.jpg"> -->
 
   	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
@@ -99,6 +102,14 @@
       ga('create', 'UA-67069242-1', 'auto');
       ga('send', 'pageview');
 
+    </script>
+
+    <script type="text/javascript">
+      window._chatlio = window._chatlio||[];
+      !function(){ var t=document.getElementById("chatlio-widget-embed");if(t&&window.ChatlioReact&&_chatlio.init)return void _chatlio.init(t,ChatlioReact);for(var e=function(t){return function(){_chatlio.push([t].concat(arguments)) }},i=["configure","identify","track","show","hide","isShown","isOnline"],a=0;a<i.length;a++)_chatlio[i[a]]||(_chatlio[i[a]]=e(i[a]));var n=document.createElement("script"),c=document.getElementsByTagName("script")[0];n.id="chatlio-widget-embed",n.src="https://w.chatlio.com/w.chatlio-widget.js",n.async=!0,n.setAttribute("data-embed-version","2.1");
+         n.setAttribute('data-widget-id','0cc218be-1bc1-450a-5d5b-5198959fbf1e');
+         c.parentNode.insertBefore(n,c);
+      }();
     </script>
 
     <!-- build:js(src) scripts/vendor.js -->

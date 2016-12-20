@@ -1,5 +1,5 @@
 
-<article contentful-entry="'content_type=contactPage'">
+<article id="contact" contentful-entry="'content_type=contactPage'">
   <header class="container center no-margin-bottom">
 	  <h1 class="center">{{ $contentfulEntry.fields.pageTitle }}</h1>
   </header>
@@ -8,17 +8,17 @@
 
 		<p class="hidden-desktop">
 			<a class="btn btn-success btn-block btn-email" ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}" target="_blank"><span class="glyphicon glyphicon-envelope"> </span>{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
-			<a class="btn btn-success btn-block" href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}" target="_blank"><span class="glyphicon glyphicon-earphone"> </span>{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
+			<a class="btn btn-success btn-block" ng-href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}"><span class="glyphicon glyphicon-earphone"> </span>{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
 		</p>
 
 		<p class="hidden-mobile">
 			Send us an email at <a ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}" target="_blank">{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
 		</br>
-			or give us a call: <a href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}" target="_blank">{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
+			or give us a call: <a ng-href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}">{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
 		</p>
 
     <div class="social">
-    	<span class="btn btn-primary" ng-repeat="button in $contentfulEntry.fields.socialButtons">
+    	<span class="btn btn-primary btn-icon" ng-repeat="button in $contentfulEntry.fields.socialButtons">
     		<a ng-href="{{button.fields.url}}" target="_blank">
 	    		<i class="glyphicon " ng-class="'glyphicon-' + button.fields.title"></i>
     		</a>
@@ -28,6 +28,12 @@
     <br>
 
     <div class="map">
+      <!-- <carto-map
+        vis="https://dan-kass.carto.com/api/v2/viz/681ce4b4-8f42-11e6-937c-0e05a8b3e3d7/viz.json"
+        lat="40.6889010"
+        lng="-73.9930030"
+        zoom="18">
+      </carto-map> -->
 			<iframe frameborder="0" style="border:0" ng-src="{{ address }}" allowfullscreen></iframe>
 			<p class="address" ng-bind-html="$contentfulEntry.fields.addressText | markdown"></p>
     </div>

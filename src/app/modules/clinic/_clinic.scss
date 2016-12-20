@@ -1,0 +1,168 @@
+#clinic {
+
+  .img-bg.hero {
+
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%; height: 100%;
+      top: 0; left: 0;
+      background-color: #fff;
+      opacity: 0.6;
+    }
+
+  }
+
+  .hero .container {
+    z-index: 10;
+    text-align: center;
+    // @include transform(translateY(-50%));
+
+    h1 {
+      margin-bottom: 50px;
+      line-height: 1.3;
+    }
+
+    .hero-cta {
+      background-color: #fff;
+      border-radius: 5px;
+      margin-top: 40px;
+      max-width: 50%;
+      margin: 0 auto;
+      padding: 35px 45px 25px 45px;
+      // border: 1px solid darken(#fff, 10%);
+
+      h3 {
+        text-shadow: none;
+        font-weight: $text-normal;
+      }
+    }
+
+    .learn-more {
+      margin-top: 50px;
+      color: $justfix-grey-dark;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      h1 {
+        font-size: 1.85em;
+        line-height: 1.1;
+        margin-bottom: 30px;
+      }
+
+      .hero-cta {
+        max-width: 100%;
+        padding: 30px;
+      }
+
+      .learn-more {
+        margin-top: 35px;
+      }
+
+    }
+  }
+
+
+  #description {
+
+    text-align: center;
+
+    p {
+      margin: 0 auto;
+      line-height: 1.5;
+      font-style: italic;
+
+      @media (min-width: $screen-xs) {
+        max-width: 65%;
+      }
+    }
+  }
+
+  .services {
+
+    text-align: center;
+
+    h3 {
+      line-height: 1.3;
+      margin: 0 auto;
+
+      @media (min-width: $screen-xs) {
+        max-width: 50%;
+      }
+    }
+
+    .list-inline li {
+      padding: 50px;
+
+      h4 {
+        margin-top: 15px;
+      }
+
+      @media (max-width: $screen-xs-max) {
+        padding: 25px;
+      }
+    }
+
+    .services-image {
+      @extend .col-sm-6;
+      @extend .col-sm-pull-6;
+
+      img {
+        width: 75%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+
+        @media (max-width: $screen-xs-max) {
+          width: 100%;
+        }
+      }
+    }
+
+    .services-offered {
+      @extend .col-sm-6;
+      @extend .col-sm-push-6;
+
+      text-align: left;
+      padding-left: 30px;
+
+      @media (max-width: $screen-xs-max) {
+        margin-bottom: 45px;
+      }
+    }
+
+
+  }
+
+
+  .bottom-cta {
+
+    .container {
+      //
+      // & > div {
+      //   @extend .col-sm-4;
+      // }
+
+      h1 {
+        max-width: 800px;
+      }
+
+      & > div:nth-child(1) {
+
+        @media (max-width: $screen-sm-max) {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+      }
+
+      .row .btn {
+        @extend .col-sm-4;
+      }
+
+    }
+  }
+
+}

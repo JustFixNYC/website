@@ -7,7 +7,7 @@
 
 	.main {
 		border-bottom: 2px solid rgba(255,255,255,0.4);
-		
+
 		.pull-left,
 		.pull-right {
 			@media (max-width: $screen-sm) {
@@ -84,7 +84,7 @@
 		}
 	}
 
-	.disclaimer {
+	.footer-text {
 		margin-top: 28px;
 		padding: 0;
 		font-size: 14px;
@@ -96,16 +96,22 @@
 			padding: 0 15px;
 		}
 
-		span {
-			padding: 0;
+		.footer-text-content {
 			@extend .col-md-9;
-
-			@media (max-width: $screen-sm-max) {
-			}
+			display: inline-block;
+			vertical-align: top;
 		}
 
+		// span {
+		// 	padding: 0;
+		//
+		//
+		// 	@media (max-width: $screen-sm-max) {
+		// 	}
+		// }
+
 		.contentful {
-			float: right;
+			// float: right;
 			margin-left: 50px;
 			padding-right: 0px;
 			text-align: center;

@@ -1,15 +1,25 @@
+#contact {
+
+  .img-bg {
+		background-image: url('http://degy28l8twq8c.cloudfront.net/brownstones.jpg');
+		background-size: cover;
+	}
+}
+
 .map {
   padding: 0px;
 
 	@extend .col-md-4;
   @include shift($n-columns: 4);
 
-	iframe{
+	carto-map, iframe {
+    display: block;
 		width: 100%;
+    height: 30vh;
 		max-width: 100%;
 		min-height: 300px;
 	}
-		
+
 	.address {
 		margin-top: 20px;
 	}
@@ -26,14 +36,9 @@
 .btn-success {
 	text-align: right;
 	max-width: 250px;
-	
+
 	&.btn-email {
 		margin-bottom: 20px;
-	}
-
-	.glyphicon {
-		float: left;
-		margin: 3px 10px 0 0;
 	}
 
 	@media (max-width: $screen-sm) {

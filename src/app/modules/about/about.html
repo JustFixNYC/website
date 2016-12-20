@@ -1,17 +1,28 @@
 
-<article contentful-entry="'content_type=aboutPage'">
+<article id="about" contentful-entry="'content_type=aboutPage'">
   <header class="container">
-    <h1 class="center">Meet Our Team</h1>
+    <h1 class="center">Where We're Working</h1>
   </header>
+
+  <section>
+    <carto-map
+      vis="https://dan-kass.carto.com/api/v2/viz/1729ef20-8f42-11e6-921e-0e3ff518bd15/viz.json"
+      lat="40.727827"
+      lng="-73.941929"
+      zoom="11">
+    </carto-map>
+  </section>
+
   <section>
     <div class="container">
+      <h1 class="center">Meet Our Team</h1>
       <div class="team-container">
         <div class="team-member" ng-repeat="member in $contentfulEntry.fields.teamMembers">
           <img ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
           <h4>{{member.fields.name}}</h4>
           <h4>{{member.fields.title}}</h4>
           <div class="social">
-          	<span ng-repeat="link in member.fields.links" class="btn btn-primary" ng-class="{'one': mem}">
+          	<span ng-repeat="link in member.fields.links" class="btn btn-primary btn-icon" ng-class="{'one': mem}">
               <a ng-href="{{link.url}}" target="_blank">
           		    <i class="glyphicon" ng-class="'glyphicon-' + link.type"></i>
               </a>
@@ -60,7 +71,7 @@
     </div>
   </section>
   <section class="center">
-    <h2>Our Partners</h2>
+    <h1>Our Partners</h1>
     <div class="logos container">
 			<span
 				class="logo partners"
@@ -78,18 +89,23 @@
   <div class="clearfix"></div>
 
   <section class="press">
-    <h2 class="center">Read more about us!</h2>
+    <h1 class="center">Read more about us!</h1>
   	<div class="container">
 
 			<div
 				class="press-item"
 				ng-repeat="pressItem in $contentfulEntry.fields.pressItems">
 				<img ng-src="{{pressItem.fields.logo.fields.file.url}}" />
-  			<div class="content pull-right">
+  			<div class="content">
 					<h4>{{pressItem.fields.title}}</h4>
-					<p><a ng-href="pressItem.fields.hyperlink">{{pressItem.fields.linkText}}</a></p>
+					<p><a ng-href="{{pressItem.fields.hyperlink}}" target="_blank">{{pressItem.fields.linkText}}</a></p>
 				</div>
 			</div>
+
+      <div class="press-kit center">
+        <h3>Download Our Press Kit</h3>
+        <a href="https://drive.google.com/drive/folders/0B-ssGpYqs_ibMVNRZVFSU0F6a0U" target="_blank" class="btn btn-primary">DOWNLOAD</a>
+      </div>
 
 		</div>
   </section>

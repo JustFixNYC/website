@@ -1,4 +1,4 @@
-.home {
+#home {
 	h2 {
 		font-size: 24px;
 		font-weight: 600;
@@ -17,13 +17,15 @@
 			margin-bottom: $section-margin/1.5;
 		}
 	}
-}
 
-.hero {
-	height: 100vh;
+	.img-bg.hero {
+		background-image: url('http://degy28l8twq8c.cloudfront.net/brownstones.jpg');
+		background-size: cover;
+	}
 
-	.container {
-		@include vertical-align;		
+	.img-bg.landlord {
+		background-image: url('../img/landlord-dark.jpg');
+		background-size: cover;
 	}
 }
 
@@ -44,6 +46,10 @@
 		font-weight: 600;
 		text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 
+		p {
+			margin-bottom: 0;
+		}
+
 		@include transform(translateZ(0));
 
 		@media (max-width: $screen-xs-max) {
@@ -57,6 +63,10 @@
 	}
 }
 
+.learn-more-link:hover {
+	text-decoration: none;
+}
+
 .learn-more {
 	margin-top: 20px;
 	bottom: 0;
@@ -66,7 +76,7 @@
     margin-top: 5px;
     font-size: 30px;
     line-height: 24px;
-		
+
 		@include transform(scale(1.25, 1));
 
 		&:before {
@@ -171,7 +181,7 @@
 		.glyphicon-chevron-left,
 		.glyphicon-chevron-right {
 
-			@include transform(scale(1.5));			
+			@include transform(scale(1.5));
 
 			@media (max-width: $screen-sm-max) {
 				top: 12px;
