@@ -7,17 +7,32 @@
 
         <div class="header-links header-links-desktop">
           <ul class="list-inline">
-            <li ng-repeat="link in vm.headerLinks">
+            <li ng-repeat="link in vm.headerLinks"
+            	ng-class="{dropdown: link.children}">
             	<a 
             		ng-if="link.sref" 
             		ui-sref="{{link.sref}}"
           		  ui-sref-active="active"
           		  target="{{link.target}}">{{ ::link.text }}</a>
             	<a 
-            		ng-if="!link.sref" 
+            		ng-if="!link.sref && !link.children" 
             		ng-href="{{link.url}}"
           		  target="{{link.target}}" 
             		ng-class="link.style">{{ ::link.text }}</a>
+            	<uib-dropdown
+            		ng-if="link.children"
+								class="dropdown-toggle"
+								on-toggle="toggled(open)">
+									<span uib-dropdown-toggle>{{ ::link.text }}</span>
+									<ul 
+										class="dropdown-menu" 
+										data-toggle="dropdown"
+										uib-dropdown-menu>
+										<li ng-repeat="child in link.children">
+											<a ui-sref="{{child.sref}}">{{ ::child.text }}</a>
+										</li>
+									</ul>
+							</uib-dropdown>
             </li>
           </ul>
         </div>

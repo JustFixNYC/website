@@ -67,13 +67,28 @@
 					text: "About Us",
 					style: "",
 					url: "about",
-					sref: "about",
-					children: {
-						text: "About Us",
-						style: "",
-						url: "about",
-						sref: "about"
-					}
+					children: [
+							{
+								text: "Our Team",
+								style: "",
+								sref: "about"
+							},
+							{
+								text: "Board of Directors",
+								style: "",
+								sref: "about"
+							},
+							{
+								text: "Our Partners",
+								style: "",
+								sref: "about"
+							},
+							{
+								text: "Press",
+								style: "",
+								sref: "about"
+							}
+						]
 				},
 				{
 					text: "Contact Us",
