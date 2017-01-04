@@ -32,11 +32,13 @@
     }
 
     /** @ngInject */
-    function NavbarController($rootScope, $document, $scope, $window) {
+    function NavbarController($rootScope, $document, $scope, $window, $log) {
 			var vm = this;
 
 			// Set pg to top on routechange
 			var menuToggle = $rootScope.$on("$stateChangeSuccess", function(event, toState) {
+
+				$log.log('why am I not getting fired?');
 				$window.scrollTo(0, 0);
 
 				if(angular.element($document[0].getElementById('aside-menu-toggle')).hasClass('active')) {
@@ -51,7 +53,7 @@
 				}
 			});
 
-			menuToggle();
+			// menuToggle();
 
 			// "vm.creationDate" is available by directive option "bindToController: true"
 			// vm.relativeDate = moment(vm.creationDate).fromNow();
@@ -69,24 +71,29 @@
 					url: "about",
 					children: [
 							{
-								text: "Our Team",
+								text: "Products & Services",
 								style: "",
-								sref: "about"
-							},
-							{
-								text: "Board of Directors",
-								style: "",
-								sref: "about"
+								sref: "about.productAndServices"
 							},
 							{
 								text: "Our Partners",
 								style: "",
-								sref: "about"
+								sref: "about.partners"
+							},
+							{
+								text: "Our Team",
+								style: "",
+								sref: "about.team"
+							},
+							{
+								text: "Board of Directors",
+								style: "",
+								sref: "about.directors"
 							},
 							{
 								text: "Press",
 								style: "",
-								sref: "about"
+								sref: "about.press"
 							}
 						]
 				},
@@ -103,11 +110,11 @@
         //   sref: "",
         //   target: "_blank"
         // },
-        {
-          text: "En Español",
-          style: "",
-          url: "http://beta.justfix.nyc/?lang=es_mx"
-        },
+        // {
+        //   text: "En Español",
+        //   style: "",
+        //   url: "http://beta.justfix.nyc/?lang=es_mx"
+        // },
         {
           text: "Sign In",
           style: "btn",

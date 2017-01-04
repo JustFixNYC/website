@@ -3,7 +3,9 @@
 	<section class="img-bg hero">
 		<article class="container">
 			<div class="hero-container">
-				<!-- <h1 ng-bind-html="$contentfulEntry.fields.heroCopy | markdown"></h1> -->
+				<div class="translations">
+					<a class="english">ENGLISH</a> / <a href="http://beta.justfix.nyc/espanol">ESPA&Ntilde;OL</a>
+				</div>
 				<h1>{{ $contentfulEntry.fields.heroCopy }}</h1>
 				<a href="http://beta.justfix.nyc/signup" class="btn btn-primary">CREATE AN ACCOUNT</a>
 				<a href="#" scroll-to="tutorial" class="btn btn-outline js-scrolldown hidden-mobile">HOW IT WORKS</a>
@@ -19,16 +21,38 @@
 		</article>
 	</section>
 
-	<section class="justfix-blue white center padding-section-reduced" id="tutorial">
-		<article class="container">
-			<h2>{{$contentfulEntry.fields.imageDescription}}</h2>
-			<div class="flow-icon">
-				<img ng-src="{{flowUrl}}" />
+	<section class="container white center padding-section-reduced home-content-blocks">
+
+		<div class="subtexts">
+			<h4 ng-repeat="subtext in $contentfulEntry.fields.subtexts">{{subtext}}</h4>
+		</div>
+
+		<h1>How it works:</h1>
+
+		<div class="columns">
+			<div class="one-fourth" ng-repeat="entry in $contentfulEntry.fields.informationalBlocks track by $index">
+				<img ng-src="{{entry.fields.icon.fields.file.url}}" height="60" />
+
+				<p class="title">{{entry.fields.title}}</p>
+				<p>{{entry.fields.description}}</p>
 			</div>
-		</article>
+
+			<div class="clearfix" ng-if="$index % 2 == 0"></div>
+
+		</div>
 	</section>
 
 	<article>
+
+		<section class="justfix-blue white center padding-section-reduced" id="tutorial">
+			<article class="container">
+				<h2>{{$contentfulEntry.fields.imageDescription}}</h2>
+				<div class="flow-icon">
+					<img ng-src="{{flowUrl}}" />
+				</div>
+			</article>
+		</section>
+
 		<section class="tutorial">
 			<div class="container">
 				<h1 class="header center">For Tenants</h1>
@@ -77,6 +101,7 @@
 		</section>
 
 	</article>
+	
 
 	<section class="img-bg landlord white center padding-section">
 		<article class="container">
@@ -88,7 +113,7 @@
 			</div>
 		</article>
 		<div class="clearfix"></div>
-	</section>
+	</section> 
 
 </div>
 

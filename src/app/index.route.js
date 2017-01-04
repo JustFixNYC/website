@@ -20,8 +20,44 @@
         templateUrl: 'app/modules/about/about.html',
         controller: 'AboutController',
         controllerAs: 'about',
+        abstract: true,
         metaTags: {
           title: 'About Us'
+        }
+      })
+      .state('about.directors', {
+        url: '/directors',
+        templateUrl: 'app/modules/about/directors/directors.html',
+        metaTags: {
+          title: 'Partners'
+        }
+      })
+      .state('about.partners', {
+        url: '/partners',
+        templateUrl: 'app/modules/about/partners/partners.html',
+        metaTags: {
+          title: 'Partners'
+        }
+      })
+      .state('about.press', {
+        url: '/press',
+        templateUrl: 'app/modules/about/press/press.html',
+        metaTags: {
+          title: 'Press'
+        }
+      })
+      .state('about.productAndServices', {
+        url: '/product-and-services',
+        templateUrl: 'app/modules/about/product-and-services/product-and-services.html',
+        metaTags: {
+          title: 'Product And Services'
+        }
+      })
+      .state('about.team', {
+        url: '/team',
+        templateUrl: 'app/modules/about/team/team.html',
+        metaTags: {
+          title: 'Partners'
         }
       })
       .state('mission', {
