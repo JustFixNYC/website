@@ -32,13 +32,11 @@
     }
 
     /** @ngInject */
-    function NavbarController($rootScope, $document, $scope, $window, $log) {
+    function NavbarController($rootScope, $document, $scope, $window) {
 			var vm = this;
 
 			// Set pg to top on routechange
 			var menuToggle = $rootScope.$on("$stateChangeSuccess", function(event, toState) {
-
-				$log.log('why am I not getting fired?');
 				$window.scrollTo(0, 0);
 
 				if(angular.element($document[0].getElementById('aside-menu-toggle')).hasClass('active')) {

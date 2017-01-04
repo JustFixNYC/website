@@ -3,15 +3,12 @@
 	<section class="img-bg hero">
 		<article class="container">
 			<div class="hero-container">
-				<div class="translations">
-					<a class="english">ENGLISH</a> / <a href="http://beta.justfix.nyc/espanol">ESPA&Ntilde;OL</a>
-				</div>
 				<h1>{{ $contentfulEntry.fields.heroCopy }}</h1>
-				<a href="http://beta.justfix.nyc/signup" class="btn btn-primary">CREATE AN ACCOUNT</a>
-				<a href="#" scroll-to="tutorial" class="btn btn-outline js-scrolldown hidden-mobile">HOW IT WORKS</a>
+				<p class="subcopy">{{$contentfulEntry.fields.subCopy}}</p>
+				<a ng-href="{{$contentfulEntry.fields.getStartedButton.fields.link}}" class="btn btn-primary">{{$contentfulEntry.fields.getStartedButton.fields.title}}</a>
 			</div>
 			<div class="clearfix"></div>
-			<a href="#" scroll-to="tutorial" class="hidden-desktop learn-more-link">
+			<a href="#" scroll-to="home-content-blocks" class="learn-more-link">
 				<div class="center learn-more">
 					learn more
 					<br />
@@ -21,7 +18,7 @@
 		</article>
 	</section>
 
-	<section class="container white center padding-section-reduced home-content-blocks">
+	<section class="container white center padding-section-reduced home-content-blocks" id="home-content-blocks">
 
 		<div class="subtexts">
 			<h4 ng-repeat="subtext in $contentfulEntry.fields.subtexts">{{subtext}}</h4>
