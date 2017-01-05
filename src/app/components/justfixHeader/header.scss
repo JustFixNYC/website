@@ -6,6 +6,8 @@
   background-color: $clear;
 	@include transition(all 250ms ease-out);
 
+	z-index: 3;
+
   @media (min-width: $screen-sm-max) {
     height: $desktop-header-height;
 		@include transition(none);
@@ -233,16 +235,16 @@
 #aside-menu {
   background-color: $justfix-blue;
   position: fixed;
+  right: 0;
+  top: 0;
+  padding-top: $mobile-header-height;
   width: 75%;
   height: 100vh;
-  right: 0;
-  top: $mobile-header-height;
   max-width: 400px;
+  overflow-y: auto;
 
   @include transform(translateX(100%));
-  -webkit-transition: -webkit-transform 250ms ease-out;
-  -moz-transition: -moz-transform 250ms ease-out;
-  transition: transform 250ms ease-out;
+  @include transition(transform 250ms ease-out);
 
   z-index: 2;
 
@@ -250,11 +252,14 @@
     @include transform(translateX(0));
   }
 
-  a {
+  li {
+  	display: block;
+  }
+
+  a, uib-dropdown {
     display: block;
     color: #fff;
     width: 100%;
-    height: 56px;
     line-height: 16px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -263,5 +268,40 @@
     &.active {
       background-color: lighten($justfix-blue, 10%);
     }
+  }
+	
+	// Mobile-dropdown specific styles
+  uib-dropdown {
+  	padding: 0px;
+
+  	span {
+  		display: block;
+	    padding: 20px 0 20px 25px;
+
+	    &.expanded,
+	    &.active {
+	    	background-color: lighten($justfix-blue, 10%);
+	    }
+  	}
+  }
+
+  .dropdown-menu {
+  	position: relative;
+  	top: 0;
+  	float: none;
+  	margin: 0px;
+  	border: none;
+  	padding: 0px;
+  	box-shadow: none;
+  	background: none;
+
+  	li a {
+	    padding: 10px 0 10px 25px;
+  		text-transform: none;
+
+  		&:hover {
+  			background: none;
+  		}
+  	}
   }
 }

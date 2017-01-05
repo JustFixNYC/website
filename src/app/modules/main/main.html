@@ -1,4 +1,4 @@
-<div id="home" contentful-entry="'content_type=homePage'">
+<div id="home" class="home-page" contentful-entry="'content_type=homePage'">
 
 	<section class="img-bg hero">
 		<article class="container">
@@ -8,14 +8,14 @@
 				<a ng-href="{{$contentfulEntry.fields.getStartedButton.fields.link}}" class="btn btn-primary">{{$contentfulEntry.fields.getStartedButton.fields.title}}</a>
 			</div>
 			<div class="clearfix"></div>
-			<a href="#" scroll-to="home-content-blocks" class="learn-more-link">
-				<div class="center learn-more">
-					learn more
-					<br />
-					<span class="glyphicon glyphicon-chevron-down"></span>
-				</div>
-			</a>
 		</article>
+		<a href="#" scroll-to="home-content-blocks" class="learn-more-link">
+			<div class="center learn-more">
+				how it works
+				<br />
+				<span class="glyphicon glyphicon-chevron-down"></span>
+			</div>
+		</a>
 	</section>
 
 	<section class="container white center padding-section-reduced home-content-blocks" id="home-content-blocks">
@@ -35,29 +35,30 @@
 			</div>
 
 			<div class="clearfix" ng-if="$index % 2 == 0"></div>
-
 		</div>
+		<a ng-href="{{$contentfulEntry.fields.createAccountButton.fields.link}}" class="btn btn-primary">{{$contentfulEntry.fields.createAccountButton.fields.title}}</a>
+
 	</section>
 
 	<article>
 
-		<section class="justfix-blue white center padding-section-reduced" id="tutorial">
+		<!-- <section class="justfix-blue white center padding-section-reduced" id="tutorial">
 			<article class="container">
 				<h2>{{$contentfulEntry.fields.imageDescription}}</h2>
 				<div class="flow-icon">
 					<img ng-src="{{flowUrl}}" />
 				</div>
 			</article>
-		</section>
+		</section> -->
 
-		<section class="tutorial">
+		<!-- <section class="tutorial">
 			<div class="container">
 				<h1 class="header center">For Tenants</h1>
 				<uib-carousel
 					active="active"
 					interval="4000"
 					template-url="app/bootstrap-templates/carousel/carousel.html">
-
+		
 					<uib-slide
 						ng-repeat="slide in $contentfulEntry.fields.slider track by $index"
 						index="$index">
@@ -70,19 +71,19 @@
 							<a class="btn btn-primary" ng-href="http://beta.justfix.nyc/signup">CREATE AN ACCOUNT</a>
 						</span>
 					</uib-slide>
-
+		
 				</uib-carousel>
 			</div>
-		</section>
+		</section> -->
 
-		<section class="community-advocates alt no-margin-bottom">
+		<!-- <section class="community-advocates alt no-margin-bottom">
 			<h1 class="center">{{$contentfulEntry.fields.forAdvocates.fields.title}}</h1>
 			<div class="container">
 				<img ng-src="{{$contentfulEntry.fields.forAdvocates.fields.image.fields.file.url}}" />
 				<span class="text" ng-bind-html="$contentfulEntry.fields.forAdvocates.fields.textBlock | markdown"></span>
 			</div>
 		</section>
-		<div class="clearfix"></div>
+		<div class="clearfix"></div> -->
 
 		<section class="center no-margin justfix-blue padding-section">
 			<div class="container">
@@ -106,7 +107,7 @@
 				<h2>{{$contentfulEntry.fields.missionDescription}}</h2>
 				<br/>
 				<br/>
-				<a class="btn btn-primary" ui-sref="mission">READ OUR MISSION</a>
+				<a class="btn btn-outline" ui-sref="mission">READ OUR MISSION</a>
 			</div>
 		</article>
 		<div class="clearfix"></div>

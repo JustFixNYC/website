@@ -1,38 +1,67 @@
 (function() {
-  'use strict';
+	'use strict';
 
-  angular
-    .module('boilerplate')
-    .directive('justfixHeader', justfixHeader);
+	angular
+		.module('boilerplate')
+		.directive('justfixHeader', justfixHeader);
 
-  /** @ngInject */
-  function justfixHeader($document) {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/justfixHeader/header.html',
-      scope: {
-          creationDate: '='
-      },
-      controllerAs: 'vm',
-      controller: NavbarController,
-      link: linkFunc,
-      bindToController: true
-    };
+	/** @ngInject */
+	function justfixHeader($document) {
+		var directive = {
+			restrict: 'E',
+			templateUrl: 'app/components/justfixHeader/header.html',
+			scope: {
+					creationDate: '='
+			},
+			controllerAs: 'vm',
+			controller: NavbarController,
+			link: linkFunc,
+			bindToController: true
+		};
 
-    return directive;
+		return directive;
 
-    function linkFunc(scope) {
+		function linkFunc(scope) {
 
-      scope.toggleAside = function() {
-        angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');
-        angular.element($document[0].getElementById('aside-menu')).toggleClass('open');
-        angular.element($document[0].getElementById('header-wrap')).toggleClass('blue-active');
-      };
+			scope.status = {
+				isopen: false
+			};
 
-    }
+			scope.toggleAside = function() {
+				angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');
+				angular.element($document[0].getElementById('aside-menu')).toggleClass('open');
+				angular.element($document[0].getElementById('header-wrap')).toggleClass('blue-active');
 
-    /** @ngInject */
-    function NavbarController($rootScope, $document, $scope, $window) {
+				if(scope.status.isopen === true) {
+					scope.toggleMenuSlidedown();
+				}
+			};
+
+			scope.toggleMenuSlidedown = function($event) {
+				// If no event activated, then 
+				if(!$event) {
+					$('.mobile-dropdown-menu').slideUp();
+					return scope.status.isopen = false;
+				}
+
+				$event.preventDefault();
+				$event.stopPropagation();
+
+
+				// Cheating like hell, but I'm not rebuilding .slideDown() for angular.element just b/c jqlite is BS
+				if(scope.status.isopen === false) {
+					$('.mobile-dropdown-menu').slideDown();
+					scope.status.isopen = true;
+				} else {
+					$('.mobile-dropdown-menu').slideUp();
+					scope.status.isopen = false;
+				}
+			};
+
+		}
+
+		/** @ngInject */
+		function NavbarController($rootScope, $document, $scope, $window) {
 			var vm = this;
 
 			// Set pg to top on routechange
@@ -49,20 +78,16 @@
 				} else {
 					$scope.headerColor = '';
 				}
+
+				if($scope.status.isopen === true) {
+					$scope.toggleMenuSlidedown();
+				}
 			});
 
+			//Dunno why, but calling this as a function inits the destroy function on the listener...
 			// menuToggle();
 
-			// "vm.creationDate" is available by directive option "bindToController: true"
-			// vm.relativeDate = moment(vm.creationDate).fromNow();
-
 			vm.headerLinks = [
-				{
-					text: "Our Mission",
-					style: "",
-					url: "mission",
-					sref: "mission"
-				},
 				{
 					text: "About Us",
 					style: "",
@@ -96,31 +121,37 @@
 						]
 				},
 				{
-					text: "Contact Us",
+					text: "Mission",
+					style: "",
+					url: "mission",
+					sref: "mission"
+				},
+				{
+					text: "Contact",
 					style: "",
 					url: "contact",
 					sref: "contact"
 				},
-        // {
-        //   text: "Donate",
-        //   style: "",
-        //   url: "https://www.nycharities.org/give/donate.aspx?cc=4125",
-        //   sref: "",
-        //   target: "_blank"
-        // },
-        // {
-        //   text: "En Español",
-        //   style: "",
-        //   url: "http://beta.justfix.nyc/?lang=es_mx"
-        // },
-        {
-          text: "Sign In",
-          style: "btn",
-          url: "http://beta.justfix.nyc/signin",
-          sref: ""
-        }
-      ];
-    }
-  }
+				// {
+				//	 text: "Donate",
+				//	 style: "",
+				//	 url: "https://www.nycharities.org/give/donate.aspx?cc=4125",
+				//	 sref: "",
+				//	 target: "_blank"
+				// },
+				{
+					text: "Español",
+					style: "",
+					url: "http://beta.justfix.nyc/?lang=es_mx"
+				},
+				{
+					text: "Sign In",
+					style: "btn",
+					url: "http://beta.justfix.nyc/signin",
+					sref: ""
+				}
+			];
+		}
+	}
 
 })();

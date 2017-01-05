@@ -21,7 +21,7 @@
             		ng-class="link.style">{{ ::link.text }}</a>
             	<uib-dropdown
             		ng-if="link.children"
-								class="dropdown-toggle"
+								class="dropdown-toggle mobile"
 								on-toggle="toggled(open)">
 									<span uib-dropdown-toggle>{{ ::link.text }}</span>
 									<ul 
@@ -60,9 +60,25 @@
   		  target="{{link.target}}">{{ ::link.text }}</a>
     	<a 
     		ui-sref-active="active" 
-    		ng-if="!link.sref" 
+    		ng-if="!link.sref && !link.children" 
     		ng-href="{{link.url}}"
   		  target="{{link.target}}">{{ ::link.text }}</a>
+	  		<uib-dropdown
+	    		ng-if="link.children"
+					class="mobile-dropdown" 
+					is-open="status.isopen">
+						<span 
+							ng-click="toggleMenuSlidedown($event)" 
+							ng-class="{expanded: status.isopen}">{{ ::link.text }}</span>
+						<ul 
+							class="dropdown-menu mobile-dropdown-menu" 
+							data-toggle="dropdown"
+							uib-dropdown-menu>
+							<li ng-repeat="child in link.children">
+								<a ui-sref="{{child.sref}}" ui-sref-active="active">{{ ::child.text }}</a>
+							</li>
+						</ul>
+				</uib-dropdown>
     </li>
   </ul>
 </div>
