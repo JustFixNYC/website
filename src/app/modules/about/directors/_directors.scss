@@ -1,194 +1,54 @@
-#about header {
-  margin-bottom: $section-margin / 2;
-
-	@media (max-width: $screen-sm-max) {
-		margin-bottom: $section-margin / 3;
-	}
-}
-#about header + section {
-  margin-top: $section-margin / 2;
-
-	@media (max-width: $screen-sm-max) {
-		margin-top: $section-margin / 3;
-	}
-}
-
-#about carto-map {
-  display: block;
-  width: 100%;
-  height: 75vh;
-}
-
-.team-container {
-
-  @extend .row;
+.team-container.directors {
+	margin-top: 50px;
 
   .team-member {
-    @extend .col-sm-6;
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-bottom: 45px;
-
-    // nice, pretty rows
-    &:nth-child(2n+1) {
-      clear: both;
-    }
-
-    &:last-child {
-
-    	@media (min-width: $screen-sm-min) {
-	    	@include shift($n-columns: 3);
-    	}
-    }
+    @extend .col-sm-12;
+    @extend .row;
 
     @media (min-width: $screen-sm-min) {
       padding-left: 45px;
       padding-right: 45px;
     }
 
+    &:last-child {
+
+    	@media (min-width: $screen-sm-min) {
+	    	@include shift(0);
+    	}
+    }
+
     & > img {
       display: block;
-      width: 50%;
+      // background: $justfix-blue-darkest;
       height: auto;
 
       border-radius: 100%;
-      margin: 0 auto 30px;
+      margin: 0 auto 50px;
+
+      @extend .col-md-3;
+      @include shift($n-columns: 1);
     }
 
-    & > h4:first-of-type {
-      margin-bottom: 5px;
-    }
+    .director-text {
+    	float: right;
+			text-align: left;
 
-    & > p {
-      font-size: 16px;
-      padding-left: 30px;
-      padding-right: 30px;
-      line-height: 1.6em;
+    	@extend .col-md-7;
+
+	    & > h4:first-of-type {
+	      margin-bottom: 5px;
+	    }
+
+	    & > p {
+	      font-size: 16px;
+	      padding-left: 0px;
+	      padding-right: 0px;
+	      line-height: 1.6em;
+	    }
     }
 
     .social {
     	margin-top: 25px;
     }
   }
-}
-
-.contributor {
-	margin: 0px auto 0px;
-	text-align: center;
-	font-weight: 600;
-}
-
-// logos
-.logos {
-
-	.logo {
-		margin-top: 50px;
-		height: 150px;
-		@extend .col-md-3;
-		@extend .col-sm-6;
-		@extend .col-xs-12;
-
-		&.partners {
-			margin-top: 10px;
-			height: 220px;
-		}
-
-		&.three {
-			@include shift($n-columns: 1.333);
-
-			@media (max-width: $screen-sm-max) {
-				@include shift($n-columns: 0);
-			}
-		}
-
-		.background-image {
-			position: relative;
-			top: 0;
-			left: 0;
-			background-position: center center;
-			background-size: contain;
-			background-repeat: no-repeat;
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-}
-
-// Whelp, this will most likely ruin everything...
-.alt.center {
-	margin-bottom: 0px;
-}
-
-.alt.milestones {
-	margin-top: 0px;
-}
-
-.press {
-
-	.press-item {
-		margin: 30px 0;
-		position: relative;
-
-		&:last-child {
-			.content {
-				border-bottom: none;
-			}
-		}
-
-    @extend .clearfix;
-
-
-		@media (max-width: $screen-sm-max) {
-			margin: 0px 0;
-		}
-
-    img {
-
-      @extend .col-md-3;
-      @include vertical-align($position: absolute);
-      @include shift($n-columns: 1);
-
-      @media (max-width: $screen-sm-max) {
-        display: none;
-      }
-    }
-
-    .content {
-      border-bottom: darken($justfix-grey-light, 10) 1px solid;
-      padding: 10px 0 30px 0;
-
-      @extend .col-md-7;
-      @extend .col-sm-12;
-
-      h4 {
-        margin: 0px 0 5px 0;
-      }
-
-
-
-
-      @media (max-width: $screen-sm-max) {
-        border-bottom: none;
-        padding: 25px 0 0px 0;
-
-        h4 {
-          margin-bottom: 25px;
-        }
-      }
-
-      @media (min-width: $screen-sm) {
-        float: right !important;
-      }
-    }
-
-
-	}
-
-  .press-kit {
-    margin-top: $section-margin;
-  }
-
-
 }

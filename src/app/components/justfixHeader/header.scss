@@ -17,11 +17,15 @@
 		background: $justfix-blue;
 	}
 
-  // styling for hidden bg, homepg only
+  // general site styling, homepage is only one this doesn't apply to
   &.blue-bg {
   	position: relative;
 	  margin-bottom: $header-bottom-margin;
 	  background-color: $justfix-blue;
+
+		&.header-absolute {
+			position: absolute;
+		}
   }
 
   header {

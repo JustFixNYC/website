@@ -7,13 +7,13 @@
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
+
     $stateProvider
       .state('home', {
         url: '/',
         templateUrl: 'app/modules/main/main.html',
         controller: 'MainController',
         controllerAs: 'main',
-        globalStyle: 'clear-nav'
       })
       .state('about', {
         url: '/about',
@@ -29,14 +29,14 @@
         url: '/directors',
         templateUrl: 'app/modules/about/directors/directors.html',
         metaTags: {
-          title: 'Partners'
+          title: 'Our Board of Directors'
         }
       })
       .state('about.partners', {
         url: '/partners',
         templateUrl: 'app/modules/about/partners/partners.html',
         metaTags: {
-          title: 'Partners'
+          title: 'Our Partners'
         }
       })
       .state('about.press', {
@@ -57,7 +57,7 @@
         url: '/team',
         templateUrl: 'app/modules/about/team/team.html',
         metaTags: {
-          title: 'Partners'
+          title: 'Our Team'
         }
       })
       .state('mission', {
@@ -107,6 +107,9 @@
         }
       });
 
+
+    // Since we removed the parent About page, we now have to redirect when someone wants to go to '/about'
+    $urlRouterProvider.when('/about', '/about/product-and-services');
     $urlRouterProvider.otherwise('/');
 
   }

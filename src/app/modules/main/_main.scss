@@ -64,7 +64,13 @@
 			font-size: 1em;
 		}
 	}
+}
 
+
+
+.learn-more-link:hover,
+.learn-more-link:focus {
+	text-decoration: none;
 }
 	
 .learn-more {
@@ -125,10 +131,6 @@
 	}
 }
 
-.learn-more-link:hover {
-	text-decoration: none;
-}
-
 .justfix-blue {
 	background: $justfix-blue;
 }
@@ -138,167 +140,6 @@
 // 		margin-bottom: $section-margin/3;
 // 	}
 // }
-
-// carousel
-.carousel-inner {
-	margin: auto;
-	width: 90%;
-
-	.text {
-		left: 0;
-		margin-top: 42px;
-		text-align: left;
-
-		@extend .col-md-6;
-		@include shift($n-columns: 1);
-
-		h3 {
-			display: block;
-			margin: 1em 0;
-			font-size: 22px;
-		}
-
-		@media (min-width: $screen-lg) {
-			margin-top: 62px;
-		}
-
-		@media (max-width: $screen-sm-max) {
-			margin: 0 0 3em 0;
-			padding: 0px;
-			text-align: center;
-		}
-	}
-
-	img {
-		float: right;
-		right: 8.5298%;
-
-		@extend .col-md-3;
-
-		@media (max-width: $screen-sm-max) {
-			float: none;
-			right: auto;
-			margin: auto;
-		}
-	}
-}
-
-.carousel-indicators {
-	position: relative;
-	top: 0px;
-	left: 0;
-	margin: 0px auto 50px;
-
-	@media (max-width: $screen-sm-max) {
-		margin-bottom: 25px;
-	}
-
-	li {
-		margin: 1px 5px;
-		opacity: 0.5;
-		background-color: $aqua-light;
-
-		&.active {
-			margin: 1px 5px;
-			opacity: 1;
-			background-color: $aqua-dark;
-			width: 10px;
-			height: 10px;
-		}
-	}
-}
-
-.carousel-control {
-	opacity: 1;
-	width: auto;
-
-	&.left,
-	&.right {
-		background-image: none;
-		text-shadow: none;
-
-
-		&:hover {
-			cursor: pointer;
-		}
-
-		.glyphicon-chevron-left,
-		.glyphicon-chevron-right {
-
-			@include transform(scale(1.5));
-
-			@media (max-width: $screen-sm-max) {
-				top: 12px;
-				margin-left: 0px;
-				margin-right: 0px;
-			}
-		}
-	}
-
-	.glyphicon:before {
-		color: $justfix-blue;
-	}
-
-	&:hover {
-		.glyphicon:before {
-			color: $aqua-light;
-		}
-	}
-}
-
-// Bottom homepage styling
-.community-advocates {
-
-	img {
-		max-width: 100%;
-
-		@extend .col-md-7;
-		@extend .col-sm-12;
-	}
-
-	.text {
-		@extend .col-md-4;
-		@include shift($n-columns: 0.5);
-
-		@media (max-width: $screen-sm-max){
-			display: block;
-			margin: $section-margin/1.5 auto 0;
-		}
-	}
-}
-
-.flow-icon {
-	img {
-		max-height: 750px;
-	}
-}
-
-.left-block {
-	color: white;
-
-	@extend .col-md-6;
-
-	&_style {
-		padding: 0px 50px;
-
-		@media (max-width: $screen-sm-max) {
-			padding: 0px 20px;
-		}
-	}
-}
-
-.right-block {
-	@extend .col-md-6;
-
-	.btn {
-		margin: 32px auto 0 auto;
-
-		@media (max-width: $screen-md-min) {
-			margin: 48px auto 0 auto;
-			float: none;
-		}
-	}
-}
 
 .landlord {
 	.center-block {

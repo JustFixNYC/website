@@ -17,6 +17,8 @@
 	}
 
 	ul {
+		margin: auto 30px;
+		display: inline-block;
 		padding: 0px;
 	}
 
@@ -24,12 +26,12 @@
 		margin: auto;
 		padding: 5px 0px;
 		list-style: none;
-		color: $justfix-blue;
 		font-weight: 600;
 		font-size: 14px;
+		letter-spacing: 2px;
 
 		a {
-			letter-spacing: 2px;
+			color: $justfix-blue;
 
 			&:hover {
 				color: white;
@@ -37,6 +39,25 @@
 			}
 		}
 	}
+
+	h5 {
+		margin: 5px auto 20px;
+		font-weight: 600;
+		letter-spacing: 1px;
+	}
+
+	.pull-right {
+
+		input[type=email] {
+			margin-bottom: 10px;
+			color: black;
+
+			@media (max-width: $screen-sm) {
+				width: 100%;
+			}
+		}
+	}
+
 
 	.social {
 		margin: 30px 0;
@@ -66,24 +87,6 @@
 		}
 	}
 
-	h5 {
-		margin: 5px auto 20px;
-		font-weight: 600;
-		letter-spacing: 1px;
-	}
-
-	.pull-right {
-
-		input[type=email] {
-			margin-bottom: 10px;
-			color: black;
-
-			@media (max-width: $screen-sm) {
-				width: 100%;
-			}
-		}
-	}
-
 	.footer-text {
 		margin-top: 28px;
 		padding: 0;
@@ -102,16 +105,7 @@
 			vertical-align: top;
 		}
 
-		// span {
-		// 	padding: 0;
-		//
-		//
-		// 	@media (max-width: $screen-sm-max) {
-		// 	}
-		// }
-
 		.contentful {
-			// float: right;
 			margin-left: 50px;
 			padding-right: 0px;
 			text-align: center;

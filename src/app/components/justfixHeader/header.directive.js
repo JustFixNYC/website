@@ -31,15 +31,14 @@
 				angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');
 				angular.element($document[0].getElementById('aside-menu')).toggleClass('open');
 				angular.element($document[0].getElementById('header-wrap')).toggleClass('blue-active');
-
-				if(scope.status.isopen === true) {
-					scope.toggleMenuSlidedown();
-				}
 			};
 
 			scope.toggleMenuSlidedown = function($event) {
-				// If no event activated, then 
+				// If no event activated, then close
 				if(!$event) {
+					if(scope.status.isopen === false) {
+						return;
+					}
 					$('.mobile-dropdown-menu').slideUp();
 					return scope.status.isopen = false;
 				}
@@ -64,8 +63,9 @@
 		function NavbarController($rootScope, $document, $scope, $window) {
 			var vm = this;
 
-			// Set pg to top on routechange
+			// on route change success (reset nav position, handle nav css rules)
 			var menuToggle = $rootScope.$on("$stateChangeSuccess", function(event, toState) {
+				console.log(toState);
 				$window.scrollTo(0, 0);
 
 				if(angular.element($document[0].getElementById('aside-menu-toggle')).hasClass('active')) {
@@ -73,15 +73,15 @@
 				}
 
 				// Nav fix
-				if(toState.name !== 'home') {
-					$scope.headerColor = 'blue-bg';
-				} else {
+				if(toState.name === 'home') {
 					$scope.headerColor = '';
+				} else if(toState.name === 'about.productAndServices') {
+					$scope.headerColor = 'blue-bg header-absolute';
+				} else {
+					$scope.headerColor = 'blue-bg';
 				}
 
-				if($scope.status.isopen === true) {
-					$scope.toggleMenuSlidedown();
-				}
+				$scope.toggleMenuSlidedown();
 			});
 
 			//Dunno why, but calling this as a function inits the destroy function on the listener...

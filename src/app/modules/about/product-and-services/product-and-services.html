@@ -1,122 +1,68 @@
 
-<article id="about" contentful-entry="'content_type=aboutPage'">
-  <header class="container">
-    <h1 class="center">Where We're Working</h1>
-  </header>
+<article class="product-and-services" contentful-entry="'content_type=productAndServices'">
+  <section class="hero">
+		<article class="container">
+			<h1>{{$contentfulEntry.fields.headerBlock}}</h1>
+			<p>{{$contentfulEntry.fields.imageDescription}}</p>
+			<div class="flow-icon">
+				<img ng-src="{{flowUrl}}" />
+			</div>
+			<a href="#" scroll-to="tutorial" class="learn-more-link">
+				<div class="center learn-more">
+					Learn more
+					<br />
+					<span class="glyphicon glyphicon-chevron-down"></span>
+				</div>
+			</a>
+		</article>
+	</section>
 
-  <section>
-    <carto-map
-      vis="https://dan-kass.carto.com/api/v2/viz/1729ef20-8f42-11e6-921e-0e3ff518bd15/viz.json"
-      lat="40.727827"
-      lng="-73.941929"
-      zoom="11">
-    </carto-map>
-  </section>
-
-  <section>
-    <div class="container">
-      <h1 class="center">Meet Our Team</h1>
-      <div class="team-container">
-        <div class="team-member" ng-repeat="member in $contentfulEntry.fields.teamMembers">
-          <img ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
-          <h4>{{member.fields.name}}</h4>
-          <h4>{{member.fields.title}}</h4>
-          <div class="social">
-          	<span ng-repeat="link in member.fields.links" class="btn btn-primary btn-icon" ng-class="{'one': mem}">
-              <a ng-href="{{link.url}}" target="_blank">
-          		    <i class="glyphicon" ng-class="'glyphicon-' + link.type"></i>
-              </a>
-          	</span>
-          </div>
-          <p>{{member.fields.description}}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-	<section>
+	<section class="tutorial no-margin padding-section" id="tutorial">
 		<div class="container">
-			<h3 class="center">Many thanks to our other contributors!</h3>
-			<p class="contributor" ng-repeat="contributor in $contentfulEntry.fields.contributors">
-				<a ng-if="contributor.fields.link" ng-href="{{contributor.fields.link}}" target="_blank">{{contributor.fields.name}}</a>
-				<span ng-if="!contributor.fields.link">{{contributor.fields.name}}</span>
-			</p>
+			<h1 class="header center">For Tenants</h1>
+			<uib-carousel
+				active="active"
+				interval="4000"
+				template-url="app/bootstrap-templates/carousel/carousel.html">
+	
+				<uib-slide
+					ng-repeat="slide in $contentfulEntry.fields.slider track by $index"
+					index="$index">
+					<img ng-src="{{slide.fields.image.fields.file.url}}">
+					<span class="text">
+						<h3>{{slide.fields.title}}</h3>
+						<span ng-bind-html="slide.fields.bodyText | markdown"></span>
+						<br/>
+						<br/>
+						<a class="btn btn-primary" ng-href="http://beta.justfix.nyc/signup">CREATE AN ACCOUNT</a>
+					</span>
+				</uib-slide>
+	
+			</uib-carousel>
 		</div>
 	</section>
 
-  <div class="triptych">
-  	<div class="image-wrap" ng-repeat="image in $contentfulEntry.fields.imageTriptych track by $index">
-			<div class="img-scale" ng-style="{'background-image':'url(' + image.fields.file.url + ')'}"></div>
-  	</div>
-  </div>
+	<section class="community-advocates alt no-margin-bottom">
+		<h1 class="center">{{$contentfulEntry.fields.communityAdvocateBlock.fields.title}}</h1>
+		<div class="container">
+			<img ng-src="{{$contentfulEntry.fields.communityAdvocateBlock.fields.image.fields.file.url}}" />
+			<span class="text" ng-bind-html="$contentfulEntry.fields.communityAdvocateBlock.fields.textBlock | markdown"></span>
+		</div>
+	</section>
+	<div class="clearfix"></div>
 
-  <div class="clearfix"></div>
-
-  <section class="alt milestones">
-    <div class="container">
-      <h3>Milestones</h3>
-      <p ng-bind-html="$contentfulEntry.fields.milestones | markdown"></p>
-    </div>
-    <div class="logos container">
-			<span
-				class="logo"
-				ng-repeat="sponsor in $contentfulEntry.fields.sponsorOrganizations track by $index">
-				<a ng-href="{{sponsor.fields.link}}" target="_blank">
-					<div
-						class="background-image"
-						ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
-					</div>
-				</a>
-			</span>
-    </div>
-  </section>
-  <section class="center">
-    <h1>Our Partners</h1>
-    <div class="logos container">
-			<span
-				class="logo partners"
-				ng-repeat="partner in $contentfulEntry.fields.partnerOrganizations track by $index"
-				ng-class="{'three': $index % 7 == 0}">
-				<a ng-href="{{partner.fields.link}}" target="_blank">
-					<div class="background-image"
-						ng-style="{'background-image': 'url(' + partner.fields.logo.fields.file.url + ')'}">
-					</div>
-				</a>
-			</span>
-    </div>
-  </section>
-
-  <div class="clearfix"></div>
-
-  <section class="press">
-    <h1 class="center">Read more about us!</h1>
-  	<div class="container">
-
-			<div
-				class="press-item"
-				ng-repeat="pressItem in $contentfulEntry.fields.pressItems">
-				<img ng-src="{{pressItem.fields.logo.fields.file.url}}" />
-  			<div class="content">
-					<h4>{{pressItem.fields.title}}</h4>
-					<p><a ng-href="{{pressItem.fields.hyperlink}}" target="_blank">{{pressItem.fields.linkText}}</a></p>
+	<section class="center no-margin justfix-blue padding-section">
+		<div class="container">
+			<div class="left-block">
+				<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantAssistanceDirectoryBlock | markdown">
 				</div>
 			</div>
-
-      <div class="press-kit center">
-        <h3>Download Our Press Kit</h3>
-        <a href="https://drive.google.com/drive/folders/0B-ssGpYqs_ibMVNRZVFSU0F6a0U" target="_blank" class="btn btn-primary">DOWNLOAD</a>
-      </div>
-
+			<div class="right-block">
+				<a class="btn btn-warning btn-block" ng-href="{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.url}}" target="_blank">{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.title}}</a>
+			</div>
 		</div>
-  </section>
-  <section class="alt center">
-  	<div class="container" ng-bind-html="$contentfulEntry.fields.contactUsCopyText | markdown">
-		</div>
-		<br/>
-		<br/>
-  	<a ui-sref="contact" class="btn btn-primary">CONTACT US</a>
-  	<a href="https://www.nycharities.org/give/donate.aspx?cc=4125" class="btn btn-outline black">DONATE</a>
-  </section>
+		<div class="clearfix"></div>
+	</section>
 
   <section class="banner">
   	<a ui-sref="mission">
