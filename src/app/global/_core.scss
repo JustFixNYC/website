@@ -33,13 +33,25 @@ h1, h2, h3, h4, h5 {
 }
 h1 {
   font-size: 36px;
+
+  @media (max-width: $screen-md-min) {
+  	font-size: 30px;
+  }
 }
 h2 {
   font-size: 30px;
+
+  @media (max-width: $screen-md-min) {
+  	font-size: 26px;
+  }
 }
 h3 {
   font-size: 24px;
   font-weight: $text-semi;
+
+  @media (max-width: $screen-md-min) {
+  	font-size: 22px;
+  }
 }
 h4 {
   font-size: 18px;
@@ -136,6 +148,10 @@ input[type=email] {
 	}
 }
 
+.grey-bg {
+	background-color: $justfix-grey-light;
+}
+
 .no-margin {
 	margin: 0;
 }
@@ -155,57 +171,6 @@ input[type=email] {
 
 .reduced-margin-top {
 	margin-top: 25px;
-}
-
-.banner {
-	margin: 0px;
-	padding: 30px 0;
-	background: $brand-info;
-
-	@include transition(0.2s all);
-
-	h2 {
-		font-size: 24px;
-		font-weight: 600;
-		line-height: 1.3em;
-
-		@media (max-width: $screen-sm-max) {
-			text-decoration: underline;
-		}
-	}
-
-	&:hover,
-	&:focus,
-	&:active {
-		background: lighten($brand-info, 5);
-	}
-
-	@media (max-width: $screen-sm-max) {
-		.pull-left {
-			float: none !important;
-			text-align: center;
-		}
-	}
-
-	h4 {
-		margin-bottom: 15px;
-		text-align: left;
-		color: $text-color;
-	}
-
-	.container {
-		position: relative;
-	}
-
-	.pull-right {
-		right: 12px;
-		font-size: 1.95em;
-		@include vertical-align(absolute);
-
-		@media (max-width: $screen-sm-max) {
-			display: none;
-		}
-	}
 }
 
 // Social media buttons

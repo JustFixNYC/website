@@ -26,14 +26,27 @@
       margin: 0 auto 50px;
 
       @extend .col-md-3;
-      @include shift($n-columns: 1);
+      @include shift($n-columns: 2);
+
+      @media (max-width: $screen-md-min) {
+      	@include shift($n-columns: 0);
+
+      	margin: 0 auto 50px;
+      }
     }
 
     .director-text {
-    	float: right;
+    	// float: right;
 			text-align: left;
 
-    	@extend .col-md-7;
+    	@extend .col-md-6;
+    	@include shift($n-columns: 0.5);
+
+    	@media (max-width: $screen-md-min) {
+      	@include shift($n-columns: 0);
+
+      	margin: 0 auto 50px;
+      }
 
 	    & > h4:first-of-type {
 	      margin-bottom: 5px;

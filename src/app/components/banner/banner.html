@@ -1,0 +1,13 @@
+<section class="banner" ng-if="$contentfulEntry.fields.banner">
+	<a ng-href="{{$state.href($contentfulEntry.fields.banner.fields.link)}}">
+		<div class="container">
+			<div class="pull-left">
+				<h4>{{$contentfulEntry.fields.banner.fields.subtext}}</h4>
+				<h2 class="white">{{$contentfulEntry.fields.banner.fields.pageTitle}}</h2>
+			</div>
+			<div class="pull-right">
+				<span class="glyphicon glyphicon-chevron-right white"></span>
+			</div>
+		</div>
+	</a>
+</section>

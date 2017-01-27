@@ -6,7 +6,7 @@
     .controller('AboutController', AboutController);
 
   /** @ngInject */
-  function AboutController($scope) {
+  function AboutController($scope, $state) {
 
     $scope.$watch('innerWidth', function(oldVal, newVal) {
 			if(newVal < 768) {
@@ -15,6 +15,8 @@
 				$scope.flowUrl = '/img/flow_home_horizontal.svg';
 			}
     });
+
+    $scope.$state = $state;
 
   }
 })();

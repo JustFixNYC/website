@@ -1,0 +1,54 @@
+.banner {
+	margin: 0px;
+	padding: 30px 0;
+	background: $brand-info;
+
+	@include transition(0.2s all);
+
+	h2 {
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 1.3em;
+
+		@media (max-width: $screen-sm-max) {
+			text-decoration: underline;
+		}
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: lighten($brand-info, 5);
+	}
+
+	@media (max-width: $screen-sm-max) {
+		.pull-left {
+			float: none !important;
+			text-align: center;
+		}
+	}
+
+	h4 {
+		margin-bottom: 15px;
+		text-align: left;
+		color: $text-color;
+
+		@media (max-width: $screen-sm-max) {
+			text-align: center;
+		}
+	}
+
+	.container {
+		position: relative;
+	}
+
+	.pull-right {
+		right: 12px;
+		font-size: 1.95em;
+		@include vertical-align(absolute);
+
+		@media (max-width: $screen-sm-max) {
+			display: none;
+		}
+	}
+}

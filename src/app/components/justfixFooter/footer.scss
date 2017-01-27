@@ -7,12 +7,37 @@
 
 	.main {
 		border-bottom: 2px solid rgba(255,255,255,0.4);
+	}
 
-		.pull-left,
-		.pull-right {
-			@media (max-width: $screen-sm) {
-				width: 100%;
+	.pull-left.logo {
+		@extend .col-md-2;
+
+		img {
+			max-width: 100%;
+		}
+		@media (max-width: $screen-sm-max) {
+			margin-bottom: 20px;
+			width: 100%;
+			img {
+				max-width: 250px;
 			}
+		}
+	}
+
+	.pull-left {
+		text-align: center;
+
+		@extend .col-md-3;
+		@extend .col-sm-6;
+
+		@media (max-width: $screen-xs-max) {
+			text-align: left;
+		}
+
+		&.menu {
+			@extend .col-md-3;
+			@extend .col-sm-6;
+			@extend .col-xs-12;
 		}
 	}
 
@@ -20,6 +45,7 @@
 		margin: auto 30px;
 		display: inline-block;
 		padding: 0px;
+		text-align: left;
 	}
 
 	li {
@@ -47,6 +73,19 @@
 	}
 
 	.pull-right {
+		margin: auto;
+
+		@media (max-width: $screen-sm-max) {
+			margin-top: 20px;
+			width: 100%;
+			text-align: center;
+		}
+
+		.btn.signup {
+			@media (max-width: $screen-sm-max) {
+				margin: 10px auto 10px;
+			}
+		}
 
 		input[type=email] {
 			margin-bottom: 10px;
@@ -54,6 +93,7 @@
 
 			@media (max-width: $screen-sm) {
 				width: 100%;
+				max-width: 260px;
 			}
 		}
 	}

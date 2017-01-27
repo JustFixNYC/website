@@ -65,12 +65,12 @@
 
 			// on route change success (reset nav position, handle nav css rules)
 			var menuToggle = $rootScope.$on("$stateChangeSuccess", function(event, toState) {
-				console.log(toState);
 				$window.scrollTo(0, 0);
 
 				if(angular.element($document[0].getElementById('aside-menu-toggle')).hasClass('active')) {
 					$scope.toggleAside();
 				}
+				$('.mobile-dropdown-menu').slideUp()
 
 				// Nav fix
 				if(toState.name === 'home') {

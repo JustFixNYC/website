@@ -1,10 +1,21 @@
 .product-and-services {
+	margin-top: 70px;
 	text-align: center;
+
+	@media (max-width: $screen-sm-max) {
+		margin-top: 49px;
+	}
 
 	.hero {
 		margin: 0 auto;
 		background: $justfix-grey-light;
-		padding: 70px 0 0 0;
+		// padding: 70px 0 0 0;
+
+		.container {
+			@media (max-width: $screen-md-min) {
+
+			}
+		}
 	}
 
 	.flow-icon {

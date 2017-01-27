@@ -1,7 +1,7 @@
 
 <article class="product-and-services" contentful-entry="'content_type=productAndServices'">
   <section class="hero">
-		<article class="container">
+		<article class="container grey-bg">
 			<h1>{{$contentfulEntry.fields.headerBlock}}</h1>
 			<p>{{$contentfulEntry.fields.imageDescription}}</p>
 			<div class="flow-icon">
@@ -58,24 +58,12 @@
 				</div>
 			</div>
 			<div class="right-block">
-				<a class="btn btn-warning btn-block" ng-href="{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.url}}" target="_blank">{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.title}}</a>
+				<a class="btn btn-warning btn-block" ng-href="{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.link}}" target="_blank">{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.title}}</a>
 			</div>
 		</div>
 		<div class="clearfix"></div>
 	</section>
 
-  <section class="banner">
-  	<a ui-sref="mission">
-			<div class="container">
-				<div class="pull-left">
-					<h4>Want to know more?</h4>
-					<h2 class="white">Read Our Mission.</h2>
-				</div>
-				<div class="pull-right">
-					<span class="glyphicon glyphicon-chevron-right white"></span>
-				</div>
-			</div>
-		</a>
-  </section>
+  <banner></banner>
 
 </article>

@@ -1,0 +1,35 @@
+<div class="donate center">
+	<h1>DONATE!</h1>
+
+	<p>Introtext is hizzere</p>
+
+	<form ng-submit="makeCharge()" class="input-group">
+		<div class="col-md-6">
+			<label>Name</label>
+			<input type="text" class="form-control" ng-model="form.name">
+		</div>
+		<div class="col-md-6">
+			<label>Credit Card Number</label>
+			<input type="text" max-length="16" class="form-control" ng-model="form.number">
+		</div>
+		<div class="col-md-6">
+			<label>Expiration Month</label>
+			<input type="number" class="form-control" ng-model="form.exp_month">
+		</div>
+		<div class="col-md-6">
+			<label>Expiration Year</label>
+			<input type="number" class="form-control" ng-model="form.exp_year">
+		</div>
+		<div class="col-md-6">
+			<label>Address Zip Code</label>
+			<input type="number" class="form-control" ng-model="form.address_zip">
+		</div>
+		<div class="col-md-6">
+			<label>Amount</label>
+			<input type="number" class="form-control" ng-model="form.amount">
+		</div>
+		<div class="col-md-12">
+			<div class="btn btn-primary btn-block" ng-click="submit()">Launch</div>
+		</div>
+	</form>
+</div>

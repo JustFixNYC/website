@@ -13,7 +13,7 @@
         url: '/',
         templateUrl: 'app/modules/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main',
+        controllerAs: 'main'
       })
       .state('about', {
         url: '/about',
@@ -76,6 +76,15 @@
         controllerAs: 'contact',
         metaTags: {
           title: 'Contact Us'
+        }
+      })
+      .state('donate', {
+        url: '/donate',
+        templateUrl: 'app/modules/donate/donate.html',
+        controller: 'DonateController',
+        controllerAs: 'donate',
+        metaTags: {
+          title: 'Donate'
         }
       })
       .state('clinic', {

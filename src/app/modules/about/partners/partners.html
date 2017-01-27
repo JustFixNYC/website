@@ -5,7 +5,7 @@
   </header>
 
   <div class="clearfix"></div>
-  <section class="center">
+  <section class="center no-margin">
     <div class="logos container">
 			<span
 				class="logo partners"
@@ -39,18 +39,6 @@
   	<a ng-href="{{$contentfulEntry.fields.donateButton.fields.link}}" class="btn btn-outline black">{{$contentfulEntry.fields.donateButton.fields.title}}</a>
   </section>
 
-  <section class="banner">
-  	<a ui-sref="mission">
-			<div class="container">
-				<div class="pull-left">
-					<h4>Want to know more?</h4>
-					<h2 class="white">Read Our Mission.</h2>
-				</div>
-				<div class="pull-right">
-					<span class="glyphicon glyphicon-chevron-right white"></span>
-				</div>
-			</div>
-		</a>
-  </section>
+  <banner></banner>
 
 </article>
