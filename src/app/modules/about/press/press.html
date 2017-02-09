@@ -1,6 +1,6 @@
 
 <article contentful-entry="'content_type=pressPage'">
-  <section class="press container no-margin-bottom">
+  <section class="press container">
     <h1 class="center">{{$contentfulEntry.fields.title}}</h1>
   	<div>
 			<div
@@ -18,11 +18,13 @@
 
   
 
-      <div class="press-kit center no-margin padding-section-reduced">
-        <h3>{{$contentfulEntry.fields.pressKitTitle}}</h3>
-        <a ng-href="{{$contentfulEntry.fields.pressKitButton.fields.link}}" target="_blank" class="btn btn-primary">{{$contentfulEntry.fields.pressKitButton.fields.title}}</a>
-        <p class="press-kit-body" ng-bind-html="$contentfulEntry.fields.pressKitBody | markdown"></p>
-      </div>
+  <div class="press-kit center no-margin">
+  	<section class="container">
+	    <h3>{{$contentfulEntry.fields.pressKitTitle}}</h3>
+	    <a ng-href="{{$contentfulEntry.fields.pressKitButton.fields.link}}" target="_blank" class="btn btn-primary">{{$contentfulEntry.fields.pressKitButton.fields.title}}</a>
+	    <p class="press-kit-body" ng-bind-html="$contentfulEntry.fields.pressKitBody | markdown"></p>
+    </section>
+  </div>
 
   <banner></banner>
 

@@ -17,15 +17,15 @@
       bindToController: true
     };
 
-    return directive;
-
-    function linkFunc(scope, elem, attr) {
-    };
+    function linkFunc() {
+    }
 
     /** @ngInject */
     function bannerController($scope, $state) {
-    	$scope.$state = $state;
-    };
-  };
+			$scope.$state = $state;
+    }
+
+    return directive
+  }
 
 })();

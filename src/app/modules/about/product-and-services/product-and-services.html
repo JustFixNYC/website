@@ -5,7 +5,7 @@
 			<h1>{{$contentfulEntry.fields.headerBlock}}</h1>
 			<p>{{$contentfulEntry.fields.imageDescription}}</p>
 			<div class="flow-icon">
-				<img ng-src="{{flowUrl}}" />
+				<!-- <img ng-src="{{flowUrl}}" /> -->
 			</div>
 			<a href="#" scroll-to="tutorial" class="learn-more-link">
 				<div class="center learn-more">
@@ -16,19 +16,22 @@
 			</a>
 		</article>
 	</section>
+	<div class="clearfix"></div>
 
 	<section class="tutorial no-margin padding-section" id="tutorial">
 		<div class="container">
 			<h1 class="header center">For Tenants</h1>
 			<uib-carousel
 				active="active"
-				interval="4000"
+				interval="false"
 				template-url="app/bootstrap-templates/carousel/carousel.html">
 	
 				<uib-slide
 					ng-repeat="slide in $contentfulEntry.fields.slider track by $index"
 					index="$index">
-					<img ng-src="{{slide.fields.image.fields.file.url}}">
+					<div class="img-wrapper">
+						<img ng-src="{{slide.fields.image.fields.file.url}}">
+					</div>
 					<span class="text">
 						<h3>{{slide.fields.title}}</h3>
 						<span ng-bind-html="slide.fields.bodyText | markdown"></span>
@@ -42,8 +45,8 @@
 		</div>
 	</section>
 
-	<section class="community-advocates alt no-margin-bottom">
-		<h1 class="center">{{$contentfulEntry.fields.communityAdvocateBlock.fields.title}}</h1>
+	<section class="community-advocates alt no-margin">
+		<h1 class="center container">{{$contentfulEntry.fields.communityAdvocateBlock.fields.title}}</h1>
 		<div class="container">
 			<img ng-src="{{$contentfulEntry.fields.communityAdvocateBlock.fields.image.fields.file.url}}" />
 			<span class="text" ng-bind-html="$contentfulEntry.fields.communityAdvocateBlock.fields.textBlock | markdown"></span>
@@ -52,14 +55,12 @@
 	<div class="clearfix"></div>
 
 	<section class="center no-margin justfix-blue padding-section">
-		<div class="container">
-			<div class="left-block">
-				<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantAssistanceDirectoryBlock | markdown">
-				</div>
+		<div class="left-block">
+			<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantAssistanceDirectoryBlock | markdown">
 			</div>
-			<div class="right-block">
-				<a class="btn btn-warning btn-block" ng-href="{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.link}}" target="_blank">{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.title}}</a>
-			</div>
+		</div>
+		<div class="right-block">
+			<a class="btn btn-warning btn-block" ng-href="{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.link}}" target="_blank">{{$contentfulEntry.fields.tenantAssistanceDirectoryButton.fields.title}}</a>
 		</div>
 		<div class="clearfix"></div>
 	</section>

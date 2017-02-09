@@ -22,45 +22,38 @@
 		return directive;
 
 		function linkFunc(scope) {
-
 			scope.status = {
 				isopen: false
 			};
 
 			scope.toggleAside = function() {
+				angular.element($document[0].querySelector('body')).toggleClass('modal-open');
 				angular.element($document[0].getElementById('aside-menu-toggle')).toggleClass('active');
 				angular.element($document[0].getElementById('aside-menu')).toggleClass('open');
 				angular.element($document[0].getElementById('header-wrap')).toggleClass('blue-active');
 			};
 
 			scope.toggleMenuSlidedown = function($event) {
-				// If no event activated, then close
-				if(!$event) {
-					if(scope.status.isopen === false) {
-						return;
-					}
-					$('.mobile-dropdown-menu').slideUp();
-					return scope.status.isopen = false;
-				}
+
 
 				$event.preventDefault();
 				$event.stopPropagation();
 
 
 				// Cheating like hell, but I'm not rebuilding .slideDown() for angular.element just b/c jqlite is BS
-				if(scope.status.isopen === false) {
-					$('.mobile-dropdown-menu').slideDown();
-					scope.status.isopen = true;
-				} else {
+				if(angular.element($document[0].querySelector('#aside-menu uib-dropdown > span')).hasClass('expanded')) {
 					$('.mobile-dropdown-menu').slideUp();
-					scope.status.isopen = false;
+					angular.element($document[0].querySelector('#aside-menu uib-dropdown > span')).removeClass('expanded');
+				} else {
+					angular.element($document[0].querySelector('#aside-menu uib-dropdown > span')).addClass('expanded');
+					$('.mobile-dropdown-menu').slideDown();
 				}
 			};
 
 		}
 
 		/** @ngInject */
-		function NavbarController($rootScope, $document, $scope, $window) {
+		function NavbarController($rootScope, $document, $scope, $window, $state) {
 			var vm = this;
 
 			// on route change success (reset nav position, handle nav css rules)
@@ -70,7 +63,11 @@
 				if(angular.element($document[0].getElementById('aside-menu-toggle')).hasClass('active')) {
 					$scope.toggleAside();
 				}
-				$('.mobile-dropdown-menu').slideUp()
+
+				// ONLY CLOSE if not about page and this is already expanded
+				if(toState.name.indexOf('about') === -1 && angular.element($document[0].querySelector('#aside-menu uib-dropdown > span')).hasClass('expanded')){
+					$scope.toggleMenuSlidedown();
+				}
 
 				// Nav fix
 				if(toState.name === 'home') {
@@ -80,8 +77,6 @@
 				} else {
 					$scope.headerColor = 'blue-bg';
 				}
-
-				$scope.toggleMenuSlidedown();
 			});
 
 			//Dunno why, but calling this as a function inits the destroy function on the listener...
@@ -140,7 +135,7 @@
 				//	 target: "_blank"
 				// },
 				{
-					text: "Español",
+					text: "En Español",
 					style: "",
 					url: "http://beta.justfix.nyc/?lang=es_mx"
 				},

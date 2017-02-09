@@ -1,5 +1,5 @@
 .team-container.directors {
-	margin-top: 50px;
+	// margin-top: 50px;
 
   .team-member {
     @extend .col-sm-12;
@@ -25,13 +25,17 @@
       border-radius: 100%;
       margin: 0 auto 50px;
 
-      @extend .col-md-3;
-      @include shift($n-columns: 2);
+      @extend .col-md-4;
+      @extend .col-sm-6;
+      @extend .col-xs-6;
+      @include shift($n-columns: 1);
 
       @media (max-width: $screen-md-min) {
+      	float: none;
+      	padding: 0px;
       	@include shift($n-columns: 0);
 
-      	margin: 0 auto 50px;
+      	margin: 0 auto 20px;
       }
     }
 
@@ -43,6 +47,7 @@
     	@include shift($n-columns: 0.5);
 
     	@media (max-width: $screen-md-min) {
+    		text-align: center;
       	@include shift($n-columns: 0);
 
       	margin: 0 auto 50px;
@@ -56,7 +61,7 @@
 	      font-size: 16px;
 	      padding-left: 0px;
 	      padding-right: 0px;
-	      line-height: 1.6em;
+	      line-height: 1.3;
 	    }
     }
 

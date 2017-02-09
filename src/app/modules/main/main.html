@@ -20,9 +20,9 @@
 
 	<section class="container white center padding-section-reduced home-content-blocks" id="home-content-blocks">
 
-		<div class="subtexts">
+		<!-- <div class="subtexts">
 			<h4 ng-repeat="subtext in $contentfulEntry.fields.subtexts">{{subtext}}</h4>
-		</div>
+		</div> -->
 
 		<h1>How it works:</h1>
 
@@ -86,7 +86,7 @@
 		<div class="clearfix"></div> -->
 
 		<section class="center no-margin justfix-blue padding-section">
-			<div class="container">
+			<!-- <div class="container"> -->
 				<div class="left-block">
 					<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantDirectoryDescription | markdown">
 					</div>
@@ -94,7 +94,7 @@
 				<div class="right-block">
 					<a class="btn btn-warning btn-block" href="http://findhelp.justfix.nyc" target="_blank">FIND HELP</a>
 				</div>
-			</div>
+			<!-- </div> -->
 			<div class="clearfix"></div>
 		</section>
 
@@ -105,8 +105,6 @@
 		<article class="container">
 			<div class="center-block">
 				<h2>{{$contentfulEntry.fields.missionDescription}}</h2>
-				<br/>
-				<br/>
 				<a class="btn btn-outline" ui-sref="mission">READ OUR MISSION</a>
 			</div>
 		</article>

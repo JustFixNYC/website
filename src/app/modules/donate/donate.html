@@ -3,33 +3,40 @@
 
 	<p>Introtext is hizzere</p>
 
-	<form ng-submit="makeCharge()" class="input-group">
-		<div class="col-md-6">
+	<form ng-submit="makeCharge()" class="input-group container">
+		<div class="col-md-12">
 			<label>Name</label>
-			<input type="text" class="form-control" ng-model="form.name">
+			<input type="text" class="form-control" ng-model="form.name" data-stripe="name">
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<label>Credit Card Number</label>
-			<input type="text" max-length="16" class="form-control" ng-model="form.number">
+			<input type="text" max-length="16" class="form-control" ng-model="form.number" data-stripe="number">
 		</div>
 		<div class="col-md-6">
 			<label>Expiration Month</label>
-			<input type="number" class="form-control" ng-model="form.exp_month">
+			<input type="number" max-length="2" class="form-control" ng-model="form.exp_month" data-stripe="exp_month">
 		</div>
 		<div class="col-md-6">
 			<label>Expiration Year</label>
-			<input type="number" class="form-control" ng-model="form.exp_year">
+			<input type="number" max-length="2" class="form-control" ng-model="form.exp_year" data-stripe="exp_year">
 		</div>
-		<div class="col-md-6">
+
+		<div class="col-md-4">
+			<label>CVC</label>
+			<input type="number" max-length="4" class="form-control" ng-model="form.cvc" data-stripe="cvc">
+		</div>
+		<div class="col-md-4">
 			<label>Address Zip Code</label>
-			<input type="number" class="form-control" ng-model="form.address_zip">
+			<input type="number" max-length="5" class="form-control" ng-model="form.address_zip" data-stripe="address_zip">
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<label>Amount</label>
-			<input type="number" class="form-control" ng-model="form.amount">
+			<input type="number" class="form-control" ng-model="">
 		</div>
+		<div class="clearfix"></div>
+		<div class="alert alert-danger" ng-class="{'hidden': !error}">{{errorMessage}}</div>
 		<div class="col-md-12">
-			<div class="btn btn-primary btn-block" ng-click="submit()">Launch</div>
+			<div class="btn btn-primary btn-block" ng-disabled="requesting" ng-click="submit()">Launch</div>
 		</div>
 	</form>
 </div>

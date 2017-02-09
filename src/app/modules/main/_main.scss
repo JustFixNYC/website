@@ -1,11 +1,12 @@
 .home-page {
 	h2 {
+		margin-bottom: 50px;
 		font-size: 24px;
 		font-weight: 600;
 		line-height: 1.3em;
 
 		@media (min-width: $screen-sm-min) {
-			margin: auto;
+			margin: 0 auto 50px;
 			max-width: 540px;
 		}
 	}
@@ -50,7 +51,7 @@
 
 		@media (max-width: $screen-xs-max) {
 			margin: 0px 0 30px 0;
-			font-size: 1.8em;
+			font-size: 1.5em;
 		}
 	}
 
@@ -75,7 +76,7 @@
 	
 .learn-more {
 	position: absolute;
-	bottom: 0px;
+	bottom: 40px;
 	left: 0;
 	width: 100%;
 	color: white;
@@ -104,7 +105,7 @@
 	color: $justfix-grey-dark;
 
 	h1 { 
-		margin-top: $section-margin / 2;
+		margin-top: 0;//$section-margin / 2;
 	}
 
 	.subtexts {
@@ -117,8 +118,8 @@
 	.one-fourth {
 		margin-bottom: 25px;
 
-		@include shift(2);
-		@extend .col-md-3;
+		@include shift(1.25);
+		@extend .col-md-4;
 
 		@media (max-width: $screen-md-min) {
 			@include shift(0);
@@ -129,17 +130,15 @@
 		font-weight: 800;
 		margin: 15px 0;
 	}
+
+	.btn {
+		margin: 2em 0 1em;
+	}
 }
 
 .justfix-blue {
 	background: $justfix-blue;
 }
-
-// .tutorial {
-// 	h1 {
-// 		margin-bottom: $section-margin/3;
-// 	}
-// }
 
 .landlord {
 	.center-block {

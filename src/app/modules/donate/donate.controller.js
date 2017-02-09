@@ -6,7 +6,10 @@
 		.controller('DonateController', DonateController);
 
 	/** @ngInject */
-	function DonateController($scope, $window, $http) {
+	function DonateController($scope, $window) {
+
+		$scope.error = false;
+		$scope.requesting = false;
 
 		$window.Stripe.setPublishableKey('pk_test_Yq8GeR8Vv7pZniDZW1JZwaTj');
 
@@ -19,13 +22,30 @@
 		};
 
 		$scope.submit = function() {
-			$http.post('/api/donate', {
+			$scope.requesting = true;
+			$scope.error = false;
+			$window.Stripe.card.createToken($scope.form, requestFromOurServer);
+		}
+
+		var requestFromOurServer = function(responseCode, responseDetails) {
+
+			console.log(responseCode);
+			console.log(responseDetails);
+
+			if(responseCode !== 200) {
+				$scope.error = true;
+				$scope.errorMessage = responseDetails.error.message;
+				$scope.requesting = false;
+				$scope.$apply();
+			}
+			/*
+			return $http.post('/api/donate', {
 				data: 'filename'
 			}).then(function(response){
 				console.log(response);
 			}, function(err) {
 				console.log(err);
-			});
+			});*/
 		};
 	}
 })();

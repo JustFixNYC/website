@@ -1,40 +1,62 @@
 .product-and-services {
-	margin-top: 70px;
 	text-align: center;
 
-	@media (max-width: $screen-sm-max) {
-		margin-top: 49px;
-	}
-
 	.hero {
+		position: relative;
 		margin: 0 auto;
 		background: $justfix-grey-light;
-		// padding: 70px 0 0 0;
+		height: 100%;
+		min-height: 100vh;
 
 		.container {
-			@media (max-width: $screen-md-min) {
+			position: absolute;
+			margin-top: 70px;
+			width: 100%;
+			max-width: 100%;
 
+			@media (max-width: $screen-xs-max) {
+				position: relative;
+				top: 0;
+
+				@include transform(translateY(0));
 			}
+
 		}
 	}
 
 	.flow-icon {
 		margin: auto;
 		max-width: 600px;
+		min-height: 150px;
+		background: url('/img/NewFlow-horizontal.svg') no-repeat center center;
+
+		@media (max-width: $screen-xs-max) {
+			min-height: 200px;
+			background: url('/img/NewFlow-grid.svg') no-repeat center center;
+		}
 	}
 
 	.learn-more {
 		position: relative;
-		margin-top: 50px;
+		margin-top: 75px;
 		color: $justfix-grey-dark;
 		text-shadow: none;
 	}
 }
 
+.tutorial {
+	padding: 50px 0;
+}
+
 // carousel
 .carousel-inner {
+	position: relative;
 	margin: auto;
 	width: 90%;
+
+	@media (max-width: $screen-sm-max) {
+		width: 100%;
+	}
 
 	.text {
 		left: 0;
@@ -46,7 +68,7 @@
 
 		h3 {
 			display: block;
-			margin: 1em 0;
+			margin: 0.5em 0;
 			font-size: 22px;
 		}
 
@@ -55,22 +77,32 @@
 		}
 
 		@media (max-width: $screen-sm-max) {
-			margin: 0 0 3em 0;
-			padding: 0px;
+			display: block;
+			margin: 0 0 0 0;
+			background: #fff;
+			padding: 25px 0 0 0;
 			text-align: center;
 		}
 	}
 
+	.img-wrapper {
+		@media(max-width: $screen-sm-max) {
+			max-height: 60vh;
+		} 
+	}
+
 	img {
 		float: right;
-		right: 8.5298%;
-
+		
+		@include shift($n-columns: 1);
 		@extend .col-md-3;
+		@extend .col-sm-6;
 
 		@media (max-width: $screen-sm-max) {
 			float: none;
 			right: auto;
 			margin: auto;
+			max-width: 100%;
 		}
 	}
 }
@@ -141,11 +173,19 @@
 // Bottom homepage styling
 .community-advocates {
 
+	h1 {
+		margin-bottom: 20px;
+	}
+
 	img {
 		max-width: 100%;
 
 		@extend .col-md-7;
 		@extend .col-sm-12;
+
+		@media (max-width: $screen-sm-max) {
+			float: none;
+		}
 	}
 
 	.text {
@@ -166,9 +206,18 @@
 }
 
 .left-block {
+	float: left;
+	margin-left: 7.5%;
+	width: 40%;
 	color: white;
 
-	@extend .col-md-6;
+	@extend .clearfix;
+
+	@media(max-width: $screen-sm-max) {
+		float: none;
+		margin: auto;
+		width: 100%;
+	}
 
 	&_style {
 		padding: 0px 50px;

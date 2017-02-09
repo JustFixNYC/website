@@ -45,6 +45,7 @@
   </header>
 </div>
 
+<!-- <div class="background-fadein"></div> -->
 <div id="aside-menu">
   <ul class="list-unstyled" ui-sref-active="active">
     <li>
@@ -65,11 +66,13 @@
   		  target="{{link.target}}">{{ ::link.text }}</a>
 	  		<uib-dropdown
 	    		ng-if="link.children"
-					class="mobile-dropdown" 
-					is-open="status.isopen">
+					class="mobile-dropdown">
 						<span 
 							ng-click="toggleMenuSlidedown($event)" 
-							ng-class="{expanded: status.isopen}">{{ ::link.text }}</span>
+							ng-class="{expanded: status.isopen}">
+							{{ ::link.text }} 
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</span>
 						<ul 
 							class="dropdown-menu mobile-dropdown-menu" 
 							data-toggle="dropdown"

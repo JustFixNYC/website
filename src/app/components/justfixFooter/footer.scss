@@ -6,11 +6,18 @@
 	width: 100%;
 
 	.main {
+		padding: 0px;
 		border-bottom: 2px solid rgba(255,255,255,0.4);
 	}
 
 	.pull-left.logo {
+		padding: 0px;
+
 		@extend .col-md-2;
+
+		@media (max-width: $screen-sm-max) {
+			text-align: center;
+		}
 
 		img {
 			max-width: 100%;
@@ -42,10 +49,14 @@
 	}
 
 	ul {
-		margin: auto 30px;
+		// margin: auto 15px;
 		display: inline-block;
 		padding: 0px;
 		text-align: left;
+
+		@media (max-width: $screen-xs-max) {
+			margin: 10px 15px;
+		}
 	}
 
 	li {
@@ -140,13 +151,15 @@
 		}
 
 		.footer-text-content {
-			@extend .col-md-9;
+			padding-left: 0px;
 			display: inline-block;
 			vertical-align: top;
+
+			@extend .col-md-9;
 		}
 
 		.contentful {
-			margin-left: 50px;
+			margin-left: 80px;
 			padding-right: 0px;
 			text-align: center;
 
