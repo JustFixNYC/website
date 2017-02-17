@@ -3,40 +3,64 @@
 
 	<p>Introtext is hizzere</p>
 
-	<form ng-submit="makeCharge()" class="input-group container">
-		<div class="col-md-12">
-			<label>Name</label>
-			<input type="text" class="form-control" ng-model="form.name" data-stripe="name">
+	<form name="donateForm" ng-submit="makeCharge(donateForm)" class="input-group container">
+
+		<div class="form-row">
+	    <label for="card-element">
+	      Credit or debit card
+	    </label>
+	    <div id="card-element" class="stripe-card-element col-md-12">
+	      <!-- a Stripe Element will be inserted here. -->
+	    </div>
+	  </div>
+		<div class="form-row">
+			<label for="donate-amt">
+				Donation Amount
+			</label>
+			<div id="card-amount">
+				<div class="checkbox col-md-3">
+					<input type="checkbox" id="amount[0]" ng-click="donateObj.amount=100" value="100" ng-checked="donateObj.amount == 100">
+					<label for="amount[0]">$ 100.00</label>
+				</div>
+				<div class="checkbox col-md-3">
+					<input type="checkbox" id="amount[1]" ng-click="donateObj.amount=50" value="50" ng-checked="donateObj.amount == 50">
+					<label for="amount[1]">$ 50.00</label>
+				</div>
+
+				<div class="checkbox col-md-3">
+					<input type="checkbox" id="amount[2]" ng-click="donateObj.amount=20" value="20" ng-checked="donateObj.amount == 20">
+					<label for="amount[2]">$ 20.00</label>
+				</div>
+				<div class="checkbox col-md-3">
+					<input type="checkbox" id="amount[3]" ng-click="donateObj.amount=10" value="10" ng-checked="donateObj.amount == 10">
+					<label for="amount[3]">$ 10.00</label>
+				</div>
+				<div class="other">
+					<input type="text" value="dummy">
+				</div>
+			</div>
 		</div>
-		<div class="col-md-12">
-			<label>Credit Card Number</label>
-			<input type="text" max-length="16" class="form-control" ng-model="form.number" data-stripe="number">
-		</div>
-		<div class="col-md-6">
-			<label>Expiration Month</label>
-			<input type="number" max-length="2" class="form-control" ng-model="form.exp_month" data-stripe="exp_month">
-		</div>
-		<div class="col-md-6">
-			<label>Expiration Year</label>
-			<input type="number" max-length="2" class="form-control" ng-model="form.exp_year" data-stripe="exp_year">
+		<div class="form-row">
+			<label>
+				Recurring Subscription
+			</label>
+			<input type="checkbox" ng-click="donateObj.subscription = !donateObj.subscription" ng-checked="donateObj.subscription == true">
 		</div>
 
-		<div class="col-md-4">
-			<label>CVC</label>
-			<input type="number" max-length="4" class="form-control" ng-model="form.cvc" data-stripe="cvc">
-		</div>
-		<div class="col-md-4">
-			<label>Address Zip Code</label>
-			<input type="number" max-length="5" class="form-control" ng-model="form.address_zip" data-stripe="address_zip">
-		</div>
-		<div class="col-md-4">
-			<label>Amount</label>
-			<input type="number" class="form-control" ng-model="">
-		</div>
-		<div class="clearfix"></div>
-		<div class="alert alert-danger" ng-class="{'hidden': !error}">{{errorMessage}}</div>
-		<div class="col-md-12">
-			<div class="btn btn-primary btn-block" ng-disabled="requesting" ng-click="submit()">Launch</div>
-		</div>
+		<div class="form-row" ng-show="donateObj.subscription == true">
+	    <label for="card-element">
+	      Email
+	    </label>
+	    <input type="email" name="email" class="col-md-12" ng-model="donateObj.email">
+	  </div>
+		<div class="clearfix"></div>  
+
+    <!-- Used to display Element errors -->
+    <div id="card-errors" class="alert alert-danger" ng-class="{'hidden': !error}"></div>
+
+    <input type="submit" class="btn btn-primary btn-block" value="DONATE">
+    
+    <div id="success-message" class="alert alert-success" ng-class="{'hidden': !success}"></div>
+	
 	</form>
 </div>

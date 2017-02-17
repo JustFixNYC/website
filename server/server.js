@@ -1,12 +1,18 @@
 var express = require('express'),
     compression = require('compression'),
     helmet = require('helmet'),
+    bodyParser = require('body-parser'),
     donate = require('./donate');
 
 var app = express();
 
 app.use(compression());
 app.use(helmet());
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 
 app.use(require('prerender-node').set('prerenderToken', '6x0ervNLErEUk7hpACc3'));
 

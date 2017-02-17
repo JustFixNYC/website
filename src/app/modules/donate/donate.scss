@@ -1,5 +1,19 @@
 .donate {
 	form {
-		margin: auto;
+		margin: 0 auto 70px;
+
+		.btn {
+			margin-top: 30px;
+		}
+
+		input[type=email] {
+			width: 100%;
+		}
 	}
+}
+
+.stripe-card-element {
+	border: 1px solid $justfix-grey-dark;
+	border-radius: 5px;
+	padding: 10px;
 }

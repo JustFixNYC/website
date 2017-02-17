@@ -1,5 +1,4 @@
 #header {
-	position: absolute;
 	width: 100%;
 }
 
@@ -71,6 +70,10 @@
         height: 100%;
         position: relative;
         top: 9px;
+
+        @media (max-width: $screen-sm-max) {
+        	top: 0px;
+        }
       }
     }
 
