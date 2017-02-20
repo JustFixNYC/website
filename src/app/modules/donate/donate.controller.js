@@ -6,7 +6,7 @@
 		.controller('DonateController', DonateController);
 
 	/** @ngInject */
-	function DonateController($scope, $window, $http, $document) {
+	function DonateController($scope, $window, $http, $document, $filter) {
 
 		$scope.error = false;
 		$scope.success = false;
@@ -21,8 +21,8 @@
 		};
 
 		// Set up our Stripe JS
-		var displayError = $document.getElementById('card-errors');
-		var displaySuccess = $document.getElementById('success-message');
+		var displayError = $document[0].getElementById('card-errors');
+		var displaySuccess = $document[0].getElementById('success-message');
 		var stripe = $window.Stripe('pk_test_Yq8GeR8Vv7pZniDZW1JZwaTj');
 		var elements = stripe.elements();
 		var card = elements.create('card', {style: style});
@@ -30,10 +30,13 @@
 
 		// Other opts set in form (CANNOT be part of stripe auth flow)
 		$scope.donateObj = {
-			amount: 20,
-			subscription: true,
+			amount: '20.0034361',
+			subscription: false,
 			email: ''
 		}
+
+		$filter('number')($scope.donateObj.amount, 2);
+		console.log($scope.donateObj.amount);
 
 		// Error tracker for card input
 		card.addEventListener('change', function(event) {
@@ -55,15 +58,14 @@
 			// Check if subscribed but email isn't valid
 			if($scope.donateObj.subscription === true && !emailWorks){
 				$scope.error = true;
-				return displayError.textContent = 'please make sure the email form is complete and correct!';
+				return displayError.textContent = 'Please make sure the email form is complete and correct!';
 			} else {
 
 				return stripe.createToken(card).then(function(result) {
 					if(result.error) {
 						// Inform the user if there was an error
 						$scope.error = true;
-						var errorElement = $document.getElementById('card-errors');
-						errorElement.textContent = result.error.message;
+						displayError.textContent = result.error.message;
 					} else {
 						requestFromOurServer(result);
 					}
@@ -84,7 +86,7 @@
 				subscription: $scope.donateObj.subscription,
 				email: $scope.donateObj.email
 			}).then(function(response){
-
+				console.log(response);
 				// Display success text if everything goes as planned
 				if(response.data.status === 'succeeded') {
 					$scope.error = false;
@@ -97,6 +99,7 @@
 
 			}, function(err) {
 				// Err out
+				console.log(err);
 				$scope.error = true;
 				displayError.textContent = err.data.message;
 

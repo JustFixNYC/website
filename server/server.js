@@ -1,3 +1,5 @@
+var stripe_dk = process.env.STRIPE_DK || 'sk_test_D32Dl92AC6IWj1MydXgEuG75';
+
 var express = require('express'),
     compression = require('compression'),
     helmet = require('helmet'),
@@ -38,7 +40,6 @@ app.all('^(\/*?!\/api)', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', { root: __dirname });
 });
-
 var port = process.env.PORT || 8080;
 
 app.listen(port, function() {

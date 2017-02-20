@@ -18,41 +18,44 @@
 				Donation Amount
 			</label>
 			<div id="card-amount">
-				<div class="checkbox col-md-3">
-					<input type="checkbox" id="amount[0]" ng-click="donateObj.amount=100" value="100" ng-checked="donateObj.amount == 100">
-					<label for="amount[0]">$ 100.00</label>
-				</div>
-				<div class="checkbox col-md-3">
-					<input type="checkbox" id="amount[1]" ng-click="donateObj.amount=50" value="50" ng-checked="donateObj.amount == 50">
-					<label for="amount[1]">$ 50.00</label>
-				</div>
-
-				<div class="checkbox col-md-3">
-					<input type="checkbox" id="amount[2]" ng-click="donateObj.amount=20" value="20" ng-checked="donateObj.amount == 20">
-					<label for="amount[2]">$ 20.00</label>
-				</div>
-				<div class="checkbox col-md-3">
+				<div class="checkbox col-md-2">
 					<input type="checkbox" id="amount[3]" ng-click="donateObj.amount=10" value="10" ng-checked="donateObj.amount == 10">
 					<label for="amount[3]">$ 10.00</label>
 				</div>
-				<div class="other">
-					<input type="text" value="dummy">
+				<div class="checkbox col-md-2">
+					<input type="checkbox" id="amount[2]" ng-click="donateObj.amount=20" value="20" ng-checked="donateObj.amount == 20">
+					<label for="amount[2]">$ 20.00</label>
+				</div>
+				<div class="checkbox col-md-2">
+					<input type="checkbox" id="amount[1]" ng-click="donateObj.amount=50" value="50" ng-checked="donateObj.amount == 50">
+					<label for="amount[1]">$ 50.00</label>
+				</div>
+				<div class="checkbox col-md-2">
+					<input type="checkbox" id="amount[0]" ng-click="donateObj.amount=100" value="100" ng-checked="donateObj.amount == 100">
+					<label for="amount[0]">$ 100.00</label>
+				</div>
+				<div class="checkbox col-md-2">
+					<input type="checkbox" id="amount[0]" ng-click="donateObj.amount=100" value="100" ng-checked="donateObj.amount == 100">
+					<label for="amount[0]">$ 200.00</label>
+				</div>
+				<div class="other col-md-2">
+					<input type="text" placeholder="Other" ng-model="donateObj.amount">
 				</div>
 			</div>
-		</div>
+		</div><!-- 
 		<div class="form-row">
 			<label>
 				Recurring Subscription
 			</label>
 			<input type="checkbox" ng-click="donateObj.subscription = !donateObj.subscription" ng-checked="donateObj.subscription == true">
 		</div>
-
+		
 		<div class="form-row" ng-show="donateObj.subscription == true">
 	    <label for="card-element">
 	      Email
 	    </label>
 	    <input type="email" name="email" class="col-md-12" ng-model="donateObj.email">
-	  </div>
+	  </div> -->
 		<div class="clearfix"></div>  
 
     <!-- Used to display Element errors -->

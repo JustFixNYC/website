@@ -7,9 +7,23 @@
 		}
 
 		input[type=email] {
-			width: 100%;
+			width: 100%; 
 		}
 	}
+
+	.form-row {
+		margin-top: 50px;
+
+		@extend .clearfix;
+
+		.col-md-2 {
+			padding: 0px;
+		}
+	}
+}
+
+.checkbox {
+	margin: 10px 0;
 }
 
 .stripe-card-element {
