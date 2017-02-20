@@ -20,7 +20,7 @@ module.exports = function(req, res) {
 			currency: 'usd',
 			amount: amt,
 		}, function(err, plan) {
-			if(err) {
+			if(err) { 
 				return res.status(500).send(err);
 			}*/
 			// asynchronously called
