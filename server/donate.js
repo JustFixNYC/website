@@ -9,7 +9,7 @@ module.exports = function(req, res) {
 	if(req.body.subscription !== undefined && req.body.subscription !== 'undefined' && req.body.subscription != false) {
 
 		// no email sent
-		if(!req.body.email) {
+		if(!req.body.email) { 
 			return res.status(403).send('Incorrect Email');
 		}
 
