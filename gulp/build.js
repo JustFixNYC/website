@@ -94,7 +94,8 @@ gulp.task('other', function () {
 gulp.task('server', function () {
   return gulp.src([path.join(conf.paths.server + '/Procfile'),
                    path.join(conf.paths.server + '/package.json'),
-                   path.join(conf.paths.server + '/server.js')])
+                   path.join(conf.paths.server + '/server.js'),
+                   path.join(conf.paths.server + '/donate.js')])
             .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 

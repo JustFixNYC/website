@@ -14,6 +14,14 @@
 			width: 100%;
 			max-width: 100%;
 
+			h1 {
+				max-width: 900px;
+			}
+
+			p:not(.lead) {
+				max-width: 900px;
+			}
+
 			@media (max-width: $screen-xs-max) {
 				position: relative;
 				top: 0;
@@ -28,8 +36,8 @@
 
 	.flow-icon {
 		margin: auto;
-		max-width: 600px;
-		min-height: 150px;
+		max-width: 800px;
+		min-height: 175px;
 		background: url('/img/NewFlow-horizontal.svg') no-repeat center center;
 
 		@media (max-width: $screen-xs-max) {
@@ -176,7 +184,7 @@
 .community-advocates {
 
 	h1 {
-		margin-bottom: 20px;
+		margin-bottom: 40px;
 	}
 
 	img {
@@ -209,8 +217,8 @@
 
 .left-block {
 	float: left;
-	margin-left: 7.5%;
-	width: 40%;
+	margin-left: 15%;
+	width: 37.5%;
 	color: white;
 
 	@extend .clearfix;
@@ -231,7 +239,7 @@
 }
 
 .right-block {
-	@extend .col-md-6;
+	@extend .col-md-4;
 
 	.btn {
 		margin: 32px auto 0 auto;

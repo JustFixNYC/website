@@ -22,7 +22,8 @@
             	<uib-dropdown
             		ng-if="link.children"
 								class="dropdown-toggle mobile"
-								on-toggle="toggled(open)">
+								on-toggle="toggled(open)"
+								ng-class="{'active': aboutItemActive}">
 									<span uib-dropdown-toggle>{{ ::link.text }}</span>
 									<ul 
 										class="dropdown-menu" 

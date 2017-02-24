@@ -1,5 +1,3 @@
-var stripe_dk = process.env.STRIPE_DK || 'sk_test_D32Dl92AC6IWj1MydXgEuG75';
-
 var express = require('express'),
     compression = require('compression'),
     helmet = require('helmet'),
@@ -28,15 +26,15 @@ app.use('/scripts', express.static(__dirname + '/scripts'));
 
 app.use('/espanol', function(req, res, next) {
   res.redirect('http://beta.justfix.nyc/?lang=es_mx');
-});/*
+});
 app.use('/donate', function(req, res, next) {
   res.redirect('https://www.nycharities.org/give/donate.aspx?cc=4125');
-});*/
-app.post('/api/donate', donate);
+});
+// app.post('/api/donate', donate);
 
 
 
-app.all('^(\/*?!\/api)', function(req, res, next) {
+app.all(/^\/(?!api).*/, function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', { root: __dirname });
 });

@@ -13,7 +13,8 @@
     &:last-child {
 
     	@media (min-width: $screen-sm-min) {
-	    	@include shift(0);
+	    	// @include shift(0);
+	    	margin-left: -1%;
     	}
     }
 
