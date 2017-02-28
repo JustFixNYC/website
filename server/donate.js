@@ -13,17 +13,38 @@ module.exports = function(req, res) {
 			return res.status(403).send('Incorrect Email');
 		}
 
-		/*var plan = stripe.plans.create({
-			name: 'Monthly',
-			id: 'basic-monthly',
-			interval: 'month',
-			currency: 'usd',
-			amount: amt,
-		}, function(err, plan) {
-			if(err) {
-				return res.status(500).send(err);
-			}*/
-			// asynchronously called
+		stripe.plans.retrieve(
+		  amt,
+		  function(err, plan) {
+		    // asynchronously called
+		    if(err) {
+		    	return createPlan();
+		    } else {
+		    	return createCustomer(plan);
+		    }
+		  }
+		);
+
+		var createPlan = function() {
+			stripe.plans.create({
+				name: 'Monthly',
+				id: amt,
+				interval: 'month',
+				currency: 'usd',
+				amount: amt,
+			}, function(err, plan) {
+				if(err) {
+					return res.status(500).send(err);
+				}
+				// asynchronously called
+				// Create customer
+				createCustomer(plan);
+			});
+		};
+
+		var createCustomer = function(plan) {
+			var id = plan.id;
+
 			// Create customer
 			stripe.customers.create({
 				email: req.body.email,
@@ -34,7 +55,7 @@ module.exports = function(req, res) {
 				// attach customer to plan
 				stripe.subscriptions.create({
 					customer: customer.id,
-					plan: "basic-monthly",
+					plan: amt,
 				}, function(err, subscription) {
 					// asynchronously called
 					if(err) {
@@ -44,7 +65,7 @@ module.exports = function(req, res) {
 					}
 				});
 			});
-		/*});*/
+		}
 
 	} else {
 

@@ -11,7 +11,7 @@
           <img ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
           <div class="director-text">
 	          <h4>{{member.fields.name}}</h4>
-	          <h4>{{member.fields.title}}, <a ng-href="{{ member.fields.links.url }}">{{member.fields.links.title}}</a></h4>
+	          <h4>{{member.fields.title}}, <a ng-href="{{ member.fields.links.url }}" target="_blank" rel="noopener noreferrer">{{member.fields.links.title}}</a></h4>
 	          <p ng-bind-html="member.fields.description | markdown"></p>
           </div>
         </div>

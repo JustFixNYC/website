@@ -30,13 +30,22 @@
 
 		// Other opts set in form (CANNOT be part of stripe auth flow)
 		$scope.donateObj = {
-			amount: '20.0034361',
+			amount: '20.03',
 			subscription: false,
 			email: ''
 		}
 
-		$filter('number')($scope.donateObj.amount, 2);
-		console.log($scope.donateObj.amount);
+		// Not a big fan of this stuff...
+		$scope.$watch('donateObj.amount', function(input) {
+			console.log(input.indexOf('.'), input.length);
+			if(input.indexOf('.') < 0) {
+				input = input + '.00';
+			} else if (input.indexOf('.') + 1 === input.length - 1){
+				$scope.donateObj.amount = input + '0';
+			} else if (input.indexOf('.') < input.length + 1){
+				$scope.donateObj.amount = input.substring(0, input.indexOf('.') + 3);
+			}
+		});
 
 		// Error tracker for card input
 		card.addEventListener('change', function(event) {
@@ -77,6 +86,11 @@
 		// Send to our server, request payment submit
 		var requestFromOurServer = function(result) {
 
+			if(parseInt($scope.donateObj.amount) === NaN) {
+				displayError.textContent = 'Please enter a valid amount to donate!';
+				return $scope.error = true;
+			}
+
 			var amt = $scope.donateObj.amount * 100;
 			
 			// Main body request, we'll handle subscription and email prefs on the server
@@ -91,7 +105,8 @@
 				if(response.data.status === 'succeeded') {
 					$scope.error = false;
 					$scope.success = true;
-					displaySuccess.textContent = 'Thank you for your donation!';
+					console.log(response.data);
+					displaySuccess.textContent = 'Thank you for your donation of $' + (response.data.amount / 100).toFixed(2) + '!';
 				} else {
 					$scope.error = true;
 					displayError.textContent = response.data.message;
