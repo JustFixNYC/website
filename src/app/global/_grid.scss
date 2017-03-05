@@ -1,7 +1,6 @@
 header, section > .container, footer  > .container, .banner .container {
 
 	margin: auto;
-  // @include container-fixed();
   max-width: $screen-md;
 
   @media (min-width: $screen-lg-min) {

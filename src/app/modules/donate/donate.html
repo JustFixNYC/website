@@ -1,67 +1,119 @@
 <div class="donate center">
-	<h1>DONATE!</h1>
+	<h1>Donate to JustFix.nyc!</h1>
 
-	<p>Introtext is hizzere</p>
+	<p class="container">We're commited to building tools and resources to help tenants, organizers, and legal services. We are a nonprofit, which means we rely exclusively on fundraising to keep doing the work we're doing! Your support is greatly appreciated!</p>
 
 	<form name="donateForm" ng-submit="makeCharge(donateForm)" class="input-group container">
 
 		<div class="form-row">
-	    <label for="card-element">
-	      Credit or debit card
-	    </label>
-	    <div id="card-element" class="stripe-card-element col-md-12">
-	      <!-- a Stripe Element will be inserted here. -->
-	    </div>
-	  </div>
-		<div class="form-row">
-			<label for="donate-amt">
-				Donation Amount
-			</label>
+			<h3 for="donate-amt">
+				Select an amount you'd like to donate
+			</h3>
 			<div id="card-amount">
-				<div class="checkbox col-md-2">
-					<input type="checkbox" id="amount[3]" ng-click="donateObj.amount='10.00'" value="10" ng-checked="donateObj.amount == 10">
-					<label for="amount[3]"> $10.00</label>
+				<div 
+					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					ng-class="{'checked': donateObj.amount == '10.00'}" 
+					ng-click="changeAmt('10.00')">
+					<label for="amount[3]">
+						<input type="checkbox" value="10" ng-checked="donateObj.amount == '10.00'">
+						$10.00
+					</label>
 				</div>
-				<div class="checkbox col-md-2">
-					<input type="checkbox" id="amount[2]" ng-click="donateObj.amount='20.00'" value="20" ng-checked="donateObj.amount == 20">
-					<label for="amount[2]"> $20.00</label>
+				<div 
+					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					ng-class="{'checked': donateObj.amount == '20.00'}" 
+					ng-click="changeAmt('20.00')">
+					<label for="amount[2]"> 
+						<input type="checkbox" value="20" ng-checked="donateObj.amount == '20.00'">
+						$20.00
+						</label>
 				</div>
-				<div class="checkbox col-md-2">
-					<input type="checkbox" id="amount[1]" ng-click="donateObj.amount='50.00'" value="50" ng-checked="donateObj.amount == 50">
-					<label for="amount[1]"> $50.00</label>
+				<div 
+					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					ng-class="{'checked': donateObj.amount == '50.00'}" 
+					ng-click="changeAmt('50.00')">
+					<label for="amount[1]">
+						<input type="checkbox" value="50" ng-checked="donateObj.amount == '50.00'">
+						$50.00
+					</label>
 				</div>
-				<div class="checkbox col-md-2">
-					<input type="checkbox" id="amount[0]" ng-click="donateObj.amount='100.00'" value="100" ng-checked="donateObj.amount == 100">
-					<label for="amount[0]"> $100.00</label>
+				<div 
+					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					ng-click="changeAmt('100.00')" 
+					ng-class="{'checked': donateObj.amount == '100.00'}">
+					<label for="amount[0]"> 
+						<input type="checkbox" value="100" ng-checked="donateObj.amount == '100.00'">
+						$100.00
+						</label>
 				</div>
-				<div class="checkbox col-md-2">
-					<input type="checkbox" id="amount[0]" ng-click="donateObj.amount='200.00'" value="200" ng-checked="donateObj.amount == 200">
-					<label for="amount[0]"> $200.00</label>
+				<div 
+					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					ng-class="{'checked': donateObj.amount == '200.00'}"
+				 	ng-click="changeAmt('200.00')">
+					<label for="amount[0]"> 
+						<input type="checkbox" value="200" ng-checked="donateObj.amount == '200.00'">
+						$200.00
+					</label>
 				</div>
-				<div class="other col-md-2">
-					<input type="text" placeholder="Other" ng-model="donateObj.amount">
+				<div 
+					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					ng-class="{'checked': other}" 
+					ng-click="other=!other; donateObj.amount = undefined">
+					<label for="amount[0]"> 
+						<input type="checkbox">
+						other
+					</label>
+				</div>
+				<div class="other-amt-input col-md-6 col-xs-12" ng-show="other == true">
+					<input id="other-text-field" type="text" placeholder="$ Enter amount" ng-model="donateObj.amount">
 				</div>
 			</div>
 		</div>
-		<div class="form-row">
-			<label>
-				Recurring Subscription
-			</label>
-			<input type="checkbox" ng-click="donateObj.subscription = !donateObj.subscription" ng-checked="donateObj.subscription == true">
+
+		<div class="card-wrapper container">
+		
+			<h3 for="donate-amt">
+				Enter your card information
+			</h3>
+
+		  <div class="form-row">
+		    <div id="card-element-number" class="stripe-card-element col-md-12">
+		      <!-- Stripe Card Number Element -->
+		    </div>
+		  </div>
+
+		  <div class="form-row">
+		    <div id="card-element-expiry" class="stripe-card-element col-md-5 col-sm-5 col-xs-5">
+		      <!-- Stripe Expiration date -->
+		    </div>
+		    <div id="card-element-cvc" class="stripe-card-element cvc col-md-5col-sm-5 col-xs-5">
+		      <!-- Stripe CVC code -->
+		    </div>
+		  </div>
+
+		  <div class="form-row">
+		    <div id="card-element-postal" class="stripe-card-element col-md-12">
+		      <!-- Stripe Postal Element -->
+		    </div>
+		  </div>
+
+	  </div>
+
+		<div class="clearfix"></div> 
+
+		<div class="form-row btn btn-primary subscription" ng-click="subscription = !subscription">
+			SUBSCRIBE
 		</div>
 		
-		<div class="form-row" ng-show="donateObj.subscription == true">
-	    <label for="card-element">
-	      Email
-	    </label>
-	    <input type="email" name="email" class="col-md-12" ng-model="donateObj.email">
+		<div class="form-row email" ng-show="subscription == true">
+	    <input type="email" name="email" placeholder="email" ng-model="donateObj.email">
 	  </div>
 		<div class="clearfix"></div>  
 
     <!-- Used to display Element errors -->
     <div id="card-errors" class="alert alert-danger" ng-class="{'hidden': !error}"></div>
 
-    <input type="submit" class="btn btn-primary btn-block" value="DONATE">
+    <input type="submit" class="btn btn-primary btn-block donate-submit" value="DONATE">
     
     <div id="success-message" class="alert alert-success" ng-class="{'hidden': !success}"></div>
 	

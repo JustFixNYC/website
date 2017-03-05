@@ -1,33 +1,116 @@
 .donate {
+	margin-top: 50px;
+
 	form {
 		margin: 0 auto 70px;
+	}
 
-		.btn {
-			margin-top: 30px;
-		}
+	.card-wrapper {
+		margin: 50px auto;
 
-		input[type=email] {
-			width: 100%; 
+		@extend .col-md-6;
+		@extend .clearfix;
+		@include shift(3);
+
+		@media (max-width: $screen-sm-max) {
+			@include shift(0);
 		}
 	}
 
 	.form-row {
-		margin-top: 50px;
+		margin-top: 10px;
 
 		@extend .clearfix;
 
 		.col-md-2 {
 			padding: 0px;
 		}
+
+		&.email {
+			margin-top: 30px;
+
+			input{
+				font-size: 16px;
+			  padding: 10px 13px;
+			  letter-spacing: 1px;
+			  color: $justfix-grey-dark;	
+
+			  @extend .col-md-6;
+			  @extend .col-xs-12;
+			  @include shift(3);
+
+			  @media (max-width: $screen-sm-max) {
+			  	@include shift(0);
+			  }
+			}
+		}
+	}
+
+	.alert {
+		margin-top: 23px;
 	}
 }
 
 .checkbox {
-	margin: 10px 0;
+	margin: 10px 4.166666%;
+	border-radius: 3px;
+	box-shadow: 0px 1px 2px 2px lighten($justfix-grey-dark, 40);
+	padding: 20px 0;
+	background: white;
+
+	@include transition(0.2s all);
+
+	@media (max-width: $screen-xs-max) {
+		margin: 10px 8.3333333%
+	}
+
+	input {
+		position:absolute;
+    top: 0px;
+    opacity: 0;
+	}
+
+	label {
+		cursor: pointer;
+	}
+
+	&.checked {
+		background: $justfix-blue;
+		color: white;
+	}
+	&:hover {
+		background: $justfix-blue;
+		color: white;
+		cursor: pointer; 
+	}
+}
+
+
+.other-amt-input {
+	margin-top: 20px;
+
+	@include shift(3);
+
+	@media (max-width: $screen-sm-max) {
+		@include shift(0);
+	}
 }
 
 .stripe-card-element {
-	border: 1px solid $justfix-grey-dark;
-	border-radius: 5px;
+	border: 1px solid lighten($justfix-grey-dark, 40);
+	border-radius: 3px;
 	padding: 10px;
+}
+
+.cvc {
+	margin-left: 16.6%;
+}
+
+.subscription {
+	margin-top: 0px;
+	max-width: 220px;
+}
+
+.donate-submit {
+	margin-top: 30px;
 }

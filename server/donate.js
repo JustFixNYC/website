@@ -48,6 +48,7 @@ module.exports = function(req, res) {
 			// Create customer
 			stripe.customers.create({
 				email: req.body.email,
+				source: token,
 			}, function(err, customer) {
 				if(err) {
 					return res.status(500).send(err);
