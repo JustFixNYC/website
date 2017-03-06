@@ -10,7 +10,6 @@ module.exports = function(req, res) {
 
 	var amt = req.body.amt;
 	var unsubscribe = req.body.unsubscription;
-	console.log(req.body.email);
 
 	if(unsubscribe === true) {
 		var reqNumber = 1;
@@ -20,7 +19,6 @@ module.exports = function(req, res) {
 				{limit: reqNumber * 100},
 				function(err, customers) {
 					for (var i = 0; i < customers.data.length; i++) {
-						console.log(customers.data[i].email === req.body.email);
 						if(customers.data[i].email === req.body.email) {
 							return deleteCustomer(customers.data[i].id);
 						} else if(customers.has_more !== true && i === customers.data.length - 1) {
