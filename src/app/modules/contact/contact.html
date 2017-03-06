@@ -44,7 +44,7 @@
   	</div>
   	<br />
   	<form  action="//nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-			<input type="email" value="" name="EMAIL" placeholder="Email Address" required />
+			<input class="footer" type="email" value="" name="EMAIL" placeholder="Email Address" required />
 			<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d4f5d1addd4357eb77c3f8a99_588f6c6ef4" tabindex="-1" value=""></div>
 			<input class="btn btn-primary signup" name="subscribe" type="submit" value="SIGN UP">
 		</form>
@@ -55,7 +55,7 @@
   <section class="alt img-bg white center">
   	<div class="container" ng-bind-html="$contentfulEntry.fields.donateText | markdown"></div>
   	<br />
-		<a href="https://www.nycharities.org/give/donate.aspx?cc=4125" target="_target" class="btn btn-block btn-primary">DONATE</a>
+		<a ui-sref="donate" target="_target" class="btn btn-block btn-primary">DONATE</a>
 	</section>
 
 </article>

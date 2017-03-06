@@ -26,10 +26,10 @@
       border-radius: 100%;
       margin: 0 auto 50px;
 
-      @extend .col-md-4;
+      @extend .col-md-3;
       @extend .col-sm-6;
       @extend .col-xs-6;
-      @include shift($n-columns: 1);
+      @include shift($n-columns: 1.5);
 
       @media (max-width: $screen-md-min) {
       	float: none;

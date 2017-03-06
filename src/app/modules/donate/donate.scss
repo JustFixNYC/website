@@ -7,6 +7,11 @@
 
 }
 
+.fall-in {
+	margin: 0 auto 50px;
+	max-width: 700px;
+}
+
 .card-wrapper {
 	margin: 50px auto;
 
@@ -29,7 +34,7 @@
 	}
 
 	&.email {
-		margin: 20px 30px 0;
+		margin: 0 0;
 
 		input{
 			border: 1px solid lighten($justfix-grey-dark, 40);
@@ -39,14 +44,8 @@
 		  letter-spacing: 1px;
 			font-size: 16px;
 		  color: $justfix-grey-dark;	
-
-		  @extend .col-md-6;
+		  
 		  @extend .col-xs-12;
-		  @include shift(3);
-
-		  @media (max-width: $screen-sm-max) {
-		  	@include shift(0);
-		  }
 		}
 	}
 }
@@ -55,17 +54,39 @@
 	margin-top: 23px;
 }
 
+#card-amount {
+	margin: auto;
+	width: 70%;
+
+	@media (max-width: $screen-sm-max) {
+		margin: auto 17.5%;
+		width: 75%;
+	}
+	@media (max-width: $screen-xs-min) {
+		margin: auto 7.5%;
+		width: 100%;
+	}
+}
+
 .checkbox {
-	margin: 10px 4.166666%;
+	float: left;
+	margin: 10px 2%;
 	border-radius: 3px;
 	box-shadow: 0px 1px 2px 2px lighten($justfix-grey-dark, 40);
-	padding: 20px 0;
+	padding: 5% 0;
 	background: white;
+	width: 12.666666%;
 
 	@include transition(0.2s all);
 
-	@media (max-width: $screen-xs-max) {
-		margin: 10px 8.3333333%
+	@media (max-width: $screen-sm-max) {
+		width: 25%;
+		padding: 10% 0;
+	}
+
+	@media (max-width: $screen-xs-min) {
+		padding: 12.5% 0;
+		margin: 10px 8.3333333%;
 	}
 
 	input {
@@ -91,7 +112,9 @@
 
 
 .other-amt-input {
-	margin-top: 20px;
+	margin: 20px auto 0 auto;
+	@extend .col-md-6;
+	@extend .col-xs-12;
 
 	input {
 		border: 1px solid lighten($justfix-grey-dark, 40);	
@@ -116,8 +139,10 @@
 
 .subscription,
 .unsubscription {
-	margin-top: 0px;
-	max-width: 200px;
+	margin: 10px 0;
+	float: right;
+	font-weight: 600;
+	// max-width: 200px;
 }
 
 .unsubscription {
@@ -136,7 +161,7 @@
 }
 .donate {
 	.results {
-		margin-top: 50px;
+		// margin-top: 50px;
 	}	
 }
 

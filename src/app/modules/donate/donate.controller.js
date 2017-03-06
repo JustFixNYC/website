@@ -128,7 +128,7 @@
 
 			if($scope.requesting === true) {
 				return;
-			};
+			}
 
 			$scope.requesting = true;
 			
@@ -143,7 +143,6 @@
 				unsubscribeFunction($scope.donateObj.email);
 			// Otherwise, get token and request donation
 			} else {
-				console.log('this shouldnt happen')
 				return stripe.createToken(cardNumber).then(function(result) {
 					if(result.error) {
 						// Inform the user if there was an error
@@ -176,7 +175,7 @@
 				$scope.errorMessage = 'There was an error removing your account, please contact <a href="mailto:hello@justfix.nyc" target="_blank">hello@justfix.nyc</a> for help.'
 				return $log.error(error);
 			});
-		}
+		};
 
 		// Send to our server, request payment submit
 		var requestFromOurServer = function(result) {

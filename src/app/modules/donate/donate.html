@@ -1,7 +1,7 @@
 <div class="donate center" contentful-entry="'content_type=donate'">
 	<h1>{{$contentfulEntry.fields.title}}</h1>
 
-	<p class="container">{{$contentfulEntry.fields.description}}</p>
+	<p class="fall-in container">{{$contentfulEntry.fields.description}}</p>
 
 	<form name="donateForm" ng-submit="makeCharge(donateForm)" class="input-group container">
 
@@ -11,7 +11,7 @@
 			</h3>
 			<div id="card-amount">
 				<div 
-					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					class="checkbox" 
 					ng-class="{'checked': donateObj.amount == '10.00'}" 
 					ng-click="changeAmt('10.00')">
 					<label>
@@ -20,7 +20,7 @@
 					</label>
 				</div>
 				<div 
-					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					class="checkbox" 
 					ng-class="{'checked': donateObj.amount == '20.00'}" 
 					ng-click="changeAmt('20.00')">
 					<label> 
@@ -29,7 +29,7 @@
 						</label>
 				</div>
 				<div 
-					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					class="checkbox" 
 					ng-class="{'checked': donateObj.amount == '50.00'}" 
 					ng-click="changeAmt('50.00')">
 					<label>
@@ -38,7 +38,7 @@
 					</label>
 				</div>
 				<div 
-					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					class="checkbox" 
 					ng-click="changeAmt('100.00')" 
 					ng-class="{'checked': donateObj.amount == '100.00'}">
 					<label> 
@@ -47,7 +47,7 @@
 						</label>
 				</div>
 				<div 
-					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					class="checkbox" 
 					ng-class="{'checked': donateObj.amount == '200.00'}"
 				 	ng-click="changeAmt('200.00')">
 					<label> 
@@ -56,7 +56,7 @@
 					</label>
 				</div>
 				<div 
-					class="checkbox col-md-1 col-sm-3 col-xs-4" 
+					class="checkbox" 
 					ng-class="{'checked': otherAmt}" 
 					ng-click="changeAmt('other')">
 					<label> 
@@ -64,13 +64,13 @@
 						other
 					</label>
 				</div>
-				<div class="other-amt-input col-md-6 col-xs-12" ng-show="otherAmt">
-					<input id="other-text-field" type="text" placeholder="$ Enter amount" ng-model="donateObj.amount">
-				</div>
+			</div>
+			<div class="other-amt-input" ng-show="otherAmt">
+				<input id="other-text-field" type="text" placeholder="$ Enter amount" ng-model="donateObj.amount">
 			</div>
 		</div>
 
-		<div class="card-wrapper container">
+		<div class="card-wrapper">
 
 			<h3>
 				{{$contentfulEntry.fields.cardTitleText}}
@@ -97,28 +97,28 @@
 		    </div>
 		  </div>
 
+
+			<div class="form-row subscription" ng-click="toggleSubscription(true)">
+				<label>
+					<input type="checkbox" ng-checked="subscription">
+					{{$contentfulEntry.fields.subscribe.fields.title}}
+				</label>
+			</div>
+		
+			<div class="form-row email" ng-show="subscription"><!--  || unsubscription 
+				<p class="italic subtext" ng-show="subscription">{{$contentfulEntry.fields.subscribeSubtext}}</p>
+				<p class="italic subtext" ng-show="unsubscription">{{$contentfulEntry.fields.unsubscribeSubtext}}</p> -->
+		    <input type="email" name="email" placeholder="email" ng-model="donateObj.email">
+		  </div>
+
 	  </div>
-
 		<div class="clearfix"></div>
-
-		<h3>
+		<!-- <h3>
 			{{$contentfulEntry.fields.subscriptionTitleText}}
 		</h3>
-
-		<div class="form-row btn btn-primary subscription" ng-click="toggleSubscription(true)">
-			{{$contentfulEntry.fields.subscribe.fields.title}}
-		</div>
-
 		<div class="form-row btn btn-danger unsubscription" ng-click="toggleSubscription(false)">
 			{{$contentfulEntry.fields.unsubscribe.fields.title}}
-		</div>
-		
-		<div class="form-row email" ng-show="subscription || unsubscription">
-			<p class="italic subtext" ng-show="subscription">{{$contentfulEntry.fields.subscribeSubtext}}</p>
-			<p class="italic subtext" ng-show="unsubscription">{{$contentfulEntry.fields.unsubscribeSubtext}}</p>
-	    <input type="email" name="email" placeholder="email" ng-model="donateObj.email">
-	  </div>
-		<div class="clearfix"></div>  
+		</div> -->
 
 		<div class="results">
 	    <!-- Used to display Element errors -->
