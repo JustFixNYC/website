@@ -145,6 +145,12 @@
 					url: "http://beta.justfix.nyc/?lang=es_mx"
 				},
 				{
+					text: "Donate",
+					style: "",
+					url: "donate",
+					sref: "donate"
+				},
+				{
 					text: "Sign In",
 					style: "btn",
 					url: "http://beta.justfix.nyc/signin",

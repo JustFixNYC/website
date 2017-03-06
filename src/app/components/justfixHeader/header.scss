@@ -187,13 +187,13 @@
             }
 
             &.btn {
+              position: relative;
               border-color: #fff;
               padding: 10px 26px;
               @include transition(all 150ms ease);
               font-size: 14px;
               width: auto;
-              // position: relative;
-              top: -2px;
+              top: -1px;
 
               &:hover {
                 background-color: #fff;

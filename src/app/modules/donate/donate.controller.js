@@ -51,8 +51,24 @@
 
 		// Using buttons to change amount (gets rid of the custom amount field)
 		$scope.changeAmt = function(amt) {
+			if(amt === 'other') {
+				$scope.donateObj.amount = undefined;
+				return $scope.otherAmt = true;	
+			}
 			$scope.donateObj.amount = amt;
 			$scope.otherAmt = false;
+		}
+
+		// Update subscriptions
+		$scope.toggleSubscription = function(val) {
+			// User wants to subscribe
+			if(val === true) {
+				$scope.subscription = !$scope.subscription;
+				$scope.unsubscription = false;
+			} else {
+				$scope.subscription = false;
+				$scope.unsubscription = !$scope.unsubscription;
+			}
 		}
 
 		// If custom input for amount, check to see if it's valid
@@ -71,8 +87,11 @@
 			}
 
 			// Otherwise, format number so it matches format for btns
+			// In order: no cents specified, decimal but no cents, cent is ten but not single (ie: 10.1), more than 2 digits in cent field 
 			if(input.indexOf('.') < 0) {
 				input = input + '.00';
+			} else if (input.indexOf('.') + 1 === input.length) {
+				input = input + '00';
 			} else if (input.indexOf('.') + 1 === input.length - 1){
 				input = input + '0';
 			} else if (input.indexOf('.') < input.length + 1){
@@ -101,41 +120,30 @@
 			});	
 		}
 
-		// Get token from Stripe
+		// Get token from Stripe, handle unsubs
 		$scope.makeCharge = function(donateForm) {
-
-			if($scope.requesting === true) return;
-
-			$scope.requesting = true;
-
-			// handle unsubs (we only need the email, so we don't need to worry about any of the other stuff)
-			if($scope.unsubscription === true) {
-				return $http.post('/api/donate', {
-					unsubscription: $scope.unsubscription,
-					email: $scope.donateObj.email
-				}).then(function(response) {
-					$scope.requesting = false;
-					$scope.success = true;
-					return displaySuccess.textContent = 'Email successfully removed.';
-					
-				}, function(error) {
-					$scope.error = true;
-					console.log(error);
-					$scope.errorMessage = 'There was an error removing your account, please contact <a href="mailto:hello@justfix.nyc" target="_blank">hello@justfix.nyc</a> for help.'
-					return $log.error(error);
-				})
-			}
 
 			// Check if subscribed but email isn't valid
 			var emailWorks = donateForm.email.$isEmpty(donateForm.email.$viewValue) !== true && donateForm.email.$valid === true;
+
+			if($scope.requesting === true) {
+				return;
+			};
+
+			$scope.requesting = true;
 			
+			// check email validity
 			if(($scope.subscription === true || $scope.unsubscription === true) && !emailWorks){
 				$scope.error = true;
 				$scope.requesting = false;
 				return $scope.errorMessage = 'Please make sure the email form is complete and correct!';
 
+			// handle unsubs (we only need the email, so we don't need to worry about any of the other stuff)
+			} else if($scope.unsubscription === true){
+				unsubscribeFunction($scope.donateObj.email);
+			// Otherwise, get token and request donation
 			} else {
-
+				console.log('this shouldnt happen')
 				return stripe.createToken(cardNumber).then(function(result) {
 					if(result.error) {
 						// Inform the user if there was an error
@@ -150,6 +158,26 @@
 			}
 		}
 
+
+		// Main unsubscription function
+		var unsubscribeFunction = function(emailVal) {
+			return $http.post('/api/donate', {
+				unsubscription: $scope.unsubscription,
+				email: emailVal
+			}).then(function() {
+				$scope.requesting = false;
+				$scope.success = true;
+				return displaySuccess.textContent = 'Email successfully removed.';
+
+			}, function(error) {
+				$scope.error = true;
+				$scope.requesting = false;
+				$log.error(error);
+				$scope.errorMessage = 'There was an error removing your account, please contact <a href="mailto:hello@justfix.nyc" target="_blank">hello@justfix.nyc</a> for help.'
+				return $log.error(error);
+			});
+		}
+
 		// Send to our server, request payment submit
 		var requestFromOurServer = function(result) {
 
@@ -161,7 +189,6 @@
 				data: result.token,
 				amt: amt,
 				subscription: $scope.subscription,
-				unsubscription: $scope.unsubscription,
 				email: $scope.donateObj.email
 			}).then(function(response){
 				$scope.requesting = false;
@@ -171,7 +198,7 @@
 					$scope.error = false;
 					$scope.success = true;
 
-					// This needs to be declared b/c it's in two diff locations depending on the donation type
+					// This needs to be declared b/c it's in two diff locations depending on the donation type (subscribe vs donate)
 					if (response.data.amount) {
 						respondAmt = (response.data.amount / 100).toFixed(2);
 					} else {

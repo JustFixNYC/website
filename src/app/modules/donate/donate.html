@@ -7,7 +7,7 @@
 
 		<div class="form-row">
 			<h3>
-				{{$contentfulEntry.fields.cardTitleText}}
+				{{$contentfulEntry.fields.amountTitleText}}
 			</h3>
 			<div id="card-amount">
 				<div 
@@ -58,13 +58,13 @@
 				<div 
 					class="checkbox col-md-1 col-sm-3 col-xs-4" 
 					ng-class="{'checked': otherAmt}" 
-					ng-click="otherAmt = !otherAmt; donateObj.amount = undefined">
+					ng-click="changeAmt('other')">
 					<label> 
 						<input type="checkbox">
 						other
 					</label>
 				</div>
-				<div class="other-amt-input col-md-6 col-xs-12" ng-show="other == true">
+				<div class="other-amt-input col-md-6 col-xs-12" ng-show="otherAmt">
 					<input id="other-text-field" type="text" placeholder="$ Enter amount" ng-model="donateObj.amount">
 				</div>
 			</div>
@@ -105,15 +105,15 @@
 			{{$contentfulEntry.fields.subscriptionTitleText}}
 		</h3>
 
-		<div class="form-row btn btn-primary subscription" ng-click="subscription = !subscription; unsubscription = false">
+		<div class="form-row btn btn-primary subscription" ng-click="toggleSubscription(true)">
 			{{$contentfulEntry.fields.subscribe.fields.title}}
 		</div>
 
-		<div class="form-row btn btn-danger unsubscription" ng-click="unsubscription = !unsubscription; subscription = false">
-			{{$contentfulEntry.fields.subscribe.fields.title}}
+		<div class="form-row btn btn-danger unsubscription" ng-click="toggleSubscription(false)">
+			{{$contentfulEntry.fields.unsubscribe.fields.title}}
 		</div>
 		
-		<div class="form-row email" ng-show="subscription == true || unsubscription == true">
+		<div class="form-row email" ng-show="subscription || unsubscription">
 			<p class="italic subtext" ng-show="subscription">{{$contentfulEntry.fields.subscribeSubtext}}</p>
 			<p class="italic subtext" ng-show="unsubscription">{{$contentfulEntry.fields.unsubscribeSubtext}}</p>
 	    <input type="email" name="email" placeholder="email" ng-model="donateObj.email">
@@ -138,4 +138,11 @@
     </div>
 	
 	</form>
+
+	<div class="requesting-screen" ng-show="requesting">
+		<div class="center white">
+			<h1>Submitting...</h1>
+			<p>Please do not go to another page, or refresh until this is complete. Thank you!</p>
+		</div>
+	</div>
 </div>
