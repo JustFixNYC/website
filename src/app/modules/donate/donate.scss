@@ -5,50 +5,54 @@
 		margin: 0 auto 70px;
 	}
 
-	.card-wrapper {
-		margin: 50px auto;
+}
 
-		@extend .col-md-6;
-		@extend .clearfix;
-		@include shift(3);
+.card-wrapper {
+	margin: 50px auto;
 
-		@media (max-width: $screen-sm-max) {
-			@include shift(0);
-		}
+	@extend .col-md-6;
+	@extend .clearfix;
+	@include shift(3);
+
+	@media (max-width: $screen-sm-max) {
+		@include shift(0);
+	}
+}
+
+.form-row {
+	margin-top: 10px;
+
+	@extend .clearfix;
+
+	.col-md-2 {
+		padding: 0px;
 	}
 
-	.form-row {
-		margin-top: 10px;
+	&.email {
+		margin: 20px 30px 0;
 
-		@extend .clearfix;
+		input{
+			border: 1px solid lighten($justfix-grey-dark, 40);
+		  border-radius: 3px;
+		  -webkit-appearance: none;
+		  padding: 10px 13px;
+		  letter-spacing: 1px;
+			font-size: 16px;
+		  color: $justfix-grey-dark;	
 
-		.col-md-2 {
-			padding: 0px;
-		}
+		  @extend .col-md-6;
+		  @extend .col-xs-12;
+		  @include shift(3);
 
-		&.email {
-			margin-top: 30px;
-
-			input{
-				font-size: 16px;
-			  padding: 10px 13px;
-			  letter-spacing: 1px;
-			  color: $justfix-grey-dark;	
-
-			  @extend .col-md-6;
-			  @extend .col-xs-12;
-			  @include shift(3);
-
-			  @media (max-width: $screen-sm-max) {
-			  	@include shift(0);
-			  }
-			}
+		  @media (max-width: $screen-sm-max) {
+		  	@include shift(0);
+		  }
 		}
 	}
+}
 
-	.alert {
-		margin-top: 23px;
-	}
+.alert {
+	margin-top: 23px;
 }
 
 .checkbox {
@@ -89,6 +93,10 @@
 .other-amt-input {
 	margin-top: 20px;
 
+	input {
+		border: 1px solid lighten($justfix-grey-dark, 40);	
+	}
+
 	@include shift(3);
 
 	@media (max-width: $screen-sm-max) {
@@ -106,9 +114,30 @@
 	margin-left: 16.6%;
 }
 
-.subscription {
+.subscription,
+.unsubscription {
 	margin-top: 0px;
-	max-width: 220px;
+	max-width: 200px;
+}
+
+.unsubscription {
+	margin-left: 10px;
+
+	@media (max-width: $screen-sm-max) {
+		margin: 10px auto 0 auto;
+		display: block;
+	}
+}
+
+.subtext {
+	margin: 0px;
+	font-size: 0.5em;
+	font-style: italic;
+}
+.donate {
+	.results {
+		margin-top: 50px;
+	}	
 }
 
 .donate-submit {

@@ -8,11 +8,14 @@
 	/** @ngInject */
 	function DonateController($scope, $window, $http, $document, $log) {
 
+		// Error messaging, globals that can't be used in the DOM or model below (changing via DOM manipulation doesn't work on obj properties)
 		$scope.error = false;
+		$scope.errorMessage;
 		$scope.success = false;
 		$scope.requesting = false;
-		$scope.other = false;
+		$scope.otherAmt = false;
 		$scope.subscription = false;
+		$scope.unsubscription = false;
 
 		// Styles on Stripe form, to override default styles
 		var style = {
@@ -49,7 +52,7 @@
 		// Using buttons to change amount (gets rid of the custom amount field)
 		$scope.changeAmt = function(amt) {
 			$scope.donateObj.amount = amt;
-			$scope.other = false;
+			$scope.otherAmt = false;
 		}
 
 		// If custom input for amount, check to see if it's valid
@@ -63,9 +66,8 @@
 
 			// If the input is not a number, error out
 			if(isNaN(input)) {
-				displayError.textContent = 'Please enter a valid amount to donate!';
+				$scope.errorMessage = 'Please enter a valid amount to donate!';
 				$scope.error = true;
-				return $scope.$apply();
 			}
 
 			// Otherwise, format number so it matches format for btns
@@ -86,6 +88,7 @@
 		// Error tracker for our Card Element inputs
 		for (var i = 0; i < elementsArray.length; i++) {
 
+			// Again, this is DOM manipulation, so needs angular update statement
 			elementsArray[i].addEventListener('change', function(event) {
 				if (event.error) {
 					$scope.error = true;
@@ -105,13 +108,32 @@
 
 			$scope.requesting = true;
 
+			// handle unsubs (we only need the email, so we don't need to worry about any of the other stuff)
+			if($scope.unsubscription === true) {
+				return $http.post('/api/donate', {
+					unsubscription: $scope.unsubscription,
+					email: $scope.donateObj.email
+				}).then(function(response) {
+					$scope.requesting = false;
+					$scope.success = true;
+					return displaySuccess.textContent = 'Email successfully removed.';
+					
+				}, function(error) {
+					$scope.error = true;
+					console.log(error);
+					$scope.errorMessage = 'There was an error removing your account, please contact <a href="mailto:hello@justfix.nyc" target="_blank">hello@justfix.nyc</a> for help.'
+					return $log.error(error);
+				})
+			}
+
 			// Check if subscribed but email isn't valid
 			var emailWorks = donateForm.email.$isEmpty(donateForm.email.$viewValue) !== true && donateForm.email.$valid === true;
 			
-			if($scope.subscription === true && !emailWorks){
+			if(($scope.subscription === true || $scope.unsubscription === true) && !emailWorks){
 				$scope.error = true;
 				$scope.requesting = false;
-				return displayError.textContent = 'Please make sure the email form is complete and correct!';
+				return $scope.errorMessage = 'Please make sure the email form is complete and correct!';
+
 			} else {
 
 				return stripe.createToken(cardNumber).then(function(result) {
@@ -119,7 +141,7 @@
 						// Inform the user if there was an error
 						$scope.error = true;
 						$scope.requesting = false;
-						displayError.textContent = result.error.message;
+						$scope.errorMessage = result.error.message;
 					} else {
 						requestFromOurServer(result);
 					}
@@ -139,9 +161,11 @@
 				data: result.token,
 				amt: amt,
 				subscription: $scope.subscription,
+				unsubscription: $scope.unsubscription,
 				email: $scope.donateObj.email
 			}).then(function(response){
 				$scope.requesting = false;
+
 				// Display success text if everything goes as planned
 				if(response.data.status === 'succeeded' || response.data.status === 'active') {
 					$scope.error = false;
@@ -165,7 +189,7 @@
 				$scope.requesting = false;
 				$scope.error = true;
 				if(err.data.message){
-					displayError.textContent = err.data.message;	
+					$scope.errorMessage = err.data.message;	
 				} else {
 					displayError.textContent = 'There was an issue with the connection, please try again later!';
 				}

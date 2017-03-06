@@ -53,7 +53,7 @@
 		}
 
 		/** @ngInject */
-		function NavbarController($rootScope, $document, $scope, $window, $state) {
+		function NavbarController($rootScope, $document, $scope, $window) {
 			var vm = this;
 
 			// on route change success (reset nav position, handle nav css rules)

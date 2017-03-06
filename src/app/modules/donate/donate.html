@@ -1,20 +1,20 @@
-<div class="donate center">
-	<h1>Donate to JustFix.nyc!</h1>
+<div class="donate center" contentful-entry="'content_type=donate'">
+	<h1>{{$contentfulEntry.fields.title}}</h1>
 
-	<p class="container">We're commited to building tools and resources to help tenants, organizers, and legal services. We are a nonprofit, which means we rely exclusively on fundraising to keep doing the work we're doing! Your support is greatly appreciated!</p>
+	<p class="container">{{$contentfulEntry.fields.description}}</p>
 
 	<form name="donateForm" ng-submit="makeCharge(donateForm)" class="input-group container">
 
 		<div class="form-row">
-			<h3 for="donate-amt">
-				Select an amount you'd like to donate
+			<h3>
+				{{$contentfulEntry.fields.cardTitleText}}
 			</h3>
 			<div id="card-amount">
 				<div 
 					class="checkbox col-md-1 col-sm-3 col-xs-4" 
 					ng-class="{'checked': donateObj.amount == '10.00'}" 
 					ng-click="changeAmt('10.00')">
-					<label for="amount[3]">
+					<label>
 						<input type="checkbox" value="10" ng-checked="donateObj.amount == '10.00'">
 						$10.00
 					</label>
@@ -23,7 +23,7 @@
 					class="checkbox col-md-1 col-sm-3 col-xs-4" 
 					ng-class="{'checked': donateObj.amount == '20.00'}" 
 					ng-click="changeAmt('20.00')">
-					<label for="amount[2]"> 
+					<label> 
 						<input type="checkbox" value="20" ng-checked="donateObj.amount == '20.00'">
 						$20.00
 						</label>
@@ -32,7 +32,7 @@
 					class="checkbox col-md-1 col-sm-3 col-xs-4" 
 					ng-class="{'checked': donateObj.amount == '50.00'}" 
 					ng-click="changeAmt('50.00')">
-					<label for="amount[1]">
+					<label>
 						<input type="checkbox" value="50" ng-checked="donateObj.amount == '50.00'">
 						$50.00
 					</label>
@@ -41,7 +41,7 @@
 					class="checkbox col-md-1 col-sm-3 col-xs-4" 
 					ng-click="changeAmt('100.00')" 
 					ng-class="{'checked': donateObj.amount == '100.00'}">
-					<label for="amount[0]"> 
+					<label> 
 						<input type="checkbox" value="100" ng-checked="donateObj.amount == '100.00'">
 						$100.00
 						</label>
@@ -50,16 +50,16 @@
 					class="checkbox col-md-1 col-sm-3 col-xs-4" 
 					ng-class="{'checked': donateObj.amount == '200.00'}"
 				 	ng-click="changeAmt('200.00')">
-					<label for="amount[0]"> 
+					<label> 
 						<input type="checkbox" value="200" ng-checked="donateObj.amount == '200.00'">
 						$200.00
 					</label>
 				</div>
 				<div 
 					class="checkbox col-md-1 col-sm-3 col-xs-4" 
-					ng-class="{'checked': other}" 
-					ng-click="other=!other; donateObj.amount = undefined">
-					<label for="amount[0]"> 
+					ng-class="{'checked': otherAmt}" 
+					ng-click="otherAmt = !otherAmt; donateObj.amount = undefined">
+					<label> 
 						<input type="checkbox">
 						other
 					</label>
@@ -71,9 +71,9 @@
 		</div>
 
 		<div class="card-wrapper container">
-		
-			<h3 for="donate-amt">
-				Enter your card information
+
+			<h3>
+				{{$contentfulEntry.fields.cardTitleText}}
 			</h3>
 
 		  <div class="form-row">
@@ -99,23 +99,43 @@
 
 	  </div>
 
-		<div class="clearfix"></div> 
+		<div class="clearfix"></div>
 
-		<div class="form-row btn btn-primary subscription" ng-click="subscription = !subscription">
-			SUBSCRIBE
+		<h3>
+			{{$contentfulEntry.fields.subscriptionTitleText}}
+		</h3>
+
+		<div class="form-row btn btn-primary subscription" ng-click="subscription = !subscription; unsubscription = false">
+			{{$contentfulEntry.fields.subscribe.fields.title}}
+		</div>
+
+		<div class="form-row btn btn-danger unsubscription" ng-click="unsubscription = !unsubscription; subscription = false">
+			{{$contentfulEntry.fields.subscribe.fields.title}}
 		</div>
 		
-		<div class="form-row email" ng-show="subscription == true">
+		<div class="form-row email" ng-show="subscription == true || unsubscription == true">
+			<p class="italic subtext" ng-show="subscription">{{$contentfulEntry.fields.subscribeSubtext}}</p>
+			<p class="italic subtext" ng-show="unsubscription">{{$contentfulEntry.fields.unsubscribeSubtext}}</p>
 	    <input type="email" name="email" placeholder="email" ng-model="donateObj.email">
 	  </div>
 		<div class="clearfix"></div>  
 
-    <!-- Used to display Element errors -->
-    <div id="card-errors" class="alert alert-danger" ng-class="{'hidden': !error}"></div>
+		<div class="results">
+	    <!-- Used to display Element errors -->
+	    <div 
+	    	id="card-errors" 
+	    	class="alert alert-danger" 
+	    	ng-class="{'hidden': !error}" 
+	    	ng-bind-html="errorMessage"></div>
 
-    <input type="submit" class="btn btn-primary btn-block donate-submit" value="DONATE">
+	    <input type="submit" class="btn btn-primary btn-block donate-submit" ng-value="{{$contentfulEntry.fields.submitRequest.fields.title}}">
+	    
+	    <div 
+	    	id="success-message" 
+	    	class="alert alert-success" 
+	    	ng-class="{'hidden': !success}"></div>
     
-    <div id="success-message" class="alert alert-success" ng-class="{'hidden': !success}"></div>
+    </div>
 	
 	</form>
 </div>

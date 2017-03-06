@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('boilerplate')
-	.filter('otherInput', function($timeout) {
+	.filter('otherInput', function() {
 		return function(input) {
 
 			if(input.indexOf('.') < 0) {

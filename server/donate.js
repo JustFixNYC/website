@@ -3,10 +3,54 @@ var stripe_dk = process.env.STRIPE_DK || 'sk_test_D32Dl92AC6IWj1MydXgEuG75';
 var stripe = require('stripe')(stripe_dk);
 
 module.exports = function(req, res) {
-	var token = req.body.data.id;
-	var amt = req.body.amt;
 
-	if(req.body.subscription !== undefined && req.body.subscription !== 'undefined' && req.body.subscription != false) {
+	if(req.body.data) {
+		var token = req.body.data.id;	
+	}
+
+	var amt = req.body.amt;
+	var unsubscribe = req.body.unsubscription;
+	console.log(req.body.email);
+
+	if(unsubscribe === true) {
+		var reqNumber = 1;
+
+		var getList = function(){
+			stripe.customers.list(
+				{limit: reqNumber * 100},
+				function(err, customers) {
+					for (var i = 0; i < customers.data.length; i++) {
+						console.log(customers.data[i].email === req.body.email);
+						if(customers.data[i].email === req.body.email) {
+							return deleteCustomer(customers.data[i].id);
+						} else if(customers.has_more !== true && i === customers.data.length - 1) {
+							return res.status(404).send('Customer not found!');
+						} else if(customers.has_more === true) {
+							reqNumber++;
+							return getList();
+						}
+					}
+				}
+			)
+		};
+
+		var deleteCustomer = function(id) {
+			
+			stripe.customers.del(
+				id,
+				function(err, confirmation) {
+					if(err) {
+						return res.status(403).send(err);
+					} else {
+						return res.status(200).send(confirmation);
+					}
+				}
+			)
+		};
+
+		getList();
+
+	} else if(req.body.subscription !== undefined && req.body.subscription !== 'undefined' && req.body.subscription != false) {
 
 		// no email sent
 		if(!req.body.email) { 
@@ -58,7 +102,6 @@ module.exports = function(req, res) {
 					customer: customer.id,
 					plan: amt,
 				}, function(err, subscription) {
-					// asynchronously called
 					if(err) {
 						return res.status(403).send(err); 
 					} else {
