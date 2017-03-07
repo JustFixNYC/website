@@ -306,3 +306,11 @@ input[type=text] {
 		}
 	}
 }
+
+// Alerts 
+
+.alert-success {
+	background-color: $justfix-green;
+	border-color: $justfix-green-alt;
+	color: #000;
+}

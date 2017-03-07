@@ -76,6 +76,10 @@
 				{{$contentfulEntry.fields.cardTitleText}}
 			</h3>
 
+			<div class="form-row">
+				<input type="text" ng-model="donateObj.name" placeholder="Name">
+			</div>
+
 		  <div class="form-row">
 		    <div id="card-element-number" class="stripe-card-element col-md-12">
 		      <!-- Stripe Card Number Element -->
@@ -128,11 +132,11 @@
 	    	ng-class="{'hidden': !error}" 
 	    	ng-bind-html="errorMessage"></div>
 
-	    <input type="submit" class="btn btn-primary btn-block donate-submit" ng-value="{{$contentfulEntry.fields.submitRequest.fields.title}}">
+	    <input type="submit" class="btn btn-primary btn-block donate-submit" value="{{$contentfulEntry.fields.submitRequest.fields.title}}">
 	    
 	    <div 
 	    	id="success-message" 
-	    	class="alert alert-success" 
+	    	class="alert alert-success donate-alert" 
 	    	ng-class="{'hidden': !success}"></div>
     
     </div>

@@ -33,9 +33,9 @@
 		// var card = elements.create('card', {style: style});
 		// create all our elements, attach them to the DOM, save them all into an array for ease of event listener attachment
 		var cardNumber = elements.create('cardNumber', {style: style});
-		var cardExpiry = elements.create('cardExpiry');
-		var cardCvc = elements.create('cardCvc');
-		var postalCode = elements.create('postalCode');
+		var cardExpiry = elements.create('cardExpiry', {style: style});
+		var cardCvc = elements.create('cardCvc', {style: style});
+		var postalCode = elements.create('postalCode', {style: style});
 		cardExpiry.mount('#card-element-expiry');
 		cardNumber.mount('#card-element-number');
 		cardCvc.mount('#card-element-cvc');
@@ -46,7 +46,8 @@
 		// Other opts set in form (CANNOT be part of stripe auth flow)
 		$scope.donateObj = {
 			amount: '10.00',
-			email: ''
+			email: '',
+			name: ''
 		}
 
 		// Using buttons to change amount (gets rid of the custom amount field)
@@ -188,7 +189,8 @@
 				data: result.token,
 				amt: amt,
 				subscription: $scope.subscription,
-				email: $scope.donateObj.email
+				email: $scope.donateObj.email,
+				name: $scope.donateObj.name
 			}).then(function(response){
 				$scope.requesting = false;
 

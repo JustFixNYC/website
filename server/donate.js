@@ -48,6 +48,7 @@ module.exports = function(req, res) {
 
 		getList();
 
+	// Set up subscription
 	} else if(req.body.subscription !== undefined && req.body.subscription !== 'undefined' && req.body.subscription != false) {
 
 		// no email sent
@@ -91,6 +92,7 @@ module.exports = function(req, res) {
 			stripe.customers.create({
 				email: req.body.email,
 				source: token,
+				description: req.body.name
 			}, function(err, customer) {
 				if(err) {
 					return res.status(500).send(err);

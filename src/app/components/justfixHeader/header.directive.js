@@ -35,9 +35,10 @@
 
 			scope.toggleMenuSlidedown = function($event) {
 
-
-				$event.preventDefault();
-				$event.stopPropagation();
+				if($event) {
+					$event.preventDefault();
+					$event.stopPropagation();
+				}
 
 
 				// Cheating like hell, but I'm not rebuilding .slideDown() for angular.element just b/c jqlite is BS
