@@ -11,11 +11,18 @@
 		.container {
 			position: absolute;
 			margin-top: 70px;
+			padding-bottom: 70px;
 			width: 100%;
 			max-width: 100%;
 
 			h1 {
 				max-width: 900px;
+				margin-bottom: 2em;
+
+				@media (max-width: $screen-xs-max) {
+					margin-bottom: 10px;
+					font-size: 1.5em;
+				}
 			}
 
 			p:not(.lead) {
@@ -27,6 +34,7 @@
 				top: 0;
 				margin-top: 0px;
 				padding-top: 70px;
+				padding-bottom: 0px;
 
 				@include transform(translateY(0));
 			}
@@ -36,21 +44,31 @@
 
 	.flow-icon {
 		margin: auto;
+		background: url('/img/NewFlow-horizontal.svg') no-repeat center center;
 		max-width: 800px;
 		min-height: 175px;
-		background: url('/img/NewFlow-horizontal.svg') no-repeat center center;
 
 		@media (max-width: $screen-xs-max) {
-			min-height: 200px;
 			background: url('/img/NewFlow-grid.svg') no-repeat center center;
+			min-height: 200px;
 		}
 	}
 
 	.learn-more {
-		position: relative;
-		margin-top: 75px;
+		position: absolute;
+		bottom: 50px;
 		color: $justfix-grey-dark;
 		text-shadow: none;
+
+		@media (max-height: 700px) {
+			bottom: 10px;
+		}
+
+		@media (max-width: $screen-xs-max) {
+			margin-top: 30px;
+			position: relative;
+			bottom: 0px;
+		}
 	}
 }
 
