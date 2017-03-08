@@ -45,7 +45,7 @@
 
 		// Other opts set in form (CANNOT be part of stripe auth flow)
 		$scope.donateObj = {
-			amount: '10.00',
+			amount: undefined,
 			email: '',
 			name: ''
 		}
@@ -126,6 +126,7 @@
 
 			// Check if subscribed but email isn't valid
 			var emailWorks = donateForm.email.$isEmpty(donateForm.email.$viewValue) !== true && donateForm.email.$valid === true;
+			var number = $scope.donateObj.amount;
 
 			if($scope.requesting === true) {
 				return;
@@ -144,6 +145,13 @@
 				unsubscribeFunction($scope.donateObj.email);
 			// Otherwise, get token and request donation
 			} else {
+
+				if(!number || parseInt(number) === NaN) {
+					$scope.requesting = false;
+					$scope.error = true;
+					return $scope.errorMessage = 'Please select a donation amount';
+				}
+
 				return stripe.createToken(cardNumber).then(function(result) {
 					if(result.error) {
 						// Inform the user if there was an error
@@ -217,7 +225,7 @@
 				$scope.requesting = false;
 				$scope.error = true;
 				if(err.data.message){
-					$scope.errorMessage = err.data.message;	
+					$scope.errorMessage = err.data.message;
 				} else {
 					displayError.textContent = 'There was an issue with the connection, please try again later!';
 				}
