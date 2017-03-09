@@ -28,15 +28,15 @@
               'og:site_name': 'JustFix.nyc - Technology for Housing Justice',
               'og:title': 'JustFix.nyc - Technology for Housing Justice',
               'og:description': 'JustFix.nyc adds another tactic to the fight for housing justice by partnering with grassroots organizations to create better support systems for New York City’s excluded communites.',
-              'og:image': 'http://degy28l8twq8c.cloudfront.net/justfixmain.jpg',
+              'og:image': 'https://degy28l8twq8c.cloudfront.net/justfixmain.jpg',
               'og:type': 'website',
               'twitter:card': 'summary_large_image',
               'twitter:site': '@JustFixNYC',
               'twitter:creator': '@JustFixNYC',
               'twitter:title': 'JustFix.nyc - Technology for Housing Justice',
               'twitter:description': 'JustFix.nyc adds another tactic to the fight for housing justice by partnering with grassroots organizations to create better support systems for New York City’s excluded communites.',
-              'twitter:url': 'http://www.justfix.nyc',
-              'twitter:image': 'http://degy28l8twq8c.cloudfront.net/justfixmain.jpg'
+              'twitter:url': 'https://www.justfix.nyc',
+              'twitter:image': 'https://degy28l8twq8c.cloudfront.net/justfixmain.jpg'
           })
       .setOGURL(true);
 

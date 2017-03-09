@@ -1,4 +1,6 @@
 var express = require('express'),
+    https = require('https'),
+    fs = require('fs'),
     compression = require('compression'),
     helmet = require('helmet');
 
@@ -30,13 +32,28 @@ app.use('/donate', function(req, res, next) {
   res.redirect('https://www.nycharities.org/give/donate.aspx?cc=4125');
 });
 
-
-
 app.all('/*', function(req, res, next) {
+  if(req.headers['x-forwarded-proto'] != 'https' && process.env.NODE_ENV === 'production') {
+    res.redirect('https://' + req.hostname + req.url);
+  } else {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', { root: __dirname });
+  }
 });
 
 var port = process.env.PORT || 8080;
+
+
+// var privateKey = fs.readFileSync(__dirname + '/ssl/privkey.pem').toString();
+// var certificate = fs.readFileSync(__dirname + '/ssl/cert.pem').toString();
+//
+// var options = {
+//   key: privateKey,
+//   cert: certificate
+// };
+
+// https.createServer(options, app).listen(port, function () {
+//   console.log("Express server listening on port " + app.get('port'));
+// });
 
 app.listen(port); //the port you want to use
