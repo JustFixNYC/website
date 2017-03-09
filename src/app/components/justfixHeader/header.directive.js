@@ -84,7 +84,6 @@
 					$scope.headerColor = 'blue-bg';
 				}
 			});
-
 			//Dunno why, but calling this as a function inits the destroy function on the listener...
 			// menuToggle();
 
@@ -160,5 +159,4 @@
 			];
 		}
 	}
-
 })();

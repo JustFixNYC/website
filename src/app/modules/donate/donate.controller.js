@@ -146,7 +146,7 @@
 			// Otherwise, get token and request donation
 			} else {
 
-				if(!number || parseInt(number) === NaN) {
+				if(!number || isNaN(parseInt(number))) {
 					$scope.requesting = false;
 					$scope.error = true;
 					return $scope.errorMessage = 'Please select a donation amount';
