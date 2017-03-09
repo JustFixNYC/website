@@ -20,10 +20,10 @@ app.use('/scripts', express.static(__dirname + '/scripts'));
 
 
 app.use('/espanol', function(req, res, next) {
-  res.redirect('http://beta.justfix.nyc/?lang=es_mx');
+  res.redirect('https://beta.justfix.nyc/?lang=es_mx');
 });
 app.use('/signup', function(req, res, next) {
-  res.redirect('http://beta.justfix.nyc/signup');
+  res.redirect('https://beta.justfix.nyc/signup');
 });
 app.use('/survey', function(req, res, next) {
   res.redirect('https://goo.gl/forms/VWpzNLJq4eWcYyUn1');
