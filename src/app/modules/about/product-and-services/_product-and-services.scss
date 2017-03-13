@@ -17,16 +17,17 @@
 
 			h1 {
 				max-width: 760px;
-				margin-bottom: 2em;
+				margin-bottom: 1.5em;
+				line-height: 1.2;
 
 				@media (max-width: $screen-xs-max) {
 					margin-bottom: 10px;
-					font-size: 1.5em;
+					font-size: 1.3em;
 				}
 			}
 
 			p:not(.lead) {
-				max-width: 900px;
+				max-width: 460px;
 			}
 
 			@media (max-width: $screen-xs-max) {
@@ -48,15 +49,14 @@
 		max-width: 800px;
 		min-height: 175px;
 
-		@media (max-width: $screen-xs-max) {
+		/* @media (max-width: $screen-xs-max) {
 			background: url('/img/NewFlow-grid.svg') no-repeat center center;
-			min-height: 200px;
-		}
+			min-height: 170px;
+		} */
 	}
 
 	.learn-more {
 		position: absolute;
-		bottom: 50px;
 		color: $justfix-grey-dark;
 		text-shadow: none;
 
@@ -204,6 +204,10 @@
 
 	h1 {
 		margin-bottom: 70px;
+
+		@media (max-width: $screen-sm-max) {
+			margin-bottom: 50px; 	
+		}
 	}
 
 	img {

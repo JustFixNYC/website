@@ -36,54 +36,13 @@
 
 			<div class="clearfix" ng-if="$index % 2 == 0"></div>
 		</div>
+		
+		<div class="clearfix"></div>
 		<a ng-href="{{$contentfulEntry.fields.createAccountButton.fields.link}}" class="btn btn-primary">{{$contentfulEntry.fields.createAccountButton.fields.title}}</a>
 
 	</section>
 
 	<article>
-
-		<!-- <section class="justfix-blue white center padding-section-reduced" id="tutorial">
-			<article class="container">
-				<h2>{{$contentfulEntry.fields.imageDescription}}</h2>
-				<div class="flow-icon">
-					<img ng-src="{{flowUrl}}" />
-				</div>
-			</article>
-		</section> -->
-
-		<!-- <section class="tutorial">
-			<div class="container">
-				<h1 class="header center">For Tenants</h1>
-				<uib-carousel
-					active="active"
-					interval="4000"
-					template-url="app/bootstrap-templates/carousel/carousel.html">
-		
-					<uib-slide
-						ng-repeat="slide in $contentfulEntry.fields.slider track by $index"
-						index="$index">
-						<img ng-src="{{slide.fields.image.fields.file.url}}">
-						<span class="text">
-							<h3>{{slide.fields.title}}</h3>
-							<span ng-bind-html="slide.fields.bodyText | markdown"></span>
-							<br/>
-							<br/>
-							<a class="btn btn-primary" ng-href="https://beta.justfix.nyc/signup">CREATE AN ACCOUNT</a>
-						</span>
-					</uib-slide>
-		
-				</uib-carousel>
-			</div>
-		</section> -->
-
-		<!-- <section class="community-advocates alt no-margin-bottom">
-			<h1 class="center">{{$contentfulEntry.fields.forAdvocates.fields.title}}</h1>
-			<div class="container">
-				<img ng-src="{{$contentfulEntry.fields.forAdvocates.fields.image.fields.file.url}}" />
-				<span class="text" ng-bind-html="$contentfulEntry.fields.forAdvocates.fields.textBlock | markdown"></span>
-			</div>
-		</section>
-		<div class="clearfix"></div> -->
 
 		<section class="center no-margin justfix-blue padding-section">
 			<!-- <div class="container"> -->

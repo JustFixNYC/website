@@ -2,7 +2,7 @@
 <article class="product-and-services" contentful-entry="'content_type=productAndServices'">
   <section class="hero">
 		<article class="container grey-bg">
-			<h1>{{$contentfulEntry.fields.headerBlock}}</h1>
+			<h1 ng-bind-html="$contentfulEntry.fields.headerBlock"></h1>
 			<p>{{$contentfulEntry.fields.imageDescription}}</p>
 			<div class="flow-icon">
 				<!-- <img ng-src="{{flowUrl}}" /> -->
@@ -10,7 +10,7 @@
 		</article>
 		<a href="#" scroll-to="tutorial" class="learn-more-link">
 			<div class="center learn-more">
-				Learn more
+				learn more
 				<br />
 				<span class="glyphicon glyphicon-chevron-down"></span>
 			</div>

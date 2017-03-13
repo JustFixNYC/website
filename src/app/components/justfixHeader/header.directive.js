@@ -66,11 +66,9 @@
 				}
 
 				// ONLY CLOSE if not about page and this is already expanded
-				if(toState.name.indexOf('about') === -1 && angular.element($document[0].querySelector('#aside-menu uib-dropdown > span')).hasClass('expanded')){
+				if(angular.element($document[0].querySelector('#aside-menu uib-dropdown > span')).hasClass('expanded')){
 					$scope.toggleMenuSlidedown();
 					$scope.aboutItemActive = false;
-				} else if(toState.name.indexOf('about') !== -1) {
-					$scope.aboutItemActive = true;
 				} else {
 					$scope.aboutItemActive = false;
 				}

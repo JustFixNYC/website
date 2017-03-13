@@ -13,7 +13,7 @@
 }
 
 .card-wrapper {
-	margin: 50px auto;
+	margin: 50px auto 30px;
 
 	@extend .col-md-6;
 	@extend .clearfix;
@@ -184,6 +184,10 @@
 	width: 70%;
 	margin: 30px auto 0;
 	color: white;
+
+	&.alert-danger {
+		margin: 0px auto 30px;
+	}
 
 	@media (max-width: $screen-sm-max) {
 		width: 100%;
