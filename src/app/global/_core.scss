@@ -314,3 +314,9 @@ input[type=text] {
 	border-color: $justfix-green-alt;
 	color: #000;
 }
+
+.alert-danger {
+	background-color: $justfix-red;
+	border-color: $justfix-red;
+	color: #fff;
+}
