@@ -1,4 +1,4 @@
-var stripe_dk = process.env.STRIPE_DK || 'sk_live_Iv0f7TBEfmBwQnDdX8NWy890';
+var stripe_dk = process.env.STRIPE_DK || 'sk_test_D32Dl92AC6IWj1MydXgEuG75';
 
 var stripe = require('stripe')(stripe_dk);
 
