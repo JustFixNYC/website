@@ -85,8 +85,9 @@
 	@include transition(0.2s all);
 
 	@media (max-width: $screen-sm-max) {
-		width: 25%;
+		margin: 10px 2%;
 		padding: 10% 0;
+		width: 25%;
 	}
 
 	@media (max-width: $screen-xs-min) {
