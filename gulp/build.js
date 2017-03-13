@@ -4,6 +4,7 @@ var path = require('path');
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var conf = require('./conf');
+var replace = require('gulp-replace');
 
 var $ = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
@@ -43,6 +44,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe($.useref())
     .pipe(jsFilter)
+  	.pipe(replace('pk_test_Yq8GeR8Vv7pZniDZW1JZwaTj', conf.paths.publishableKey))
     .pipe($.sourcemaps.init())
     .pipe($.ngAnnotate())
     .pipe($.uglify({ preserveComments: $.uglifySaveLicense })).on('error', conf.errorHandler('Uglify'))
@@ -82,7 +84,6 @@ gulp.task('other', function () {
   var fileFilter = $.filter(function (file) {
     return file.stat.isFile();
   });
-
   return gulp.src([
     path.join(conf.paths.src, '/**/*'),
     path.join('!' + conf.paths.src, '/**/*.{html,css,js,scss}')
@@ -118,6 +119,6 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function() {
-  runSequence(['html', 'fonts', 'other'], 'server');
+  runSequence(['clean', 'html', 'fonts', 'other'], 'server');
   // runSequence(['html', 'fonts', 'other']);
 });

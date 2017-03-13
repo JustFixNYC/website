@@ -16,7 +16,8 @@ exports.paths = {
   server: 'server',
   dist: 'dist',
   tmp: '.tmp',
-  e2e: 'e2e'
+  e2e: 'e2e',
+  publishableKey: 'pk_live_rpy1In7AMI9WlvEsssDwuQHg'
 };
 
 /**

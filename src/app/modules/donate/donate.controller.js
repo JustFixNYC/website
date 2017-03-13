@@ -27,7 +27,7 @@
 		// Set up our Stripe JS
 		var displayError = $document[0].getElementById('card-errors');
 		var displaySuccess = $document[0].getElementById('success-message');
-		var stripe = $window.Stripe('pk_live_rpy1In7AMI9WlvEsssDwuQHg');
+		var stripe = $window.Stripe('pk_test_Yq8GeR8Vv7pZniDZW1JZwaTj'); 
 		var elements = stripe.elements();
 		// var card = elements.create('card', {style: style});
 		// create all our elements, attach them to the DOM, save them all into an array for ease of event listener attachment
