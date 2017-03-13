@@ -1,74 +1,77 @@
-var stripe_dk = process.env.STRIPE_DK || 'sk_test_D32Dl92AC6IWj1MydXgEuG75';
+var stripe_dk = process.env.STRIPE_DK || 'sk_live_Iv0f7TBEfmBwQnDdX8NWy890';
 
 var stripe = require('stripe')(stripe_dk);
 
 module.exports = function(req, res) {
 
+	// check data
 	if(req.body.data) {
 		var token = req.body.data.id;	
 	}
 
+	// no email sent
+	if(!req.body.email) { 
+		return res.status(403).send('Incorrect Email');
+	}
+
 	var amt = req.body.amt;
 	var unsubscribe = req.body.unsubscription;
+	var plan;
 
-	if(unsubscribe === true) {
-		var reqNumber = 1;
 
-		var getList = function(){
-			stripe.customers.list(
-				{limit: reqNumber * 100},
-				function(err, customers) {
-					for (var i = 0; i < customers.data.length; i++) {
-						if(customers.data[i].email === req.body.email) {
-							return deleteCustomer(customers.data[i].id);
-						} else if(customers.has_more !== true && i === customers.data.length - 1) {
-							return res.status(404).send('Customer not found!');
-						} else if(customers.has_more === true) {
-							reqNumber++;
-							return getList();
-						}
-					}
+	var subscribeCustomer = function(customer, id){
+		stripe.subscriptions.create({
+		  customer: customer.id,
+		  plan: id
+		}, function(err, subscription) {
+			if(err){
+				return res.status(500).send(err);	
+			} else {
+				return res.status(200).send(subscription);
+			}
+		});
+	};
+
+	var createCustomer = function(callback, plan) {
+		// Create customer
+		stripe.customers.create({
+			email: req.body.email,
+			source: token,
+			description: req.body.name
+		}, function(err, customer) {
+			if(err) {
+				return res.status(500).send(err);
+			} else {
+				if(plan) {
+					subscribeCustomer(customer, plan);
+				} else {
+					return callback(customer);	
 				}
-			)
-		};
+			}
+		});
+	};
 
-		var deleteCustomer = function(id) {
-			
-			stripe.customers.del(
-				id,
-				function(err, confirmation) {
-					if(err) {
-						return res.status(403).send(err);
-					} else {
-						return res.status(200).send(confirmation);
-					}
-				}
-			)
-		};
+	var charge = function(customer) {
 
-		getList();
+		stripe.charges.create({
+			amount: amt,
+			currency: "usd",
+			description: "Example charge",
+			source: req.body.data.card.id,
+			customer: customer.id,
+		}, function(err, charge) {
+			if(err){
+				return res.status(500).send(err);	
+			} else {
+				return res.status(200).send(charge);
+			}
+		});
 
-	// Set up subscription
-	} else if(req.body.subscription !== undefined && req.body.subscription !== 'undefined' && req.body.subscription != false) {
+	};
 
-		// no email sent
-		if(!req.body.email) { 
-			return res.status(403).send('Incorrect Email');
-		}
+	if(req.body.subscription !== undefined && req.body.subscription !== 'undefined' && req.body.subscription != false) {
 
-		stripe.plans.retrieve(
-		  amt,
-		  function(err, plan) {
-		    // asynchronously called
-		    if(err) {
-		    	return createPlan();
-		    } else {
-		    	return createCustomer(plan);
-		    }
-		  }
-		);
-
-		var createPlan = function() {
+		var createPlan = function(callback) {
 			stripe.plans.create({
 				name: 'Monthly',
 				id: amt,
@@ -78,53 +81,33 @@ module.exports = function(req, res) {
 			}, function(err, plan) {
 				if(err) {
 					return res.status(500).send(err);
+				} else {
+					plan = plan.id;
+					// asynchronously called
+					// Create customer
+					createCustomer(subscribeCustomer, plan.id);	
 				}
-				// asynchronously called
-				// Create customer
-				createCustomer(plan);
+
 			});
 		};
 
-		var createCustomer = function(plan) {
-			var id = plan.id;
 
-			// Create customer
-			stripe.customers.create({
-				email: req.body.email,
-				source: token,
-				description: req.body.name
-			}, function(err, customer) {
-				if(err) {
-					return res.status(500).send(err);
-				}
-				// attach customer to plan
-				stripe.subscriptions.create({
-					customer: customer.id,
-					plan: amt,
-				}, function(err, subscription) {
-					if(err) {
-						return res.status(403).send(err); 
-					} else {
-						res.status(200).send(subscription);	
-					}
-				});
-			});
-		}
+		stripe.plans.retrieve(
+		  amt,
+		  function(err, plan) {
+		    // asynchronously called
+		    if(err) {
+		    	return createPlan(createCustomer);
+		    } else {
+		    	return createCustomer(subscribeCustomer, plan.id);
+		    }
+		  }
+		);
 
+	// charge user
 	} else {
 
-		var charge = stripe.charges.create({
-			amount: amt,
-			currency: "usd",
-			description: "Example charge",
-			source: token,
-		}, function(err, charge) {
-			if(err){
-				res.status(500).send(err);	
-			} else {
-				res.status(200).send(charge);
-			}
-		});
+		createCustomer(charge);
 
 	}
 };

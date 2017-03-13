@@ -71,6 +71,11 @@
 				<input type="text" ng-model="donateObj.name" placeholder="Name">
 			</div>
 
+		
+			<div class="form-row email">
+		    <input type="email" name="email" placeholder="Email" ng-model="donateObj.email" required>
+		  </div>
+
 		  <div class="form-row">
 		    <div id="card-element-number" class="stripe-card-element col-md-12">
 		      <!-- Stripe Card Number Element -->
@@ -99,12 +104,6 @@
 					{{$contentfulEntry.fields.subscribe.fields.title}}
 				</label>
 			</div>
-		
-			<div class="form-row email" ng-show="subscription"><!--  || unsubscription 
-				<p class="italic subtext" ng-show="subscription">{{$contentfulEntry.fields.subscribeSubtext}}</p>
-				<p class="italic subtext" ng-show="unsubscription">{{$contentfulEntry.fields.unsubscribeSubtext}}</p> -->
-		    <input type="email" name="email" placeholder="email" ng-model="donateObj.email">
-		  </div>
 
 	  </div>
 		<div class="clearfix"></div>

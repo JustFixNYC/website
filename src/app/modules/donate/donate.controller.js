@@ -15,7 +15,6 @@
 		$scope.requesting = false;
 		$scope.otherAmt = false;
 		$scope.subscription = false;
-		$scope.unsubscription = false;
 
 		// Styles on Stripe form, to override default styles
 		var style = {
@@ -28,7 +27,7 @@
 		// Set up our Stripe JS
 		var displayError = $document[0].getElementById('card-errors');
 		var displaySuccess = $document[0].getElementById('success-message');
-		var stripe = $window.Stripe('pk_test_Yq8GeR8Vv7pZniDZW1JZwaTj');
+		var stripe = $window.Stripe('pk_live_rpy1In7AMI9WlvEsssDwuQHg');
 		var elements = stripe.elements();
 		// var card = elements.create('card', {style: style});
 		// create all our elements, attach them to the DOM, save them all into an array for ease of event listener attachment
@@ -62,13 +61,11 @@
 
 		// Update subscriptions
 		$scope.toggleSubscription = function(val) {
-			// User wants to subscribe
+
 			if(val === true) {
-				$scope.subscription = !$scope.subscription;
-				$scope.unsubscription = false;
+				$scope.subscription = true;
 			} else {
 				$scope.subscription = false;
-				$scope.unsubscription = !$scope.unsubscription;
 			}
 		}
 
@@ -124,67 +121,38 @@
 		// Get token from Stripe, handle unsubs
 		$scope.makeCharge = function(donateForm) {
 
-			// Check if subscribed but email isn't valid
+			// set up checks in the next if/else block
 			var emailWorks = donateForm.email.$isEmpty(donateForm.email.$viewValue) !== true && donateForm.email.$valid === true;
 			var number = $scope.donateObj.amount;
 
-			if($scope.requesting === true) {
-				return;
+			// check if there's a donation amount
+			if(!number || isNaN(parseInt(number))) {
+				$scope.requesting = false;
+				$scope.error = true;
+				return $scope.errorMessage = 'Please select a donation amount';
+
+			// check email
+			} else if(($scope.subscription === true || $scope.unsubscription === true) && !emailWorks) {
+				$scope.requesting = false;
+				$scope.error = true;
+				return $scope.errorMessage = 'Please make sure the email form is complete and correct!';
 			}
 
 			$scope.requesting = true;
-			
-			// check email validity
-			if(($scope.subscription === true || $scope.unsubscription === true) && !emailWorks){
-				$scope.error = true;
-				$scope.requesting = false;
-				return $scope.errorMessage = 'Please make sure the email form is complete and correct!';
 
-			// handle unsubs (we only need the email, so we don't need to worry about any of the other stuff)
-			} else if($scope.unsubscription === true){
-				unsubscribeFunction($scope.donateObj.email);
-			// Otherwise, get token and request donation
-			} else {
-
-				if(!number || isNaN(parseInt(number))) {
+			return stripe.createToken(cardNumber).then(function(result) {
+				
+				if(result.error) {
+					// Inform the user if there was an error
 					$scope.requesting = false;
 					$scope.error = true;
-					return $scope.errorMessage = 'Please select a donation amount';
+					$scope.errorMessage = result.error.message;
+					$scope.$apply();
+				} else {
+					requestFromOurServer(result);
 				}
-
-				return stripe.createToken(cardNumber).then(function(result) {
-					if(result.error) {
-						// Inform the user if there was an error
-						$scope.error = true;
-						$scope.requesting = false;
-						$scope.errorMessage = result.error.message;
-					} else {
-						requestFromOurServer(result);
-					}
-				});	
-
-			}
+			});	
 		}
-
-
-		// Main unsubscription function
-		var unsubscribeFunction = function(emailVal) {
-			return $http.post('/api/donate', {
-				unsubscription: $scope.unsubscription,
-				email: emailVal
-			}).then(function() {
-				$scope.requesting = false;
-				$scope.success = true;
-				return displaySuccess.textContent = 'Email successfully removed.';
-
-			}, function(error) {
-				$scope.error = true;
-				$scope.requesting = false;
-				$log.error(error);
-				$scope.errorMessage = 'There was an error removing your account, please contact <a href="mailto:hello@justfix.nyc" target="_blank">hello@justfix.nyc</a> for help.'
-				return $log.error(error);
-			});
-		};
 
 		// Send to our server, request payment submit
 		var requestFromOurServer = function(result) {
@@ -216,6 +184,7 @@
 					displaySuccess.textContent = 'Thank you for your donation of $' + respondAmt + '!';
 				} else {
 					$scope.error = true;
+					$scope.requesting = false;
 					displayError.textContent = response.data.message;
 				}
 
