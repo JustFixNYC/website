@@ -14,7 +14,7 @@ app.use(helmet());
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
-})); 
+}));
 
 app.use(require('prerender-node').set('prerenderToken', '6x0ervNLErEUk7hpACc3'));
 
@@ -30,7 +30,7 @@ app.use('/espanol', function(req, res, next) {
   res.redirect('https://beta.justfix.nyc/?lang=es_mx');
 });
 app.use('/signup', function(req, res, next) {
-  res.redirect('https://beta.jus/tfix.nyc/signup');
+  res.redirect('https://beta.justfix.nyc/signup');
 });
 app.use('/survey', function(req, res, next) {
   res.redirect('https://goo.gl/forms/VWpzNLJq4eWcYyUn1');
@@ -62,4 +62,3 @@ var port = process.env.PORT || 8080;
 // });
 
 app.listen(port); //the port you want to use
-
