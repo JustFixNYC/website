@@ -25,7 +25,7 @@
 				active="active"
 				interval="false"
 				template-url="app/bootstrap-templates/carousel/carousel.html">
-	
+
 				<uib-slide
 					ng-repeat="slide in $contentfulEntry.fields.slider track by $index"
 					index="$index">
@@ -37,10 +37,10 @@
 						<span ng-bind-html="slide.fields.bodyText | markdown"></span>
 						<br/>
 						<br/>
-						<a class="btn btn-primary" ng-href="http://beta.justfix.nyc/signup">CREATE AN ACCOUNT</a>
+						<a class="btn btn-primary" ng-href="https://beta.justfix.nyc/signup">CREATE AN ACCOUNT</a>
 					</span>
 				</uib-slide>
-	
+
 			</uib-carousel>
 		</div>
 	</section>

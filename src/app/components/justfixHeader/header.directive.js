@@ -141,7 +141,7 @@
 				{
 					text: "En Español",
 					style: "",
-					url: "http://beta.justfix.nyc/?lang=es_mx"
+					url: "https://beta.justfix.nyc/?lang=es_mx"
 				},
 				{
 					text: "Donate",
@@ -152,7 +152,7 @@
 				{
 					text: "Sign In",
 					style: "btn",
-					url: "http://beta.justfix.nyc/signin",
+					url: "https://beta.justfix.nyc/signin",
 					sref: ""
 				}
 			];
