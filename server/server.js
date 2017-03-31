@@ -32,6 +32,9 @@ app.use('/espanol', function(req, res, next) {
 app.use('/signup', function(req, res, next) {
   res.redirect('https://beta.justfix.nyc/signup');
 });
+app.use('/update', function(req, res, next) {
+  res.redirect('https://beta.justfix.nyc/?status=1');
+});
 app.use('/survey', function(req, res, next) {
   res.redirect('https://goo.gl/forms/VWpzNLJq4eWcYyUn1');
 });
