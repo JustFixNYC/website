@@ -138,11 +138,11 @@
 				//	 sref: "",
 				//	 target: "_blank"
 				// },
-				{
-					text: "En Español",
-					style: "",
-					url: "https://beta.justfix.nyc/?lang=es_mx"
-				},
+				// {
+				// 	text: "En Español",
+				// 	style: "",
+				// 	url: "https://beta.justfix.nyc/?lang=es_mx"
+				// },
 				{
 					text: "Donate",
 					style: "",

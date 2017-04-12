@@ -47,10 +47,24 @@
 					<div
 						class="background-image"
 						ng-style="{'background-image': 'url(' + sponsor.fields.logo.fields.file.url + ')'}">
-					</div> 
+					</div>
 				</a>
 			</span>
     </div>
+  </section>
+
+  <section class="baker reduced-margin">
+    <div class="container">
+      <div class="baker-thanks">
+        <h3>{{$contentfulEntry.fields.bakerThanks}}</h3>
+      </div>
+      <div class="baker-logo">
+        <a href="https://www.bakerlaw.com/" target="_blank">
+          <img ng-src="{{ $contentfulEntry.fields.bakerLogo.fields.file.url }}" alt="Baker Logo" />
+        </a>
+      </div>
+    </div>
+
   </section>
 
   <banner></banner>

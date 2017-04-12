@@ -54,6 +54,12 @@
 			font-size: 35px;
 			line-height: 1.3em;
 		}
+
+		@media (max-width: 350px) {
+			margin: 0px 0 30px 0;
+			font-size: 30px;
+			line-height: 1.2em;
+		}
 	}
 
 	.subcopy {
@@ -74,7 +80,7 @@
 .learn-more-link:focus {
 	text-decoration: none;
 }
-	
+
 .learn-more {
 	position: absolute;
 	bottom: 40px;
@@ -109,7 +115,7 @@
 .home-content-blocks {
 	color: $justfix-grey-dark;
 
-	h1 { 
+	h1 {
 		margin-top: 0;//$section-margin / 2;
 	}
 
