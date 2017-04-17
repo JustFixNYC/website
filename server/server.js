@@ -27,7 +27,7 @@ app.use('/scripts', express.static(__dirname + '/scripts'));
 
 
 app.use('/espanol', function(req, res, next) {
-  res.redirect('https://beta.justfix.nyc/?lang=es_mx');
+  res.redirect('https://beta.justfix.nyc/espanol');
 });
 app.use('/signup', function(req, res, next) {
   res.redirect('https://beta.justfix.nyc/signup');
