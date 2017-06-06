@@ -43,7 +43,16 @@ app.use('/survey', function(req, res, next) {
 });
 app.post('/api/donate', donate);
 
+// use this for ssl renewal
+// app.use('/.well-known/acme-challenge/XXXXXXX', function(req, res) {
+//   res.send('YYYYYYYYYY');
+// });
+// app.all('/*', function(req, res, next) {
+//     // Just send the index.html for other files to support HTML5Mode
+//     res.sendFile('index.html', { root: __dirname });
+// });
 
+// disable this for ssl renewal (verifies via http)
 app.all(/^\/(?!api).*/, function(req, res, next) {
   if(req.headers['x-forwarded-proto'] != 'https' && process.env.NODE_ENV === 'production') {
     res.redirect('https://' + req.hostname + req.url);
@@ -52,6 +61,8 @@ app.all(/^\/(?!api).*/, function(req, res, next) {
     res.sendFile('index.html', { root: __dirname });
   }
 });
+
+
 var port = process.env.PORT || 8080;
 
 
