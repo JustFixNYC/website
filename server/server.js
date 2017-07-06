@@ -30,7 +30,15 @@ app.use('/espanol', function(req, res, next) {
   res.redirect('https://beta.justfix.nyc/espanol');
 });
 app.use('/signup', function(req, res, next) {
-  res.redirect('https://beta.justfix.nyc/signup');
+  if(req.query.q && req.query.lang) {
+    res.redirect('https://beta.justfix.nyc/onboarding/referral?q=' + req.query.q + '&lang=' + req.query.lang);
+  } else if(req.query.q) {
+    res.redirect('https://beta.justfix.nyc/onboarding/referral?q=' + req.query.q);
+  } else if(req.query.lang) {
+    res.redirect('https://beta.justfix.nyc/onboarding/referral?lang=' + req.query.lang);
+  } else {
+    res.redirect('https://beta.justfix.nyc/signup');
+  }
 });
 app.use('/advocate-signup', function(req, res, next) {
   res.redirect('https://beta.justfix.nyc/advocate/signup');
