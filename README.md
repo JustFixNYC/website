@@ -33,14 +33,16 @@ gulp serve
   - run:
 ```
 # If adding a new target, make sure the git repo's set up to handle it
-cd ./dist
-git remote add ~location~
+mkdir dist && cd $_
+git init
+git remote add heroku ~location~
 
 # Otherwise, build project, deploy to heroku location
 cd ./
 gulp build
 cd dist
+git add .
 git commit -a -m "deployment"
-git push ~target~ master
+git push -f ~target~ master
 # If there are any additional directions, follow them to complete the deployment
 ```
