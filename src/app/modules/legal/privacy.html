@@ -1,0 +1,9 @@
+<article contentful-entry="'2X2INJkBpSe628UEwKma0Q'">
+  <header class="container">
+    <h1 class="center">{{$contentfulEntry.fields.title}}</h1>
+  </header>
+  <section>
+    <div class="container" ng-bind-html="$contentfulEntry.fields.pageContent | markdown">
+    </div>
+  </section>
+</article>

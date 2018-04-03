@@ -87,6 +87,20 @@
           title: 'Donate'
         }
       })
+      .state('terms', {
+        url: '/terms-of-use',
+        templateUrl: 'app/modules/legal/terms.html',
+        metaTags: {
+          title: 'Terms of Use'
+        }
+      })
+      .state('privacy', {
+        url: '/privacy-policy',
+        templateUrl: 'app/modules/legal/privacy.html',
+        metaTags: {
+          title: 'Privacy Policy'
+        }
+      })
       .state('clinic', {
         url: '/get-repairs',
         templateUrl: 'app/modules/clinic/clinic.html',
