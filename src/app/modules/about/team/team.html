@@ -7,18 +7,36 @@
   <section>
     <div class="container">
       <div class="team-container">
-        <div class="team-member" ng-repeat="member in $contentfulEntry.fields.teamMembers">
-          <img ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
-          <h4>{{member.fields.name}}</h4>
+        <div class="team_member team_member--team" ng-repeat="member in $contentfulEntry.fields.teamMembers">
+          <img class="team_member-image" ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
+          <h4 class="team_member-name">{{member.fields.name}}</h4>
           <h4>{{member.fields.title}}</h4>
-          <div class="social">
+          <div class="team_member-social social">
           	<span ng-repeat="link in member.fields.links" class="btn btn-primary btn-icon" ng-class="{'one': mem}">
               <a ng-href="{{link.url}}" target="_blank">
           		    <i class="glyphicon" ng-class="'glyphicon-' + link.type"></i>
               </a>
           	</span>
           </div>
-          <p>{{member.fields.description}}</p>
+          <p class="team_member-description team_member-description--team">{{member.fields.description}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h1 class="center">{{$contentfulEntry.fields.directorsTitle}}</h1>
+      <div class="team-container directors">
+        <div class="team_member team_member--directors" ng-repeat="member in $contentfulEntry.fields.directors">
+          <div class="team_member-director_image_wrapper">
+            <img class="team_member-image team_member-image--directors" ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
+          </div>
+          <div class="team_member-director_text">
+	          <h4 class="team_member-name">{{member.fields.name}}</h4>
+	          <h4>{{member.fields.title}}, <a ng-href="{{ member.fields.links.url }}" target="_blank" rel="noopener noreferrer">{{member.fields.links.title}}</a></h4>
+	          <p class="team_member-description" ng-bind-html="member.fields.description | markdown"></p>
+          </div>
         </div>
       </div>
     </div>
