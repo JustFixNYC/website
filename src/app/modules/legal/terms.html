@@ -3,7 +3,7 @@
     <h1 class="center">{{$contentfulEntry.fields.title}}</h1>
   </header>
   <section>
-    <div class="container" ng-bind-html="$contentfulEntry.fields.pageContent | markdown">
+    <div class="container container--text" ng-bind-html="$contentfulEntry.fields.pageContent | markdown">
     </div>
   </section>
 </article>
