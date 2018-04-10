@@ -89,16 +89,22 @@
       })
       .state('terms', {
         url: '/terms-of-use',
-        templateUrl: 'app/modules/legal/terms.html',
+        templateUrl: 'app/modules/generic-page/generic-page.html',
         metaTags: {
           title: 'Terms of Use'
+        },
+        controller: function($scope) {
+          $scope.entryID = '26N6wBPKaku0002G48my02';
         }
       })
       .state('privacy', {
         url: '/privacy-policy',
-        templateUrl: 'app/modules/legal/privacy.html',
+        templateUrl: 'app/modules/generic-page/generic-page.html',
         metaTags: {
-          title: 'Privacy Policy'
+          title: 'Privacy Policy',
+        },
+        controller: function($scope) {
+          $scope.entryID = '2X2INJkBpSe628UEwKma0Q';
         }
       })
       .state('clinic', {
