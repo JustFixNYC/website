@@ -27,7 +27,7 @@
   <section>
     <div class="container">
       <h1 class="center">{{$contentfulEntry.fields.directorsTitle}}</h1>
-      <div class="team-container directors">
+      <div class="team-container">
         <div class="team_member team_member--directors" ng-repeat="member in $contentfulEntry.fields.directors">
           <div class="team_member-director_image_wrapper">
             <img class="team_member-image team_member-image--directors" ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />

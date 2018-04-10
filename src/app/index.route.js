@@ -25,13 +25,6 @@
           title: 'About Us'
         }
       })
-      .state('about.directors', {
-        url: '/directors',
-        templateUrl: 'app/modules/about/directors/directors.html',
-        metaTags: {
-          title: 'Our Board of Directors'
-        }
-      })
       .state('about.partners', {
         url: '/partners',
         templateUrl: 'app/modules/about/partners/partners.html',

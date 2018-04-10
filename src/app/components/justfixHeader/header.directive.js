@@ -108,11 +108,6 @@
 								sref: "about.team"
 							},
 							{
-								text: "Board of Directors",
-								style: "",
-								sref: "about.directors"
-							},
-							{
 								text: "Press",
 								style: "",
 								sref: "about.press"
