@@ -2,7 +2,8 @@
   "name": "boilerplate",
   "version": "0.0.0",
   "dependencies": {
-    "gulp-replace": "^0.5.4"
+    "gulp-replace": "^0.5.4",
+    "npm": "^5.8.0"
   },
   "scripts": {
     "test": "gulp test",
