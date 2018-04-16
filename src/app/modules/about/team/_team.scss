@@ -18,32 +18,31 @@
   // This only does the 'right thing' when there are 5 team members
   &:nth-child(4) {
     @media (min-width: $screen-sm-min) {
-      @include shift($n-columns: 2);
+      @extend .col-sm-offset-2;
     }
   }
 }
 
 .team_member--directors {
-  @extend .col-sm-10;
-  @extend .col-sm-offset-1;
+  @extend .col-sm-12;
 }
 
 .team_member-director_image_wrapper {
-  @extend .col-sm-2;
+  @extend .col-sm-3;
+  @extend .col-sm-offset-1;
   @extend .col-lg-2;
+  @extend .col-lg-offset-2;
 }
 
 .team_member-director_text {
-  @extend .col-sm-8;
-  @extend .col-sm-offset-2;
-  @extend .col-lg-9;
-  @extend .col-lg-offset-1;
+  @extend .col-sm-7;
+  @extend .col-lg-6;
   text-align: left;
 }
 
 .team_member-image {
   display: block;
-  max-width: 140px;
+  max-width: 130px;
   height: auto;
   border-radius: 100%;
   margin: 0 auto 30px;
