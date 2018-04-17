@@ -71,6 +71,24 @@
 		<div class="clearfix"></div>
 	</section>
 
+  <section class="homepage_video_unit padding-section-reduced">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>{{$contentfulEntry.fields.videoUnit.fields.title}}</h1>
+        </div>
+      </div>
+      <div class="row align_items_end-sm">
+        <div class="col-sm-8">
+          <video class="homepage_video_unit-video" ng-src="{{$contentfulEntry.fields.videoUnit.fields.video.fields.file.url | trustUrl}}" autoplay muted playsinline controls></video>
+        </div>
+        <div class="col-sm-4">
+          <h2 class="homepage_video_unit-caption">{{$contentfulEntry.fields.videoUnit.fields.caption}}</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <!-- <h1>Header Uno 36px</h1>
