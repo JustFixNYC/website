@@ -10,7 +10,7 @@
  * @param {string} value Input to truncate
  * @param {number} max Max length of text in characters
  * @param {boolean} [wordwise=true] Whether to cut text at spaces
- * @param {string} [tail=' ...'] How to truncate
+ * @param {string} [tail='...'] How to truncate
  * @returns {string} Truncated string.
  */
 (function() {
@@ -35,7 +35,7 @@
         }
       }
 
-      return value + (tail || ' ...');
+      return value + (tail || '...');
     };
   });
 })();
