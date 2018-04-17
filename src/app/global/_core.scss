@@ -178,6 +178,13 @@ input[type=text] {
 	margin-top: 25px;
 }
 
+.align_items_end-sm {
+  @media (min-width: $screen-sm-min) {
+    @include display(flex);
+    @include align-items(flex-end);
+  }
+}
+
 // Social media buttons
 .social {
 	margin: 40px 0 20px 0;
@@ -307,7 +314,7 @@ input[type=text] {
 	}
 }
 
-// Alerts 
+// Alerts
 
 .alert-success {
 	background-color: $justfix-green;
