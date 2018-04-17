@@ -4,7 +4,7 @@
  * @kind function
  *
  * @description
- * Truncates a string and breaks it at words.
+ * Truncates a string; optionally breaks at words and adds a tail (e.g. ellipsis)
  * From: https://stackoverflow.com/questions/18095727/limit-the-length-of-a-string-with-angularjs
  *
  * @param {string} value Input to truncate

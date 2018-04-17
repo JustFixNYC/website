@@ -45,9 +45,7 @@
               </p>
             </div>
 
-            <div ng-show="seeFullDescription" class="team_member-description">
-              <p>{{member.fields.description}}</p>
-            </div>
+            <div ng-show="seeFullDescription" class="team_member-description" ng-bind-html="member.fields.description | markdown"></div>
           </div>
         </div>
       </div>
