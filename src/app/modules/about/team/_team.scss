@@ -57,6 +57,16 @@
   line-height: 1.4;
 }
 
+.team_member-description-show_read_more {
+  outline: none;
+
+  &:after {
+    content: " Read more";
+    position: relative;
+    color: $justfix-blue;
+  }
+}
+
 .team_member-description--team {
   padding: 0 20px;
 }

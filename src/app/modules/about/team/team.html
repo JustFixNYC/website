@@ -35,7 +35,19 @@
           <div class="team_member-director_text">
 	          <h4 class="team_member-name">{{member.fields.name}}</h4>
 	          <h4>{{member.fields.title}}, <a ng-href="{{ member.fields.links.url }}" target="_blank" rel="noopener noreferrer">{{member.fields.links.title}}</a></h4>
-	          <p class="team_member-description" ng-bind-html="member.fields.description | markdown"></p>
+
+	          <div class="team_member-description" ng-hide="seeFullDescription">
+              <p
+                ng-click="seeFullDescription = true && member.fields.description.length > 280"
+                ng-class="{'team_member-description-show_read_more': member.fields.description.length > 280}"
+                >
+                {{member.fields.description | truncate:280}}
+              </p>
+            </div>
+
+            <div ng-show="seeFullDescription" class="team_member-description">
+              <p>{{member.fields.description}}</p>
+            </div>
           </div>
         </div>
       </div>
