@@ -176,6 +176,12 @@
   }
 }
 
+.homepage_video_unit-title {
+  @media (max-width: $screen-sm-min) {
+    text-align: center;
+  }
+}
+
 .homepage_video_unit-caption {
   margin-top: 1em;
 
