@@ -80,7 +80,9 @@
       </div>
       <div class="row align_items_end-sm">
         <div class="col-sm-8">
-          <video class="homepage_video_unit-video" ng-src="{{$contentfulEntry.fields.videoUnit.fields.video.fields.file.url | trustUrl}}" autoplay muted playsinline controls></video>
+          <div class="video_wrapper_16_9">
+            <video class="video_wrapper_16_9-video" ng-src="{{$contentfulEntry.fields.videoUnit.fields.video.fields.file.url | trustUrl}}" autoplay muted playsinline controls></video>
+          </div>
         </div>
         <div class="col-sm-4">
           <p class="homepage_video_unit-caption">{{$contentfulEntry.fields.videoUnit.fields.caption}}</p>

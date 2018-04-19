@@ -1,48 +1,6 @@
 .product-and-services {
 	text-align: center;
 
-	.hero {
-		position: relative;
-		margin: 0 auto;
-		background: $justfix-grey-light;
-		height: 100%;
-		min-height: 100vh;
-
-		.container {
-			position: absolute;
-			margin-top: 70px;
-			padding-bottom: 70px;
-			width: 100%;
-			max-width: 100%;
-
-			h1 {
-				max-width: 760px;
-				margin-bottom: 1.5em;
-				line-height: 1.2;
-
-				@media (max-width: $screen-xs-max) {
-					margin-bottom: 10px;
-					font-size: 1.3em;
-				}
-			}
-
-			p:not(.lead) {
-				max-width: 460px;
-			}
-
-			@media (max-width: $screen-xs-max) {
-				position: relative;
-				top: 0;
-				margin-top: 0px;
-				padding-top: 90px;
-				padding-bottom: 0px;
-
-				@include transform(translateY(0));
-			}
-
-		}
-	}
-
 	.flow-icon {
 		margin: auto;
 		background: url('/img/NewFlow-horizontal.svg') no-repeat center center;
@@ -116,12 +74,12 @@
 	.img-wrapper {
 		@media(max-width: $screen-sm-max) {
 			max-height: 60vh;
-		} 
+		}
 	}
 
 	img {
 		float: right;
-		
+
 		@include shift($n-columns: 1);
 		@extend .col-md-3;
 		@extend .col-sm-6;
@@ -206,7 +164,7 @@
 		margin-bottom: 70px;
 
 		@media (max-width: $screen-sm-max) {
-			margin-bottom: 50px; 	
+			margin-bottom: 50px;
 		}
 	}
 
