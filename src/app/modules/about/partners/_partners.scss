@@ -7,36 +7,39 @@
 // logos
 .logos {
 
-	.logo {
-		margin-top: 50px;
-		height: 100px;
-		@extend .col-md-3;
-		@extend .col-sm-6;
-		@extend .col-xs-12;
+  .logo {
+    margin-top: 40px;
+    height: 100px;
+    @extend .col-md-3;
+    @extend .col-sm-6;
+    @extend .col-xs-12;
 
-		&.partners {
-			margin-top: 10px;
-			height: 220px;
-		}
+    &.partners {
+      margin-top: 10px;
+      height: 220px;
+    }
 
-		&.three {
-			@include shift($n-columns: 1.333);
+    &.three {
+      @include shift($n-columns: 1.333);
 
-			@media (max-width: $screen-sm-max) {
-				@include shift($n-columns: 0);
-			}
-		}
+      @media (max-width: $screen-sm-max) {
+        @include shift($n-columns: 0);
+      }
+    }
 
-		.background-image {
-			position: relative;
-			top: 0;
-			left: 0;
-			background-position: center center;
-			background-size: contain;
-			background-repeat: no-repeat;
-			width: 100%;
-			height: 100%;
-		}
-	}
+    .background-image {
+      position: relative;
+      top: 0;
+      left: 0;
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
 
+.logos--faded {
+  filter: grayscale(1) opacity(.6);
 }
