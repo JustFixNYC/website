@@ -163,6 +163,19 @@
 }
 
 .homepage_video_unit {
+  background-image: url('../img/city_skyline.png');
+  background-repeat: no-repeat;
+  background-position: center 80px;
+
+  @media (max-width: $screen-sm-max) {
+    background-size: contain;
+    background-position: center 25px;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    background-image: none;
+  }
+
   h2 {
     margin-bottom: 0;
   }
