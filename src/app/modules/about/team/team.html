@@ -6,19 +6,19 @@
 
   <section>
     <div class="container">
-      <div class="team-container">
-        <div class="team_member team_member--team" ng-repeat="member in $contentfulEntry.fields.teamMembers">
-          <img class="team_member-image" ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
-          <h4 class="team_member-name">{{member.fields.name}}</h4>
+      <div class="row">
+        <div class="team_members team_members--team" ng-repeat="member in $contentfulEntry.fields.teamMembers">
+          <img class="team_members-image" ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
+          <h4 class="team_members-name">{{member.fields.name}}</h4>
           <h4>{{member.fields.title}}</h4>
-          <div class="team_member-social social">
+          <div class="team_members-social social">
           	<span ng-repeat="link in member.fields.links" class="btn btn-primary btn-icon" ng-class="{'one': mem}">
               <a ng-href="{{link.url}}" target="_blank">
           		    <i class="glyphicon" ng-class="'glyphicon-' + link.type"></i>
               </a>
           	</span>
           </div>
-          <p class="team_member-description team_member-description--team">{{member.fields.description}}</p>
+          <p class="team_members-description team_members-description--team">{{member.fields.description}}</p>
         </div>
       </div>
     </div>
@@ -27,25 +27,25 @@
   <section>
     <div class="container">
       <h1 class="center">{{$contentfulEntry.fields.directorsTitle}}</h1>
-      <div class="team-container">
-        <div class="team_member team_member--directors" ng-repeat="member in $contentfulEntry.fields.directors">
-          <div class="team_member-director_image_wrapper">
-            <img class="team_member-image team_member-image--directors" ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
+      <div class="row">
+        <div class="team_members team_members--directors" ng-repeat="member in $contentfulEntry.fields.directors">
+          <div class="team_members-director_image_wrapper">
+            <img class="team_members-image team_members-image--directors" ng-src="{{ member.fields.photo.fields.file.url }}" alt="{{member.fields.name}}" />
           </div>
-          <div class="team_member-director_text">
-	          <h4 class="team_member-name team_member-director">{{member.fields.name}}</h4>
-	          <h4 class="team_member-director">{{member.fields.title}}, <a ng-href="{{ member.fields.links.url }}" target="_blank" rel="noopener noreferrer">{{member.fields.links.title}}</a></h4>
+          <div class="team_members-director_text">
+	          <h4 class="team_members-name team_members-director">{{member.fields.name}}</h4>
+	          <h4 class="team_members-director">{{member.fields.title}}, <a ng-href="{{ member.fields.links.url }}" target="_blank" rel="noopener noreferrer">{{member.fields.links.title}}</a></h4>
 
-	          <div class="team_member-description text-left" ng-hide="seeFullDescription">
+	          <div class="team_members-description text-left" ng-hide="seeFullDescription">
               <p
                 ng-click="seeFullDescription = true && member.fields.description.length > 300"
-                ng-class="{'team_member-description-show_read_more': member.fields.description.length > 300}"
+                ng-class="{'team_members-description-show_read_more': member.fields.description.length > 300}"
                 >
                 {{member.fields.description | truncate:300}}
               </p>
             </div>
 
-            <div ng-show="seeFullDescription" class="team_member-description text-left" ng-bind-html="member.fields.description | markdown"></div>
+            <div ng-show="seeFullDescription" class="team_members-description text-left" ng-bind-html="member.fields.description | markdown"></div>
           </div>
         </div>
       </div>
