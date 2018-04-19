@@ -5,7 +5,7 @@
       <p class="lead">{{$contentfulEntry.fields.briefDescription}}</p>
 
       <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
+        <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
           <div class="video_wrapper_16_9">
             <video class="video_wrapper_16_9-video" ng-src="{{$contentfulEntry.fields.videoUnit.fields.video.fields.file.url | trustUrl}}" autoplay muted playsinline controls></video>
           </div>
@@ -53,7 +53,7 @@
 			</div>
 	  </section>
   </div>
-  	
+
   <section class="container approach">
 		<h1>{{$contentfulEntry.fields.approachTitle}}</h1>
 
@@ -83,7 +83,7 @@
   	<div class="container center" ng-bind-html="$contentfulEntry.fields.collaborationBlock | markdown">
   	</div>
   </section>
-	    
+
 	<banner></banner>
 
 </article>
