@@ -83,7 +83,8 @@
           <video class="homepage_video_unit-video" ng-src="{{$contentfulEntry.fields.videoUnit.fields.video.fields.file.url | trustUrl}}" autoplay muted playsinline controls></video>
         </div>
         <div class="col-sm-4">
-          <h3 class="homepage_video_unit-caption">{{$contentfulEntry.fields.videoUnit.fields.caption}}</h3>
+          <p class="homepage_video_unit-caption">{{$contentfulEntry.fields.videoUnit.fields.caption}}</p>
+          <a ui-sref="mission" class="btn btn-outline black homepage_video_unit-button">READ OUR MISSION</a>
         </div>
       </div>
     </div>
