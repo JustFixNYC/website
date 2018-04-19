@@ -1,12 +1,20 @@
 <article class="mission" contentful-entry="'content_type=missionPage'">
-  <header class="container">
-    <h1>{{$contentfulEntry.fields.title}}</h1>
-    <p class="lead">{{$contentfulEntry.fields.briefDescription}}</p>
-  </header>
+  <section class="full_page_hero">
+    <article class="container full_page_hero-container">
+      <h1>{{$contentfulEntry.fields.title}}</h1>
+      <p class="lead">{{$contentfulEntry.fields.briefDescription}}</p>
 
-  <div class="img-container">
-    <div class="img-responsive img-full " ng-style="{'background-image':'url(' + $contentfulEntry.fields.headerBreakImage.fields.file.url + ')'}"></div>
-  </div>
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="video_wrapper_16_9">
+            <video class="video_wrapper_16_9-video" ng-src="{{$contentfulEntry.fields.videoUnit.fields.video.fields.file.url | trustUrl}}" autoplay muted playsinline controls></video>
+          </div>
+        </div>
+      </div>
+
+      <p class="reduced-margin center">{{$contentfulEntry.fields.videoUnit.fields.caption}}</p>
+    </article>
+  </section>
 
   <section>
   	<div class="container" ng-bind-html="$contentfulEntry.fields.problemBlock | markdown">
