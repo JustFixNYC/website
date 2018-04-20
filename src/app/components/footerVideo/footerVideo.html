@@ -1,0 +1,14 @@
+<section ng-if="$contentfulEntry.fields.videoUnit" class="homepage_video_unit padding-section-reduced no-margin">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="video_wrapper_16_9">
+          <video class="video_wrapper_16_9-video" ng-src="{{$contentfulEntry.fields.videoUnit.fields.video.fields.file.url | trustUrl}}" autoplay muted playsinline controls></video>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <h3 class="homepage_video_unit-title text-left reduced-margin">{{$contentfulEntry.fields.videoUnit.fields.title}}</h3>
+      </div>
+    </div>
+  </div>
+</section>
