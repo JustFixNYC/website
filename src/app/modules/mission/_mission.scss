@@ -27,21 +27,6 @@
 	}
 }
 
-.img-container {
-	margin-bottom: 0;
-	position: relative;
-	min-height: 500px;
-
-	.img-responsive {
-		position: absolute;
-		background-size: cover;
-		background-position: center center;
-		background-repeat: no-repeat;
-		width: 100%;
-		height: 100%;
-	}
-}
-
 .problem-break {
 	padding: 60px 0 60px 0;
 	background-color: $justfix-grey-light;

@@ -52,9 +52,9 @@
     </div>
   </section>
 
-  <section class="img-container no-margin-bottom gray_bg">
-    <div class="img-responsive img-half" ng-style="{'background-image':'url(' + $contentfulEntry.fields.otherContributorsPhoto.fields.file.url + ')'}"></div>
-    <div class="text-responsive justify_content_center_vertically-sm">
+  <section class="responsive_image no-margin-bottom gray_bg">
+    <div class="responsive_image-image responsive_image-image--half_width" ng-style="{'background-image':'url(' + $contentfulEntry.fields.otherContributorsPhoto.fields.file.url + ')'}"></div>
+    <div class="responsive_image-text justify_content_center_vertically-sm">
       <h3 class="center">{{$contentfulEntry.fields.otherContributorsTitle}}</h3>
       <p class="contributor" ng-repeat="contributor in $contentfulEntry.fields.otherContributors">
         <a ng-if="contributor.fields.link" ng-href="{{contributor.fields.link}}" target="_blank">{{contributor.fields.name}}</a>
