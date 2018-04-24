@@ -90,8 +90,21 @@
     </div>
   </section>
 
-</div>
+  <section class="padding-section-reduced">
+    <h1 class="center no-margin-bottom">{{$contentfulEntry.fields.pressTitle}}</h1>
+    <div class="container logos logos--faded">
+      <span
+        class="logo"
+        ng-repeat="pressLogo in $contentfulEntry.fields.pressLogos"
+        >
+        <div class="background-image"
+          ng-style="{'background-image': 'url(' + pressLogo.fields.logo.fields.file.url + ')'}">
+        </div>
+      </span>
+    </div>
+  </section>
 
+</div>
 <!-- <h1>Header Uno 36px</h1>
 <h2>Header Dos 30px</h2>
 <h3>Header Tres 24px</h3>

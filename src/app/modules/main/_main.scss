@@ -166,6 +166,7 @@
   background-image: url('../img/city_skyline.png');
   background-repeat: no-repeat;
   background-position: center 30px;
+  background-color: $justfix-grey-light;
 
   @media (max-width: $screen-sm-max) {
     background-size: contain;
