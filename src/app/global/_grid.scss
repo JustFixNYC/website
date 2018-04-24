@@ -70,6 +70,27 @@ article {
     .img-full {
       width: 100vw;
     }
+
+    .img-half {
+      width: 50%;
+
+      @media (max-width: $screen-sm) {
+        position: relative;
+        width: 100%;
+      }
+    }
+
+    .text-responsive {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 50%;
+
+      @media (max-width: $screen-sm) {
+        position: relative;
+        width: 100%;
+      }
+    }
   }
 
   section {
