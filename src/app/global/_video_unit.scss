@@ -1,0 +1,31 @@
+.video_unit {
+  background-image: url('../img/city_skyline.png');
+  background-repeat: no-repeat;
+  background-position: center 30px;
+
+  @media (max-width: $screen-sm-max) {
+    background-size: contain;
+  }
+
+  @media (max-width: $screen-sm-min) {
+    background-image: none;
+  }
+}
+
+.video_unit-title {
+  @media (max-width: $screen-sm-min) {
+    text-align: center;
+  }
+}
+
+.video_unit-caption {
+  margin-top: 1em;
+
+  @media (max-width: $screen-sm-min) {
+    text-align: center;
+  }
+}
+
+.video_unit-button {
+  margin-bottom: 0 !important;
+}

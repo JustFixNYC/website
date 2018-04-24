@@ -1,22 +1,21 @@
-
 <article class="product-and-services" contentful-entry="'content_type=productAndServices'">
-  <section class="hero">
-		<article class="container grey-bg">
-			<h1 ng-bind-html="$contentfulEntry.fields.headerBlock"></h1>
-			<p>{{$contentfulEntry.fields.imageDescription}}</p>
-			<div class="flow-icon">
-				<!-- <img ng-src="{{flowUrl}}" /> -->
-			</div>
-		</article>
-		<a href="#" scroll-to="tutorial" class="learn-more-link">
-			<div class="center learn-more">
-				learn more
-				<br />
-				<span class="glyphicon glyphicon-chevron-down"></span>
-			</div>
-		</a>
-	</section>
-	<div class="clearfix"></div>
+  <section class="full_page_hero">
+    <article class="container full_page_hero-container full_page_hero-container--vertically_align">
+      <h1 ng-bind-html="$contentfulEntry.fields.headerBlock"></h1>
+      <p>{{$contentfulEntry.fields.imageDescription}}</p>
+      <div class="flow-icon">
+        <!-- <img ng-src="{{flowUrl}}" /> -->
+      </div>
+    </article>
+    <a href="#" scroll-to="tutorial" class="learn-more-link">
+      <div class="center learn-more">
+        learn more
+        <br />
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </div>
+    </a>
+  </section>
+  <div class="clearfix"></div>
 
 	<section class="tutorial no-margin padding-section" id="tutorial">
 		<div class="container">

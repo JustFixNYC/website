@@ -161,34 +161,3 @@
 		}
 	}
 }
-
-.homepage_video_unit {
-  background-image: url('../img/city_skyline.png');
-  background-repeat: no-repeat;
-  background-position: center 30px;
-  background-color: $justfix-grey-light;
-
-  @media (max-width: $screen-sm-max) {
-    background-size: contain;
-  }
-
-  @media (max-width: $screen-sm-min) {
-    background-image: none;
-  }
-}
-
-.homepage_video_unit-caption {
-  margin-top: 1em;
-
-  @media (max-width: $screen-sm-min) {
-    text-align: center;
-  }
-}
-
-.homepage_video_unit-button {
-  margin-bottom: 0 !important;
-}
-
-.homepage_video_unit-video {
-  max-width: 100%;
-}
