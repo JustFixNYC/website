@@ -170,6 +170,10 @@ input[type=text] {
 	}
 }
 
+.gray_bg {
+  background-color: $justfix-grey-light;
+}
+
 .no-margin {
 	margin: 0;
 }
@@ -195,6 +199,14 @@ input[type=text] {
   @media (min-width: $screen-sm-min) {
     @include display(flex);
     @include align-items(flex-end);
+  }
+}
+
+.justify_content_center_vertically-sm {
+  @media (min-width: $screen-sm-min) {
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(center);
   }
 }
 

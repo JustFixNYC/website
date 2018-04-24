@@ -73,10 +73,42 @@
   }
 }
 
-.contributor {
-	margin: 0px auto 0px;
-	text-align: center;
-	font-weight: 600;
+// logos
+.logos {
+
+	.logo {
+		margin-top: 50px;
+		height: 150px;
+		@extend .col-md-3;
+		@extend .col-sm-6;
+		@extend .col-xs-12;
+
+		&.partners {
+			margin-top: 10px;
+			height: 220px;
+		}
+
+		&.three {
+			@include shift($n-columns: 1.333);
+
+			@media (max-width: $screen-sm-max) {
+				@include shift($n-columns: 0);
+			}
+		}
+
+		.background-image {
+			position: relative;
+			top: 0;
+			left: 0;
+			background-position: center center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+>>>>>>> 6deb385... Style team contributors photo with text next to it
 }
 
 // Whelp, this will most likely ruin everything...
