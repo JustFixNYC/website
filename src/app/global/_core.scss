@@ -48,6 +48,7 @@ h2 {
 h3 {
   font-size: 24px;
   font-weight: $text-semi;
+  line-height: 1.3;
 
   @media (max-width: $screen-md-min) {
   	font-size: 22px;
@@ -56,6 +57,7 @@ h3 {
 h4 {
   font-size: 18px;
   font-weight: $text-semi;
+  line-height: 1.3;
 }
 p {
   margin-bottom: $line-height-computed;
@@ -137,6 +139,21 @@ input[type=text] {
 	width: 100%;
 }
 
+.video_wrapper_16_9 {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  background-color: $mediumgray-light;
+}
+
+.video_wrapper_16_9-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .hidden-mobile {
 
 	@media (max-width: $screen-md-min) {
@@ -153,8 +170,8 @@ input[type=text] {
 	}
 }
 
-.grey-bg {
-	background-color: $justfix-grey-light;
+.gray_bg {
+  background-color: $justfix-grey-light;
 }
 
 .no-margin {
@@ -176,6 +193,21 @@ input[type=text] {
 
 .reduced-margin-top {
 	margin-top: 25px;
+}
+
+.align_items_end-sm {
+  @media (min-width: $screen-sm-min) {
+    @include display(flex);
+    @include align-items(flex-end);
+  }
+}
+
+.justify_content_center_vertically-sm {
+  @media (min-width: $screen-sm-min) {
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(center);
+  }
 }
 
 // Social media buttons
@@ -307,7 +339,7 @@ input[type=text] {
 	}
 }
 
-// Alerts 
+// Alerts
 
 .alert-success {
 	background-color: $justfix-green;
@@ -319,4 +351,90 @@ input[type=text] {
 	background-color: $justfix-red;
 	border-color: $justfix-red;
 	color: #fff;
+}
+
+// Left- and right-aligned blocks together
+
+.left-block {
+  float: left;
+  margin-left: 15%;
+  width: 37.5%;
+
+  &, & a {
+    color: white;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  @extend .clearfix;
+
+  @media(max-width: $screen-sm-max) {
+    float: none;
+    margin: auto;
+    width: 100%;
+  }
+
+  &_style {
+    padding: 0px 50px;
+
+    @media (max-width: $screen-sm-max) {
+      padding: 0px 20px;
+    }
+  }
+}
+
+.right-block {
+  @extend .col-md-4;
+
+  .btn {
+    margin: 32px auto 0 auto;
+
+    @media (max-width: $screen-md-min) {
+      margin: 48px auto 0 auto;
+      float: none;
+    }
+  }
+}
+
+// Full-screen responsive images
+
+.responsive_image {
+  margin-bottom: 0;
+  position: relative;
+  min-height: 500px;
+}
+
+.responsive_image-image {
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100vw;
+}
+
+.responsive_image-image--half_width {
+  width: 50%;
+
+  @media (max-width: $screen-sm) {
+    position: relative;
+    width: 100%;
+    height: 80vw;
+  }
+}
+
+.responsive_image-text {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  padding: 2rem;
+
+  @media (max-width: $screen-sm) {
+    position: relative;
+    width: 100%;
+    left: 0;
+  }
 }

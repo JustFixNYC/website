@@ -76,8 +76,6 @@
 				// Nav fix
 				if(toState.name === 'home') {
 					$scope.headerColor = '';
-				} else if(toState.name === 'about.productAndServices') {
-					$scope.headerColor = 'blue-bg header-absolute';
 				} else {
 					$scope.headerColor = 'blue-bg';
 				}
@@ -106,11 +104,6 @@
 								text: "Our Team",
 								style: "",
 								sref: "about.team"
-							},
-							{
-								text: "Board of Directors",
-								style: "",
-								sref: "about.directors"
 							},
 							{
 								text: "Press",

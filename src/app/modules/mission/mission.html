@@ -1,12 +1,20 @@
 <article class="mission" contentful-entry="'content_type=missionPage'">
-  <header class="container">
-    <h1>{{$contentfulEntry.fields.title}}</h1>
-    <p class="lead">{{$contentfulEntry.fields.briefDescription}}</p>
-  </header>
+  <section class="full_page_hero">
+    <article class="container full_page_hero-container">
+      <h1>{{$contentfulEntry.fields.title}}</h1>
+      <p class="lead">{{$contentfulEntry.fields.briefDescription}}</p>
 
-  <div class="img-container">
-    <div class="img-responsive img-full " ng-style="{'background-image':'url(' + $contentfulEntry.fields.headerBreakImage.fields.file.url + ')'}"></div>
-  </div>
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+          <div class="video_wrapper_16_9">
+            <iframe class="video_wrapper_16_9-video" src="https://www.youtube.com/embed/QsRq3OWNkgY?rel=0&amp&autoplay=1&mute=1&playsinline=1;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <p class="reduced-margin center">{{$contentfulEntry.fields.videoUnit.fields.caption}}</p>
+    </article>
+  </section>
 
   <section>
   	<div class="container" ng-bind-html="$contentfulEntry.fields.problemBlock | markdown">
@@ -45,7 +53,7 @@
 			</div>
 	  </section>
   </div>
-  	
+
   <section class="container approach">
 		<h1>{{$contentfulEntry.fields.approachTitle}}</h1>
 
@@ -67,15 +75,15 @@
 	  </div>
   </section>
 
-  <div class="img-container no-margin-bottom">
-    <div class="img-responsive img-full" ng-style="{'background-image':'url(' + $contentfulEntry.fields.collaborationImageBreak.fields.file.url + ')'}"></div>
+  <div class="responsive_image no-margin-bottom">
+    <div class="responsive_image-image" ng-style="{'background-image':'url(' + $contentfulEntry.fields.collaborationImageBreak.fields.file.url + ')'}"></div>
   </div>
 
   <section class="alt">
   	<div class="container center" ng-bind-html="$contentfulEntry.fields.collaborationBlock | markdown">
   	</div>
   </section>
-	    
+
 	<banner></banner>
 
 </article>

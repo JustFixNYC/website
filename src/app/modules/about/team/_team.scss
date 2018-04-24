@@ -1,61 +1,92 @@
-.team-container {
-
+.team_members {
   @extend .row;
+}
 
-  .team-member {
-    @extend .col-sm-6;
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-bottom: 45px;
+.team_member {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 45px;
+}
 
-    // nice, pretty rows
-    &:nth-child(2n+1) {
-      clear: both;
-    }
+.team_member--team {
+  @extend .col-sm-4;
 
-    &:last-child {
+  &:nth-child(3n+1) {
+    clear: both;
+  }
 
-    	@media (min-width: $screen-sm-min) {
-	    	@include shift($n-columns: 3);
-    	}
-    }
-
+  // This only does the 'right thing' when there are 5 team members
+  &:nth-child(4) {
     @media (min-width: $screen-sm-min) {
-      padding-left: 45px;
-      padding-right: 45px;
-    }
-
-    & > img {
-      display: block;
-      width: 50%;
-      height: auto;
-
-      border-radius: 100%;
-      margin: 0 auto 30px;
-    }
-
-    & > h4:first-of-type {
-      margin-bottom: 5px;
-    }
-
-    & > p {
-      font-size: 16px;
-      padding-left: 30px;
-      padding-right: 30px;
-      line-height: 1.4;
-    }
-
-    .social {
-    	margin-top: 25px;
+      @extend .col-sm-offset-2;
     }
   }
 }
 
+.team_member--director {
+  @extend .col-sm-12;
+}
+
+.team_member-image {
+  display: block;
+  max-width: 130px;
+  height: auto;
+  border-radius: 100%;
+  margin: 0 auto 30px;
+}
+
+.team_member-name {
+  margin-bottom: 10px;
+}
+
+.team_member-name--director {
+  @media (min-width: $screen-sm-min) {
+    text-align: left;
+  }
+}
+
+.team_member-description {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.team_member-description--team {
+  padding: 0 10px;
+}
+
+.team_member-description-show_read_more {
+  outline: none;
+
+  &:after {
+    content: " Read more";
+    position: relative;
+    color: $justfix-blue;
+  }
+}
+
+.team_member-director_image_wrapper {
+  @extend .col-sm-3;
+  @extend .col-sm-offset-1;
+  @extend .col-lg-2;
+  @extend .col-lg-offset-2;
+}
+
+.team_member-director_text {
+  @extend .col-sm-7;
+  @extend .col-lg-6;
+}
+
+.team_member-social {
+  margin: 20px 0 30px;
+}
+
+.contributor {
+  margin: 0px auto 0px;
+  text-align: center;
+  font-weight: 600;
+}
+
 .baker {
-
-
-
   & .container {
 
     & > * {
@@ -93,5 +124,4 @@
       margin: 0 auto;
     }
   }
-
 }

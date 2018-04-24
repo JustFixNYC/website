@@ -18,15 +18,20 @@
 		</div>
   </section>
 
-  
-
-  <div class="press-kit center no-margin">
-  	<section class="container">
-	    <h3>{{$contentfulEntry.fields.pressKitTitle}}</h3>
-	    <a ng-href="{{$contentfulEntry.fields.pressKitButton.fields.link}}" target="_blank" class="btn btn-primary">{{$contentfulEntry.fields.pressKitButton.fields.title}}</a>
-	    <p class="press-kit-body" ng-bind-html="$contentfulEntry.fields.pressKitBody | markdown"></p>
+  <article>
+    <section class="center no-margin justfix-blue padding-section">
+      <div class="left-block">
+        <div class="left-block_style">
+          <h3>{{$contentfulEntry.fields.pressKitTitle}}</h3>
+          <p ng-bind-html="$contentfulEntry.fields.pressKitBody | markdown"></p>
+        </div>
+      </div>
+      <div class="right-block">
+        <a ng-href="{{$contentfulEntry.fields.pressKitButton.fields.link}}" target="_blank" class="btn btn-outline">{{$contentfulEntry.fields.pressKitButton.fields.title}}</a>
+      </div>
+      <div class="clearfix"></div>
     </section>
-  </div>
+  </article>
 
   <banner></banner>
 

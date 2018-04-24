@@ -26,10 +26,6 @@
   	position: relative;
 	  margin-bottom: $header-bottom-margin;
 	  background-color: $justfix-blue;
-
-		&.header-absolute {
-			position: absolute;
-		}
   }
 
   header {
@@ -172,13 +168,13 @@
 	          		}
           		}
           	}
-						
+
 						&.active,
             &:hover,
             &:active,
             &:focus {
             	text-decoration: none;
-							
+
 							&:not(.btn){
 	            	&:after {
 	            		@include transform(scaleX(1));
@@ -260,7 +256,7 @@
   transform: rotate(-45deg);
 }
 
-	
+
 // Mobile-dropdown specific styles
 .background-fadein {
 	position: fixed;
