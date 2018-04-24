@@ -31,6 +31,27 @@
       zoom="11">
     </carto-map>
   </section>
+
+  <header class="container">
+    <h1 class="center">{{$contentfulEntry.fields.fundersTitle}}</h1>
+  </header>
+
+  <div class="clearfix"></div>
+  <section class="center no-margin">
+    <div class="logos container">
+      <span
+        class="logo partners"
+        ng-repeat="funder in $contentfulEntry.fields.funders track by $index"
+        >
+        <a ng-href="{{funder.fields.link}}" target="_blank">
+          <div class="background-image"
+            ng-style="{'background-image': 'url(' + funder.fields.logo.fields.file.url + ')'}">
+          </div>
+        </a>
+      </span>
+    </div>
+  </section>
+
   <section class="alt center no-margin-top">
   	<div class="container" ng-bind-html="$contentfulEntry.fields.collaborationTextBlock | markdown">
 		</div>
