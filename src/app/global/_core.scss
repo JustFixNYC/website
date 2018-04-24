@@ -340,3 +340,48 @@ input[type=text] {
 	border-color: $justfix-red;
 	color: #fff;
 }
+
+// Left- and right-aligned blocks together
+
+.left-block {
+  float: left;
+  margin-left: 15%;
+  width: 37.5%;
+
+  &, & a {
+    color: white;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  @extend .clearfix;
+
+  @media(max-width: $screen-sm-max) {
+    float: none;
+    margin: auto;
+    width: 100%;
+  }
+
+  &_style {
+    padding: 0px 50px;
+
+    @media (max-width: $screen-sm-max) {
+      padding: 0px 20px;
+    }
+  }
+}
+
+.right-block {
+  @extend .col-md-4;
+
+  .btn {
+    margin: 32px auto 0 auto;
+
+    @media (max-width: $screen-md-min) {
+      margin: 48px auto 0 auto;
+      float: none;
+    }
+  }
+}
