@@ -16,11 +16,11 @@
   }
 
   // This only does the 'right thing' when there are 5 team members
-  &:nth-child(4) {
-    @media (min-width: $screen-sm-min) {
-      @extend .col-sm-offset-2;
-    }
-  }
+  // &:nth-child(4) {
+  //   @media (min-width: $screen-sm-min) {
+  //     @extend .col-sm-offset-2;
+  //   }
+  // }
 }
 
 .team_member--director {
