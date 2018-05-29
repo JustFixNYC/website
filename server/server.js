@@ -52,9 +52,9 @@ app.use('/survey', function(req, res, next) {
 app.post('/api/donate', donate);
 
 // use this for ssl renewal
-// app.use('/.well-known/acme-challenge/XXXXXXX', function(req, res) {
-//   res.send('YYYYYYYYYY');
-// });
+app.use('/.well-known/acme-challenge/' + process.env.CERTBOT_URL, function(req, res) {
+  res.send(process.env.CERTBOT_KEY);
+});
 // app.all('/*', function(req, res, next) {
 //     // Just send the index.html for other files to support HTML5Mode
 //     res.sendFile('index.html', { root: __dirname });
