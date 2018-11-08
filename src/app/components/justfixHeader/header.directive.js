@@ -145,7 +145,7 @@
 				{
 					text: "Sign In",
 					style: "btn",
-					url: "https://beta.justfix.nyc/signin",
+					url: "https://app.justfix.nyc/login",
 					sref: ""
 				}
 			];
