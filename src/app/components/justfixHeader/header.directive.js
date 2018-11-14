@@ -106,7 +106,7 @@
 								sref: "about.press"
 							},
 							{
-								text: "Careers",
+								text: "Jobs",
 								style: "",
 								url: "https://justfix.breezy.hr/",
 								sref: "",
