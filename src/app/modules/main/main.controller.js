@@ -6,7 +6,24 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $window) {
+  function MainController($scope, $window, contentful) {
+
+    // Get all entries
+    contentful
+      .entries("content_type=homePage")
+      .then(
+
+        // Success handler
+        function(response){
+          var entries = response.data;
+          console.log(entries);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
 
     $scope.innerWidth = $window.innerWidth;
 

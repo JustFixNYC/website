@@ -9,15 +9,15 @@
           <ul class="list-inline">
             <li ng-repeat="link in vm.headerLinks"
             	ng-class="{dropdown: link.children}">
-            	<a 
-            		ng-if="link.sref" 
+            	<a
+            		ng-if="link.sref"
             		ui-sref="{{link.sref}}"
           		  ui-sref-active="active"
           		  target="{{link.target}}">{{ ::link.text }}</a>
-            	<a 
-            		ng-if="!link.sref && !link.children" 
+            	<a
+            		ng-if="!link.sref && !link.children"
             		ng-href="{{link.url}}"
-          		  target="{{link.target}}" 
+          		  target="{{link.target}}"
             		ng-class="link.style">{{ ::link.text }}</a>
             	<uib-dropdown
             		ng-if="link.children"
@@ -25,12 +25,18 @@
 								on-toggle="toggled(open)"
 								ng-class="{'active': aboutItemActive}">
 									<span uib-dropdown-toggle>{{ ::link.text }}</span>
-									<ul 
-										class="dropdown-menu" 
+									<ul
+										class="dropdown-menu"
 										data-toggle="dropdown"
 										uib-dropdown-menu>
 										<li ng-repeat="child in link.children">
-											<a ui-sref="{{child.sref}}">{{ ::child.text }}</a>
+											<a ng-if="child.sref" ui-sref="{{child.sref}}">{{ ::child.text }}</a>
+                      <a
+                    		ng-if="!child.sref"
+                    		ng-href="{{child.url}}"
+                  		  target="{{child.target}}"
+                    		ng-class="child.style">{{ ::child.text }}
+                      </a>
 										</li>
 									</ul>
 							</uib-dropdown>
@@ -50,32 +56,32 @@
 <div id="aside-menu">
   <ul class="list-unstyled" ui-sref-active="active">
     <li>
-	    <a 
-    		ui-sref-active="active" 
+	    <a
+    		ui-sref-active="active"
     		ui-sref="home">HOME</a>
 		</li>
     <li ng-repeat="link in vm.headerLinks">
-    	<a  
-    		ui-sref-active="active" 
-    		ng-if="link.sref" 
+    	<a
+    		ui-sref-active="active"
+    		ng-if="link.sref"
     		ui-sref="{{link.sref}}"
   		  target="{{link.target}}">{{ ::link.text }}</a>
-    	<a 
-    		ui-sref-active="active" 
-    		ng-if="!link.sref && !link.children" 
+    	<a
+    		ui-sref-active="active"
+    		ng-if="!link.sref && !link.children"
     		ng-href="{{link.url}}"
   		  target="{{link.target}}">{{ ::link.text }}</a>
 	  		<uib-dropdown
 	    		ng-if="link.children"
 					class="mobile-dropdown">
-						<span 
-							ng-click="toggleMenuSlidedown($event)" 
+						<span
+							ng-click="toggleMenuSlidedown($event)"
 							ng-class="{expanded: status.isopen}">
-							{{ ::link.text }} 
+							{{ ::link.text }}
 							<span class="glyphicon glyphicon-chevron-down"></span>
 						</span>
-						<ul 
-							class="dropdown-menu mobile-dropdown-menu" 
+						<ul
+							class="dropdown-menu mobile-dropdown-menu"
 							data-toggle="dropdown"
 							uib-dropdown-menu>
 							<li ng-repeat="child in link.children">

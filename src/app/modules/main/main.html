@@ -5,27 +5,40 @@
 			<div class="hero-container">
 				<h1>{{ $contentfulEntry.fields.heroCopy }}</h1>
 				<p class="subcopy hidden-mobile">{{$contentfulEntry.fields.subCopy}}</p>
-				<a ng-href="{{$contentfulEntry.fields.getStartedButton.fields.link}}" class="btn btn-primary">{{$contentfulEntry.fields.getStartedButton.fields.title}}</a>
-				<a href="https://beta.justfix.nyc/espanol" class="btn btn-outline">EN ESPAÑOL</a>
+				<!-- <a ng-href="{{$contentfulEntry.fields.getStartedButton.fields.link}}" class="btn btn-primary">{{$contentfulEntry.fields.getStartedButton.fields.title}}</a> -->
+				<!-- <a href="https://beta.justfix.nyc/espanol" class="btn btn-outline">EN ESPAÑOL</a> -->
+				<a href="#" scroll-to="home-content-blocks" class="btn btn-outline">
+					LEARN MORE
+					<!-- <div class="center learn-more">
+						how it works
+						<br />
+						<span class="glyphicon glyphicon-chevron-down"></span>
+					</div> -->
+				</a>
 			</div>
 			<div class="clearfix"></div>
 		</article>
-		<a href="#" scroll-to="home-content-blocks" class="learn-more-link">
-			<div class="center learn-more">
-				how it works
-				<br />
-				<span class="glyphicon glyphicon-chevron-down"></span>
-			</div>
-		</a>
+
 	</section>
 
-	<section class="container white center padding-section-reduced home-content-blocks" id="home-content-blocks">
+	<section class="container white padding-section-reduced home-content-blocks" id="home-content-blocks">
 
-		<!-- <div class="subtexts">
-			<h4 ng-repeat="subtext in $contentfulEntry.fields.subtexts">{{subtext}}</h4>
-		</div> -->
+		<h1 class="text-center">Our Products & Services</h1>
 
-		<h1>How it works:</h1>
+		<div class="row" ng-repeat="entry in $contentfulEntry.fields.homePageProductBlocks track by $index">
+				<div class="col-sm-6 col-xs-12" ng-class="{ 'col-sm-push-6': $index % 2 != 0 }">
+					<div class="product-content-block">
+						<h3>{{entry.fields.title}}</h3>
+						<p>{{entry.fields.description}}</p>
+						<a class="btn btn-primary btn-block" href="{{entry.fields.cta.url}}" target="_blank">{{entry.fields.cta.title}}</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-xs-12" ng-class="{ 'col-sm-pull-6': $index % 2 != 0 }">
+					<img ng-src="{{entry.fields.screenshot.fields.file.url}}" />
+				</div>
+		</div>
+
+		<!--
 
 		<div class="columns">
 			<div class="one-fourth" ng-repeat="entry in $contentfulEntry.fields.informationalBlocks track by $index">
@@ -39,13 +52,12 @@
 		</div>
 
 		<div class="clearfix"></div>
-		<a ng-href="{{$contentfulEntry.fields.createAccountButton.fields.link}}" class="btn btn-primary">{{$contentfulEntry.fields.createAccountButton.fields.title}}</a>
+		<a ng-href="{{$contentfulEntry.fields.createAccountButton.fields.link}}" class="btn btn-primary">{{$contentfulEntry.fields.createAccountButton.fields.title}}</a> -->
 
 	</section>
 
-	<article>
+	<!-- <article>
 		<section class="center no-margin justfix-blue padding-section">
-			<!-- <div class="container"> -->
 				<div class="left-block">
 					<div class="left-block_style" ng-bind-html="$contentfulEntry.fields.tenantDirectoryDescription | markdown">
 					</div>
@@ -53,10 +65,9 @@
 				<div class="right-block">
 					<a class="btn btn-warning btn-block" href="https://www.evictionfreenyc.org" target="_blank">FIND HELP</a>
 				</div>
-			<!-- </div> -->
 			<div class="clearfix"></div>
 		</section>
-	</article>
+	</article> -->
 
   <section class="video_unit padding-section-reduced gray_bg">
     <div class="container">
@@ -68,7 +79,7 @@
       <div class="row align_items_end-sm">
         <div class="col-sm-8">
           <div class="video_wrapper_16_9">
-            <iframe class="video_wrapper_16_9-video" src="https://www.youtube.com/embed/QsRq3OWNkgY?rel=0&amp&autoplay=1&mute=1&playsinline=1;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe class="video_wrapper_16_9-video" src="https://www.youtube.com/embed/QsRq3OWNkgY?rel=0&amp&autoplay=0&playsinline=1&modestbranding=1;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
         <div class="col-sm-4">

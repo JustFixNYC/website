@@ -91,11 +91,6 @@
 					url: "about",
 					children: [
 							{
-								text: "Products & Services",
-								style: "",
-								sref: "about.productAndServices"
-							},
-							{
 								text: "Our Partners",
 								style: "",
 								sref: "about.partners"
@@ -109,6 +104,13 @@
 								text: "Press",
 								style: "",
 								sref: "about.press"
+							},
+							{
+								text: "Careers",
+								style: "",
+								url: "https://justfix.breezy.hr/",
+								sref: "",
+								target: "_blank"
 							}
 						]
 				},

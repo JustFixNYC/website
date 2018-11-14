@@ -41,6 +41,7 @@
 	h1 {
 		font-size: 2.75em;
 		font-weight: 600;
+		line-height: 1.2;
 		text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
 
 		p {
@@ -64,8 +65,9 @@
 
 	.subcopy {
 		margin: 0 auto $section-margin/1.7;
+		// margin-bottom: $section-margin/1.7;
 		font-size: 1.2em;
-		max-width: 415px;
+		max-width: 600px;
 
 		@media (max-width: $screen-xs-max) {
 			margin: 0 auto $section-margin/2.3;
@@ -116,7 +118,9 @@
 	color: $justfix-grey-dark;
 
 	h1 {
-		margin-top: 0;//$section-margin / 2;
+		// margin-top: 0;//$section-margin / 2;
+		margin-top: $section-margin / 2;
+		margin-bottom: $section-margin;
 	}
 
 	.subtexts {
@@ -143,7 +147,37 @@
 	}
 
 	.btn {
+
 		margin: 2.5em 0 2em;
+		@media (max-width: $screen-sm-max) {
+			margin: 2.5em auto 2em;
+		}
+
+		width: auto;
+		max-width: 275px;
+	}
+
+
+	.row {
+		display: flex;
+		align-items: center;
+		margin-bottom: 100px;
+
+		@media (max-width: $screen-sm-max) {
+			display: block;
+			text-align: center;
+		}
+
+		.product-content-block {
+			max-width: 500px;
+			margin: 0 auto;
+		}
+
+		img {
+			display: block;
+			max-width: 100%;
+			margin: 0 auto;
+		}
 	}
 }
 

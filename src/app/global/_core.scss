@@ -76,13 +76,17 @@ p {
 
 .padding-section-reduced {
 	padding: 50px 0 50px;
+
+  @media (max-width: $screen-sm-max) {
+    padding: 50px 15px 50px 15px;
+  }
 }
 
 .padding-section {
 	padding: 120px 0 120px 0;
 
 	@media (max-width: $screen-sm-max) {
-		padding: 70px 0 70px 0;
+		padding: 70px 15px 70px 15px;
 	}
 }
 

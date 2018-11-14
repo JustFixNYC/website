@@ -1,61 +1,51 @@
 
 <article id="contact" contentful-entry="'content_type=contactPage'">
-  <header class="container center no-margin-bottom">
-	  <h1 class="center">{{ $contentfulEntry.fields.pageTitle }}</h1>
-  </header>
+  <article class="container center full_page_hero-container">
 
-  <section class="container center reduced-margin-top">
+    <header class="no-margin-bottom">
+  	  <h1 class="center">{{ $contentfulEntry.fields.pageTitle }}</h1>
+    </header>
 
-		<p class="hidden-desktop">
-			<a class="btn btn-success btn-block btn-email" ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}" target="_blank"><span class="glyphicon glyphicon-envelope"> </span>{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
-			<a class="btn btn-success btn-block" ng-href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}"><span class="glyphicon glyphicon-earphone"> </span>{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
-		</p>
+    <section class="reduced-margin-top">
 
-		<p class="hidden-mobile">
-			Send us an email at <a ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}" target="_blank">{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
-		</br>
-			or give us a call: <a ng-href="{{ $contentfulEntry.fields.contactMethods[1].fields.url }}">{{ $contentfulEntry.fields.contactMethods[1].fields.content }}</a>
-		</p>
+  		<p class="hidden-desktop">
+  			<a class="btn btn-success btn-block btn-email" ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}" target="_blank"><span class="glyphicon glyphicon-envelope"> </span>{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
+  		</p>
 
-    <div class="social">
-    	<span class="btn btn-primary btn-icon" ng-repeat="button in $contentfulEntry.fields.socialButtons">
-    		<a ng-href="{{button.fields.url}}" target="_blank">
-	    		<i class="glyphicon " ng-class="'glyphicon-' + button.fields.title"></i>
-    		</a>
-    	</span>
-    </div>
+  		<p class="hidden-mobile">
+  			Send us an email at <a ng-href="{{ $contentfulEntry.fields.contactMethods[0].fields.url }}" target="_blank">{{ $contentfulEntry.fields.contactMethods[0].fields.content }}</a>
+  		</p>
 
-    <br>
+      <div class="social">
+      	<span class="btn btn-primary btn-icon" ng-repeat="button in $contentfulEntry.fields.socialButtons">
+      		<a ng-href="{{button.fields.url}}" target="_blank">
+  	    		<i class="glyphicon " ng-class="'glyphicon-' + button.fields.title"></i>
+      		</a>
+      	</span>
+      </div>
+    </section>
 
-    <div class="map">
-      <!-- <carto-map
-        vis="https://dan-kass.carto.com/api/v2/viz/681ce4b4-8f42-11e6-937c-0e05a8b3e3d7/viz.json"
-        lat="40.6889010"
-        lng="-73.9930030"
-        zoom="18">
-      </carto-map> -->
-			<iframe frameborder="0" style="border:0" ng-src="{{ address }}" allowfullscreen></iframe>
-			<p class="address" ng-bind-html="$contentfulEntry.fields.addressText | markdown"></p>
-    </div>
-  </section>
+    <section class="mailing-list">
+    	<div ng-bind-html="$contentfulEntry.fields.mailingList | markdown">
+    	</div>
+    	<br />
+    	<form  action="//nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  			<input class="footer" type="email" value="" name="EMAIL" placeholder="Email Address" required />
+  			<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d4f5d1addd4357eb77c3f8a99_588f6c6ef4" tabindex="-1" value=""></div>
+  			<input class="btn btn-primary signup" name="subscribe" type="submit" value="SIGN UP">
+  		</form>
+    </section>
 
-  <section class="center container mailing-list">
-  	<div ng-bind-html="$contentfulEntry.fields.mailingList | markdown">
-  	</div>
-  	<br />
-  	<form  action="//nyc.us13.list-manage.com/subscribe/post?u=d4f5d1addd4357eb77c3f8a99&amp;id=588f6c6ef4" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-			<input class="footer" type="email" value="" name="EMAIL" placeholder="Email Address" required />
-			<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d4f5d1addd4357eb77c3f8a99_588f6c6ef4" tabindex="-1" value=""></div>
-			<input class="btn btn-primary signup" name="subscribe" type="submit" value="SIGN UP">
-		</form>
-  </section>
+  </article>
+
+
 
   <div class="clearfix"></div>
 
-  <section class="alt img-bg white center">
+  <section class="alt blue-bg white center">
   	<div class="container" ng-bind-html="$contentfulEntry.fields.donateText | markdown"></div>
   	<br />
-		<a ui-sref="donate" class="btn btn-block btn-primary">DONATE</a>
+		<a ui-sref="donate" class="btn btn-block btn-outline">DONATE</a>
 	</section>
 
 </article>
