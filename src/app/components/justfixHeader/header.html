@@ -85,7 +85,13 @@
 							data-toggle="dropdown"
 							uib-dropdown-menu>
 							<li ng-repeat="child in link.children">
-								<a ui-sref="{{child.sref}}" ui-sref-active="active">{{ ::child.text }}</a>
+                <a ng-if="child.sref" ui-sref="{{child.sref}}">{{ ::child.text }}</a>
+                <a
+                  ng-if="!child.sref"
+                  ng-href="{{child.url}}"
+                  target="{{child.target}}"
+                  ng-class="child.style">{{ ::child.text }}
+                </a>
 							</li>
 						</ul>
 				</uib-dropdown>

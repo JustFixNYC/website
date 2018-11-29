@@ -109,7 +109,6 @@
 								text: "Jobs",
 								style: "",
 								url: "https://justfix.breezy.hr/",
-								sref: "",
 								target: "_blank"
 							}
 						]
