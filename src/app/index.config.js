@@ -14,9 +14,12 @@
     $locationProvider.hashPrefix('!');
     $locationProvider.html5Mode(true);
 
+
     contentfulProvider.setOptions({
+        host: 'preview.contentful.com',
         space: 'pinyszn5pxvn',
-        accessToken: '7bb67910601e19e0f2aff671ff6b7d0cdafa31c02b36f3c952d5dbd5377dc7e9'
+        // accessToken: '7bb67910601e19e0f2aff671ff6b7d0cdafa31c02b36f3c952d5dbd5377dc7e9'
+        accessToken: 'afeb8c24e84bf84826bd99a45e3d13cc1ab5ae760b1aca206b5cabeb7051b14c'
     });
 
     UIRouterMetatagsProvider
@@ -28,7 +31,7 @@
               'og:site_name': 'JustFix.nyc - Technology for Housing Justice',
               'og:title': 'JustFix.nyc - Technology for Housing Justice',
               'og:description': 'JustFix.nyc adds another tactic to the fight for housing justice by partnering with grassroots organizations to create better support systems for New York City’s excluded communites.',
-              'og:image': 'https://degy28l8twq8c.cloudfront.net/justfixmain.jpg',
+              'og:image': 'https://i.imgur.com/dG0XfKU.jpg',
               'og:type': 'website',
               'twitter:card': 'summary_large_image',
               'twitter:site': '@JustFixNYC',
@@ -36,7 +39,7 @@
               'twitter:title': 'JustFix.nyc - Technology for Housing Justice',
               'twitter:description': 'JustFix.nyc adds another tactic to the fight for housing justice by partnering with grassroots organizations to create better support systems for New York City’s excluded communites.',
               'twitter:url': 'https://www.justfix.nyc',
-              'twitter:image': 'https://degy28l8twq8c.cloudfront.net/justfixmain.jpg'
+              'twitter:image': 'https://i.imgur.com/dG0XfKU.jpg'
           })
       .setOGURL(true);
 
