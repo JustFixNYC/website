@@ -26,15 +26,15 @@
 		<h1 class="text-center">Our Products & Services</h1>
 
 		<div class="row" ng-repeat="entry in $contentfulEntry.fields.homePageProductBlocks track by $index">
-				<div class="col-sm-6 col-xs-12" ng-class="{ 'col-sm-push-6': $index % 2 != 0 }">
+				<div class="col-sm-6 col-xs-12" ng-class="{ 'col-sm-push-6': $index % 2 == 0 }">
+					<img ng-src="{{entry.fields.screenshot.fields.file.url}}" />
+				</div>
+				<div class="col-sm-6 col-xs-12" ng-class="{ 'col-sm-pull-6': $index % 2 == 0 }">
 					<div class="product-content-block">
 						<h3>{{entry.fields.title}}</h3>
 						<p>{{entry.fields.description}}</p>
 						<a class="btn btn-primary btn-block" href="{{entry.fields.cta.url}}?utm_source=orgsite" target="_blank">{{entry.fields.cta.title}}</a>
 					</div>
-				</div>
-				<div class="col-sm-6 col-xs-12" ng-class="{ 'col-sm-pull-6': $index % 2 != 0 }">
-					<img ng-src="{{entry.fields.screenshot.fields.file.url}}" />
 				</div>
 		</div>
 
