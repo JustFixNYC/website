@@ -1,0 +1,28 @@
+version: '2'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/website:delegated
+      - node-modules:/website/node-modules
+      - server-node-modules:/website/server/node-modules
+    working_dir: /website
+    command: gulp serve
+    ports:
+      - 3000:3000
+      - 3001:3001
+  server:
+    build: .
+    volumes:
+      - .:/website:delegated
+      - node-modules:/website/node-modules
+      - server-node-modules:/website/server/node-modules
+    working_dir: /website/server
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+    command: npm start
+volumes:
+  node-modules:
+  server-node-modules:

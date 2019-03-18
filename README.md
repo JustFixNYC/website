@@ -46,3 +46,25 @@ git commit -a -m "deployment"
 git push -f ~target~ master
 # If there are any additional directions, follow them to complete the deployment
 ```
+
+## Docker support (experimental)
+
+You can try running this via Docker if you want.
+
+First set things up by going into a bash shell:
+
+```
+docker-compose run app bash
+```
+
+Then, once in the bash shell, install everything:
+
+```
+npm install
+bower install --allow-root
+cd server
+npm install
+```
+
+Then exit the shell and run `docker-compose up` and
+visit http://localhost:3000/.
